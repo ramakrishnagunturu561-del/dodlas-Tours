@@ -619,3 +619,245 @@ header {
     justify-content: center !important;
   }
 }
+
+/* Original Logo */
+.original-brand-logo {
+  height: 56px;
+  max-height: 60px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.luxury-brand:hover .original-brand-logo {
+  transform: scale(1.02);
+}
+
+/* Hero 3-Image Slideshow */
+.hero-slideshow-wrap {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #E8DFC8;
+  box-shadow: 0 16px 40px rgba(56, 33, 21, 0.14);
+  position: relative;
+  background: #24160E;
+}
+
+.hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.85s ease-in-out, visibility 0.85s ease-in-out;
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+}
+
+.hero-slide-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 28px 22px;
+  background: linear-gradient(180deg, rgba(20, 10, 5, 0) 0%, rgba(20, 10, 5, 0.82) 40%, rgba(20, 10, 5, 0.95) 100%);
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+.hero-slide-badge {
+  display: inline-block;
+  background: rgba(181, 123, 34, 0.92);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.hero-slide-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-slide-sub {
+  font-size: 12.5px;
+  color: #E2D7CE;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(36, 22, 14, 0.65);
+  border: 1.5px solid rgba(226, 215, 206, 0.4);
+  color: #FAF6F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.hero-arrow-btn:hover {
+  background: #B57B22;
+  border-color: #B57B22;
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.hero-arrow-btn.prev {
+  left: 14px;
+}
+
+.hero-arrow-btn.next {
+  right: 14px;
+}
+
+.hero-dots-wrap {
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-dot-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-dot-btn.active {
+  background: #B57B22;
+  border-color: #B57B22;
+  width: 26px;
+  border-radius: 10px;
+}
+
+/* Large Destination Cards & Temple Gopurams */
+.destinations-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+.destination-card {
+  position: relative;
+  height: 340px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 24px rgba(56, 33, 21, 0.1) !important;
+  display: block;
+  transition: all 0.35s ease;
+  background: #24160E;
+}
+
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(56, 33, 21, 0.18) !important;
+}
+
+.destination-card-img,
+.destination-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.6s ease;
+}
+
+.destination-card:hover .destination-card-img,
+.destination-card:hover .destination-img {
+  transform: scale(1.08);
+}
+
+.package-media-wrap {
+  position: relative !important;
+  height: 280px !important;
+  overflow: hidden !important;
+}
+
+.package-media-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 991px) {
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slideshow {
+    height: 320px;
+  }
+  .hero-slide-caption {
+    padding: 16px 18px;
+  }
+  .hero-slide-title {
+    font-size: 16px;
+  }
+  .hero-arrow-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .destinations-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .destination-card {
+    height: 280px !important;
+  }
+}

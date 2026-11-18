@@ -14,7 +14,7 @@
 </head>
 <body>
 
-      <!-- ==========================================================================
+        <!-- ==========================================================================
        1. TOP CONTACT BAR
        ========================================================================== -->
   <div class="luxury-topbar">
@@ -47,21 +47,9 @@
   <header class="luxury-navbar-wrap">
     <div class="luxury-container">
       <nav class="luxury-navbar">
-        <!-- Logo -->
-        <a href="index.html" class="luxury-brand">
-          <svg class="luxury-brand-bus" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="56" height="26" rx="6" stroke="#B57B22" stroke-width="2.5" fill="#FAF6F0"/>
-            <rect x="8" y="10" width="10" height="9" rx="2" fill="#B57B22"/>
-            <rect x="22" y="10" width="10" height="9" rx="2" fill="#B57B22"/>
-            <rect x="36" y="10" width="10" height="9" rx="2" fill="#B57B22"/>
-            <circle cx="16" cy="32" r="5" fill="#382115" stroke="#FAF6F0" stroke-width="2"/>
-            <circle cx="46" cy="32" r="5" fill="#382115" stroke="#FAF6F0" stroke-width="2"/>
-            <path d="M50 14L56 18V26H50V14Z" fill="#B57B22"/>
-          </svg>
-          <div class="luxury-brand-text">
-            <span class="luxury-brand-name">Dodla's</span>
-            <span class="luxury-brand-sub">Tours &amp; Travels</span>
-          </div>
+        <!-- Logo: Original Dodla's Tours & Travels Logo -->
+        <a href="index.html" class="luxury-brand" aria-label="Dodla's Tours & Travels">
+          <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" class="original-brand-logo" style="height: 56px; max-height: 60px; width: auto; max-width: 260px; object-fit: contain; display: block;">
         </a>
 
         <!-- Navigation Menu -->
@@ -176,8 +164,55 @@
         </div>
 
         <div>
-          <div style="border-radius: 18px; overflow: hidden; border: 2px solid #E8DFC8; box-shadow: 0 16px 36px rgba(56,33,21,0.12);">
-            <img src="images/About/about.jpg" alt="Sacred Pilgrimage Temple Gopuram" style="width: 100%; height: 380px; object-fit: cover; display: block;">
+          <!-- Automatic 3-Image Hero Slideshow: Grand Indian Temple Gopurams -->
+          <div class="hero-slideshow-wrap">
+            <div class="hero-slideshow" id="heroSlideshow" aria-roledescription="carousel" aria-label="Sacred Temple Gopurams Slideshow">
+              
+              <!-- Slide 1: Tirumala Sri Venkateswara Temple Gopuram -->
+              <div class="hero-slide active" data-slide="0">
+                <img src="images/slideshow/slide-1.jpg" alt="Tirumala Sri Venkateswara Temple Gopuram" class="hero-slide-img">
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-badge">Sacred Divya Desam</span>
+                  <h3 class="hero-slide-title">Tirumala Sri Venkateswara Swamy Temple</h3>
+                  <p class="hero-slide-sub">Sacred Abode of Lord Balaji &bull; Golden Ananda Nilayam Gopuram</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Srisailam Mallikarjuna Swamy Temple Gopuram -->
+              <div class="hero-slide" data-slide="1">
+                <img src="images/slideshow/slide-2.jpg" alt="Srisailam Mallikarjuna Swamy Temple Gopuram" class="hero-slide-img">
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-badge">Revered Jyotirlinga &amp; Shakti Peetham</span>
+                  <h3 class="hero-slide-title">Srisailam Sri Mallikarjuna Swamy Temple</h3>
+                  <p class="hero-slide-sub">Ancient Sacred Gopuram &bull; Divine Abode on Srisailam Hills</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Rameswaram Ramanathaswamy Temple Architecture -->
+              <div class="hero-slide" data-slide="2">
+                <img src="images/slideshow/slide-3.jpg" alt="Rameswaram Ramanathaswamy Temple Architecture" class="hero-slide-img">
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-badge">Sacred Char Dham &amp; 22 Teerthams</span>
+                  <h3 class="hero-slide-title">Rameswaram Sri Ramanathaswamy Temple</h3>
+                  <p class="hero-slide-sub">Grand Temple Architecture &bull; Towering Gopuram &amp; Holy Corridors</p>
+                </div>
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button class="hero-arrow-btn prev" id="heroPrevBtn" aria-label="Previous Slide">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="hero-arrow-btn next" id="heroNextBtn" aria-label="Next Slide">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+
+              <!-- 3 Indicator Dots -->
+              <div class="hero-dots-wrap" id="heroDots">
+                <button class="hero-dot-btn active" data-index="0" aria-label="Slide 1: Tirumala"></button>
+                <button class="hero-dot-btn" data-index="1" aria-label="Slide 2: Srisailam"></button>
+                <button class="hero-dot-btn" data-index="2" aria-label="Slide 3: Rameswaram"></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -197,7 +232,7 @@
 
       <div class="destinations-grid">
         <a href="chardham.html" class="destination-card">
-          <img src="images/north/badrinath.jpg" alt="Uttarakhand Chardham Yatra" class="destination-img">
+          <img src="adminpanel/public/news/kedarnath.jpg" alt="Uttarakhand Chardham Yatra" class="destination-img">
           <div class="destination-overlay">
             <span class="destination-sub">Himalayan Sacred Circuit</span>
             <h3 class="destination-name">Uttarakhand Chardham</h3>
@@ -233,7 +268,7 @@
         </a>
 
         <a href="south.html" class="destination-card">
-          <img src="images/south/Brihadeeswara_temple_Thanjavur.jpg" alt="South India Pilgrimage" class="destination-img">
+          <img src="images/south/Varadharajar.jpg" alt="South India Pilgrimage" class="destination-img">
           <div class="destination-overlay">
             <span class="destination-sub">Maha Teertha Circuit</span>
             <h3 class="destination-name">South India Temple Circuit</h3>
@@ -601,7 +636,7 @@
     </div>
   </section>
 
-      <!-- ==========================================================================
+        <!-- ==========================================================================
        FOOTER
        ========================================================================== -->
   <footer class="luxury-footer-wrap">
@@ -610,18 +645,8 @@
         <!-- Col 1: Brand & Legacy -->
         <div class="footer-col-brand">
           <div class="footer-brand-header">
-            <svg class="luxury-brand-bus" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:42px; height:auto;">
-              <rect x="2" y="6" width="56" height="26" rx="6" stroke="#C48A2C" stroke-width="2.5" fill="#382115"/>
-              <rect x="8" y="10" width="10" height="9" rx="2" fill="#C48A2C"/>
-              <rect x="22" y="10" width="10" height="9" rx="2" fill="#C48A2C"/>
-              <rect x="36" y="10" width="10" height="9" rx="2" fill="#C48A2C"/>
-              <circle cx="16" cy="32" r="5" fill="#FAF6F0" stroke="#C48A2C" stroke-width="2"/>
-              <circle cx="46" cy="32" r="5" fill="#FAF6F0" stroke="#C48A2C" stroke-width="2"/>
-              <path d="M50 14L56 18V26H50V14Z" fill="#C48A2C"/>
-            </svg>
-            <div class="footer-brand-title">
-              <span class="brand-line-1">Dodla's</span>
-              <span class="brand-line-2">Tours &amp; Travels</span>
+            <div style="background: #FFFFFF; padding: 6px 14px; border-radius: 10px; display: inline-flex; align-items: center; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+              <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" style="height: 48px; max-height: 52px; width: auto; max-width: 230px; object-fit: contain; display: block;">
             </div>
           </div>
           <p class="footer-brand-desc">
@@ -730,6 +755,92 @@
         navMenu.classList.toggle('mobile-open');
       });
     }
+
+    // Automatic 3-Image Hero Slideshow (4-second smooth fade)
+    (function initHeroSlideshow() {
+      const container = document.getElementById('heroSlideshow');
+      if (!container) return;
+
+      const slides = container.querySelectorAll('.hero-slide');
+      const dots = container.querySelectorAll('.hero-dot-btn');
+      const prevBtn = document.getElementById('heroPrevBtn');
+      const nextBtn = document.getElementById('heroNextBtn');
+      if (!slides.length) return;
+
+      let current = 0;
+      let timer = null;
+
+      function goToSlide(idx) {
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+      }
+
+      function nextSlide() {
+        goToSlide(current + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(current - 1);
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        timer = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoPlay() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startAutoPlay();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startAutoPlay();
+        });
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          startAutoPlay();
+        });
+      });
+
+      // Pause on hover, resume on leave
+      container.addEventListener('mouseenter', stopAutoPlay);
+      container.addEventListener('mouseleave', startAutoPlay);
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      container.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+      }, { passive: true });
+
+      container.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX < touchStartX - 40) {
+          nextSlide();
+        } else if (touchEndX > touchStartX + 40) {
+          prevSlide();
+        }
+        startAutoPlay();
+      }, { passive: true });
+
+      // Start auto-slideshow
+      startAutoPlay();
+    })();
   </script>
 </body>
 </html>
