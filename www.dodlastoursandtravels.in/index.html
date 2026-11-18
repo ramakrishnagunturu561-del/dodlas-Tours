@@ -125,97 +125,106 @@
   </header>
 
   <!-- ==========================================================================
-       HERO BANNER
+       HERO BANNER - 100% FULL-PAGE WIDTH CINEMATIC SLIDESHOW
        ========================================================================== -->
-  <section class="hero-luxury" style="padding: 70px 0 60px; background: linear-gradient(180deg, #FFFDF9 0%, #FAF6F0 100%);">
-    <div class="luxury-container">
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;">
-        <div>
-          <span class="section-badge" style="margin-bottom: 12px; display: inline-block;">Approved by Dept. of Tourism &bull; Govt. of India</span>
-          <h1 class="hero-title" style="font-family: var(--font-serif); font-size: 38px; color: #382115; line-height: 1.25; margin-bottom: 16px;">
-            Sacred Pilgrimages &amp; Holiday Tours Across India
-          </h1>
-          <p class="hero-description" style="font-size: 15.5px; color: #5C4A3F; line-height: 1.7; margin-bottom: 24px;">
-            Founded in 1962 by <strong>Yatra Tapasvi Dodla Ramarao</strong> and continuing operations without any failures under the successful management of his elder son <strong>Dodla Hemanth Kumar</strong>. Bus tours launched in 1975 to all over India with AC Volvo buses, passenger sales agent for Indian Airlines.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px;">
-            <a href="fixeddeparture.html" class="btn-gold-pill">
-              <span>View Fixed Departures</span>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-            </a>
-            <a href="holidaytours.html" class="btn-outline-gold">
-              <span>Holiday Tours</span>
-            </a>
-          </div>
-          <div style="display: flex; gap: 24px; padding-top: 18px; border-top: 1px solid #E8DFC8;">
-            <div>
-              <span style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: #B57B22;">1962</span>
-              <p style="font-size: 11.5px; color: #8A786D; text-transform: uppercase; font-weight: 600; margin: 2px 0 0 0;">Established</p>
-            </div>
-            <div style="border-left: 1px solid #E8DFC8; padding-left: 20px;">
-              <span style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: #B57B22;">1975</span>
-              <p style="font-size: 11.5px; color: #8A786D; text-transform: uppercase; font-weight: 600; margin: 2px 0 0 0;">All-India Bus Fleet</p>
-            </div>
-            <div style="border-left: 1px solid #E8DFC8; padding-left: 20px;">
-              <span style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: #B57B22;">PSA</span>
-              <p style="font-size: 11.5px; color: #8A786D; text-transform: uppercase; font-weight: 600; margin: 2px 0 0 0;">Indian Airlines</p>
-            </div>
-          </div>
+  <section class="hero-cinematic-banner" id="heroSlideshow" aria-label="Sacred Indian Temple Gopurams Slideshow">
+    <!-- 100% Full-Bleed Background Slides -->
+    <div class="hero-cinematic-slider">
+      <!-- Slide 1: Tirumala Sri Venkateswara Temple Gopuram -->
+      <div class="hero-cinematic-slide active" data-slide="0">
+        <img src="images/slideshow/slide-1.jpg" alt="Tirumala Sri Venkateswara Temple Gopuram" class="hero-cinematic-img">
+        <div class="hero-cinematic-overlay"></div>
+        <div class="hero-temple-tag">
+          <span class="hero-temple-dot"></span>
+          <span>Tirumala Sri Venkateswara Temple &bull; Sacred Golden Gopuram</span>
+        </div>
+      </div>
+
+      <!-- Slide 2: Srisailam Mallikarjuna Swamy Temple Gopuram -->
+      <div class="hero-cinematic-slide" data-slide="1">
+        <img src="images/slideshow/slide-2.jpg" alt="Srisailam Mallikarjuna Swamy Temple Gopuram" class="hero-cinematic-img">
+        <div class="hero-cinematic-overlay"></div>
+        <div class="hero-temple-tag">
+          <span class="hero-temple-dot"></span>
+          <span>Srisailam Sri Mallikarjuna Swamy Temple &bull; Revered Jyotirlinga &amp; Shakti Peetham</span>
+        </div>
+      </div>
+
+      <!-- Slide 3: Rameswaram Ramanathaswamy Temple Architecture -->
+      <div class="hero-cinematic-slide" data-slide="2">
+        <img src="images/slideshow/slide-3.jpg" alt="Rameswaram Ramanathaswamy Temple Architecture" class="hero-cinematic-img">
+        <div class="hero-cinematic-overlay"></div>
+        <div class="hero-temple-tag">
+          <span class="hero-temple-dot"></span>
+          <span>Rameswaram Sri Ramanathaswamy Temple &bull; Sacred Char Dham &amp; 22 Teerthams</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlaid Hero Content inside luxury-container -->
+    <div class="luxury-container hero-cinematic-content-wrap">
+      <div class="hero-cinematic-text-box">
+        <span class="hero-cinematic-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color: #D4AF37;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Approved by Dept. of Tourism &bull; Govt. of India &bull; Est. 1962
+        </span>
+
+        <h1 class="hero-cinematic-heading">
+          Sacred Pilgrimages &amp; Holiday Tours Across India
+        </h1>
+
+        <p class="hero-cinematic-lead">
+          Founded in 1962 by <strong>Yatra Tapasvi Dodla Ramarao</strong> and continuing operations without any failures under the successful management of his elder son <strong>Dodla Hemanth Kumar</strong>. 64 unbroken years of sacred yatras, AC Volvo bus fleet, passenger sales agent for Indian Airlines, pure satvik food, and senior citizen priority.
+        </p>
+
+        <div class="hero-cinematic-cta-row">
+          <a href="fixeddeparture.html" class="btn-cinematic-primary">
+            <span>View Fixed Departures</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="holidaytours.html" class="btn-cinematic-secondary">
+            <span>Holiday Tours</span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20enquire%20about%20a%20tour." target="_blank" class="btn-cinematic-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+            <span>WhatsApp Enquiry</span>
+          </a>
         </div>
 
-        <div>
-          <!-- Automatic 3-Image Hero Slideshow: Grand Indian Temple Gopurams -->
-          <div class="hero-slideshow-wrap">
-            <div class="hero-slideshow" id="heroSlideshow" aria-roledescription="carousel" aria-label="Sacred Temple Gopurams Slideshow">
-              
-              <!-- Slide 1: Tirumala Sri Venkateswara Temple Gopuram -->
-              <div class="hero-slide active" data-slide="0">
-                <img src="images/slideshow/slide-1.jpg" alt="Tirumala Sri Venkateswara Temple Gopuram" class="hero-slide-img">
-                <div class="hero-slide-caption">
-                  <span class="hero-slide-badge">Sacred Divya Desam</span>
-                  <h3 class="hero-slide-title">Tirumala Sri Venkateswara Swamy Temple</h3>
-                  <p class="hero-slide-sub">Sacred Abode of Lord Balaji &bull; Golden Ananda Nilayam Gopuram</p>
-                </div>
-              </div>
-
-              <!-- Slide 2: Srisailam Mallikarjuna Swamy Temple Gopuram -->
-              <div class="hero-slide" data-slide="1">
-                <img src="images/slideshow/slide-2.jpg" alt="Srisailam Mallikarjuna Swamy Temple Gopuram" class="hero-slide-img">
-                <div class="hero-slide-caption">
-                  <span class="hero-slide-badge">Revered Jyotirlinga &amp; Shakti Peetham</span>
-                  <h3 class="hero-slide-title">Srisailam Sri Mallikarjuna Swamy Temple</h3>
-                  <p class="hero-slide-sub">Ancient Sacred Gopuram &bull; Divine Abode on Srisailam Hills</p>
-                </div>
-              </div>
-
-              <!-- Slide 3: Rameswaram Ramanathaswamy Temple Architecture -->
-              <div class="hero-slide" data-slide="2">
-                <img src="images/slideshow/slide-3.jpg" alt="Rameswaram Ramanathaswamy Temple Architecture" class="hero-slide-img">
-                <div class="hero-slide-caption">
-                  <span class="hero-slide-badge">Sacred Char Dham &amp; 22 Teerthams</span>
-                  <h3 class="hero-slide-title">Rameswaram Sri Ramanathaswamy Temple</h3>
-                  <p class="hero-slide-sub">Grand Temple Architecture &bull; Towering Gopuram &amp; Holy Corridors</p>
-                </div>
-              </div>
-
-              <!-- Navigation Arrows -->
-              <button class="hero-arrow-btn prev" id="heroPrevBtn" aria-label="Previous Slide">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <button class="hero-arrow-btn next" id="heroNextBtn" aria-label="Next Slide">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-
-              <!-- 3 Indicator Dots -->
-              <div class="hero-dots-wrap" id="heroDots">
-                <button class="hero-dot-btn active" data-index="0" aria-label="Slide 1: Tirumala"></button>
-                <button class="hero-dot-btn" data-index="1" aria-label="Slide 2: Srisailam"></button>
-                <button class="hero-dot-btn" data-index="2" aria-label="Slide 3: Rameswaram"></button>
-              </div>
-            </div>
+        <div class="hero-cinematic-stats-row">
+          <div class="hero-stat-box">
+            <span class="hero-stat-number">1962</span>
+            <span class="hero-stat-label">Established</span>
+          </div>
+          <div class="hero-stat-box">
+            <span class="hero-stat-number">1975</span>
+            <span class="hero-stat-label">All-India Bus Fleet</span>
+          </div>
+          <div class="hero-stat-box">
+            <span class="hero-stat-number">PSA</span>
+            <span class="hero-stat-label">Indian Airlines</span>
+          </div>
+          <div class="hero-stat-box">
+            <span class="hero-stat-number">64 Yrs</span>
+            <span class="hero-stat-label">Sacred Devotion</span>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-cinematic-arrow prev" id="heroPrevBtn" aria-label="Previous Slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="hero-cinematic-arrow next" id="heroNextBtn" aria-label="Next Slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <!-- 3 Indicator Dots -->
+    <div class="hero-cinematic-dots" id="heroDots">
+      <button class="hero-dot active" data-index="0" aria-label="Slide 1: Tirumala Sri Venkateswara Temple"></button>
+      <button class="hero-dot" data-index="1" aria-label="Slide 2: Srisailam Mallikarjuna Swamy Temple"></button>
+      <button class="hero-dot" data-index="2" aria-label="Slide 3: Rameswaram Ramanathaswamy Temple"></button>
     </div>
   </section>
 
@@ -761,8 +770,8 @@
       const container = document.getElementById('heroSlideshow');
       if (!container) return;
 
-      const slides = container.querySelectorAll('.hero-slide');
-      const dots = container.querySelectorAll('.hero-dot-btn');
+      const slides = container.querySelectorAll('.hero-cinematic-slide, .hero-slide');
+      const dots = container.querySelectorAll('.hero-dot, .hero-dot-btn');
       const prevBtn = document.getElementById('heroPrevBtn');
       const nextBtn = document.getElementById('heroNextBtn');
       if (!slides.length) return;
