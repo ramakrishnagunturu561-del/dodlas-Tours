@@ -11,6 +11,124 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dodla-reference-redesign.css">
+
+  <style>
+    /* Lightbox Modal Navigation & Mobile Touch Styling */
+    .gallery-modal-content {
+      position: relative;
+      max-width: 900px;
+      width: 90vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-modal-img {
+      max-width: 100%;
+      max-height: 72vh;
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+      object-fit: contain;
+      background: #110B07;
+    }
+    .gallery-modal-counter {
+      color: #D4AF37;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .gallery-modal-caption {
+      margin-top: 12px;
+      color: #FAF6F0;
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .gallery-modal-subcaption {
+      color: #D0C3B5;
+      font-size: 13.5px;
+      margin-top: 4px;
+      text-align: center;
+      max-width: 600px;
+    }
+    .gallery-modal-close {
+      position: absolute;
+      top: -46px;
+      right: -8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #FFFFFF;
+      font-size: 26px;
+      line-height: 1;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10002;
+    }
+    .gallery-modal-close:hover {
+      background: #D4AF37;
+      color: #1A1009;
+      border-color: #D4AF37;
+    }
+    .gallery-modal-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26, 16, 9, 0.75);
+      border: 1.5px solid rgba(212, 175, 55, 0.7);
+      color: #FFFFFF;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.25s ease;
+      z-index: 10001;
+    }
+    .gallery-modal-nav:hover {
+      background: #D4AF37;
+      color: #1A1009;
+      border-color: #D4AF37;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .gallery-modal-prev { left: 24px; }
+    .gallery-modal-next { right: 24px; }
+    @media (max-width: 768px) {
+      .gallery-modal-nav {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        background: rgba(26, 16, 9, 0.9);
+      }
+      .gallery-modal-prev { left: 8px; }
+      .gallery-modal-next { right: 8px; }
+      .gallery-modal-close { top: -42px; right: 0; width: 36px; height: 36px; font-size: 22px; }
+      .gallery-modal-caption { font-size: 16px; }
+      .gallery-modal-subcaption { font-size: 12px; }
+    }
+    @media (max-width: 420px) {
+      .gallery-grid-lux {
+        grid-template-columns: 1fr !important;
+      }
+      .gallery-card-lux {
+        height: 220px !important;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -139,200 +257,541 @@
     </div>
   </section>
 
-  <section style="padding: 60px 0; background: #FAF6F0;">
+    <section style="padding: 60px 0; background: #FAF6F0;">
     <div class="luxury-container">
       <div class="filter-tabs-wrapper">
-        <button class="filter-tab-btn active" onclick="filterGallery('all', this)">All Photos (24)</button>
-        <button class="filter-tab-btn" onclick="filterGallery('yatra', this)">Sacred Yatras (8)</button>
-        <button class="filter-tab-btn" onclick="filterGallery('temple', this)">Temple Darshans (5)</button>
-        <button class="filter-tab-btn" onclick="filterGallery('holiday', this)">Holidays (5)</button>
-        <button class="filter-tab-btn" onclick="filterGallery('fleet', this)">Luxury Fleet (3)</button>
-        <button class="filter-tab-btn" onclick="filterGallery('group', this)">Devotee Groups (3)</button>
+        <button class="filter-tab-btn active" onclick="filterGallery('all', this)">All Photos (72)</button>
+        <button class="filter-tab-btn" onclick="filterGallery('yatra', this)">Sacred Yatras (17)</button>
+        <button class="filter-tab-btn" onclick="filterGallery('temple', this)">Temple Darshans (31)</button>
+        <button class="filter-tab-btn" onclick="filterGallery('holiday', this)">Holidays &amp; Scenic (11)</button>
+        <button class="filter-tab-btn" onclick="filterGallery('fleet', this)">Luxury Fleet (4)</button>
+        <button class="filter-tab-btn" onclick="filterGallery('group', this)">Devotee Groups (9)</button>
       </div>
 
       <div class="gallery-grid-lux" id="galleryGrid">
-        
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-1.jpg', 'Himalayan Teertha Expedition')">
-          <img src="images/Gallery/Gallery-1.jpg" alt="Himalayan Teertha Expedition" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="0" onclick="openLightboxByIndex(0)">
+          <img src="images/Gallery/Gallery-1.jpg" alt="Himalayan Teertha Expedition" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Himalayan Teertha Expedition</h4>
-            <span class="gallery-caption-sub">Sacred pilgrim batch at Uttarakhand</span>
+            <span class="gallery-caption-sub">Sacred pilgrim batch at Uttarakhand valleys</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="temple" onclick="openLightbox('images/Gallery/Gallery-2.jpg', 'Divine Temple Darshan')">
-          <img src="images/Gallery/Gallery-2.jpg" alt="Divine Temple Darshan" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="1" onclick="openLightboxByIndex(1)">
+          <img src="images/Gallery/Gallery-2.jpg" alt="Historic Gopuram Darshan" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Divine Temple Darshan</h4>
-            <span class="gallery-caption-sub">Historic South Indian gopuram & sanctum</span>
+            <h4 class="gallery-caption-title">Historic Gopuram Darshan</h4>
+            <span class="gallery-caption-sub">Majestic temple tower and sacred gateway</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="holiday" onclick="openLightbox('images/Gallery/Gallery-3.jpg', 'Island Holiday Memories')">
-          <img src="images/Gallery/Gallery-3.jpg" alt="Island Holiday Memories" loading="lazy">
+        <div class="gallery-card-lux" data-category="holiday" data-index="2" onclick="openLightboxByIndex(2)">
+          <img src="images/Gallery/Gallery-3.jpg" alt="Scenic Island Gateway" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Island Holiday Memories</h4>
-            <span class="gallery-caption-sub">Coastal paradise and crystal waters</span>
+            <h4 class="gallery-caption-title">Scenic Island Gateway</h4>
+            <span class="gallery-caption-sub">Coastal serene waters and pristine shores</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-4.jpg', 'Kedarnath Shivalinga Yatra')">
-          <img src="images/Gallery/Gallery-4.jpg" alt="Kedarnath Shivalinga Yatra" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="3" onclick="openLightboxByIndex(3)">
+          <img src="images/Gallery/Gallery-4.jpg" alt="Kedarnath Shivalinga Yatra" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Kedarnath Shivalinga Yatra</h4>
-            <span class="gallery-caption-sub">Devotees arriving at holy Kedarnath</span>
+            <span class="gallery-caption-sub">Devotees arriving at holy Kedarnath dham</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="temple" onclick="openLightbox('images/Gallery/Gallery-5.jpg', 'Vedic Temple Architecture')">
-          <img src="images/Gallery/Gallery-5.jpg" alt="Vedic Temple Architecture" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="4" onclick="openLightboxByIndex(4)">
+          <img src="images/Gallery/Gallery-5.jpg" alt="Vedic Temple Architecture" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Vedic Temple Architecture</h4>
-            <span class="gallery-caption-sub">Carved stone mandapam & deities</span>
+            <span class="gallery-caption-sub">Intricate stone carvings and sacred sanctum</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-6.jpg', 'Holy Bath & Snanam')">
-          <img src="images/Gallery/Gallery-6.jpg" alt="Holy Bath & Snanam" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="5" onclick="openLightboxByIndex(5)">
+          <img src="images/Gallery/Gallery-6.jpg" alt="Holy Bath & Snanam" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Holy Bath & Snanam</h4>
-            <span class="gallery-caption-sub">Devotees performing sacred rituals</span>
+            <span class="gallery-caption-sub">Devotees performing sacred pushkarini snanam</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="fleet" onclick="openLightbox('images/Gallery/Gallery-7.jpg', 'Dodla's Luxury Coach')">
-          <img src="images/Gallery/Gallery-7.jpg" alt="Dodla's Luxury Coach" loading="lazy">
+        <div class="gallery-card-lux" data-category="fleet" data-index="6" onclick="openLightboxByIndex(6)">
+          <img src="images/Gallery/Gallery-7.jpg" alt="Dodla's Luxury Coach on Highway" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Dodla's Luxury Coach</h4>
-            <span class="gallery-caption-sub">2x2 AC Pushback fleet on highway</span>
+            <h4 class="gallery-caption-title">Dodla's Luxury Coach on Highway</h4>
+            <span class="gallery-caption-sub">All-India 2x2 AC Pushback deluxe coach</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="group" onclick="openLightbox('images/Gallery/Gallery-8.jpg', 'Joyful Devotee Family')">
-          <img src="images/Gallery/Gallery-8.jpg" alt="Joyful Devotee Family" loading="lazy">
+        <div class="gallery-card-lux" data-category="group" data-index="7" onclick="openLightboxByIndex(7)">
+          <img src="images/Gallery/Gallery-8.jpg" alt="Joyful Devotee Family" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Joyful Devotee Family</h4>
-            <span class="gallery-caption-sub">Pilgrim group blessings across India</span>
+            <span class="gallery-caption-sub">Pilgrim group receiving divine blessings</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="temple" onclick="openLightbox('images/Gallery/Gallery-9.jpg', 'Rameswaram Teertha')">
-          <img src="images/Gallery/Gallery-9.jpg" alt="Rameswaram Teertha" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="8" onclick="openLightboxByIndex(8)">
+          <img src="images/Gallery/Gallery-9.jpg" alt="Rameswaram Teertha Corridor" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Rameswaram Teertha</h4>
-            <span class="gallery-caption-sub">Corridor of 1000 pillars and holy wells</span>
+            <h4 class="gallery-caption-title">Rameswaram Teertha Corridor</h4>
+            <span class="gallery-caption-sub">Corridor of thousand pillars and holy teerthams</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="holiday" onclick="openLightbox('images/Gallery/Gallery-10.jpg', 'Mountain Valley Excursion')">
-          <img src="images/Gallery/Gallery-10.jpg" alt="Mountain Valley Excursion" loading="lazy">
+        <div class="gallery-card-lux" data-category="holiday" data-index="9" onclick="openLightboxByIndex(9)">
+          <img src="images/Gallery/Gallery-10.jpg" alt="Mountain Valley Excursion" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Mountain Valley Excursion</h4>
-            <span class="gallery-caption-sub">Snow peaks and pine forests</span>
+            <span class="gallery-caption-sub">Snowy peaks and tranquil mountain trails</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-11.jpg', 'Amarnath Ice Cave Route')">
-          <img src="images/Gallery/Gallery-11.jpg" alt="Amarnath Ice Cave Route" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="10" onclick="openLightboxByIndex(10)">
+          <img src="images/Gallery/Gallery-11.jpg" alt="Amarnath Ice Cave Route" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Amarnath Ice Cave Route</h4>
-            <span class="gallery-caption-sub">Pahalgam to Baltal pilgrim trail</span>
+            <span class="gallery-caption-sub">Baltal to sacred cave pilgrim trail</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="temple" onclick="openLightbox('images/Gallery/Gallery-12.jpg', 'South Indian Gopuram')">
-          <img src="images/Gallery/Gallery-12.jpg" alt="South Indian Gopuram" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="11" onclick="openLightboxByIndex(11)">
+          <img src="images/Gallery/Gallery-12.jpg" alt="South Indian Gopuram Kalasam" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">South Indian Gopuram</h4>
-            <span class="gallery-caption-sub">Golden kalasam and sacred sculptures</span>
+            <h4 class="gallery-caption-title">South Indian Gopuram Kalasam</h4>
+            <span class="gallery-caption-sub">Golden kalasam and Dravidian architectural splendor</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="group" onclick="openLightbox('images/Gallery/Gallery-13.jpg', 'Satvik Dining Kitchen')">
-          <img src="images/Gallery/Gallery-13.jpg" alt="Satvik Dining Kitchen" loading="lazy">
+        <div class="gallery-card-lux" data-category="group" data-index="12" onclick="openLightboxByIndex(12)">
+          <img src="images/Gallery/Gallery-13.jpg" alt="Satvik Dining Kitchen" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Satvik Dining Kitchen</h4>
-            <span class="gallery-caption-sub">Fresh hot meals served to yatris</span>
+            <span class="gallery-caption-sub">Pure vegetarian satvik meals served fresh daily</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-14.jpg', 'Badrinath Temple Valley')">
-          <img src="images/Gallery/Gallery-14.jpg" alt="Badrinath Temple Valley" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="13" onclick="openLightboxByIndex(13)">
+          <img src="images/Gallery/Gallery-14.jpg" alt="Badrinath Valley Yatra" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Badrinath Temple Valley</h4>
-            <span class="gallery-caption-sub">Nar-Narayan peaks and Neelkanth</span>
+            <h4 class="gallery-caption-title">Badrinath Valley Yatra</h4>
+            <span class="gallery-caption-sub">Nar-Narayan mountain ranges and Alaknanda</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="holiday" onclick="openLightbox('images/Gallery/Gallery-15.jpg', 'Heritage Forts & Palaces')">
-          <img src="images/Gallery/Gallery-15.jpg" alt="Heritage Forts & Palaces" loading="lazy">
+        <div class="gallery-card-lux" data-category="holiday" data-index="14" onclick="openLightboxByIndex(14)">
+          <img src="images/Gallery/Gallery-15.jpg" alt="Heritage Forts & Palaces" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Heritage Forts & Palaces</h4>
-            <span class="gallery-caption-sub">Royal exploration on family tour</span>
+            <span class="gallery-caption-sub">Historical exploration on family holiday tour</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="holiday" onclick="openLightbox('images/Gallery/Gallery-17.jpg', 'Dubai Skyline & Desert')">
-          <img src="images/Gallery/Gallery-17.jpg" alt="Dubai Skyline & Desert" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="15" onclick="openLightboxByIndex(15)">
+          <img src="images/Gallery/Gallery-16.jpg" alt="Sacred Temple Sanctum" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Dubai Skyline & Desert</h4>
-            <span class="gallery-caption-sub">International family tour highlight</span>
+            <h4 class="gallery-caption-title">Sacred Temple Sanctum</h4>
+            <span class="gallery-caption-sub">Blessed shrine darshan on pilgrimage tour</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="group" onclick="openLightbox('images/Gallery/Gallery-18.jpg', 'Devotee Congregation')">
-          <img src="images/Gallery/Gallery-18.jpg" alt="Devotee Congregation" loading="lazy">
+        <div class="gallery-card-lux" data-category="holiday" data-index="16" onclick="openLightboxByIndex(16)">
+          <img src="images/Gallery/Gallery-17.jpg" alt="Dubai Skyline & Desert Safari" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Devotee Congregation</h4>
-            <span class="gallery-caption-sub">Evening bhajan and satsangam</span>
+            <h4 class="gallery-caption-title">Dubai Skyline & Desert Safari</h4>
+            <span class="gallery-caption-sub">International desert adventures and modern wonders</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="fleet" onclick="openLightbox('images/Gallery/Gallery-19.jpg', 'Fleet Comfort & Safety')">
-          <img src="images/Gallery/Gallery-19.jpg" alt="Fleet Comfort & Safety" loading="lazy">
+        <div class="gallery-card-lux" data-category="group" data-index="17" onclick="openLightboxByIndex(17)">
+          <img src="images/Gallery/Gallery-18.jpg" alt="Devotee Satsangam Gathering" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Devotee Satsangam Gathering</h4>
+            <span class="gallery-caption-sub">Evening bhajan and devotional fellowship</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="fleet" data-index="18" onclick="openLightboxByIndex(18)">
+          <img src="images/Gallery/Gallery-19.jpg" alt="Fleet Comfort & Safety" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Fleet Comfort & Safety</h4>
-            <span class="gallery-caption-sub">Modern air suspension coaches</span>
+            <span class="gallery-caption-sub">Spacious recliner seating and air suspension</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="holiday" onclick="openLightbox('images/Gallery/Gallery-20.jpg', 'Bhutan Monastery Valley')">
-          <img src="images/Gallery/Gallery-20.jpg" alt="Bhutan Monastery Valley" loading="lazy">
+        <div class="gallery-card-lux" data-category="holiday" data-index="19" onclick="openLightboxByIndex(19)">
+          <img src="images/Gallery/Gallery-20.jpg" alt="Bhutan Monastery Valley" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Bhutan Monastery Valley</h4>
-            <span class="gallery-caption-sub">Tiger's Nest panoramic view</span>
+            <span class="gallery-caption-sub">Tiger's Nest panoramic view and Himalayan pines</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="temple" onclick="openLightbox('images/Gallery/Gallery-21.jpg', 'Vaishnava Divya Desam')">
-          <img src="images/Gallery/Gallery-21.jpg" alt="Vaishnava Divya Desam" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="20" onclick="openLightboxByIndex(20)">
+          <img src="images/Gallery/Gallery-21.jpg" alt="Vaishnava Divya Desam" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Vaishnava Divya Desam</h4>
-            <span class="gallery-caption-sub">Perumal darshan sanctum sanctorum</span>
+            <span class="gallery-caption-sub">Perumal darshan at sacred ancient divya desam</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-22.jpg', 'Ganga Aarti at Haridwar')">
-          <img src="images/Gallery/Gallery-22.jpg" alt="Ganga Aarti at Haridwar" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="21" onclick="openLightboxByIndex(21)">
+          <img src="images/Gallery/Gallery-22.jpg" alt="Ganga Aarti at Haridwar" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Ganga Aarti at Haridwar</h4>
             <span class="gallery-caption-sub">Evening lamps floating down Mother Ganga</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="group" onclick="openLightbox('images/Gallery/Gallery-23.jpg', 'Senior Devotee Care')">
-          <img src="images/Gallery/Gallery-23.jpg" alt="Senior Devotee Care" loading="lazy">
+        <div class="gallery-card-lux" data-category="group" data-index="22" onclick="openLightboxByIndex(22)">
+          <img src="images/Gallery/Gallery-23.jpg" alt="Senior Devotee Care" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Senior Devotee Care</h4>
-            <span class="gallery-caption-sub">Comfortable travel arrangements for elders</span>
+            <span class="gallery-caption-sub">Personal attention and comfortable travel for elders</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="yatra" onclick="openLightbox('images/Gallery/Gallery-24.jpg', 'Kailash Manasarovar Lake')">
-          <img src="images/Gallery/Gallery-24.jpg" alt="Kailash Manasarovar Lake" loading="lazy">
+        <div class="gallery-card-lux" data-category="yatra" data-index="23" onclick="openLightboxByIndex(23)">
+          <img src="images/Gallery/Gallery-24.jpg" alt="Kailash Manasarovar Lake" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
             <h4 class="gallery-caption-title">Kailash Manasarovar Lake</h4>
-            <span class="gallery-caption-sub">Divine waters and turquoise reflection</span>
+            <span class="gallery-caption-sub">Sacred holy waters and turquoise mountain reflections</span>
           </div>
         </div>
-        <div class="gallery-card-lux" data-category="fleet" onclick="openLightbox('images/luxury/about_bus.jpg', 'Dodla's Luxury Fleet')">
-          <img src="images/luxury/about_bus.jpg" alt="Dodla's Luxury Fleet" loading="lazy">
+        <div class="gallery-card-lux" data-category="temple" data-index="24" onclick="openLightboxByIndex(24)">
+          <img src="images/Gallery/Gallery.jpg" alt="Sacred Shrine Pilgrimage" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
           <div class="gallery-overlay-lux">
-            <h4 class="gallery-caption-title">Dodla's Luxury Fleet</h4>
-            <span class="gallery-caption-sub">Air-conditioned 2x2 pushback coach</span>
+            <h4 class="gallery-caption-title">Sacred Shrine Pilgrimage</h4>
+            <span class="gallery-caption-sub">Ancient temple architecture and deity darshan</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="25" onclick="openLightboxByIndex(25)">
+          <img src="images/Gallery/Market.jpg" alt="Vijayawada Cultural Heritage" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Vijayawada Cultural Heritage</h4>
+            <span class="gallery-caption-sub">Kaleswara Rao Market & historic city sights</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="26" onclick="openLightboxByIndex(26)">
+          <img src="images/Gallery/golden.JPG" alt="Golden Temple Amritsar" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Golden Temple Amritsar</h4>
+            <span class="gallery-caption-sub">Sri Harmandir Sahib gleaming over the sacred Amrit Sarovar</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="27" onclick="openLightboxByIndex(27)">
+          <img src="images/Gallery/mukti.jpg" alt="Muktinath Temple Nepal" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Muktinath Temple Nepal</h4>
+            <span class="gallery-caption-sub">Sacred 108 water spouts and Muktidham shrine</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="28" onclick="openLightboxByIndex(28)">
+          <img src="images/Gallery/manakaman.jpg" alt="Manakamana Temple Nepal" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Manakamana Temple Nepal</h4>
+            <span class="gallery-caption-sub">Sacred wish-fulfilling goddess shrine in Gorkha</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="29" onclick="openLightboxByIndex(29)">
+          <img src="images/Gallery/raghunath.jpg" alt="Raghunath Temple Jammu" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Raghunath Temple Jammu</h4>
+            <span class="gallery-caption-sub">Historic complex dedicated to Lord Rama</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="30" onclick="openLightboxByIndex(30)">
+          <img src="images/Gallery/rock.jpg" alt="Rock Fort Ucchi Pillayar" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Rock Fort Ucchi Pillayar</h4>
+            <span class="gallery-caption-sub">Ancient rock-cut temple fortress in Tiruchirappalli</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="31" onclick="openLightboxByIndex(31)">
+          <img src="images/Gallery/surya.JPG" alt="Konark Sun Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Konark Sun Temple</h4>
+            <span class="gallery-caption-sub">Magnificent stone chariot wheels of the Surya Devalaya</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="32" onclick="openLightboxByIndex(32)">
+          <img src="images/Gallery/gorakhnath.jpg" alt="Gorakhnath Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Gorakhnath Temple</h4>
+            <span class="gallery-caption-sub">Revered Nath tradition peeth and pilgrimage center</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="33" onclick="openLightboxByIndex(33)">
+          <img src="images/Gallery/naina.jpg" alt="Naina Devi Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Naina Devi Temple</h4>
+            <span class="gallery-caption-sub">Sacred Shakti Peeth overlooking Gobind Sagar Lake</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="34" onclick="openLightboxByIndex(34)">
+          <img src="images/Gallery/chamunda.jpg" alt="Chamunda Devi Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Chamunda Devi Temple</h4>
+            <span class="gallery-caption-sub">Himachal Shakti shrine amidst Baner river cascades</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="35" onclick="openLightboxByIndex(35)">
+          <img src="images/Gallery/bakra.jpg" alt="Bakra Devi Kshetra" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Bakra Devi Kshetra</h4>
+            <span class="gallery-caption-sub">Devotee darshan on Himalayan pilgrimage trail</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="36" onclick="openLightboxByIndex(36)">
+          <img src="images/Gallery/sankarchraya.jpg" alt="Shankaracharya Temple Srinagar" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Shankaracharya Temple Srinagar</h4>
+            <span class="gallery-caption-sub">Ancient hilltop Shiva shrine overlooking Dal Lake</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="37" onclick="openLightboxByIndex(37)">
+          <img src="images/Gallery/sankari.jpg" alt="Sankari Devi Trincomalee" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Sankari Devi Trincomalee</h4>
+            <span class="gallery-caption-sub">Shakthi Peeth along the Sri Lankan Ramayana trail</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="38" onclick="openLightboxByIndex(38)">
+          <img src="images/Gallery/sri-mata-chintpurni-devi-.jpg" alt="Chintpurni Devi Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Chintpurni Devi Temple</h4>
+            <span class="gallery-caption-sub">Sacred Chhinnamastika Shakti Peeth in Una</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="39" onclick="openLightboxByIndex(39)">
+          <img src="images/Gallery/varahi.jpg" alt="Varahi Devi Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Varahi Devi Temple</h4>
+            <span class="gallery-caption-sub">Sacred shrine on devotional temple circuit</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="40" onclick="openLightboxByIndex(40)">
+          <img src="images/Gallery/ak5.jpg" alt="Amarnath Valley Trek" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Amarnath Valley Trek</h4>
+            <span class="gallery-caption-sub">Pilgrims ascending the sacred mountain trail</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="41" onclick="openLightboxByIndex(41)">
+          <img src="images/Gallery/ak6.jpg" alt="Kashmir Valley Landscape" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Kashmir Valley Landscape</h4>
+            <span class="gallery-caption-sub">Lush meadows and pine-clad hills of Kashmir</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="42" onclick="openLightboxByIndex(42)">
+          <img src="images/Gallery/ak7.jpg" alt="Pilgrim Basecamp at Baltal" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Pilgrim Basecamp at Baltal</h4>
+            <span class="gallery-caption-sub">Tents and pilgrim amenities along Sindh river</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="43" onclick="openLightboxByIndex(43)">
+          <img src="images/Gallery/ak8.jpg" alt="Himalayan Glacial Stream" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Himalayan Glacial Stream</h4>
+            <span class="gallery-caption-sub">Pure alpine streams along the holy cave trek</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="44" onclick="openLightboxByIndex(44)">
+          <img src="images/Gallery/nm1.jpg" alt="Nepal Muktinath Expedition" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Nepal Muktinath Expedition</h4>
+            <span class="gallery-caption-sub">Yatris traveling through the Mustang Himalayan valley</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="45" onclick="openLightboxByIndex(45)">
+          <img src="images/Gallery/nm2.jpg" alt="Annapurna Range Panorama" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Annapurna Range Panorama</h4>
+            <span class="gallery-caption-sub">Majestic snow-clad peaks of the Himalayas</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="46" onclick="openLightboxByIndex(46)">
+          <img src="images/Gallery/nm3.jpg" alt="Pashupatinath Sacred Complex" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Pashupatinath Sacred Complex</h4>
+            <span class="gallery-caption-sub">UNESCO world heritage Bagmati river ghats</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="47" onclick="openLightboxByIndex(47)">
+          <img src="images/Gallery/nm4.jpg" alt="Pokhara Phewa Lake" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Pokhara Phewa Lake</h4>
+            <span class="gallery-caption-sub">Serene boat cruise with Machapuchare reflections</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="48" onclick="openLightboxByIndex(48)">
+          <img src="images/Gallery/nm6.jpeg" alt="Kathmandu Heritage Square" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Kathmandu Heritage Square</h4>
+            <span class="gallery-caption-sub">Ancient pagoda architecture and pagoda palaces</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="49" onclick="openLightboxByIndex(49)">
+          <img src="images/Gallery/nm8.jpg" alt="High-Altitude Himalayan Path" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">High-Altitude Himalayan Path</h4>
+            <span class="gallery-caption-sub">Devotees journeying through sacred mountain passes</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="50" onclick="openLightboxByIndex(50)">
+          <img src="images/Gallery/nmgallery1.jpg" alt="Sacred Spouts of Muktidham" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Sacred Spouts of Muktidham</h4>
+            <span class="gallery-caption-sub">Holy cleansing waters of the 108 Gomukhi spouts</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="51" onclick="openLightboxByIndex(51)">
+          <img src="images/Gallery/nmgallery2.jpg" alt="Thorong La & Nilgiri Vistas" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Thorong La & Nilgiri Vistas</h4>
+            <span class="gallery-caption-sub">Dramatic Himalayan peaks rising above the valley</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="group" data-index="52" onclick="openLightboxByIndex(52)">
+          <img src="images/Gallery/nmgallery3.jpg" alt="Nepal Tour Pilgrim Group" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Nepal Tour Pilgrim Group</h4>
+            <span class="gallery-caption-sub">Dodla yatris gathered with tour managers in Nepal</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="53" onclick="openLightboxByIndex(53)">
+          <img src="images/Gallery/nmgallery4.jpg" alt="Traditional Newari Shrine" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Traditional Newari Shrine</h4>
+            <span class="gallery-caption-sub">Intricately carved woodcraft of Kathmandu temples</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="54" onclick="openLightboxByIndex(54)">
+          <img src="images/Gallery/nmgallery5.jpg" alt="Himalayan Sunrise View" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Himalayan Sunrise View</h4>
+            <span class="gallery-caption-sub">Golden rays breaking over the high mountain summits</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="55" onclick="openLightboxByIndex(55)">
+          <img src="images/Gallery/nmgallery6.jpg" alt="Sacred Saligram Riverbed" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Sacred Saligram Riverbed</h4>
+            <span class="gallery-caption-sub">Kali Gandaki valley search for holy Saligram stones</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="fleet" data-index="56" onclick="openLightboxByIndex(56)">
+          <img src="images/luxury/about_bus.jpg" alt="Dodla's Luxury Fleet Coach" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Dodla's Luxury Fleet Coach</h4>
+            <span class="gallery-caption-sub">Comfortable all-India AC pushback yatra coach</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="fleet" data-index="57" onclick="openLightboxByIndex(57)">
+          <img src="images/Reservation/luxury.jpg" alt="Deluxe Yatra Coach Seating" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Deluxe Yatra Coach Seating</h4>
+            <span class="gallery-caption-sub">Ergonomic wide 2x2 pushback seating with luggage space</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="group" data-index="58" onclick="openLightboxByIndex(58)">
+          <img src="images/Reservation/family.jpg" alt="Joyful Devotee Family" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Joyful Devotee Family</h4>
+            <span class="gallery-caption-sub">Devotee family blessed on their sacred pilgrimage</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="group" data-index="59" onclick="openLightboxByIndex(59)">
+          <img src="images/Reservation/family1.jpg" alt="Pilgrim Tour Group Reunion" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Pilgrim Tour Group Reunion</h4>
+            <span class="gallery-caption-sub">Happy yatris sharing memories across holy shrines</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="group" data-index="60" onclick="openLightboxByIndex(60)">
+          <img src="images/Reservation/family2.jpeg" alt="Devotees on Sacred Yatra" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Devotees on Sacred Yatra</h4>
+            <span class="gallery-caption-sub">Senior citizens and families traveling together with care</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="group" data-index="61" onclick="openLightboxByIndex(61)">
+          <img src="images/Reservation/family3.jpg" alt="Blessed Devotee Gathering" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Blessed Devotee Gathering</h4>
+            <span class="gallery-caption-sub">Community fellowship and devotional satsang</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="62" onclick="openLightboxByIndex(62)">
+          <img src="images/north/akshardham-1-newdelhi.jpg" alt="Swaminarayan Akshardham Delhi" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Swaminarayan Akshardham Delhi</h4>
+            <span class="gallery-caption-sub">Magnificent hand-carved stone temple complex</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="yatra" data-index="63" onclick="openLightboxByIndex(63)">
+          <img src="images/north/haridwar.jpg" alt="Haridwar Har Ki Pauri" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Haridwar Har Ki Pauri</h4>
+            <span class="gallery-caption-sub">Spiritual epicenter of sacred river cleansing</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="64" onclick="openLightboxByIndex(64)">
+          <img src="images/amarnadh/gulmarg.jpg" alt="Gulmarg Meadow of Flowers" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Gulmarg Meadow of Flowers</h4>
+            <span class="gallery-caption-sub">Famous Gondola ride and snowfields of Kashmir</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="65" onclick="openLightboxByIndex(65)">
+          <img src="images/north/tajmahal.jpg" alt="Taj Mahal World Wonder" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Taj Mahal World Wonder</h4>
+            <span class="gallery-caption-sub">Iconic white marble monument on North India circuit</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="66" onclick="openLightboxByIndex(66)">
+          <img src="images/south/Brihadeeswara_temple_Thanjavur.jpg" alt="Brihadeeswara Temple Thanjavur" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Brihadeeswara Temple Thanjavur</h4>
+            <span class="gallery-caption-sub">Great Living Chola Temple with massive granite vimana</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="67" onclick="openLightboxByIndex(67)">
+          <img src="images/south/madurai.jpg" alt="Madurai Meenakshi Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Madurai Meenakshi Temple</h4>
+            <span class="gallery-caption-sub">Spectacular sculpted towers of the historic Pandya shrine</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="68" onclick="openLightboxByIndex(68)">
+          <img src="images/south/rameswaram.jpg" alt="Rameswaram Sacred Shrine" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Rameswaram Sacred Shrine</h4>
+            <span class="gallery-caption-sub">Jyotirlinga temple blessed by Lord Sri Rama</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="69" onclick="openLightboxByIndex(69)">
+          <img src="images/south/Sri_Padmanabhaswamy_temple.jpg" alt="Sri Padmanabhaswamy Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Sri Padmanabhaswamy Temple</h4>
+            <span class="gallery-caption-sub">Ancient majestic temple of Lord Vishnu in Trivandrum</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="temple" data-index="70" onclick="openLightboxByIndex(70)">
+          <img src="images/south/kanchi_kamakshi_temple.jpg" alt="Kanchi Kamakshi Amman Temple" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Kanchi Kamakshi Amman Temple</h4>
+            <span class="gallery-caption-sub">One of the 51 Shakthi Peethams in Kanchipuram</span>
+          </div>
+        </div>
+        <div class="gallery-card-lux" data-category="holiday" data-index="71" onclick="openLightboxByIndex(71)">
+          <img src="images/south/kanyakumari1.jpg" alt="Kanyakumari Rock Memorial" loading="lazy" onerror="this.onerror=null; this.src='images/slideshow/slide-1.jpg';">
+          <div class="gallery-overlay-lux">
+            <h4 class="gallery-caption-title">Kanyakumari Rock Memorial</h4>
+            <span class="gallery-caption-sub">Triveni Sangam confluence of three holy seas</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="gallery-modal-overlay" id="galleryModal" onclick="closeLightbox(event)">
-    <div class="gallery-modal-content">
-      <button class="gallery-modal-close" onclick="closeLightboxDirect()">&times;</button>
+  <!-- Lightbox Modal with Full Interactive Navigation -->
+  <div class="gallery-modal-overlay" id="galleryModal" onclick="handleModalBackdrop(event)">
+    <div class="gallery-modal-content" onclick="event.stopPropagation()">
+      <button class="gallery-modal-close" onclick="closeLightboxDirect()" aria-label="Close modal">&times;</button>
+      <button class="gallery-modal-nav gallery-modal-prev" onclick="navigateLightbox(-1); event.stopPropagation();" aria-label="Previous photo">&#10094;</button>
+      <button class="gallery-modal-nav gallery-modal-next" onclick="navigateLightbox(1); event.stopPropagation();" aria-label="Next photo">&#10095;</button>
+      
+      <div class="gallery-modal-counter" id="modalCounter"></div>
       <img src="" alt="Enlarged photo" class="gallery-modal-img" id="modalImg">
       <div class="gallery-modal-caption" id="modalCaption"></div>
+      <div class="gallery-modal-subcaption" id="modalSubCaption"></div>
     </div>
   </div>
 
-  <section style="background: linear-gradient(135deg, #382115 0%, #2A170F 100%); padding: 50px 0; color: #FFFFFF; text-align: center; border-top: 1px solid #C48A2C;">
+<section style="background: linear-gradient(135deg, #382115 0%, #2A170F 100%); padding: 50px 0; color: #FFFFFF; text-align: center; border-top: 1px solid #C48A2C;">
     <div class="luxury-container">
       <span style="color: #C48A2C; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;">Direct Booking Desk &bull; Vijayawada</span>
       <h2 style="font-family: var(--font-serif); font-size: 30px; color: #FFFFFF; margin: 10px 0 14px;">Have Questions About Yatra Departures or Custom Packages?</h2>
@@ -489,5 +948,237 @@
       }
     })();
   </script>
+  <!-- LUXURY PHOTO GALLERY & LIGHTBOX LOGIC -->
+  <script>
+    // Gallery dataset containing all 72 authentic items
+    const galleryItems = [
+      { id: 0, src: "images/Gallery/Gallery-1.jpg", category: "yatra", title: "Himalayan Teertha Expedition", subtitle: "Sacred pilgrim batch at Uttarakhand valleys" },
+      { id: 1, src: "images/Gallery/Gallery-2.jpg", category: "temple", title: "Historic Gopuram Darshan", subtitle: "Majestic temple tower and sacred gateway" },
+      { id: 2, src: "images/Gallery/Gallery-3.jpg", category: "holiday", title: "Scenic Island Gateway", subtitle: "Coastal serene waters and pristine shores" },
+      { id: 3, src: "images/Gallery/Gallery-4.jpg", category: "yatra", title: "Kedarnath Shivalinga Yatra", subtitle: "Devotees arriving at holy Kedarnath dham" },
+      { id: 4, src: "images/Gallery/Gallery-5.jpg", category: "temple", title: "Vedic Temple Architecture", subtitle: "Intricate stone carvings and sacred sanctum" },
+      { id: 5, src: "images/Gallery/Gallery-6.jpg", category: "yatra", title: "Holy Bath & Snanam", subtitle: "Devotees performing sacred pushkarini snanam" },
+      { id: 6, src: "images/Gallery/Gallery-7.jpg", category: "fleet", title: "Dodla's Luxury Coach on Highway", subtitle: "All-India 2x2 AC Pushback deluxe coach" },
+      { id: 7, src: "images/Gallery/Gallery-8.jpg", category: "group", title: "Joyful Devotee Family", subtitle: "Pilgrim group receiving divine blessings" },
+      { id: 8, src: "images/Gallery/Gallery-9.jpg", category: "temple", title: "Rameswaram Teertha Corridor", subtitle: "Corridor of thousand pillars and holy teerthams" },
+      { id: 9, src: "images/Gallery/Gallery-10.jpg", category: "holiday", title: "Mountain Valley Excursion", subtitle: "Snowy peaks and tranquil mountain trails" },
+      { id: 10, src: "images/Gallery/Gallery-11.jpg", category: "yatra", title: "Amarnath Ice Cave Route", subtitle: "Baltal to sacred cave pilgrim trail" },
+      { id: 11, src: "images/Gallery/Gallery-12.jpg", category: "temple", title: "South Indian Gopuram Kalasam", subtitle: "Golden kalasam and Dravidian architectural splendor" },
+      { id: 12, src: "images/Gallery/Gallery-13.jpg", category: "group", title: "Satvik Dining Kitchen", subtitle: "Pure vegetarian satvik meals served fresh daily" },
+      { id: 13, src: "images/Gallery/Gallery-14.jpg", category: "yatra", title: "Badrinath Valley Yatra", subtitle: "Nar-Narayan mountain ranges and Alaknanda" },
+      { id: 14, src: "images/Gallery/Gallery-15.jpg", category: "holiday", title: "Heritage Forts & Palaces", subtitle: "Historical exploration on family holiday tour" },
+      { id: 15, src: "images/Gallery/Gallery-16.jpg", category: "temple", title: "Sacred Temple Sanctum", subtitle: "Blessed shrine darshan on pilgrimage tour" },
+      { id: 16, src: "images/Gallery/Gallery-17.jpg", category: "holiday", title: "Dubai Skyline & Desert Safari", subtitle: "International desert adventures and modern wonders" },
+      { id: 17, src: "images/Gallery/Gallery-18.jpg", category: "group", title: "Devotee Satsangam Gathering", subtitle: "Evening bhajan and devotional fellowship" },
+      { id: 18, src: "images/Gallery/Gallery-19.jpg", category: "fleet", title: "Fleet Comfort & Safety", subtitle: "Spacious recliner seating and air suspension" },
+      { id: 19, src: "images/Gallery/Gallery-20.jpg", category: "holiday", title: "Bhutan Monastery Valley", subtitle: "Tiger's Nest panoramic view and Himalayan pines" },
+      { id: 20, src: "images/Gallery/Gallery-21.jpg", category: "temple", title: "Vaishnava Divya Desam", subtitle: "Perumal darshan at sacred ancient divya desam" },
+      { id: 21, src: "images/Gallery/Gallery-22.jpg", category: "yatra", title: "Ganga Aarti at Haridwar", subtitle: "Evening lamps floating down Mother Ganga" },
+      { id: 22, src: "images/Gallery/Gallery-23.jpg", category: "group", title: "Senior Devotee Care", subtitle: "Personal attention and comfortable travel for elders" },
+      { id: 23, src: "images/Gallery/Gallery-24.jpg", category: "yatra", title: "Kailash Manasarovar Lake", subtitle: "Sacred holy waters and turquoise mountain reflections" },
+      { id: 24, src: "images/Gallery/Gallery.jpg", category: "temple", title: "Sacred Shrine Pilgrimage", subtitle: "Ancient temple architecture and deity darshan" },
+      { id: 25, src: "images/Gallery/Market.jpg", category: "holiday", title: "Vijayawada Cultural Heritage", subtitle: "Kaleswara Rao Market & historic city sights" },
+      { id: 26, src: "images/Gallery/golden.JPG", category: "temple", title: "Golden Temple Amritsar", subtitle: "Sri Harmandir Sahib gleaming over the sacred Amrit Sarovar" },
+      { id: 27, src: "images/Gallery/mukti.jpg", category: "temple", title: "Muktinath Temple Nepal", subtitle: "Sacred 108 water spouts and Muktidham shrine" },
+      { id: 28, src: "images/Gallery/manakaman.jpg", category: "temple", title: "Manakamana Temple Nepal", subtitle: "Sacred wish-fulfilling goddess shrine in Gorkha" },
+      { id: 29, src: "images/Gallery/raghunath.jpg", category: "temple", title: "Raghunath Temple Jammu", subtitle: "Historic complex dedicated to Lord Rama" },
+      { id: 30, src: "images/Gallery/rock.jpg", category: "temple", title: "Rock Fort Ucchi Pillayar", subtitle: "Ancient rock-cut temple fortress in Tiruchirappalli" },
+      { id: 31, src: "images/Gallery/surya.JPG", category: "temple", title: "Konark Sun Temple", subtitle: "Magnificent stone chariot wheels of the Surya Devalaya" },
+      { id: 32, src: "images/Gallery/gorakhnath.jpg", category: "temple", title: "Gorakhnath Temple", subtitle: "Revered Nath tradition peeth and pilgrimage center" },
+      { id: 33, src: "images/Gallery/naina.jpg", category: "temple", title: "Naina Devi Temple", subtitle: "Sacred Shakti Peeth overlooking Gobind Sagar Lake" },
+      { id: 34, src: "images/Gallery/chamunda.jpg", category: "temple", title: "Chamunda Devi Temple", subtitle: "Himachal Shakti shrine amidst Baner river cascades" },
+      { id: 35, src: "images/Gallery/bakra.jpg", category: "temple", title: "Bakra Devi Kshetra", subtitle: "Devotee darshan on Himalayan pilgrimage trail" },
+      { id: 36, src: "images/Gallery/sankarchraya.jpg", category: "temple", title: "Shankaracharya Temple Srinagar", subtitle: "Ancient hilltop Shiva shrine overlooking Dal Lake" },
+      { id: 37, src: "images/Gallery/sankari.jpg", category: "temple", title: "Sankari Devi Trincomalee", subtitle: "Shakthi Peeth along the Sri Lankan Ramayana trail" },
+      { id: 38, src: "images/Gallery/sri-mata-chintpurni-devi-.jpg", category: "temple", title: "Chintpurni Devi Temple", subtitle: "Sacred Chhinnamastika Shakti Peeth in Una" },
+      { id: 39, src: "images/Gallery/varahi.jpg", category: "temple", title: "Varahi Devi Temple", subtitle: "Sacred shrine on devotional temple circuit" },
+      { id: 40, src: "images/Gallery/ak5.jpg", category: "yatra", title: "Amarnath Valley Trek", subtitle: "Pilgrims ascending the sacred mountain trail" },
+      { id: 41, src: "images/Gallery/ak6.jpg", category: "yatra", title: "Kashmir Valley Landscape", subtitle: "Lush meadows and pine-clad hills of Kashmir" },
+      { id: 42, src: "images/Gallery/ak7.jpg", category: "yatra", title: "Pilgrim Basecamp at Baltal", subtitle: "Tents and pilgrim amenities along Sindh river" },
+      { id: 43, src: "images/Gallery/ak8.jpg", category: "yatra", title: "Himalayan Glacial Stream", subtitle: "Pure alpine streams along the holy cave trek" },
+      { id: 44, src: "images/Gallery/nm1.jpg", category: "yatra", title: "Nepal Muktinath Expedition", subtitle: "Yatris traveling through the Mustang Himalayan valley" },
+      { id: 45, src: "images/Gallery/nm2.jpg", category: "yatra", title: "Annapurna Range Panorama", subtitle: "Majestic snow-clad peaks of the Himalayas" },
+      { id: 46, src: "images/Gallery/nm3.jpg", category: "temple", title: "Pashupatinath Sacred Complex", subtitle: "UNESCO world heritage Bagmati river ghats" },
+      { id: 47, src: "images/Gallery/nm4.jpg", category: "yatra", title: "Pokhara Phewa Lake", subtitle: "Serene boat cruise with Machapuchare reflections" },
+      { id: 48, src: "images/Gallery/nm6.jpeg", category: "holiday", title: "Kathmandu Heritage Square", subtitle: "Ancient pagoda architecture and pagoda palaces" },
+      { id: 49, src: "images/Gallery/nm8.jpg", category: "yatra", title: "High-Altitude Himalayan Path", subtitle: "Devotees journeying through sacred mountain passes" },
+      { id: 50, src: "images/Gallery/nmgallery1.jpg", category: "temple", title: "Sacred Spouts of Muktidham", subtitle: "Holy cleansing waters of the 108 Gomukhi spouts" },
+      { id: 51, src: "images/Gallery/nmgallery2.jpg", category: "yatra", title: "Thorong La & Nilgiri Vistas", subtitle: "Dramatic Himalayan peaks rising above the valley" },
+      { id: 52, src: "images/Gallery/nmgallery3.jpg", category: "group", title: "Nepal Tour Pilgrim Group", subtitle: "Dodla yatris gathered with tour managers in Nepal" },
+      { id: 53, src: "images/Gallery/nmgallery4.jpg", category: "temple", title: "Traditional Newari Shrine", subtitle: "Intricately carved woodcraft of Kathmandu temples" },
+      { id: 54, src: "images/Gallery/nmgallery5.jpg", category: "holiday", title: "Himalayan Sunrise View", subtitle: "Golden rays breaking over the high mountain summits" },
+      { id: 55, src: "images/Gallery/nmgallery6.jpg", category: "temple", title: "Sacred Saligram Riverbed", subtitle: "Kali Gandaki valley search for holy Saligram stones" },
+      { id: 56, src: "images/luxury/about_bus.jpg", category: "fleet", title: "Dodla's Luxury Fleet Coach", subtitle: "Comfortable all-India AC pushback yatra coach" },
+      { id: 57, src: "images/Reservation/luxury.jpg", category: "fleet", title: "Deluxe Yatra Coach Seating", subtitle: "Ergonomic wide 2x2 pushback seating with luggage space" },
+      { id: 58, src: "images/Reservation/family.jpg", category: "group", title: "Joyful Devotee Family", subtitle: "Devotee family blessed on their sacred pilgrimage" },
+      { id: 59, src: "images/Reservation/family1.jpg", category: "group", title: "Pilgrim Tour Group Reunion", subtitle: "Happy yatris sharing memories across holy shrines" },
+      { id: 60, src: "images/Reservation/family2.jpeg", category: "group", title: "Devotees on Sacred Yatra", subtitle: "Senior citizens and families traveling together with care" },
+      { id: 61, src: "images/Reservation/family3.jpg", category: "group", title: "Blessed Devotee Gathering", subtitle: "Community fellowship and devotional satsang" },
+      { id: 62, src: "images/north/akshardham-1-newdelhi.jpg", category: "temple", title: "Swaminarayan Akshardham Delhi", subtitle: "Magnificent hand-carved stone temple complex" },
+      { id: 63, src: "images/north/haridwar.jpg", category: "yatra", title: "Haridwar Har Ki Pauri", subtitle: "Spiritual epicenter of sacred river cleansing" },
+      { id: 64, src: "images/amarnadh/gulmarg.jpg", category: "holiday", title: "Gulmarg Meadow of Flowers", subtitle: "Famous Gondola ride and snowfields of Kashmir" },
+      { id: 65, src: "images/north/tajmahal.jpg", category: "holiday", title: "Taj Mahal World Wonder", subtitle: "Iconic white marble monument on North India circuit" },
+      { id: 66, src: "images/south/Brihadeeswara_temple_Thanjavur.jpg", category: "temple", title: "Brihadeeswara Temple Thanjavur", subtitle: "Great Living Chola Temple with massive granite vimana" },
+      { id: 67, src: "images/south/madurai.jpg", category: "temple", title: "Madurai Meenakshi Temple", subtitle: "Spectacular sculpted towers of the historic Pandya shrine" },
+      { id: 68, src: "images/south/rameswaram.jpg", category: "temple", title: "Rameswaram Sacred Shrine", subtitle: "Jyotirlinga temple blessed by Lord Sri Rama" },
+      { id: 69, src: "images/south/Sri_Padmanabhaswamy_temple.jpg", category: "temple", title: "Sri Padmanabhaswamy Temple", subtitle: "Ancient majestic temple of Lord Vishnu in Trivandrum" },
+      { id: 70, src: "images/south/kanchi_kamakshi_temple.jpg", category: "temple", title: "Kanchi Kamakshi Amman Temple", subtitle: "One of the 51 Shakthi Peethams in Kanchipuram" },
+      { id: 71, src: "images/south/kanyakumari1.jpg", category: "holiday", title: "Kanyakumari Rock Memorial", subtitle: "Triveni Sangam confluence of three holy seas" },
+    ];
+
+    let currentCategory = 'all';
+    let visibleIndices = galleryItems.map(item => item.id);
+    let currentModalIndex = 0;
+
+    // Filter gallery by category
+    function filterGallery(category, buttonEl) {
+      currentCategory = category;
+      
+      // Update active tab styling
+      const tabs = document.querySelectorAll('.filter-tab-btn');
+      tabs.forEach(t => t.classList.remove('active'));
+      if (buttonEl) buttonEl.classList.add('active');
+
+      const cards = document.querySelectorAll('.gallery-card-lux');
+      visibleIndices = [];
+
+      cards.forEach(card => {
+        const itemCat = card.getAttribute('data-category');
+        const itemIdx = parseInt(card.getAttribute('data-index'), 10);
+        
+        if (category === 'all' || itemCat === category) {
+          card.style.display = 'block';
+          visibleIndices.push(itemIdx);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Open lightbox at specific item index
+    function openLightboxByIndex(itemIndex) {
+      const modal = document.getElementById('galleryModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const modalSub = document.getElementById('modalSubCaption');
+      const modalCounter = document.getElementById('modalCounter');
+
+      // Find position of this item in current visible list
+      let posInVisible = visibleIndices.indexOf(itemIndex);
+      if (posInVisible === -1) {
+        // Fallback: reset filter to all if user clicked a card not currently in visible list
+        visibleIndices = galleryItems.map(item => item.id);
+        posInVisible = visibleIndices.indexOf(itemIndex);
+      }
+
+      currentModalIndex = posInVisible >= 0 ? posInVisible : 0;
+      updateLightboxDisplay();
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Direct open helper for backward compatibility
+    function openLightbox(src, title, sub) {
+      const foundIdx = galleryItems.findIndex(i => i.src === src);
+      if (foundIdx !== -1) {
+        openLightboxByIndex(foundIdx);
+      } else {
+        const modal = document.getElementById('galleryModal');
+        document.getElementById('modalImg').src = src;
+        document.getElementById('modalCaption').textContent = title || '';
+        document.getElementById('modalSubCaption').textContent = sub || '';
+        document.getElementById('modalCounter').textContent = '';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Update modal contents for current index in visible list
+    function updateLightboxDisplay() {
+      if (!visibleIndices.length) return;
+      const itemId = visibleIndices[currentModalIndex];
+      const item = galleryItems[itemId];
+      if (!item) return;
+
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const modalSub = document.getElementById('modalSubCaption');
+      const modalCounter = document.getElementById('modalCounter');
+
+      modalImg.style.opacity = '0.3';
+      modalImg.src = item.src;
+      modalImg.alt = item.title;
+      modalCaption.textContent = item.title;
+      modalSub.textContent = item.subtitle;
+      modalCounter.textContent = 'PHOTO ' + (currentModalIndex + 1) + ' OF ' + visibleIndices.length;
+
+      modalImg.onload = function() {
+        modalImg.style.transition = 'opacity 0.25s ease';
+        modalImg.style.opacity = '1';
+      };
+    }
+
+    // Navigate next or previous
+    function navigateLightbox(direction) {
+      if (!visibleIndices.length) return;
+      currentModalIndex = (currentModalIndex + direction + visibleIndices.length) % visibleIndices.length;
+      updateLightboxDisplay();
+    }
+
+    // Close lightbox
+    function closeLightboxDirect() {
+      const modal = document.getElementById('galleryModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdrop(e) {
+      if (e.target.id === 'galleryModal') {
+        closeLightboxDirect();
+      }
+    }
+
+    // Keyboard navigation (Escape, ArrowLeft, ArrowRight)
+    document.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('galleryModal');
+      if (!modal || !modal.classList.contains('active')) return;
+
+      if (e.key === 'Escape') {
+        closeLightboxDirect();
+      } else if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateLightbox(1);
+      }
+    });
+
+    // Touch swipe support for mobile
+    (function initMobileTouch() {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const modal = document.getElementById('galleryModal');
+      if (!modal) return;
+
+      modal.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      modal.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const threshold = 40;
+        if (touchEndX < touchStartX - threshold) {
+          navigateLightbox(1); // Swipe left -> next
+        } else if (touchEndX > touchStartX + threshold) {
+          navigateLightbox(-1); // Swipe right -> prev
+        }
+      }
+    })();
+  </script>
+
 </body>
 </html>
