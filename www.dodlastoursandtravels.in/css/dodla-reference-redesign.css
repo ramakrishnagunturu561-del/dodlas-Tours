@@ -356,7 +356,7 @@ img {
 }
 
 .btn-outline-pill {
-  background-color: #FFFFFF;
+  background-color: transparent;
   color: var(--color-coffee-heading);
   font-size: 13.5px;
   font-weight: 600;
@@ -365,16 +365,40 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid var(--color-coffee-border);
+  border: 1.5px solid var(--color-coffee-border);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn-outline-pill:hover {
-  background-color: var(--bg-cream);
+  background-color: var(--color-gold-amber);
   border-color: var(--color-gold-amber);
-  color: var(--color-gold-amber);
+  color: #FFFFFF;
   transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #D4AF37 !important;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  background-color: #D4AF37 !important;
+  border-color: #D4AF37 !important;
+  color: #2A170F !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
 }
 
 .mobile-nav-toggle {
