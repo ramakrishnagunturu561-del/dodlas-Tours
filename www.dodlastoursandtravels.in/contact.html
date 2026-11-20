@@ -494,6 +494,30 @@
           });
         });
       }
+
+      // Handle Direct Office Contact Form -> WhatsApp
+      window.handleContactSubmit = function(e) {
+        if (e) e.preventDefault();
+        const name = document.getElementById('cName')?.value.trim() || '';
+        const mobile = document.getElementById('cMobile')?.value.trim() || '';
+        const email = document.getElementById('cEmail')?.value.trim() || '';
+        const tour = document.getElementById('cTour')?.value.trim() || '';
+        const travellers = document.getElementById('cTravellers')?.value.trim() || '';
+        const month = document.getElementById('cMonth')?.value.trim() || '';
+        const message = document.getElementById('cMessage')?.value.trim() || '';
+
+        let msg = "Namaste Dodla's Tours & Travels,\nI would like to contact your Vijayawada Head Office:";
+        if (name) msg += "\n*Name:* " + name;
+        if (mobile) msg += "\n*Mobile Number:* " + mobile;
+        if (email) msg += "\n*Email:* " + email;
+        if (tour) msg += "\n*Tour of Interest:* " + tour;
+        if (travellers) msg += "\n*Number of Travellers:* " + travellers;
+        if (month) msg += "\n*Expected Travel Month:* " + month;
+        if (message) msg += "\n*Special Requests / Message:* " + message;
+
+        const waUrl = "https://api.whatsapp.com/send?phone=919848124759&text=" + encodeURIComponent(msg);
+        window.open(waUrl, '_blank');
+      };
     })();
   </script>
 </body>

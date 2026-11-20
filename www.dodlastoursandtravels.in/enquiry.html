@@ -619,6 +619,52 @@
           });
         });
       }
+
+      // WhatsApp Instant Enquiry Button Handler
+      const btnWhatsAppSubmit = document.getElementById('btnWhatsAppSubmit');
+      if (btnWhatsAppSubmit) {
+        btnWhatsAppSubmit.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pkg = document.getElementById('tourPackage')?.value || '';
+          const month = document.getElementById('travelMonth')?.value || '';
+          const travellers = document.getElementById('travelersCount')?.value || '';
+          const food = document.getElementById('foodPref')?.value || '';
+          const room = document.getElementById('roomPref')?.value || '';
+          const name = document.getElementById('devoteeName')?.value || '';
+          const mobile = document.getElementById('devoteeMobile')?.value || '';
+          const city = document.getElementById('devoteeCity')?.value || '';
+          const seniors = document.getElementById('seniorCount')?.value || '';
+          const special = document.getElementById('specialNeeds')?.value || '';
+
+          let msg = "Namaste Dodla's Tours & Travels,\nI would like to enquire about a tour package:";
+          if (pkg) msg += "\n*Package:* " + pkg;
+          if (month) msg += "\n*Travel Month/Date:* " + month;
+          if (travellers) msg += "\n*Devotees / Travellers:* " + travellers;
+          if (food) msg += "\n*Food Preference:* " + food;
+          if (room) msg += "\n*Room Occupancy:* " + room;
+          if (name) msg += "\n*Full Name:* " + name;
+          if (mobile) msg += "\n*Mobile Number:* " + mobile;
+          if (city) msg += "\n*City:* " + city;
+          if (seniors) msg += "\n*Senior Citizens (60+):* " + seniors;
+          if (special) msg += "\n*Special Requests:* " + special;
+
+          const waUrl = "https://api.whatsapp.com/send?phone=919848124759&text=" + encodeURIComponent(msg);
+          window.open(waUrl, '_blank');
+        });
+      }
+
+      // Online form submission confirmation
+      const bespokeForm = document.getElementById('bespokeEnquiryForm');
+      if (bespokeForm) {
+        bespokeForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const successMsg = document.getElementById('enquirySuccessMsg');
+          if (successMsg) {
+            successMsg.style.display = 'block';
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      }
     })();
   </script>
 </body>

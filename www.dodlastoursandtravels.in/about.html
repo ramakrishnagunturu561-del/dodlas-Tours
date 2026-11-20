@@ -4,23 +4,239 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Dodla's Tours &amp; Travels (Est. 1962)</title>
-  <meta name="description" content="About Dodla's Tours & Travels. Founded in 1962 by Yatra Tapasvi Dodla Ramarao, managed by Dodla Hemanth Kumar. Approved by Department of Tourism, Government of India.">
+  <title>About Us — Dodla's Tours &amp; Travels (Since 1962)</title>
+  <meta name="description" content="About Dodla's Tours & Travels. Established in 1962 under the leadership of Yatra Tapasvi Dodla Ramarao and management of Dodla Hemanth Kumar. Approved by Department of Tourism, Government of India.">
   <link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dodla-reference-redesign.css">
+  <style>
+    /* Two-Image Automatic Slideshow Styling */
+    .about-slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid #E5D5AA;
+      box-shadow: 0 16px 36px rgba(6, 31, 22, 0.12);
+      background: #061F16;
+    }
+
+    .about-slide-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .about-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      transform: scale(1.02);
+      display: block;
+    }
+
+    .about-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .about-slide-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(6, 31, 22, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FAF6F0;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      z-index: 10;
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slideshow-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      background: rgba(6, 31, 22, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      color: #FAF6F0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+      outline: none;
+      padding: 0;
+    }
+
+    .slideshow-nav-arrow:hover {
+      background: #C5A059;
+      border-color: #D4AF37;
+      color: #061F16;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .slideshow-nav-arrow.prev { left: 16px; }
+    .slideshow-nav-arrow.next { right: 16px; }
+
+    .slideshow-dots-wrap {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      z-index: 12;
+      background: rgba(6, 31, 22, 0.7);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .slideshow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slideshow-dot.active {
+      width: 24px;
+      border-radius: 10px;
+      background: #C5A059;
+      border-color: #D4AF37;
+    }
+
+    /* Trust highlights bar */
+    .about-trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #E5D5AA;
+    }
+
+    .about-trust-item {
+      text-align: left;
+    }
+
+    .about-trust-val {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: #0A2E20;
+      margin-bottom: 2px;
+    }
+
+    .about-trust-lbl {
+      font-size: 11.5px;
+      color: #7A6548;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    /* Gallery cards in About Us */
+    .about-gallery-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #E5D5AA;
+      box-shadow: 0 4px 18px rgba(6, 31, 22, 0.06);
+      background: #FFFFFF;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(6, 31, 22, 0.12);
+    }
+
+    .about-gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #F4EDE2;
+    }
+
+    .about-gallery-info {
+      padding: 16px 18px;
+    }
+
+    .about-gallery-title {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: #0A2E20;
+      margin: 0 0 4px 0;
+    }
+
+    .about-gallery-desc {
+      font-size: 12.5px;
+      color: #5A7365;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    @media (max-width: 991px) {
+      .about-slideshow-container {
+        height: 340px;
+      }
+      .about-trust-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-slideshow-container {
+        height: 270px;
+      }
+      .about-slide-caption {
+        bottom: 14px;
+        left: 14px;
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+      .slideshow-dots-wrap {
+        bottom: 14px;
+        right: 14px;
+      }
+      .slideshow-nav-arrow {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-        <!-- ==========================================================================
-       1. TOP CONTACT BAR
-       ========================================================================== -->
-    <!-- ==========================================================================
-       1. TOP CONTACT BAR (Deep Forest Green #0A2E20)
-       ========================================================================== -->
-    <!-- ==========================================================================
+  <!-- ==========================================================================
        1. TOP CONTACT BAR (Deep Forest Green #0A2E20)
        ========================================================================== -->
   <div class="luxury-topbar">
@@ -43,7 +259,7 @@
         <div class="luxury-topbar-right">
           <span style="display:inline-flex; align-items:center; gap:6px; color:#D4AF37; font-weight:700; font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            EST. 1962 &bull; 64 YEARS OF SACRED SERVICE
+            EST. 1962 &bull; SACRED SERVICE ACROSS INDIA
           </span>
         </div>
       </div>
@@ -51,13 +267,7 @@
   </div>
 
   <!-- ==========================================================================
-       2. NAVIGATION BAR
-       ========================================================================== -->
-    <!-- ==========================================================================
-       2. NAVIGATION BAR
-       ========================================================================== -->
-    <!-- ==========================================================================
-       2. NAVIGATION BAR
+       2. NAVIGATION BAR (Single Horizontal Row Desktop Layout)
        ========================================================================== -->
   <header class="luxury-navbar-wrap">
     <div class="luxury-container">
@@ -140,14 +350,14 @@
   </header>
 
   <!-- ==========================================================================
-       INNER PAGE BANNER (CREAM + ANTIQUE GOLD + COFFEE BROWN)
+       3. INNER PAGE BANNER (CREAM + CHAMPAGNE GOLD + DEEP FOREST GREEN)
        ========================================================================== -->
   <section class="inner-page-banner">
     <div class="luxury-container">
       <div class="inner-banner-content">
-        <span class="inner-banner-badge">Founded 1962 &bull; Vijayawada</span>
+        <span class="inner-banner-badge">Established in 1962 &bull; Since 1962</span>
         <h1 class="inner-banner-title">About Dodla's Tours &amp; Travels</h1>
-        <p class="inner-banner-desc">Six decades of devotion, authentic itineraries, and trusted service under the stewardship of Dodla's Tours &amp; Travels.</p>
+        <p class="inner-banner-desc">Conducted under the leadership of Yatra Tapasvi Dodla Ramarao with the dedicated management of his elder son Dodla Hemanth Kumar.</p>
         <div class="inner-banner-breadcrumbs">
           <a href="index.html">Home</a>
           <span>/</span>
@@ -158,46 +368,110 @@
   </section>
 
   <!-- ==========================================================================
-       COMPANY HISTORY & FOUNDER LEGACY (VERBATIM FROM DODLA-BACKUP)
+       4. LEADERSHIP, ESTABLISHMENT & TWO-IMAGE SLIDESHOW
        ========================================================================== -->
   <section style="padding: 70px 0; background: #FAF6F0;">
     <div class="luxury-container">
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;">
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
+        
+        <!-- Left: Leadership & Establishment Content -->
         <div>
-          <span class="section-badge">Establishment 1962</span>
-          <h2 class="section-heading-primary" style="margin-bottom: 20px;">The Pioneer in Devotional Pilgrimage Excellence</h2>
-          <p style="font-size: 15.5px; color: #1E382B; line-height: 1.8; margin-bottom: 18px;">
-            From past 52 years without any failures the tours were conducted by <strong>YATRA TAPASVI DODLA RAMARAO</strong>, under the successful maintenance of his elder son <strong>DODLA HEMANTH KUMAR</strong>.
+          <span class="section-badge">Leadership &amp; Heritage &bull; Since 1962</span>
+          <h2 class="section-heading-primary" style="margin-bottom: 22px;">Six Decades of Devotional Leadership &amp; Sacred Service</h2>
+          
+          <p style="font-size: 16px; color: #1E382B; line-height: 1.85; margin-bottom: 18px;">
+            Dodla's Tours &amp; Travels has been conducting pilgrimage tours under the leadership of <strong>Yatra Tapasvi Dodla Ramarao</strong>, with the successful management of his elder son <strong>Dodla Hemanth Kumar</strong>.
           </p>
-          <p style="font-size: 15.5px; color: #1E382B; line-height: 1.8; margin-bottom: 22px;">
-            The pilgrims are participating in tour not only from Andhra Pradesh and from so many other places across India. This makes us happy and thank you for such a great support.
+          
+          <p style="font-size: 15.5px; color: #1E382B; line-height: 1.8; margin-bottom: 24px;">
+            Pilgrims participate in our tours not only from Andhra Pradesh but also from many other places across India. We are grateful for their continued support.
           </p>
-          <div style="background: #FFFFFF; border-left: 4px solid #C5A059; border-radius: 0 12px 12px 0; padding: 20px 24px; box-shadow: 0 4px 16px rgba(6, 31, 22,0.05); margin-bottom: 24px;">
-            <p style="font-style: italic; color: #0A2E20; font-size: 14.5px; line-height: 1.7; margin: 0 0 8px 0;">
-              &ldquo;Dodla Hemanth Kumar Tour &amp; Travels was formed in the year 1962. With unblemished devotion, our priority is providing peaceful darshans, hygienic travel, and personal care to every single pilgrim.&rdquo;
+
+          <!-- Establishment 1962 Box -->
+          <div style="background: #FFFFFF; border-left: 4px solid #C5A059; border-radius: 0 14px 14px 0; padding: 22px 26px; box-shadow: 0 4px 18px rgba(6, 31, 22, 0.05); margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+              <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">ESTABLISHMENT &mdash; 1962</h3>
+              <span style="background: #0A2E20; color: #D4AF37; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase;">Since 1962</span>
+            </div>
+            <p style="color: #1E382B; font-size: 15px; line-height: 1.7; margin: 0;">
+              <strong>Dodla Hemanth Kumar Tour &amp; Travels was formed in the year 1962.</strong> With dedicated guidance, ethical operations, and sacred devotion, we continue serving pilgrims and travellers with care, satvik dining, and comfortable transport across India.
             </p>
-            <span style="font-size: 12px; font-weight: 700; color: #C5A059; text-transform: uppercase; letter-spacing: 0.08em;">&mdash; Dodla Hemanth Kumar, Managing Director</span>
+          </div>
+
+          <!-- Trust Strip -->
+          <div class="about-trust-strip">
+            <div class="about-trust-item">
+              <div class="about-trust-val">1962</div>
+              <div class="about-trust-lbl">Established</div>
+            </div>
+            <div class="about-trust-item">
+              <div class="about-trust-val">1975</div>
+              <div class="about-trust-lbl">All-India Bus Tours</div>
+            </div>
+            <div class="about-trust-item">
+              <div class="about-trust-val">Govt. of India</div>
+              <div class="about-trust-lbl">Approved Tourism</div>
+            </div>
+            <div class="about-trust-item">
+              <div class="about-trust-val">PSA</div>
+              <div class="about-trust-lbl">Indian Airlines</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Two-Image Automatic Slideshow -->
+        <div>
+          <div class="about-slideshow-container" id="aboutSlideshow">
+            <div class="about-slide-wrapper">
+              <!-- Slide 1: Authentic Temple Gopuram (from images/About/about.jpg) -->
+              <img src="images/About/about.jpg" alt="Sacred South Indian Temple Gopuram - Dodla's Tours" class="about-slide active">
+              
+              <!-- Slide 2: Authentic Peaceful Heritage Retreat (from images/About/about-1.jpg) -->
+              <img src="images/About/about-1.jpg" alt="Serene Heritage Retreat - Dodla's Tours" class="about-slide">
+            </div>
+
+            <!-- Dynamic Slide Caption -->
+            <div class="about-slide-caption" id="slideCaption">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span id="captionText">Sacred Temple Gopuram Architecture</span>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="slideshow-nav-arrow prev" id="slidePrev" aria-label="Previous Slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slideshow-nav-arrow next" id="slideNext" aria-label="Next Slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <!-- Navigation Dots -->
+            <div class="slideshow-dots-wrap">
+              <span class="slideshow-dot active" data-index="0" title="Slide 1"></span>
+              <span class="slideshow-dot" data-index="1" title="Slide 2"></span>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; text-align: center;">
+            <span style="font-size: 12px; color: #7A6548; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+              Authentic Archive Photographs &bull; Auto-sliding every 4 seconds
+            </span>
           </div>
         </div>
 
-        <div>
-          <div style="border-radius: 18px; overflow: hidden; border: 2px solid #E5D5AA; box-shadow: 0 16px 36px rgba(6, 31, 22,0.12);">
-            <img src="images/luxury/heritage_vintage_bus.jpg" alt="Tirumala Sri Venkateswara Temple Gopuram" style="width: 100%; height: 380px; object-fit: cover; display: block;">
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       ALL AUTHENTIC ACCREDITATIONS & CORE SERVICES (FROM DODLA-BACKUP/ABOUT.HTML)
+       5. ALL AUTHENTIC ACCREDITATIONS & CORE SERVICES (VERBATIM ORIGINAL CONTENT)
        ========================================================================== -->
   <section style="padding: 70px 0; background: #FFFFFF; border-top: 1px solid #E5D5AA;">
     <div class="luxury-container">
       <div class="section-header-centered">
         <span class="section-badge">Credentials &amp; Operations</span>
         <h2 class="section-heading-primary">Official Accreditations &amp; Capabilities</h2>
-        <p class="section-subtext">Verified government recognition, transportation infrastructure, and travel capabilities.</p>
+        <p class="section-subtext">Verified government recognition, transportation infrastructure, and travel capabilities preserved from our founding charter.</p>
       </div>
 
       <div class="about-pillars-grid">
@@ -205,103 +479,151 @@
         <div class="about-pillar-card">
           <div class="about-pillar-num">01</div>
           <h3 class="about-pillar-title">Accreditations</h3>
-          <p class="about-pillar-desc"><strong>Approved by Department of Tourism, Government of India.</strong> Recognized for adherence to supreme safety standards, verified pilgrimage operations, and ethical management.</p>
+          <p class="about-pillar-desc">
+            <strong>Approved by Department of Tourism, Government of India.</strong> Recognized for adherence to supreme safety standards, verified pilgrimage operations, and ethical management across all-India circuits.
+          </p>
         </div>
 
-        <!-- 2. Bus Fleet Since 1975 -->
+        <!-- 2. Bus Tours Since 1975 -->
         <div class="about-pillar-card">
           <div class="about-pillar-num">02</div>
-          <h3 class="about-pillar-title">Buses Tours Since 1975</h3>
-          <p class="about-pillar-desc">Tours Bus was launched on <strong>1975 to all over India</strong>. AC Volvo buses are also available in our company for utmost comfort on long-distance highway circuits.</p>
+          <h3 class="about-pillar-title">Bus Tours</h3>
+          <p class="about-pillar-desc">
+            <strong>Tours Bus was launched in 1975 to all over India.</strong> AC Volvo buses are also available in our company for maximum comfort on long-distance highway circuits and mountain passes.
+          </p>
         </div>
 
         <!-- 3. Indian Airlines PSA -->
         <div class="about-pillar-card">
           <div class="about-pillar-num">03</div>
           <h3 class="about-pillar-title">Airlines Ticketing</h3>
-          <p class="about-pillar-desc">Company is <strong>Passenger Sales Agent for Indian Airlines</strong> and several other private airlines operating in international sectors, ensuring direct flight reservations.</p>
+          <p class="about-pillar-desc">
+            <strong>Company is Passenger Sales Agent for Indian Airlines</strong> and several other private airlines operating internationally, offering immediate ticket confirmations and international flight connections.
+          </p>
         </div>
 
         <!-- 4. Train Tours -->
         <div class="about-pillar-card">
           <div class="about-pillar-num">04</div>
           <h3 class="about-pillar-title">Train Tours</h3>
-          <p class="about-pillar-desc">Handling FIT and Groups of Cultural Interest Tours, Special Interest Tours, Incentive Tours, Business Travellers Tours, Conference and Convention from around the globe.</p>
+          <p class="about-pillar-desc">
+            Handling FIT and Groups of Cultural Interest Tours, Special Interest Tours, Incentive Tours, Business Travellers Tours, Conference and Convention from around the globe.
+          </p>
         </div>
 
         <!-- 5. Transport Fleet -->
         <div class="about-pillar-card">
           <div class="about-pillar-num">05</div>
           <h3 class="about-pillar-title">Transport Fleet</h3>
-          <p class="about-pillar-desc">We have a large fleet of vehicles which include Large and mini coaches, Tempo Traveller (MacroVan), Toyota Innova, and Chevrolet Tavera Cars. Transport on water is also available.</p>
+          <p class="about-pillar-desc">
+            We have a large fleet of vehicles which include large and mini coaches, Tempo Traveller, Toyota Innova and Chevrolet Tavera cars. We also work with transport providers to arrange vehicles for conferences and charter movements. Transport on water is also available.
+          </p>
         </div>
 
         <!-- 6. Multilingual Escorts -->
         <div class="about-pillar-card">
           <div class="about-pillar-num">06</div>
-          <h3 class="about-pillar-title">Language Speaking Guides</h3>
-          <p class="about-pillar-desc">We have on our panel highly qualified and experienced guides and escorts for various languages like Italian, French, German, Spanish, Japanese, Russian, Chinese etc.</p>
+          <h3 class="about-pillar-title">Language Speaking Guides / Escorts</h3>
+          <p class="about-pillar-desc">
+            We have highly qualified and experienced guides and escorts for various languages like Italian, French, German, Spanish, Japanese, Russian and Chinese, providing personalized services to customers.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       PHOTO GALLERY OF OUR HERITAGE & JOURNEYS
+       6. AUTHENTIC COMPANY FLEET & OPERATIONS GALLERY
        ========================================================================== -->
   <section style="padding: 70px 0; background: #FAF6F0; border-top: 1px solid #E5D5AA;">
     <div class="luxury-container">
       <div class="section-header-centered">
-        <span class="section-badge">Historic Archive</span>
-        <h2 class="section-heading-primary">Glimpses of Our Devotional Heritage</h2>
-        <p class="section-subtext">Authentic photographs of pilgrims, destinations, and coaches across our decades of service.</p>
+        <span class="section-badge">Original Travel Archive</span>
+        <h2 class="section-heading-primary">Authentic Fleet &amp; Field Operations</h2>
+        <p class="section-subtext">Original photographs from Dodla's Tours &amp; Travels archives showcasing transport fleet, multilingual escorts, and sacred journeys.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E5D5AA; box-shadow: 0 4px 16px rgba(6, 31, 22,0.06); background: #FFFFFF;">
-          <img src="images/Reservation/badrinath.jpg" alt="Pilgrims with Dodla's Tours" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        
+        <!-- Image 1: Original Fleet Lineup (about-23.jpg) -->
+        <div class="about-gallery-card">
+          <img src="images/About/about-23.jpg" alt="Dodla's Transport Fleet - Swift Dzire, Toyota Innova, Tata Indigo, Chevrolet Tavera, Tempo Traveller">
+          <div class="about-gallery-info">
+            <h4 class="about-gallery-title">Company Transport Fleet</h4>
+            <p class="about-gallery-desc">Tempo Traveller, Toyota Innova, Chevrolet Tavera, Swift Dzire &amp; large/mini coaches for pilgrimages and group charters.</p>
+          </div>
         </div>
-        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E5D5AA; box-shadow: 0 4px 16px rgba(6, 31, 22,0.06); background: #FFFFFF;">
-          <img src="images/About/about3.jpg" alt="Sacred Pilgrimage Temple" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+
+        <!-- Image 2: Original Multilingual Guide (about21.jpg) -->
+        <div class="about-gallery-card">
+          <img src="images/About/about21.jpg" alt="Language Speaking Guides and Escorts - Dodla's Tours">
+          <div class="about-gallery-info">
+            <h4 class="about-gallery-title">Language Speaking Escorts</h4>
+            <p class="about-gallery-desc">Experienced guides providing personalized service in Italian, French, German, Spanish, Japanese, Russian &amp; Chinese.</p>
+          </div>
         </div>
-        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E5D5AA; box-shadow: 0 4px 16px rgba(6, 31, 22,0.06); background: #FFFFFF;">
-          <img src="images/About/about-23.jpg" alt="Scenic Himalayan Darshan" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+
+        <!-- Image 3: Original Travel Infrastructure (about3.jpg) -->
+        <div class="about-gallery-card">
+          <img src="images/About/about3.jpg" alt="Air, Rail and Road Infrastructure - Dodla's Tours">
+          <div class="about-gallery-info">
+            <h4 class="about-gallery-title">Multi-Modal Travel Network</h4>
+            <p class="about-gallery-desc">Passenger Sales Agent for Indian Airlines, all-India rail group handling, and AC Volvo bus fleet operations since 1975.</p>
+          </div>
         </div>
-        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E5D5AA; box-shadow: 0 4px 16px rgba(6, 31, 22,0.06); background: #FFFFFF;">
-          <img src="images/About/about21.jpg" alt="Dodla's Tours Group" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+
+        <!-- Image 4: Devotees on Sacred Yatra (badrinath.jpg) -->
+        <div class="about-gallery-card">
+          <img src="images/Reservation/badrinath.jpg" alt="Devotees on Sacred Pilgrimage Yatra">
+          <div class="about-gallery-info">
+            <h4 class="about-gallery-title">Sacred Pilgrimage Yatras</h4>
+            <p class="about-gallery-desc">Thousands of devotees from Andhra Pradesh and across India experiencing blissful and peaceful temple darshans.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       FINANCIAL STRENGTH & HEAD OFFICE (FROM DODLA-BACKUP)
+       7. FINANCIALS & REGISTERED HEAD OFFICE (ORIGINAL DATA)
        ========================================================================== -->
-  <section style="padding: 60px 0; background: #FFFFFF; border-top: 1px solid #E5D5AA;">
+  <section style="padding: 70px 0; background: #FFFFFF; border-top: 1px solid #E5D5AA;">
     <div class="luxury-container">
       <div style="background: #FFFDF9; border: 1px solid #E5D5AA; border-radius: 18px; padding: 36px 40px; box-shadow: 0 10px 24px rgba(6, 31, 22,0.04); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        
+        <!-- Left: Financials Statement -->
         <div>
           <span class="section-badge">Financial Stability</span>
-          <h3 style="font-family: var(--font-serif); font-size: 24px; color: #0A2E20; margin: 10px 0 12px;">Rock-Solid Financial Base</h3>
-          <p style="font-size: 14.5px; color: #1E382B; line-height: 1.7; margin-bottom: 14px;">
-            Company has a very Great financial base. With six unbroken decades of trust, we own and manage our dedicated vehicles, maintain direct hotel relations across India, and ensure zero compromise on quality or safety.
+          <h3 style="font-family: var(--font-serif); font-size: 26px; color: #0A2E20; margin: 10px 0 14px;">Rock-Solid Financial Base</h3>
+          <p style="font-size: 16px; color: #1E382B; line-height: 1.8; margin-bottom: 14px;">
+            <strong>Company has a very great financial base.</strong>
           </p>
-          <p style="font-size: 13.5px; color: #4E6B5E;">
-            Approved by Department of Tourism &bull; Govt. of India &bull; Est. 1962
+          <p style="font-size: 14.5px; color: #3A5545; line-height: 1.7; margin-bottom: 20px;">
+            Built over six decades of continuous service since 1962, our strong capital foundation and unblemished track record guarantee that every booking, hotel reservation, fleet movement, and customized yatra is executed without failure.
           </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="fixeddeparture.html" class="btn-card-details" style="padding: 11px 22px; font-size: 13.5px;">
+              View Fixed Departures &rarr;
+            </a>
+            <a href="enquiry.html" class="btn-gold-pill" style="padding: 11px 22px; font-size: 13.5px;">
+              <span>Enquire for Custom Tour</span>
+            </a>
+          </div>
         </div>
 
-        <div style="border-left: 1px solid #E5D5AA; padding-left: 36px;">
-          <span class="section-badge">Head Office Details</span>
-          <h4 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 10px 0 12px;">Vijayawada Registered Office</h4>
+        <!-- Right: Registered Head Office -->
+        <div style="background: #FFFFFF; border: 1px solid #E5D5AA; border-radius: 14px; padding: 26px 28px; box-shadow: 0 4px 16px rgba(6, 31, 22,0.04);">
+          <span class="section-badge" style="margin-bottom: 8px;">Registered Headquarters</span>
+          <h4 style="font-family: var(--font-serif); font-size: 20px; color: #0A2E20; margin: 10px 0 12px;">Vijayawada Head Office</h4>
           <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin-bottom: 8px;">
             <strong>Address:</strong> Shop No. NB 39, Kaleswara Rao Market (Upstairs), Opp Vasthralatha, Vijayawada - 520002, Andhra Pradesh.
           </p>
           <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin-bottom: 8px;">
-            <strong>Phone:</strong> 0866-242227, 2424145 | (H) 2562555
+            <strong>Landline:</strong> 0866-242227, 2424145 | (H) 2562555
           </p>
           <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin-bottom: 8px;">
-            <strong>Mobile:</strong> +91 98481 24759, 94945 31001, 94944 78234
+            <strong>Mobile / WhatsApp:</strong> +91 98481 24759, 94945 31001, 94944 78234
           </p>
           <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin-bottom: 16px;">
             <strong>Email:</strong> dodlahemanth@gmail.com
@@ -310,15 +632,13 @@
             <span>Contact Head Office</span>
           </a>
         </div>
+
       </div>
     </div>
   </section>
 
-        <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-    <!-- ==========================================================================
-       READY TO BEGIN YOUR DIVINE JOURNEY (Atmospheric CTA Banner)
+  <!-- ==========================================================================
+       8. READY TO BEGIN YOUR DIVINE JOURNEY (Atmospheric CTA Banner)
        ========================================================================== -->
   <section style="padding: 20px 0 60px; background: #FAF6F0;">
     <div class="luxury-container">
@@ -347,10 +667,7 @@
   </section>
 
   <!-- ==========================================================================
-       10. GLOBAL LUXURY FOOTER (Deep Forest Green #061F16)
-       ========================================================================== -->
-    <!-- ==========================================================================
-       10. GLOBAL LUXURY FOOTER (Deep Forest Green #061F16)
+       9. GLOBAL LUXURY FOOTER (Deep Forest Green #061F16)
        ========================================================================== -->
   <footer class="luxury-footer">
     <svg class="footer-gopuram-watermark-left" viewBox="0 0 100 120" fill="#D4AF37"><path d="M50 0L52 10H48L50 0M45 12H55L57 24H43L45 12M40 26H60L63 42H37L40 26M34 44H66L70 65H30L34 44M27 67H73L77 92H23L27 67M20 94H80L85 120H15L20 94Z"/></svg>
@@ -358,116 +675,100 @@
 
     <div class="luxury-container" style="padding-top: 60px; padding-bottom: 30px; position: relative; z-index: 5;">
       <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 40px; margin-bottom: 40px;">
-        
-        <!-- Col 1: Brand & Tagline -->
+
+        <!-- Col 1: Brand & Legacy -->
         <div>
-          <a href="index.html" style="display:inline-block; margin-bottom: 14px;">
-            <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" style="height: 52px; width: auto; max-width: 250px; object-fit: contain; filter: brightness(1.1);">
+          <a href="index.html" style="display: inline-block; margin-bottom: 18px;">
+            <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" style="height: 52px; width: auto; max-width: 250px; object-fit: contain;">
           </a>
-          <div style="color: #D4AF37; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">
-            Since 1962 &bull; Sacred Journeys
+          <p style="font-size: 13.5px; color: #D1DFD8; line-height: 1.7; margin-bottom: 20px;">
+            Conducted under the leadership of Yatra Tapasvi Dodla Ramarao with the management of Dodla Hemanth Kumar. Serving millions of yatris with devotion, satvik meals, and all-India AC coach fleet since 1962.
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <span style="font-size: 12px; color: #D4AF37; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+              ESTD. 1962 &bull; GOVT. APPROVED
+            </span>
           </div>
-          <p style="color: #A3BFB4; font-size: 13.5px; line-height: 1.6; margin-bottom: 14px;">
-            Pilgrimages &bull; Heritage &bull; People &bull; A Better You
-          </p>
-          <p style="color: #E1EFEA; font-size: 13px; line-height: 1.6;">
-            Founded by Yatra Tapasvi Dodla Ramarao, serving millions of yatris with devotion, satvik meals, and all-India AC coach fleet.
-          </p>
         </div>
 
         <!-- Col 2: Quick Links -->
         <div>
-          <div class="luxury-footer-heading">Quick Links</div>
-          <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.1; font-size: 13.5px;">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-link-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="fixeddeparture.html" style="color: #D4AF37; font-weight: 600;">Fixed Departures</a></li>
+            <li><a href="fixeddeparture.html">Fixed Departures</a></li>
             <li><a href="pilgrimage-tours.html">Pilgrimages</a></li>
             <li><a href="holidaytours.html">Holidays</a></li>
             <li><a href="destination.html">Destinations</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Our Heritage -->
+        <!-- Col 3: Services & Pillars -->
         <div>
-          <div class="luxury-footer-heading">Our Heritage</div>
-          <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.1; font-size: 13.5px;">
-            <li><a href="about.html">Our Journey Since 1962</a></li>
-            <li><a href="pilgrimage-tours.html">Sacred Experiences</a></li>
-            <li><a href="gallery.html">Photo Gallery (72 Photos)</a></li>
+          <h4 class="footer-col-title">Our Heritage</h4>
+          <ul class="footer-link-list">
+            <li><a href="our-heritage.html">Our Sacred Journey</a></li>
             <li><a href="services.html">AC Luxury Bus Fleet</a></li>
-            <li><a href="contact.html">Head Office &amp; Booking</a></li>
-            <li><a href="enquiry.html">Custom Yatra Enquiry</a></li>
+            <li><a href="services.html">Airlines Ticketing (PSA)</a></li>
+            <li><a href="services.html">Multilingual Guides</a></li>
+            <li><a href="gallery.html">Pilgrimage Moments</a></li>
+            <li><a href="enquiry.html">Custom Tour Enquiry</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Contact Us & Social -->
+        <!-- Col 4: Registered Office -->
         <div>
-          <div class="luxury-footer-heading">Contact Us</div>
-          <div style="font-size: 13.5px; color: #E1EFEA; line-height: 1.7; margin-bottom: 16px;">
-            <div style="display:flex; gap:10px; margin-bottom:8px;">
-              <span style="color:#D4AF37;">&#128205;</span>
-              <span>Besant Road / Bandar Road, Governorpet, Vijayawada &ndash; 520002, Andhra Pradesh</span>
-            </div>
-            <div style="display:flex; gap:10px; margin-bottom:6px;">
-              <span style="color:#D4AF37;">&#128222;</span>
-              <span><a href="tel:+919848124759">+91 98481 24759</a> / <a href="tel:+919494531001">+91 94945 31001</a></span>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <span style="color:#D4AF37;">&#9993;</span>
-              <span><a href="mailto:dodlahemanth@gmail.com">dodlahemanth@gmail.com</a></span>
-            </div>
+          <h4 class="footer-col-title">Registered Office</h4>
+          <p style="font-size: 13px; color: #D1DFD8; line-height: 1.6; margin-bottom: 14px;">
+            Shop No. NB 39, Kaleswara Rao Market (Upstairs), Opp Vasthralatha, Vijayawada - 520002, Andhra Pradesh.
+          </p>
+          <div style="font-size: 13px; color: #D1DFD8; line-height: 1.8; margin-bottom: 16px;">
+            <div>Phone: <a href="tel:+919848124759" style="color: #D4AF37; text-decoration: none;">+91 98481 24759</a></div>
+            <div>Hotline: <a href="tel:+919494531001" style="color: #D4AF37; text-decoration: none;">+91 94945 31001</a></div>
+            <div>Email: <a href="mailto:dodlahemanth@gmail.com" style="color: #D4AF37; text-decoration: none;">dodlahemanth@gmail.com</a></div>
           </div>
-
-          <div class="luxury-footer-heading" style="margin-top: 18px; margin-bottom: 10px; font-size: 13px;">Follow Us</div>
-          <div>
+          <div style="display: flex; gap: 8px;">
             <a href="https://facebook.com" target="_blank" class="social-icon-circle" aria-label="Facebook">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="https://instagram.com" target="_blank" class="social-icon-circle" aria-label="Instagram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
             <a href="https://youtube.com" target="_blank" class="social-icon-circle" aria-label="YouTube">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#061F16"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
             <a href="https://api.whatsapp.com/send?phone=919848124759" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m4.52 13.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
             </a>
           </div>
         </div>
 
       </div>
 
-      <!-- Footer Bottom Bar -->
-      <div class="luxury-footer-bottom">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
-          <div>
-            &copy; 1962&ndash;2026 Dodla's Tours &amp; Travels. All Rights Reserved.
-          </div>
-          <div style="display:flex; gap:16px;">
-            <a href="termsconditions.html">Terms &amp; Conditions</a>
-            <span style="opacity:0.4;">|</span>
-            <a href="privacy.html">Privacy Policy</a>
-            <span style="opacity:0.4;">|</span>
-            <a href="faq.html">FAQ</a>
-          </div>
-          <div style="color: #D4AF37; font-weight:600;">
-            In the Service of Faith Since 1962
-          </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: #8FA396;">
+        <div>&copy; 2026 Dodla's Tours &amp; Travels. All Rights Reserved.</div>
+        <div style="display: flex; gap: 18px;">
+          <a href="termsconditions.html" style="color: #8FA396; text-decoration: none;">Terms &amp; Conditions</a>
+          <a href="privacy.html" style="color: #8FA396; text-decoration: none;">Privacy Policy</a>
+          <a href="faq.html" style="color: #8FA396; text-decoration: none;">FAQ</a>
         </div>
+        <div style="color: #D4AF37; font-weight: 600;">In the Service of Faith &bull; Since 1962</div>
       </div>
-
     </div>
   </footer>
 
   <!-- Floating WhatsApp Action -->
-  <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20know%20more%20about%20your%20packages." class="whatsapp-floating" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20know%20more%20about%20your%20services." class="whatsapp-floating" target="_blank" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
   </a>
 
   <!-- VANILLA JAVASCRIPT LOGIC -->
   <script>
-    // Mobile navigation toggle & interactive handling
+    // 1. Mobile navigation toggle & interactive handling
     (function() {
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
@@ -498,6 +799,95 @@
           });
         });
       }
+    })();
+
+    // 2. Automatic Two-Image Slideshow with Smooth Cross-Fade
+    (function initAboutSlideshow() {
+      const slides = document.querySelectorAll('.about-slide');
+      const dots = document.querySelectorAll('.slideshow-dot');
+      const prevBtn = document.getElementById('slidePrev');
+      const nextBtn = document.getElementById('slideNext');
+      const captionText = document.getElementById('captionText');
+      const container = document.getElementById('aboutSlideshow');
+      if (!slides.length) return;
+
+      const captions = [
+        "Sacred Temple Gopuram Architecture",
+        "Peaceful Heritage & Resort Retreats"
+      ];
+
+      let currentIndex = 0;
+      let timer = null;
+
+      function showSlide(index) {
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+        currentIndex = index;
+
+        slides.forEach(function(s, i) {
+          s.classList.toggle('active', i === currentIndex);
+        });
+
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === currentIndex);
+        });
+
+        if (captionText && captions[currentIndex]) {
+          captionText.textContent = captions[currentIndex];
+        }
+      }
+
+      function nextSlide() {
+        showSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentIndex - 1);
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        timer = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoSlide() {
+        if (timer) clearInterval(timer);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          prevSlide();
+          startAutoSlide();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          nextSlide();
+          startAutoSlide();
+        });
+      }
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const targetIdx = parseInt(this.getAttribute('data-index'), 10);
+          showSlide(targetIdx);
+          startAutoSlide();
+        });
+      });
+
+      if (container) {
+        container.addEventListener('mouseenter', stopAutoSlide);
+        container.addEventListener('mouseleave', startAutoSlide);
+        container.addEventListener('touchstart', stopAutoSlide, { passive: true });
+        container.addEventListener('touchend', startAutoSlide, { passive: true });
+      }
+
+      // Start automatic slideshow (4-second interval)
+      startAutoSlide();
     })();
   </script>
 </body>
