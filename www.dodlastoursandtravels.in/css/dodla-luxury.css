@@ -1,29 +1,38 @@
 /* ==========================================================================
    DODLA'S TOURS & TRAVELS — LUXURY REDESIGN STYLESHEET
    Matching media_1794984562212_24c495bd.jpg
-   Palette: Warm Cream (#FAF6F0) + Antique Gold (#B57B22) + Deep Coffee Brown (#382115)
+   Palette: Warm Cream (#FAF6F0) + Antique Gold (#C5A059) + Deep Coffee Brown (#0A2E20)
    ========================================================================== */
 
 :root {
   --bg-cream: #FAF6F0;
+  --bg-cream-soft: #F5EFEB;
   --bg-ivory: #FFFDF9;
   --bg-card: #FFFFFF;
-  --bg-footer: #1A1009;
+  --bg-footer: #061F16;
   
-  --color-coffee-dark: #2A170F;
-  --color-coffee-heading: #382115;
-  --color-coffee-body: #5C4A3F;
-  --color-coffee-muted: #8A786D;
-  --color-coffee-border: #EADBCE;
+  --color-forest-darkest: #061F16;
+  --color-forest-dark: #0A2E20;
+  --color-forest-mid: #0E4430;
+  --color-forest-body: #1E382B;
+  --color-forest-muted: #4E6B5E;
+  --color-forest-border: #D1DFD8;
   
-  --color-gold: #C48A2C;
-  --color-gold-amber: #B57B22;
-  --color-gold-hover: #9A6517;
-  --color-gold-light: #F7EAD6;
-  --color-gold-border: #E8D3B4;
+  --color-coffee-dark: #061F16;
+  --color-coffee-heading: #0A2E20;
+  --color-coffee-body: #1E382B;
+  --color-coffee-muted: #4E6B5E;
+  --color-coffee-border: #D1DFD8;
+  
+  --color-gold: #D4AF37;
+  --color-gold-amber: #C5A059;
+  --color-gold-hover: #B58D3D;
+  --color-gold-light: #F4E8C1;
+  --color-gold-border: #E5D5AA;
 
   --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive, serif;
   
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -31,9 +40,9 @@
   --radius-xl: 22px;
   --radius-pill: 50px;
   
-  --shadow-sm: 0 4px 12px rgba(42, 23, 15, 0.05);
-  --shadow-md: 0 10px 24px rgba(42, 23, 15, 0.08);
-  --shadow-floating: 0 16px 36px rgba(56, 33, 21, 0.12);
+  --shadow-sm: 0 4px 12px rgba(6, 31, 22, 0.05);
+  --shadow-md: 0 10px 24px rgba(6, 31, 22, 0.08);
+  --shadow-floating: 0 16px 36px rgba(6, 31, 22, 0.12);
 }
 
 *, *::before, *::after {
@@ -44,7 +53,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-cream);
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   font-family: var(--font-sans);
   font-size: 14.5px;
   line-height: 1.6;
@@ -172,7 +181,7 @@ img {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #382115;
+  background: #0A2E20;
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
@@ -396,7 +405,7 @@ img {
 .btn-outline-white:hover {
   background-color: #D4AF37 !important;
   border-color: #D4AF37 !important;
-  color: #2A170F !important;
+  color: #061F16 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
 }
@@ -423,22 +432,22 @@ img {
 
 .mobile-nav-toggle:hover {
   background: #F3ECE1;
-  border-color: #B57B22;
+  border-color: #C5A059;
 }
 
 .mobile-nav-toggle span {
   display: block;
   width: 22px;
   height: 2.5px;
-  background-color: #382115;
+  background-color: #0A2E20;
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
 .mobile-nav-toggle.active {
-  background: #382115;
-  border-color: #382115;
+  background: #0A2E20;
+  border-color: #0A2E20;
 }
 
 .mobile-nav-toggle.active span {
@@ -504,7 +513,7 @@ img {
 
 .hero-subtitle {
   font-size: 15px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.6;
   margin-bottom: 26px;
   max-width: 480px;
@@ -576,7 +585,7 @@ img {
   border: none;
   outline: none;
   font-size: 13.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   background: transparent;
   padding: 0;
   margin-top: 2px;
@@ -747,7 +756,7 @@ img {
   box-shadow: 0 8px 24px rgba(56, 33, 21, 0.1) !important;
   display: block;
   transition: all 0.35s ease;
-  background: #24160E;
+  background: #061F16;
 }
 
 .destination-card:hover {
@@ -1004,7 +1013,7 @@ img {
 
 .package-card-desc {
   font-size: 13.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.5;
   margin-bottom: 18px;
   flex: 1;
@@ -1102,7 +1111,7 @@ img {
 
 .about-text {
   font-size: 14px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.6;
   margin-bottom: 22px;
 }
@@ -1227,7 +1236,7 @@ img {
 
 .testimonial-quote {
   font-size: 13px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.45;
   margin: 0 0 4px 0;
 }
@@ -1356,13 +1365,13 @@ img {
    ========================================================================== */
 .luxury-footer,
 .luxury-footer-wrap {
-  background: linear-gradient(180deg, #24160E 0%, #1A1009 100%) !important;
+  background: linear-gradient(180deg, #061F16 0%, #061F16 100%) !important;
   color: #D3C4B7 !important;
   padding: 65px 0 28px 0 !important;
   position: relative !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  border-top: 3px solid #B57B22 !important;
+  border-top: 3px solid #C5A059 !important;
   font-size: 13.5px !important;
   clear: both !important;
 }
@@ -1424,7 +1433,7 @@ img {
 .footer-brand-sub {
   font-size: 10.5px;
   letter-spacing: 2px;
-  color: #C48A2C !important;
+  color: #D4AF37 !important;
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 3px;
@@ -1450,7 +1459,7 @@ img {
   border-radius: 50%;
   border: 1px solid rgba(196, 138, 44, 0.35);
   background: rgba(255, 255, 255, 0.05);
-  color: #C48A2C !important;
+  color: #D4AF37 !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1465,8 +1474,8 @@ img {
 }
 
 .footer-social-btn:hover {
-  background: #B57B22;
-  border-color: #B57B22;
+  background: #C5A059;
+  border-color: #C5A059;
   color: #FFFFFF !important;
   transform: translateY(-2px);
 }
@@ -1496,7 +1505,7 @@ img {
   bottom: 0;
   width: 28px;
   height: 2px;
-  background: #B57B22;
+  background: #C5A059;
   border-radius: 2px;
 }
 
@@ -1555,15 +1564,15 @@ img {
 }
 
 .contact-icon-gold {
-  color: #C48A2C !important;
+  color: #D4AF37 !important;
   font-size: 12px;
   flex-shrink: 0;
   margin-top: 3px;
 }
 
 .footer-contact-item svg {
-  color: #C48A2C;
-  fill: #C48A2C;
+  color: #D4AF37;
+  fill: #D4AF37;
   width: 14px;
   height: 14px;
   flex-shrink: 0;
@@ -1751,7 +1760,7 @@ table {
     padding: 16px 20px 24px;
     box-shadow: 0 16px 36px rgba(42, 23, 15, 0.16);
     border-top: 1px solid #EFEAE3;
-    border-bottom: 3px solid #B57B22;
+    border-bottom: 3px solid #C5A059;
     border-radius: 0 0 16px 16px;
     z-index: 99999;
     max-height: calc(85vh - 70px);
@@ -1782,14 +1791,14 @@ table {
     padding: 13px 6px;
     font-size: 15px;
     font-weight: 600;
-    color: #382115;
+    color: #0A2E20;
     width: 100%;
     box-sizing: border-box;
   }
 
   .luxury-nav-link:hover,
   .luxury-nav-item.active .luxury-nav-link {
-    color: #B57B22;
+    color: #C5A059;
   }
 
   /* Accessible indented mobile dropdown menus */
@@ -1800,7 +1809,7 @@ table {
     transform: none !important;
     box-shadow: none !important;
     border: none !important;
-    border-left: 3px solid #B57B22 !important;
+    border-left: 3px solid #C5A059 !important;
     background: #FAF6F0 !important;
     border-radius: 0 8px 8px 0 !important;
     margin: 4px 0 12px 10px !important;
@@ -1813,7 +1822,7 @@ table {
   .luxury-dropdown-item {
     padding: 9px 14px !important;
     font-size: 13.5px !important;
-    color: #5C4A3F !important;
+    color: #1E382B !important;
     display: block !important;
     line-height: 1.45 !important;
     border-bottom: 1px solid rgba(232, 223, 200, 0.4) !important;
@@ -1825,7 +1834,7 @@ table {
 
   .luxury-dropdown-item:hover,
   .luxury-dropdown-item:active {
-    color: #B57B22 !important;
+    color: #C5A059 !important;
     background: #F2E8DC !important;
     padding-left: 18px !important;
   }
@@ -2265,7 +2274,7 @@ table {
 /* Inner Page Banner */
 .inner-page-banner {
   position: relative;
-  background: linear-gradient(135deg, #2A170F 0%, #382115 50%, #4A2E1E 100%);
+  background: linear-gradient(135deg, #061F16 0%, #0A2E20 50%, #0E4430 100%);
   padding: 60px 0 50px;
   color: #FFFFFF;
   overflow: hidden;
@@ -2300,7 +2309,7 @@ table {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #F7EAD6;
+  color: #F4E8C1;
   margin-bottom: 14px;
 }
 
@@ -2316,7 +2325,7 @@ table {
 .inner-banner-desc {
   font-family: var(--font-sans);
   font-size: 15px;
-  color: #EADBCE;
+  color: #D1DFD8;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -2327,7 +2336,7 @@ table {
   align-items: center;
   gap: 10px;
   font-size: 13px;
-  color: #C48A2C;
+  color: #D4AF37;
 }
 
 .inner-banner-breadcrumbs a {
@@ -2337,7 +2346,7 @@ table {
 }
 
 .inner-banner-breadcrumbs a:hover {
-  color: #C48A2C;
+  color: #D4AF37;
 }
 
 .inner-banner-breadcrumbs span {
@@ -2376,7 +2385,7 @@ table {
 .section-subtext {
   font-family: var(--font-sans);
   font-size: 15px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.6;
 }
 
@@ -2536,7 +2545,7 @@ table {
 .package-summary-lux {
   font-family: var(--font-sans);
   font-size: 13.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.55;
   margin-bottom: 16px;
   flex-grow: 1;
@@ -2552,7 +2561,7 @@ table {
 
 .package-highlights-list li {
   font-size: 12.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   margin-bottom: 6px;
   display: flex;
   align-items: flex-start;
@@ -2689,7 +2698,7 @@ table {
 .service-desc-lux {
   font-family: var(--font-sans);
   font-size: 13.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.6;
   margin-bottom: 16px;
   flex-grow: 1;
@@ -2705,7 +2714,7 @@ table {
 
 .service-perks-list li {
   font-size: 12.5px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   margin-bottom: 6px;
   display: flex;
   align-items: center;
@@ -2734,7 +2743,7 @@ table {
   height: 230px;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  background: #EADBCE;
+  background: #D1DFD8;
 }
 
 .gallery-card-lux img {
@@ -2773,7 +2782,7 @@ table {
 }
 
 .gallery-caption-sub {
-  color: #F7EAD6;
+  color: #F4E8C1;
   font-size: 11.5px;
 }
 
@@ -2965,7 +2974,7 @@ table {
 
 .about-pillar-desc {
   font-size: 13px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.5;
 }
 
@@ -3093,7 +3102,7 @@ table {
 .itinerary-day-desc {
   font-family: var(--font-sans);
   font-size: 14px;
-  color: var(--color-coffee-body);
+  color: var(--color-forest-body);
   line-height: 1.65;
   margin: 0;
 }
@@ -3177,7 +3186,7 @@ table {
   font-family: var(--font-serif, 'Cinzel', serif);
   font-size: 14.5px;
   font-weight: 700;
-  color: #5C4A3F;
+  color: #1E382B;
   text-decoration: none;
   background: #F4ECE1;
   border: 1px solid #E8DFC8;
@@ -3191,14 +3200,14 @@ table {
 .reservation_step .nav-tabs li.active a,
 .reservation_step .nav-tabs li a:hover {
   background: #FFFFFF;
-  color: var(--color-primary-gold, #B57B22);
+  color: var(--color-primary-gold, #C5A059);
   border-color: #E8DFC8;
-  border-top: 3px solid var(--color-primary-gold, #B57B22);
+  border-top: 3px solid var(--color-primary-gold, #C5A059);
   box-shadow: 0 -3px 10px rgba(56, 33, 21, 0.06);
 }
 
 .reservation_step .nav-tabs li.active a {
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
 }
 
 .reservation_content {
@@ -3279,7 +3288,7 @@ table {
   font-family: var(--font-serif, 'Cinzel', serif);
   font-size: 19px;
   font-weight: 700;
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
   margin: 0 0 14px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid #F0E8DC;
@@ -3289,18 +3298,18 @@ table {
 
 .reservation-room_name h2 a,
 .reservation-room_name h3 a {
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
   text-decoration: none;
 }
 
 .reservation-room_name h2 a:hover {
-  color: var(--color-primary-gold, #B57B22);
+  color: var(--color-primary-gold, #C5A059);
 }
 
 .reservation-room_desc,
 .reservation-room_text {
   font-size: 14.5px;
-  color: #4A3728;
+  color: #0E4430;
   line-height: 1.75;
 }
 
@@ -3318,7 +3327,7 @@ table {
 .reservation-room_desc li,
 .reservation-room_text li {
   margin-bottom: 7px;
-  color: #4A3728;
+  color: #0E4430;
 }
 
 .reservation-room_img {
@@ -3346,7 +3355,7 @@ table {
 
 #price h2, #price h3, #price h4 {
   font-family: var(--font-serif, 'Cinzel', serif);
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
   font-size: 20px;
   font-weight: 700;
   margin-top: 24px;
@@ -3357,7 +3366,7 @@ table {
 
 #price p, #price ul, #price ol {
   font-size: 14.5px;
-  color: #4A3728;
+  color: #0E4430;
   line-height: 1.75;
 }
 
@@ -3370,7 +3379,7 @@ table {
 
 #price th {
   background: #F4ECE1;
-  color: #382115;
+  color: #0A2E20;
   font-family: var(--font-serif, 'Cinzel', serif);
   padding: 12px 16px;
   border: 1px solid #E8DFC8;
@@ -3381,7 +3390,7 @@ table {
 #price td {
   padding: 12px 16px;
   border: 1px solid #E8DFC8;
-  color: #4A3728;
+  color: #0E4430;
 }
 
 /* Gallery Tab */
@@ -3444,10 +3453,10 @@ table {
   font-family: var(--font-serif, 'Cinzel', serif);
   font-size: 16.5px;
   font-weight: 700;
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
   margin: 0 0 16px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--color-secondary-gold, #C48A2C);
+  border-bottom: 2px solid var(--color-secondary-gold, #D4AF37);
   letter-spacing: 0.03em;
 }
 
@@ -3484,12 +3493,12 @@ table {
 }
 
 .wrap-box-1 h2 a {
-  color: var(--color-coffee-dark, #382115);
+  color: var(--color-coffee-dark, #0A2E20);
   text-decoration: none;
 }
 
 .wrap-box-1 h2 a:hover {
-  color: var(--color-primary-gold, #B57B22);
+  color: var(--color-primary-gold, #C5A059);
 }
 
 .wrap-box-1 .date {
@@ -3501,7 +3510,7 @@ table {
 .wrap-box-1 .amout {
   font-size: 13px;
   font-weight: 700;
-  color: var(--color-primary-gold, #B57B22);
+  color: var(--color-primary-gold, #C5A059);
   margin: 2px 0 0 0;
 }
 
@@ -3521,7 +3530,7 @@ table {
   border: 1px solid #D8CCBA;
   background: #FFFDF9;
   font-size: 13.5px;
-  color: #382115;
+  color: #0A2E20;
   font-family: inherit;
   box-sizing: border-box;
 }
@@ -3530,14 +3539,14 @@ table {
 .sidebar-booking-form select:focus,
 .sidebar-booking-form textarea:focus {
   outline: none;
-  border-color: #B57B22;
+  border-color: #C5A059;
   box-shadow: 0 0 0 3px rgba(181, 123, 34, 0.15);
 }
 
 .sidebar-booking-form button.btn-submit {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #B57B22 0%, #C48A2C 100%);
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 100%);
   color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -3600,7 +3609,7 @@ table {
 
 .luxury-package-card {
   background: #FFFFFF !important;
-  border: 1px solid #EADBCE !important;
+  border: 1px solid #D1DFD8 !important;
   border-radius: 16px !important;
   overflow: hidden !important;
   box-shadow: 0 4px 20px rgba(56, 33, 21, 0.06) !important;
@@ -3612,7 +3621,7 @@ table {
 .luxury-package-card:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 16px 36px rgba(56, 33, 21, 0.12) !important;
-  border-color: #B57B22 !important;
+  border-color: #C5A059 !important;
 }
 
 .luxury-package-img-wrap {
@@ -3684,7 +3693,7 @@ table {
   font-family: var(--font-serif) !important;
   font-size: 20px !important;
   font-weight: 700 !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   line-height: 1.35 !important;
   margin-bottom: 10px !important;
   margin-top: 0 !important;
@@ -3692,7 +3701,7 @@ table {
 
 .luxury-package-desc {
   font-size: 13.5px !important;
-  color: #5C4A3F !important;
+  color: #1E382B !important;
   line-height: 1.6 !important;
   margin-bottom: 16px !important;
   flex-grow: 1 !important;
@@ -3719,7 +3728,7 @@ table {
   display: inline-block !important;
   text-align: center !important;
   background: #FAF6F0 !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   border: 1.5px solid #D8C5AE !important;
   padding: 10px 16px !important;
   border-radius: 8px !important;
@@ -3730,9 +3739,9 @@ table {
 }
 
 .btn-card-details:hover {
-  background: #382115 !important;
+  background: #0A2E20 !important;
   color: #FAF6F0 !important;
-  border-color: #382115 !important;
+  border-color: #0A2E20 !important;
 }
 
 .btn-card-wa {
@@ -3762,7 +3771,7 @@ table {
 }
 
 .reservation_step .nav-tabs {
-  border-bottom: 2px solid #EADBCE !important;
+  border-bottom: 2px solid #D1DFD8 !important;
   background: transparent !important;
   margin-bottom: 30px !important;
   display: flex !important;
@@ -3771,9 +3780,9 @@ table {
 
 .reservation_step .nav-tabs > li > a {
   background: #FFFFFF !important;
-  border: 1px solid #EADBCE !important;
+  border: 1px solid #D1DFD8 !important;
   border-radius: 8px 8px 0 0 !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   font-family: var(--font-serif) !important;
   font-weight: 700 !important;
   padding: 12px 24px !important;
@@ -3782,18 +3791,18 @@ table {
 
 .reservation_step .nav-tabs > li.active > a,
 .reservation_step .nav-tabs > li > a:hover {
-  background: #382115 !important;
+  background: #0A2E20 !important;
   color: #FAF6F0 !important;
-  border-color: #382115 !important;
+  border-color: #0A2E20 !important;
 }
 
 .bg-blue,
 .reservation-room-seleted_current.bg-blue,
 .reservation-room-selected .bg-blue {
-  background: linear-gradient(135deg, #382115 0%, #5C3A1E 100%) !important;
+  background: linear-gradient(135deg, #0A2E20 0%, #5C3A1E 100%) !important;
   border-radius: 10px !important;
   padding: 14px 18px !important;
-  border-left: 4px solid #B57B22 !important;
+  border-left: 4px solid #C5A059 !important;
 }
 
 .bg-blue h6,
@@ -3809,7 +3818,7 @@ table {
 
 .widget_check_availability {
   background: #FFFFFF !important;
-  border: 1px solid #EADBCE !important;
+  border: 1px solid #D1DFD8 !important;
   border-radius: 12px !important;
   padding: 20px !important;
   box-shadow: 0 4px 16px rgba(56, 33, 21, 0.04) !important;
@@ -3817,7 +3826,7 @@ table {
 }
 
 .widget_check_availability label {
-  color: #382115 !important;
+  color: #0A2E20 !important;
   font-weight: 600 !important;
   font-size: 12px !important;
   text-transform: uppercase !important;
@@ -3831,7 +3840,7 @@ table {
   border: 1px solid #D8C5AE !important;
   border-radius: 6px !important;
   padding: 10px 14px !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   background: #FFFDF9 !important;
   width: 100% !important;
   box-sizing: border-box !important;
@@ -3839,7 +3848,7 @@ table {
 
 .reservation-room_item {
   background: #FFFFFF !important;
-  border: 1px solid #EADBCE !important;
+  border: 1px solid #D1DFD8 !important;
   border-radius: 12px !important;
   padding: 24px !important;
   margin-bottom: 24px !important;
@@ -3848,7 +3857,7 @@ table {
 
 .reservation-room_item h4,
 .reservation-package_text h4 a {
-  color: #382115 !important;
+  color: #0A2E20 !important;
   font-family: var(--font-serif) !important;
   font-size: 18px !important;
   font-weight: 700 !important;
@@ -3864,7 +3873,7 @@ table {
   border: 2px solid #E8DFC8;
   box-shadow: 0 16px 40px rgba(56, 33, 21, 0.14);
   position: relative;
-  background: #24160E;
+  background: #061F16;
 }
 
 .hero-slideshow {
@@ -3959,8 +3968,8 @@ table {
 }
 
 .hero-arrow-btn:hover {
-  background: #B57B22;
-  border-color: #B57B22;
+  background: #C5A059;
+  border-color: #C5A059;
   color: #FFFFFF;
   transform: translateY(-50%) scale(1.08);
 }
@@ -3995,8 +4004,8 @@ table {
 }
 
 .hero-dot-btn.active {
-  background: #B57B22;
-  border-color: #B57B22;
+  background: #C5A059;
+  border-color: #C5A059;
   width: 26px;
   border-radius: 10px;
 }
@@ -4043,7 +4052,7 @@ table {
   overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
-  background: #1A1009 !important;
+  background: #061F16 !important;
 }
 
 .hero-cinematic-slider {
@@ -4134,7 +4143,7 @@ table {
   gap: 8px !important;
   background: rgba(181, 123, 34, 0.22) !important;
   border: 1px solid rgba(212, 175, 55, 0.5) !important;
-  color: #F7EAD6 !important;
+  color: #F4E8C1 !important;
   font-size: 11.5px !important;
   font-weight: 700 !important;
   letter-spacing: 0.1em !important;
@@ -4180,7 +4189,7 @@ table {
   display: inline-flex !important;
   align-items: center !important;
   gap: 10px !important;
-  background: linear-gradient(135deg, #C48A2C 0%, #A86F1A 100%) !important;
+  background: linear-gradient(135deg, #D4AF37 0%, #B58D3D 100%) !important;
   color: #FFFFFF !important;
   font-size: 14.5px !important;
   font-weight: 700 !important;
@@ -4193,7 +4202,7 @@ table {
 }
 
 .btn-cinematic-primary:hover {
-  background: linear-gradient(135deg, #D4AF37 0%, #B57B22 100%) !important;
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%) !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(181, 123, 34, 0.6) !important;
 }
@@ -4292,7 +4301,7 @@ table {
 }
 
 .hero-cinematic-arrow:hover {
-  background: #B57B22 !important;
+  background: #C5A059 !important;
   border-color: #D4AF37 !important;
   transform: translateY(-50%) scale(1.1) !important;
   box-shadow: 0 4px 16px rgba(181, 123, 34, 0.5) !important;
@@ -4394,7 +4403,7 @@ table {
   font-family: "Cinzel", Georgia, serif !important;
   font-size: 34px !important;
   font-weight: 700 !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   line-height: 1.25 !important;
   margin: 12px 0 18px 0 !important;
   white-space: normal !important;
@@ -4404,14 +4413,14 @@ table {
 
 .about-lead-para {
   font-size: 15.5px !important;
-  color: #5C4A3F !important;
+  color: #1E382B !important;
   line-height: 1.75 !important;
   margin: 0 0 14px 0 !important;
 }
 
 .about-sub-para {
   font-size: 15px !important;
-  color: #5C4A3F !important;
+  color: #1E382B !important;
   line-height: 1.7 !important;
   margin: 0 0 22px 0 !important;
 }
@@ -4430,12 +4439,12 @@ table {
   align-items: flex-start !important;
   gap: 12px !important;
   font-size: 14.5px !important;
-  color: #382115 !important;
+  color: #0A2E20 !important;
   line-height: 1.55 !important;
 }
 
 .about-feature-check {
-  color: #B57B22 !important;
+  color: #C5A059 !important;
   font-weight: 800 !important;
   font-size: 15px !important;
   flex-shrink: 0 !important;
@@ -4456,9 +4465,9 @@ table {
   position: relative !important;
   border-radius: 20px !important;
   overflow: hidden !important;
-  border: 2px solid #C48A2C !important;
+  border: 2px solid #D4AF37 !important;
   box-shadow: 0 20px 48px rgba(56, 33, 21, 0.14) !important;
-  background: #24160E !important;
+  background: #061F16 !important;
   height: 440px !important;
 }
 
@@ -4554,5 +4563,678 @@ table {
   }
   .about-image-card {
     height: 290px !important;
+  }
+}
+
+
+/* ==========================================================================
+   APPROVED FINAL REFERENCE REDESIGN STYLES (DEEP FOREST GREEN + CHAMPAGNE GOLD)
+   ========================================================================== */
+
+/* Topbar in Deep Forest Green */
+.luxury-topbar {
+  background: #0A2E20 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+  color: #E1EFEA !important;
+}
+.luxury-topbar-item {
+  color: #E1EFEA !important;
+}
+.luxury-topbar-item a {
+  color: #FFFFFF !important;
+  transition: color 0.25s ease;
+}
+.luxury-topbar-item a:hover {
+  color: #D4AF37 !important;
+}
+.luxury-topbar-right span {
+  color: #D4AF37 !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Navbar active state: Forest green pill */
+.luxury-nav-item.active > .luxury-nav-link,
+.luxury-nav-link.active {
+  background: #0A2E20 !important;
+  color: #FFFFFF !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 4px 14px rgba(10, 46, 32, 0.25) !important;
+}
+.luxury-nav-link {
+  color: #0A2E20 !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+}
+.luxury-nav-link:hover {
+  color: #D4AF37 !important;
+}
+
+/* Gold CTA Button in Nav */
+.luxury-nav-cta .btn-gold-pill,
+.btn-gold-pill {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%) !important;
+  color: #061F16 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35) !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  padding: 12px 26px !important;
+}
+.btn-gold-pill:hover {
+  background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45) !important;
+  color: #061F16 !important;
+}
+
+/* Translucent Forest Pill Button */
+.btn-forest-pill {
+  background: rgba(10, 46, 32, 0.85) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
+  border-radius: 50px !important;
+  padding: 12px 26px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+.btn-forest-pill:hover {
+  background: #0A2E20 !important;
+  border-color: #D4AF37 !important;
+  color: #D4AF37 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Watch Our Story pill */
+.btn-story-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(6, 31, 22, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 6px 18px 6px 8px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: all 0.3s ease;
+}
+.btn-story-pill:hover {
+  background: rgba(10, 46, 32, 0.7);
+  border-color: #D4AF37;
+  color: #D4AF37;
+}
+.btn-story-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #D4AF37;
+  color: #061F16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Calligraphic script accent */
+.font-script-accent {
+  font-family: var(--font-script), 'Alex Brush', cursive !important;
+  color: #D4AF37 !important;
+  font-size: 36px !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  font-weight: 400 !important;
+}
+
+/* Floating Plan Your Sacred Journey Search Card */
+.search-floating-card {
+  position: relative;
+  z-index: 30;
+  max-width: 1140px;
+  margin: -45px auto 40px;
+  background: #FFFFFF;
+  border-radius: 60px;
+  box-shadow: 0 18px 45px rgba(6, 31, 22, 0.12);
+  border: 1px solid #E8E0D5;
+  padding: 16px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.search-card-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 18px;
+  border-right: 1px solid #EAE2D7;
+}
+.search-card-brand svg {
+  color: #D4AF37;
+}
+.search-card-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #0A2E20;
+  line-height: 1.2;
+}
+.search-field-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FAF6F0;
+  border: 1px solid #E5D5AA;
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  color: #0A2E20;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.search-field-item:hover {
+  border-color: #D4AF37;
+}
+.search-field-item select {
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0A2E20;
+  outline: none;
+  cursor: pointer;
+}
+.btn-search-tours {
+  background: #0A2E20 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 12px 28px !important;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-search-tours:hover {
+  background: #0E4430 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10, 46, 32, 0.3);
+}
+
+/* 4 Trust Pillars */
+.trust-pillars-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 20px 0 50px;
+  border-bottom: 1px solid #E8E0D5;
+}
+.trust-pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.trust-pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #FAF6F0;
+  border: 1.5px solid #E5D5AA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C5A059;
+  flex-shrink: 0;
+}
+.trust-pillar-title {
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0A2E20;
+  margin-bottom: 2px;
+}
+.trust-pillar-desc {
+  font-size: 12.5px;
+  color: #4E6B5E;
+}
+
+/* Popular Destinations 5-Card Grid */
+.dest-5col-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+.dest-lux-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 240px;
+  box-shadow: 0 8px 24px rgba(6, 31, 22, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.35s ease;
+  display: block;
+  text-decoration: none;
+}
+.dest-lux-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(6, 31, 22, 0.16);
+  border-color: #D4AF37;
+}
+.dest-lux-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.dest-lux-card:hover img {
+  transform: scale(1.08);
+}
+.dest-lux-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 31, 22, 0.1) 0%, rgba(6, 31, 22, 0.75) 75%, rgba(6, 31, 22, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+.dest-lux-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 2px;
+}
+.dest-lux-state {
+  font-size: 12px;
+  color: #D4AF37;
+  font-weight: 500;
+}
+.dest-lux-arrow {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 175, 55, 0.8);
+  color: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+.dest-lux-card:hover .dest-lux-arrow {
+  background: #D4AF37;
+  color: #061F16;
+}
+
+/* Our Heritage 3-Column Section */
+.heritage-lux-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 40px 0;
+}
+.heritage-vintage-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 2px solid #E5D5AA;
+  box-shadow: 0 10px 28px rgba(6, 31, 22, 0.1);
+  display: block;
+}
+.heritage-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.heritage-stat-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.heritage-stat-icon {
+  font-size: 22px;
+  color: #C5A059;
+}
+.heritage-stat-num {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #0A2E20;
+  line-height: 1;
+}
+.heritage-stat-lbl {
+  font-size: 12px;
+  color: #4E6B5E;
+}
+.founder-tribute-card {
+  background: #FFFDF9;
+  border: 1.5px solid #E5D5AA;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(6, 31, 22, 0.05);
+}
+.founder-tribute-card::after {
+  content: '🪷';
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  font-size: 60px;
+  opacity: 0.12;
+}
+.founder-portrait-img {
+  width: 72px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #D4AF37;
+  flex-shrink: 0;
+}
+.founder-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: #0A2E20;
+  margin-bottom: 4px;
+}
+.founder-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #C5A059;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Sacred Moments 7-Card Grid */
+.sacred-moments-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.sacred-moment-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 160px;
+  box-shadow: 0 4px 14px rgba(6, 31, 22, 0.06);
+  border: 1px solid #E8E0D5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.sacred-moment-card:hover {
+  transform: translateY(-4px);
+  border-color: #D4AF37;
+}
+.sacred-moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.sacred-moment-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Ready to Begin Your Divine Journey Banner */
+.journey-banner-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 60px 40px;
+  color: #FFFFFF;
+  margin: 50px 0 20px;
+  background: linear-gradient(135deg, rgba(6,31,22,0.92) 0%, rgba(10,46,32,0.85) 60%, rgba(6,31,22,0.92) 100%), url('../images/luxury/cta_sunset_journey.jpg') center/cover no-repeat;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 50px rgba(6, 31, 22, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.journey-banner-heading {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+}
+.journey-banner-sub {
+  font-size: 15.5px;
+  color: #E1EFEA;
+  max-width: 650px;
+  margin: 0 0 24px;
+}
+.journey-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn-whatsapp-green {
+  background: #25D366 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 12px 26px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35) !important;
+  transition: all 0.3s ease !important;
+}
+.btn-whatsapp-green:hover {
+  background: #1EBE5D !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45) !important;
+}
+
+/* Footer in Deep Forest Green */
+.luxury-footer {
+  background: #061F16 !important;
+  color: #E1EFEA !important;
+  border-top: 2px solid #D4AF37 !important;
+  position: relative;
+  overflow: hidden;
+}
+.footer-gopuram-watermark-left {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  width: 140px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.footer-gopuram-watermark-right {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  width: 140px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.luxury-footer a {
+  color: #E1EFEA !important;
+  transition: color 0.2s ease;
+}
+.luxury-footer a:hover {
+  color: #D4AF37 !important;
+}
+.luxury-footer-heading {
+  color: #D4AF37 !important;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.social-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  transition: all 0.25s ease;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.social-icon-circle:hover {
+  background: #D4AF37;
+  color: #061F16;
+  transform: translateY(-2px);
+}
+.luxury-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 20px 0 !important;
+  font-size: 12.5px;
+  color: #A3BFB4 !important;
+}
+
+/* Inner Page Banner in Deep Forest Green */
+.inner-page-banner {
+  background: linear-gradient(135deg, #061F16 0%, #0A2E20 50%, #061F16 100%) !important;
+  border-bottom: 2px solid #D4AF37 !important;
+  padding: 60px 0 !important;
+  color: #FFFFFF !important;
+  position: relative;
+}
+.inner-banner-badge {
+  background: rgba(212, 175, 55, 0.15) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  color: #D4AF37 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  font-size: 11.5px !important;
+  padding: 5px 14px !important;
+  border-radius: 50px !important;
+  display: inline-block !important;
+  margin-bottom: 12px !important;
+}
+.inner-banner-title {
+  color: #FFFFFF !important;
+  font-family: var(--font-serif) !important;
+  font-size: 38px !important;
+  font-weight: 700 !important;
+  margin: 0 0 10px !important;
+}
+.inner-banner-desc {
+  color: #E1EFEA !important;
+  font-size: 15px !important;
+  max-width: 720px !important;
+  line-height: 1.6 !important;
+}
+.inner-banner-breadcrumbs {
+  margin-top: 18px !important;
+  font-size: 13px !important;
+  color: #A3BFB4 !important;
+}
+.inner-banner-breadcrumbs a {
+  color: #D4AF37 !important;
+  text-decoration: none !important;
+}
+
+/* Responsive adjustments for new components */
+@media (max-width: 992px) {
+  .search-floating-card {
+    border-radius: 24px !important;
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    margin: -30px 16px 30px !important;
+  }
+  .search-card-brand {
+    border-right: none !important;
+    padding-right: 0 !important;
+    margin-bottom: 10px !important;
+    justify-content: center !important;
+  }
+  .search-field-item {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+  .search-field-item select {
+    width: 100% !important;
+  }
+  .btn-search-tours {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .trust-pillars-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .dest-5col-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .heritage-lux-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .sacred-moments-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  .luxury-footer [style*="grid-template-columns"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .trust-pillars-row {
+    grid-template-columns: 1fr !important;
+  }
+  .dest-5col-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .sacred-moments-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .journey-banner-wrap {
+    padding: 40px 20px !important;
+  }
+  .journey-banner-heading {
+    font-size: 26px !important;
+  }
+  .luxury-footer [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .luxury-footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
   }
 }
