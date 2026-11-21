@@ -1,0 +1,510 @@
+/* ==========================================================================
+   Dodla's Tours & Travels - Centralized Bilingual Translation Engine (i18n)
+   Supports: English (Default) & Telugu (తెలుగు)
+   Zero reload instant switching with localStorage memory and font switching
+   ========================================================================== */
+
+(function() {
+  'use strict';
+
+  var TRANSLATIONS_TE = {
+  "Kaleswara Rao Market, Besant Road, Vijayawada, AP": "కాళేశ్వరరావు మార్కెట్, బెసెంట్ రోడ్, విజయవాడ, ఆంధ్రప్రదేశ్",
+  "EST. 1962 • 64 YEARS OF SACRED SERVICE": "స్థాపన 1962 • 64 ఏళ్ల పవిత్ర సేవ",
+  "EST. 1962 &bull; 64 YEARS OF SACRED SERVICE": "స్థాపన 1962 • 64 ఏళ్ల పవిత్ర సేవ",
+  "Est. 1962 • 64 Years Sacred Service": "స్థాపన 1962 • 64 ఏళ్ల పవిత్ర సేవ",
+  "Est. 1962 &bull; 64 Years Sacred Service": "స్థాపన 1962 • 64 ఏళ్ల పవిత్ర సేవ",
+  "Since 1962 • Sacred Journeys": "1962 నుండి • పవిత్ర యాత్రలు",
+  "Since 1962 &bull; Sacred Journeys": "1962 నుండి • పవిత్ర యాత్రలు",
+  "SINCE 1962 • SACRED JOURNEYS": "1962 నుండి • పవిత్ర యాత్రలు",
+  "PILGRIMAGES FOR A HIGHER LIFE": "ఉన్నత ఆధ్యాత్మిక జీవనానికి పవిత్ర తీర్థయాత్రలు",
+  "Pilgrimages • Heritage • People • A Better You": "తీర్థయాత్రలు • వారసత్వం • సేవ • ఆధ్యాత్మిక ప్రశాంతత",
+  "Pilgrimages &bull; Heritage &bull; People &bull; A Better You": "తీర్థయాత్రలు • వారసత్వం • సేవ • ఆధ్యాత్మిక ప్రశాంతత",
+  "Fixed Departure Yatra • Est. 1962": "ఫిక్స్‌డ్ డిపార్చర్ యాత్ర • స్థాపన 1962",
+  "Fixed Departure Yatra &bull; Est. 1962": "ఫిక్స్‌డ్ డిపార్చర్ యాత్ర • స్థాపన 1962",
+  "Sacred Pilgrimage Fixed Departure • Est. 1962": "పవిత్ర తీర్థయాత్ర ఫిక్స్‌డ్ డిపార్చర్ • స్థాపన 1962",
+  "Sacred Pilgrimage Fixed Departure &bull; Est. 1962": "పవిత్ర తీర్థయాత్ర ఫిక్స్‌డ్ డిపార్చర్ • స్థాపన 1962",
+  "Himalayan Pilgrimage Fixed Departure • Est. 1962": "హిమాలయ తీర్థయాత్ర ఫిక్స్‌డ్ డిపార్చర్ • స్థాపన 1962",
+  "Sacred Himalayan Cave Fixed Departure • Est. 1962": "హిమాలయ పవిత్ర గుహాలయ యాత్ర • స్థాపన 1962",
+  "Sacred Confluence Fixed Departure • Est. 1962": "పవిత్ర సంగమ తీర్థయాత్ర • స్థాపన 1962",
+  "Temple Heritage Fixed Departure • Est. 1962": "ఆలయ వారసత్వ యాత్ర • స్థాపన 1962",
+  "Luxury International Fixed Departure • Est. 1962": "లగ్జరీ అంతర్జాతీయ పర్యటన • స్థాపన 1962",
+  "Himalayan Nature Fixed Departure • Est. 1962": "హిమాలయ ప్రకృతి విహార యాత్ర • స్థాపన 1962",
+  "Luxury Cruise Fixed Departure • Est. 1962": "లగ్జరీ క్రూజ్ టూర్ • స్థాపన 1962",
+  "God's Own Country Fixed Departure • Est. 1962": "కేరళ దివ్య దర్శన యాత్ర • స్థాపన 1962",
+  "Holy Cave Pilgrimage Fixed Departure • Est. 1962": "పవిత్ర గుహాలయ యాత్ర • స్థాపన 1962",
+  "International Pilgrimage Fixed Departure • Est. 1962": "అంతర్జాతీయ పుణ్యక్షేత్ర యాత్ర • స్థాపన 1962",
+  "Home": "హోమ్",
+  "About Us": "మా గురించి",
+  "Our Heritage": "మా వారసత్వం",
+  "Fixed Departures": "ఫిక్స్‌డ్ డిపార్చర్స్",
+  "Fixed Departures (11 Tours)": "ఫిక్స్‌డ్ డిపార్చర్స్ (11 యాత్రలు)",
+  "★ All Fixed Departures (11 Tours)": "★ అన్ని ఫిక్స్‌డ్ డిపార్చర్స్ (11 యాత్రలు)",
+  "Pilgrimages": "తీర్థయాత్రలు",
+  "Pilgrimages ▾": "తీర్థయాత్రలు ▾",
+  "Pilgrimages &#9662;": "తీర్థయాత్రలు ▾",
+  "All Pilgrimage Yatras": "అన్ని పుణ్యక్షేత్ర యాత్రలు",
+  "Holidays": "హాలిడేస్",
+  "Holidays ▾": "హాలిడేస్ ▾",
+  "Holidays &#9662;": "హాలిడేస్ ▾",
+  "All Holiday Tours": "అన్ని హాలిడే టూర్స్",
+  "Domestic Holiday Tours": "స్వదేశీ హాలిడే టూర్స్",
+  "International Tours": "అంతర్జాతీయ పర్యటనలు",
+  "Complete Tour Packages": "సంపూర్ణ టూర్ ప్యాకేజీలు",
+  "Destinations": "గమ్యస్థానాలు",
+  "Services": "సేవలు",
+  "Our Services": "మా సేవలు",
+  "Gallery": "గ్యాలరీ",
+  "Photo Gallery": "ఫోటో గ్యాలరీ",
+  "Photo Gallery (12 Photos)": "ఫోటో గ్యాలరీ (12 చిత్రాలు)",
+  "Contact": "సంప్రదించండి",
+  "Contact Us": "మమ్మల్ని సంప్రదించండి",
+  "Enquire Now": "ఇప్పుడే సంప్రదించండి",
+  "Plan Your Sacred Journey": "మీ పవిత్ర యాత్రను ప్లాన్ చేయండి",
+  "Uttarakhand Chardham Yatra": "ఉత్తరాఖండ్ చార్‌ధామ్ యాత్ర",
+  "Amarnath & Kashmir Yatra": "అమర్‌నాథ్ & కాశ్మీర్ యాత్ర",
+  "Amarnath &amp; Kashmir Yatra": "అమర్‌నాథ్ & కాశ్మీర్ యాత్ర",
+  "Kailash Manasarovar Yatra": "కైలాస మానససరోవర యాత్ర",
+  "Nepal & Muktinath Yatra": "నేపాల్ & ముక్తినాథ్ యాత్ర",
+  "Nepal &amp; Muktinath Yatra": "నేపాల్ & ముక్తినాథ్ యాత్ర",
+  "Nepal Muktinath Flight Package": "నేపాల్ ముక్తినాథ్ ఫ్లైట్ ప్యాకేజీ",
+  "Sri Lanka Ramayana Trail": "శ్రీలంక రామాయణ యాత్ర",
+  "South India Temple Circuit": "దక్షిణ భారత దేవాలయాల యాత్ర",
+  "North India Temple Circuit": "ఉత్తర భారత తీర్థయాత్రలు",
+  "64 Years of Sacred Journeys": "64 ఏళ్ల పవిత్ర తీర్థయాత్రల సేవ",
+  "Journey with Faith": "విశ్వాసంతో సాగే ఆధ్యాత్మిక యాత్ర",
+  "Explore Pilgrimages": "తీర్థయాత్రలను వీక్షించండి",
+  "Plan Your Journey": "మీ యాత్రను ప్లాన్ చేయండి",
+  "Watch Our Story": "మా కథను చూడండి",
+  "A Legacy of Faith & Service": "విశ్వాసం & సేవా వారసత్వం",
+  "Watch Our Story • A Legacy of Faith & Service": "మా కథను చూడండి • విశ్వాసం & సేవా వారసత్వం",
+  "Since 1962": "1962 నుండి",
+  "Trusted Travel Service": "నమ్మకమైన యాత్రా సేవలు",
+  "All-India Bus Fleet": "ఆల్ ఇండియా బస్సుల సమూహం",
+  "AC Luxury Bus Fleet": "AC లగ్జరీ బస్సుల సమూహం",
+  "Comfortable & Safe": "సౌకర్యవంతమైన & సురక్షితమైన",
+  "Comfortable &amp; Safe": "సౌకర్యవంతమైన & సురక్షితమైన",
+  "Pilgrimage Specialists": "పుణ్యక్షేత్ర యాత్రా నిపుణులు",
+  "Sacred Destinations": "పవిత్ర పుణ్యక్షేత్రాలు",
+  "Dedicated Assistance": "నిరంతర యాత్రా సహాయం",
+  "Before, During & After Travel": "ప్రయాణానికి ముందు, ప్రయాణంలో & ప్రయాణానంతరం",
+  "Before, During &amp; After Travel": "ప్రయాణానికి ముందు, ప్రయాణంలో & ప్రయాణానంతరం",
+  "Explore With Dodla's": "దొడ్ల టూర్స్‌తో ప్రయాణించండి",
+  "Popular Pilgrimage Destinations": "ప్రసిద్ధ పుణ్యక్షేత్రాలు",
+  "View All Destinations": "అన్ని గమ్యస్థానాలను చూడండి",
+  "A Journey of Service Since 1962": "1962 నుండి నిరంతర సేవా ప్రస్థానం",
+  "Our Full Story": "మా పూర్తి చరిత్ర",
+  "Years of Service": "సంవత్సరాల సేవ",
+  "64+": "64+",
+  "10,000+": "10,000+",
+  "50+": "50+",
+  "24/7": "24/7",
+  "Happy Pilgrims": "సంతృప్త భక్తులు",
+  "Travel Support": "యాత్రా సహకారం",
+  "Service to pilgrims is service to God.": "యాత్రికుల సేవే మాధవ సేవ.",
+  "Late Sri Dodla Hemanth Kumar": "స్వర్గీయ శ్రీ దొడ్ల హేమంత్ కుమార్",
+  "Founder": "వ్యవస్థాపకులు",
+  "Sacred Moments": "పవిత్ర క్షణాలు",
+  "A Glimpse into Our Journeys": "మా యాత్రల చిత్రమాలిక",
+  "View Gallery": "గ్యాలరీని వీక్షించండి",
+  "Ready to Begin Your Divine Journey?": "మీ పవిత్ర యాత్రను ప్రారంభించడానికి సిద్ధంగా ఉన్నారా?",
+  "Let us help you plan a meaningful and memorable yatra.": "మీకు అత్యంత గుర్తుండిపోయే, ఆధ్యాత్మిక సంతృప్తినిచ్చే పవిత్ర యాత్రను ప్లాన్ చేయడంలో మేము సహకరిస్తాము.",
+  "Chat on WhatsApp": "వాట్సాప్‌లో చాట్ చేయండి",
+  "More than Travel, A Divine Experience": "కేవలం ప్రయాణం కాదు, ఒక దివ్య అనుభూతి",
+  "Kedarnath Dham": "కేదార్‌నాథ్ ధామ్",
+  "Badrinath": "బద్రీనాథ్",
+  "Kedarnath": "కేదార్‌నాథ్",
+  "Tirumala": "తిరుమల",
+  "Srisailam": "శ్రీశైలం",
+  "Jyotirlingas": "ద్వాదశ జ్యోతిర్లింగాలు",
+  "Uttarakhand": "ఉత్తరాఖండ్",
+  "Andhra Pradesh": "ఆంధ్రప్రదేశ్",
+  "Across India": "భారతదేశవ్యాప్తంగా",
+  "Tour Type": "టూర్ రకం",
+  "All Pilgrimages": "అన్ని పుణ్యక్షేత్రాలు",
+  "Travel Month": "ప్రయాణ నెల",
+  "Select Month": "నెలను ఎంచుకోండి",
+  "Travellers": "ప్రయాణికులు",
+  "Select": "ఎంచుకోండి",
+  "Search Tours": "యాత్రలను వెతకండి",
+  "ABOUT US": "మా గురించి",
+  "About Us Content": "మా గురించిన వివరాలు",
+  "ESTABLISHMENT – 1962": "సంస్థ స్థాపన – 1962",
+  "ESTABLISHMENT &mdash; 1962": "సంస్థ స్థాపన – 1962",
+  "Established in 1962": "1962లో స్థాపించబడింది",
+  "ACCREDITATIONS": "ప్రభుత్వ గుర్తింపు",
+  "Accreditations": "ప్రభుత్వ గుర్తింపు",
+  "Approved by Department of Tourism, Government of India.": "భారత ప్రభుత్వ పర్యాటక శాఖ ఆమోదం పొందిన సంస్థ.",
+  "TRAIN TOURS": "రైలు యాత్రలు",
+  "Train Tours": "రైలు యాత్రలు",
+  "BUS TOURS": "బస్సు యాత్రలు",
+  "Bus Tours": "బస్సు యాత్రలు",
+  "AIRLINES TICKETING": "విమాన టిక్కెట్లు",
+  "Airlines Ticketing": "విమాన టిక్కెట్లు",
+  "TRANSPORT FLEET": "రవాణా వాహనాల సమూహం",
+  "Transport Fleet": "రవాణా వాహనాల సమూహం",
+  "LANGUAGE GUIDES": "భాషా గైడులు",
+  "Language Guides": "భాషా గైడులు",
+  "Languages: English, Hindi, Tamil, Telugu.": "భాషలు: ఇంగ్లీష్, హిందీ, తమిళం, తెలుగు.",
+  "Original Travel Archive": "మా చారిత్రక యాత్రా చిత్రాలు",
+  "Leadership Since 1962": "1962 నుండి నాయకత్వ పరంపర",
+  "Pillars of Our Dedicated Service": "మా అంకితభావ సేవా మూలస్తంభాలు",
+  "Enquire for Custom Tour": "ప్రత్యేక టూర్ కోసం విచారించండి",
+  "Custom Yatra Enquiry": "ప్రత్యేక యాత్రా విచారణ",
+  "Sacred Experiences": "పవిత్ర అనుభవాలు",
+  "Our Journey Since 1962": "1962 నుండి మా సేవా ప్రస్థానం",
+  "Head Office & Booking": "ప్రధాన కార్యాలయం & బుకింగ్",
+  "108 Vaishnava Divya Desala Yatra": "108 వైష్ణవ దివ్య దేశాల యాత్ర",
+  "108 VAISHANAVA DIVYA DESALA  YATRA": "108 వైష్ణవ దివ్య దేశాల యాత్ర",
+  "108 VAISHANAVA DIVYA DESALA YATRA": "108 వైష్ణవ దివ్య దేశాల యాత్ర",
+  "108 VAISHNAVA DIVYA DESALA YATRA": "108 వైష్ణవ దివ్య దేశాల యాత్ర",
+  "108 Vaishnava Divya Desams": "108 వైష్ణవ దివ్య దేశాలు",
+  "Muktinath Flight Package & Nepal Yatra": "ముక్తినాథ్ ఫ్లైట్ ప్యాకేజీ & నేపాల్ యాత్ర",
+  "Muktinath Flight Package": "ముక్తినాథ్ ఫ్లైట్ ప్యాకేజీ",
+  "MUKTHINADH FLIGHT PACKAGE": "ముక్తినాథ్ ఫ్లైట్ ప్యాకేజీ",
+  "Patala Bhubaneswar Cave Temple & Kumaon Tour": "పాతాళ భువనేశ్వర్ గుహాలయ & కుమావున్ యాత్ర",
+  "PATALA BHUBANESWAR  TOUR": "పాతాళ భువనేశ్వర్ టూర్",
+  "Patala Bhubaneswar Tour": "పాతాళ భువనేశ్వర్ టూర్",
+  "Ganga Sagar Yatra & Eastern India Circuit": "గంగా సాగర్ యాత్ర & తూర్పు భారత పుణ్యక్షేత్రాలు",
+  "GANGA SAGAR YATRA": "గంగా సాగర్ యాత్ర",
+  "Ganga Sagar Yatra": "గంగా సాగర్ యాత్ర",
+  "Odisha Andhra Heritage Tour Ex-Bhubaneswar": "ఒడిశా ఆంధ్ర హెరిటేజ్ యాత్ర (భువనేశ్వర్ నుండి)",
+  "ODISHA ANDHRA TOUR EX.BHUBANESWAR": "ఒడిశా ఆంధ్ర టూర్ (భువనేశ్వర్ నుండి)",
+  "Odisha Andhra Tour Ex-Bhubaneswar": "ఒడిశా ఆంధ్ర టూర్ (భువనేశ్వర్ నుండి)",
+  "Dubai International Spectacular Tour": "దుబాయ్ ఇంటర్నేషనల్ టూర్",
+  "DUBAI TOUR": "దుబాయ్ టూర్",
+  "Dubai Tour": "దుబాయ్ టూర్",
+  "Gangtok Pelling Darjeeling Himalayan Tour": "గ్యాంగ్‌టక్ పెల్లింగ్ డార్జిలింగ్ హిమాలయన్ టూర్",
+  "GANGTOK-PELLING-DARJEELING": "గ్యాంగ్‌టక్-పెల్లింగ్-డార్జిలింగ్",
+  "Gangtok Pelling Darjeeling Tour": "గ్యాంగ్‌టక్ పెల్లింగ్ డార్జిలింగ్ టూర్",
+  "Singapore, Malaysia & Luxury Cruise Tour": "సింగపూర్, మలేషియా & లగ్జరీ క్రూజ్ టూర్",
+  "SINGAPORE, MALESYA, WITH CRUISE": "సింగపూర్, మలేషియా విత్ లగ్జరీ క్రూజ్",
+  "Singapore & Malaysia with Luxury Cruise": "సింగపూర్, మలేషియా విత్ లగ్జరీ క్రూజ్",
+  "Kerala Divine & Leisure Tour": "కేరళ దివ్య దర్శనాలు & విహార యాత్ర",
+  "KERALA TOUR": "కేరళ టూర్",
+  "Kerala Tour": "కేరళ టూర్",
+  "Sacred Amarnath Yatra with Vaishno Devi": "పవిత్ర అమర్‌నాథ్ యాత్ర & వైష్ణో దేవి దర్శనం",
+  "AMARNATH YATRA": "అమర్‌నాథ్ యాత్ర",
+  "Amarnath Yatra": "అమర్‌నాథ్ యాత్ర",
+  "Sri Lanka Ramayana Trail & Shankari Devi Yatra": "శ్రీలంక రామాయణ యాత్ర & శంకరీ దేవి శక్తిపీఠం",
+  "SRILanka RAMAYANA YATRA": "శ్రీలంక రామాయణ యాత్ర",
+  "Sri Lanka Ramayana Yatra": "శ్రీలంక రామాయణ యాత్ర",
+  "17 Days / 16 Nights": "17 రోజులు / 16 రాత్రులు",
+  "8 Days / 7 Nights": "8 రోజులు / 7 రాత్రులు",
+  "9 Days / 8 Nights": "9 రోజులు / 8 రాత్రులు",
+  "16 Days / 15 Nights": "16 రోజులు / 15 రాత్రులు",
+  "11 Days / 10 Nights": "11 రోజులు / 10 రాత్రులు",
+  "6 Days / 5 Nights": "6 రోజులు / 5 రాత్రులు",
+  "7 Days / 6 Nights": "7 రోజులు / 6 రాత్రులు",
+  "14 Days / 13 Nights": "14 రోజులు / 13 రాత్రులు",
+  "Vijayawada, AP": "విజయవాడ, ఆంధ్రప్రదేశ్",
+  "Vijayawada, Andhra Pradesh": "విజయవాడ, ఆంధ్రప్రదేశ్",
+  "Gorakhpur / Vijayawada": "గోరఖ్‌పూర్ / విజయవాడ",
+  "Haridwar / Vijayawada": "హరిద్వార్ / విజయవాడ",
+  "Bhubaneswar / Vijayawada": "భువనేశ్వర్ / విజయవాడ",
+  "Vijayawada / Hyderabad / International": "విజయవాడ / హైదరాబాద్ / అంతర్జాతీయ విమానాశ్రయం",
+  "Bagdogra / NJP / Vijayawada": "బాగ్‌డోగ్రా / NJP / విజయవాడ",
+  "Chennai / Vijayawada / Singapore": "చెన్నై / విజయవాడ / సింగపూర్",
+  "Cochin / Vijayawada": "కొచ్చిన్ / విజయవాడ",
+  "Chennai / Vijayawada": "చెన్నై / విజయవాడ",
+  "Tour Overview": "టూర్ ముఖ్యాంశాలు",
+  "Sacred Yatra Overview": "పవిత్ర యాత్రా ముఖ్యాంశాలు",
+  "Day-Wise Sacred Itinerary": "రోజువారీ పవిత్ర యాత్రా ప్రణాళిక",
+  "Date & Pricing Information": "తేదీలు & ప్యాకేజీ ధర వివరాలు",
+  "Official fixed departure schedules and comprehensive tariff breakdown": "అధికారిక ప్రయాణ షెడ్యూల్ మరియు పూర్తి ప్యాకేజీ ధరల వివరాలు",
+  "Tour Photo Gallery": "టూర్ ఫోటో గ్యాలరీ",
+  "Sacred Yatra Photo Gallery": "పవిత్ర యాత్రా ఫోటో గ్యాలరీ",
+  "Important Travel Guidelines & Devotee Care": "ముఖ్యమైన ప్రయాణ మార్గదర్శకాలు & భక్తుల సంరక్షణ",
+  "Important Travel Guidelines &amp; Devotee Care": "ముఖ్యమైన ప్రయాణ మార్గదర్శకాలు & భక్తుల సంరక్షణ",
+  "Essential preparation tips for a comfortable and meaningful spiritual journey": "సుఖవంతమైన మరియు అర్థవంతమైన ఆధ్యాత్మిక ప్రయాణానికి అవసరమైన సూచనలు",
+  "Package Inclusions": "ప్యాకేజీలో చేర్చబడినవి",
+  "Package Exclusions": "ప్యాకేజీలో చేర్చబడనివి",
+  "Click any photo to enlarge": "పెద్దదిగా చూడటానికి ఫోటోపై క్లిక్ చేయండి",
+  "Tour Duration": "టూర్ వ్యవధి",
+  "Boarding Hub": "బోర్డింగ్ కేంద్రం",
+  "Departure Schedule": "ప్రయాణ తేదీలు",
+  "Departure Date": "ప్రయాణ తేదీ",
+  "Departure": "ప్రయాణ తేదీ",
+  "Next Departure": "తదుపరి ప్రయాణం",
+  "All Dates": "అన్ని తేదీలు",
+  "Fare Per Person": "వ్యక్తికి ప్రయాణ రుసుము",
+  "Price Per Person": "వ్యక్తికి రుసుము",
+  "Package Fare": "ప్యాకేజీ రుసుము",
+  "per person": "వ్యక్తికి",
+  "Per Person": "వ్యక్తికి",
+  "Official Tour Package": "అధికారిక టూర్ ప్యాకేజీ",
+  "Meals": "భోజన సదుపాయం",
+  "100% Satvik Brahmin": "100% సాత్విక బ్రాహ్మణ భోజనం",
+  "100% Satvik Wholesome Meals": "100% పరిశుభ్రమైన సాత్విక భోజనం",
+  "Senior Citizen Priority Care": "సీనియర్ సిటిజన్లకు ప్రాధాన్యత",
+  "Approved by Dept of Tourism, Govt of India": "భారత ప్రభుత్వ పర్యాటక శాఖ ఆమోదితం",
+  "Direct Office & Booking Contact": "ఆఫీస్ & బుకింగ్ సంప్రదింపు నంబర్లు",
+  "Send Enquiry for this Tour": "ఈ టూర్ కోసం విచారించండి",
+  "Instant WhatsApp Enquiry": "తక్షణ వాట్సాప్ విచారణ",
+  "WhatsApp Enquiry": "వాట్సాప్ విచారణ",
+  "Send Enquiry": "విచారణ పంపండి",
+  "Submit Sacred Yatra Enquiry": "పవిత్ర యాత్రా విచారణను పంపండి",
+  "Submit Enquiry": "విచారణను పంపండి",
+  "Send Enquiry via WhatsApp": "వాట్సాప్ ద్వారా విచారణ పంపండి",
+  "Selected Tour": "ఎంపిక చేసిన టూర్",
+  "Number of Travellers": "ప్రయాణికుల సంఖ్య",
+  "1 Person": "1 వ్యక్తి",
+  "2 Persons": "2 వ్యక్తులు",
+  "3 Persons": "3 వ్యక్తులు",
+  "4 Persons": "4 వ్యక్తులు",
+  "5+ Persons (Family/Group)": "5+ వ్యక్తులు (కుటుంబం/గ్రూప్)",
+  "Full Name *": "పూర్తి పేరు *",
+  "Mobile Number (10 Digits) *": "మొబైల్ నంబర్ (10 అంకెలు) *",
+  "Email Address (Optional)": "ఈమెయిల్ చిరునామా (ఐచ్ఛికం)",
+  "Special Requirements / Message": "ప్రత్యేక అవసరాలు / సందేశం",
+  "Enquiry Sent Successfully ✓": "విచారణ విజయవంతంగా పంపబడింది ✓",
+  "Other Custom Date": "ఇతర అనుకూల తేదీ",
+  "Vijayawada Headquarters • Est. 1962": "విజయవాడ ప్రధాన కార్యాలయం • స్థాపన 1962",
+  "Vijayawada Headquarters &bull; Est. 1962": "విజయవాడ ప్రధాన కార్యాలయం • స్థాపన 1962",
+  "Looking for specific tour dates & pricing?": "నిర్దిష్ట ప్రయాణ తేదీలు & ధరల కోసం చూస్తున్నారా?",
+  "Looking for specific tour dates &amp; pricing?": "నిర్దిష్ట ప్రయాణ తేదీలు & ధరల కోసం చూస్తున్నారా?",
+  "Speak directly with our senior yatra managers.": "మా సీనియర్ యాత్రా మేనేజర్లతో నేరుగా మాట్లాడండి.",
+  "Office Timings": "కార్యాలయ పనివేళలు",
+  "Monday – Sunday: 9:00 AM – 9:00 PM": "సోమవారం – ఆదివారం: ఉదయం 9:00 నుండి రాత్రి 9:00 వరకు",
+  "Ganga Sagar & Puri": "గంగా సాగర్ & పూరీ జగన్నాథ్",
+  "Ganga Sagar &amp; Puri": "గంగా సాగర్ & పూరీ జగన్నాథ్",
+  "United Arab Emirates": "యునైటెడ్ అరబ్ ఎమిరేట్స్ (యూఏఈ)",
+  "Northern Himalayas": "ఉత్తర హిమాలయాలు",
+  "Quick Links": "ముఖ్యమైన లింకులు",
+  "Head Office:": "ప్రధాన కార్యాలయం:",
+  "Booking Helplines:": "బుకింగ్ హెల్ప్‌లైన్లు:",
+  "Email:": "ఈమెయిల్:",
+  "Terms & Conditions": "నిబంధనలు & షరతులు",
+  "Terms &amp; Conditions": "నిబంధనలు & షరతులు",
+  "Privacy Policy": "గోప్యతా విధానం",
+  "FAQ": "తరచుగా అడిగే ప్రశ్నలు (FAQ)",
+  "All Rights Reserved.": "సర్వహక్కులు ప్రత్యేకించబడ్డాయి.",
+  "In the Service of Faith Since 1962": "1962 నుండి భక్తి ప్రపత్తులతో నిరంతర సేవలో",
+  "In the Service of Faith • Since 1962": "1962 నుండి భక్తి ప్రపత్తులతో నిరంతర సేవలో",
+  "In the Service of Faith &bull; Since 1962": "1962 నుండి భక్తి ప్రపత్తులతో నిరంతర సేవలో",
+  "Powered by SAB IT SERVICES": "Powered by SAB IT SERVICES",
+  "Head Office &amp; Booking": "ప్రధాన కార్యాలయం & బుకింగ్",
+  "Photo Gallery (72 Photos)": "ఫోటో గ్యాలరీ (72 చిత్రాలు)",
+  "Photo Gallery (/2 Photos)": "ఫోటో గ్యాలరీ",
+  "Custom Tour Enquiry": "ప్రత్యేక టూర్ విచారణ",
+  "Vijayawada Head Office": "విజయవాడ ప్రధాన కార్యాలయం",
+  "Registered Office": "రిజిస్టర్డ్ కార్యాలయం",
+  "Company has a very great financial base.": "సంస్థ అత్యంత పటిష్టమైన ఆర్థిక పునాదిని కలిగి ఉంది.",
+  "Mukthinadh Flight Package": "ముక్తినాథ్ ఫ్లైట్ ప్యాకేజీ",
+  "Pilgrimage Yatras": "పుణ్యక్షేత్ర యాత్రలు",
+  "Open Tour Booking Enquiry Desk →": "టూర్ బుకింగ్ విచారణను ప్రారంభించండి →",
+  "Open Tour Booking Enquiry Desk &rarr;": "టూర్ బుకింగ్ విచారణను ప్రారంభించండి →",
+  "God's Own Country": "కేరళ (దైవభూమి)",
+  "Sacred & Scenic Horizons": "పవిత్ర పుణ్యక్షేత్రాలు & సుందర ప్రకృతి దృశ్యాలు",
+  "Sacred &amp; Scenic Horizons": "పవిత్ర పుణ్యక్షేత్రాలు & సుందర ప్రకృతి దృశ్యాలు",
+  "Destinations of Wonder & Devotion": "భక్తిప్రపత్తులు & అద్భుతాల గమ్యస్థానాలు",
+  "Destinations of Wonder &amp; Devotion": "భక్తిప్రపత్తులు & అద్భుతాల గమ్యస్థానాలు",
+  "Dubai & Abu Dhabi": "దుబాయ్ & అబుదాబి",
+  "Dubai &amp; Abu Dhabi": "దుబాయ్ & అబుదాబి",
+  "✉ Send Enquiry for this Tour": "✉ ఈ టూర్ కోసం విచారించండి",
+  "&#9993; Send Enquiry for this Tour": "✉ ఈ టూర్ కోసం విచారించండి",
+  "WhatsApp: +91 98481 24759": "వాట్సాప్: +91 98481 24759",
+  "Feb 06, 2026": "ఫిబ్రవరి 06, 2026",
+  "Mar 14, 2026": "మార్చి 14, 2026",
+  "Aug 03, 2026": "ఆగస్టు 03, 2026",
+  "Nov 15, 2026": "నవంబర్ 15, 2026"
+};
+
+  var PLACEHOLDERS_TE = {
+    "Enter your full name": "మీ పూర్తి పేరు నమోదు చేయండి",
+    "Enter email address": "మీ ఈమెయిల్ నమోదు చేయండి",
+    "e.g. 9848124759": "ఉదా: 9848124759",
+    "Specify senior citizen assistance, room sharing preferences, or boarding details...": "సీనియర్ సిటిజన్ సహాయం, రూమ్ షేరింగ్ లేదా బోర్డింగ్ వివరాలను ఇక్కడ తెలపండి...",
+    "Arrival Date": "ప్రయాణ తేదీ",
+    "Enter Message Here": "మీ సందేశాన్ని ఇక్కడ రాయండి"
+  };
+
+  var originalTexts = new WeakMap();
+  var originalPlaceholders = new WeakMap();
+
+  function getCurrentLang() {
+    return localStorage.getItem('dodla_lang') || 'en';
+  }
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    if (lang === 'te') {
+      document.body.classList.add('lang-te');
+      document.documentElement.classList.add('lang-te');
+    } else {
+      document.body.classList.remove('lang-te');
+      document.documentElement.classList.remove('lang-te');
+    }
+
+    // Update switcher buttons UI
+    var buttons = document.querySelectorAll('.lang-btn, .lang-toggle-btn');
+    buttons.forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Translate DOM Text Nodes
+    translateTree(document.body, lang);
+
+    // Translate Form Input Placeholders
+    translateInputs(document.body, lang);
+  }
+
+  function translateTree(rootNode, lang) {
+    var walker = document.createTreeWalker(
+      rootNode,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function(node) {
+          if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+          var tag = node.parentElement.tagName.toLowerCase();
+          if (tag === 'script' || tag === 'style' || tag === 'noscript') {
+            return NodeFilter.FILTER_REJECT;
+          }
+          if (node.parentElement.classList.contains('lang-switch-wrap') || 
+              node.parentElement.classList.contains('luxury-lang-switch')) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          var val = node.nodeValue.trim();
+          if (val.length > 0) return NodeFilter.FILTER_ACCEPT;
+          return NodeFilter.FILTER_REJECT;
+        }
+      },
+      false
+    );
+
+    var currentNode;
+    while ((currentNode = walker.nextNode())) {
+      var raw = currentNode.nodeValue;
+      var trimmed = raw.trim();
+
+      if (!originalTexts.has(currentNode)) {
+        originalTexts.set(currentNode, raw);
+      }
+
+      if (lang === 'te') {
+        var te = TRANSLATIONS_TE[trimmed];
+        if (te) {
+          currentNode.nodeValue = raw.replace(trimmed, te);
+        } else {
+          if (trimmed.indexOf('Enquire for ') === 0) {
+            var tourEn = trimmed.replace('Enquire for ', '');
+            var tourTe = TRANSLATIONS_TE[tourEn] || tourEn;
+            currentNode.nodeValue = raw.replace(trimmed, 'విచారణ: ' + tourTe);
+          }
+        }
+      } else {
+        if (originalTexts.has(currentNode)) {
+          currentNode.nodeValue = originalTexts.get(currentNode);
+        }
+      }
+    }
+  }
+
+  function translateInputs(rootNode, lang) {
+    var inputs = rootNode.querySelectorAll('input[placeholder], textarea[placeholder]');
+    inputs.forEach(function(el) {
+      var ph = el.getAttribute('placeholder');
+      if (!ph) return;
+
+      if (!originalPlaceholders.has(el)) {
+        originalPlaceholders.set(el, ph);
+      }
+
+      if (lang === 'te') {
+        var te = PLACEHOLDERS_TE[ph] || TRANSLATIONS_TE[ph];
+        if (te) {
+          el.setAttribute('placeholder', te);
+        }
+      } else {
+        if (originalPlaceholders.has(el)) {
+          el.setAttribute('placeholder', originalPlaceholders.get(el));
+        }
+      }
+    });
+  }
+
+  // Public API
+  window.dodlaLang = {
+    current: getCurrentLang,
+    setLang: function(lang) {
+      if (lang !== 'en' && lang !== 'te') lang = 'en';
+      localStorage.setItem('dodla_lang', lang);
+      applyLanguage(lang);
+    },
+    toggle: function() {
+      var next = (getCurrentLang() === 'en') ? 'te' : 'en';
+      this.setLang(next);
+    },
+    t: function(key) {
+      if (getCurrentLang() === 'te' && TRANSLATIONS_TE[key]) {
+        return TRANSLATIONS_TE[key];
+      }
+      return key;
+    }
+  };
+
+  // Auto-inject switcher into topbar / navbar if not in DOM
+  function ensureLanguageSwitchers() {
+    var current = getCurrentLang();
+    
+    // Check topbar
+    var topbarRight = document.querySelector('.luxury-topbar-right');
+    if (topbarRight && !topbarRight.querySelector('.luxury-lang-switch')) {
+      var switchDiv = document.createElement('div');
+      switchDiv.className = 'luxury-lang-switch';
+      switchDiv.innerHTML = 
+        '<button type="button" class="lang-btn' + (current === 'en' ? ' active' : '') + '" data-lang="en" onclick="window.dodlaLang.setLang(\'en\')">EN</button>' +
+        '<span class="lang-sep">|</span>' +
+        '<button type="button" class="lang-btn' + (current === 'te' ? ' active' : '') + '" data-lang="te" onclick="window.dodlaLang.setLang(\'te\')">తెలుగు</button>';
+      topbarRight.insertBefore(switchDiv, topbarRight.firstChild);
+    }
+
+    // Check navbar CTA
+    var navCta = document.querySelector('.luxury-nav-cta');
+    if (navCta && !navCta.querySelector('.luxury-lang-switch')) {
+      var navSwitchDiv = document.createElement('div');
+      navSwitchDiv.className = 'luxury-lang-switch';
+      navSwitchDiv.innerHTML = 
+        '<button type="button" class="lang-btn' + (current === 'en' ? ' active' : '') + '" data-lang="en" onclick="window.dodlaLang.setLang(\'en\')">EN</button>' +
+        '<span class="lang-sep">|</span>' +
+        '<button type="button" class="lang-btn' + (current === 'te' ? ' active' : '') + '" data-lang="te" onclick="window.dodlaLang.setLang(\'te\')">తెలుగు</button>';
+      navCta.insertBefore(navSwitchDiv, navCta.firstChild);
+    }
+  }
+
+  // Auto initialize on DOM ready
+  function init() {
+    ensureLanguageSwitchers();
+    var current = getCurrentLang();
+    applyLanguage(current);
+
+    // Watch for dynamically opened modals or DOM insertions
+    var observer = new MutationObserver(function(mutations) {
+      var lang = getCurrentLang();
+      if (lang === 'te') {
+        mutations.forEach(function(m) {
+          if (m.addedNodes && m.addedNodes.length) {
+            m.addedNodes.forEach(function(node) {
+              if (node.nodeType === 1) {
+                translateTree(node, 'te');
+                translateInputs(node, 'te');
+              }
+            });
+          }
+        });
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
