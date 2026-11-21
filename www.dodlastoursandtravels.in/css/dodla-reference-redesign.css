@@ -5475,3 +5475,54 @@ h4.reservation-room_name,
     width: 100% !important;
   }
 }
+
+
+/* ==========================================================================
+   Responsive Single-Switcher & Telugu Typography Enhancements
+   ========================================================================== */
+@media (min-width: 992px) {
+  .luxury-nav-cta .luxury-lang-switch {
+    display: none !important;
+  }
+}
+@media (max-width: 991px) {
+  .luxury-topbar .luxury-lang-switch {
+    display: none !important;
+  }
+  .luxury-nav-cta .luxury-lang-switch {
+    display: inline-flex !important;
+    margin-right: 8px;
+  }
+}
+
+/* Telugu Typography & Sizing */
+html.dodla-lang-te body,
+body.dodla-lang-te {
+  font-family: 'Noto Sans Telugu', var(--font-sans), sans-serif !important;
+}
+html.dodla-lang-te h1,
+html.dodla-lang-te h2,
+html.dodla-lang-te h3,
+html.dodla-lang-te h4,
+html.dodla-lang-te h5,
+html.dodla-lang-te h6 {
+  font-family: 'Noto Sans Telugu', var(--font-serif), serif !important;
+  line-height: 1.35 !important;
+}
+html.dodla-lang-te .font-script-accent {
+  font-family: 'Noto Sans Telugu', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  font-style: normal !important;
+}
+
+/* Hero Script Eyebrow - Prevent Any Overlapping in English or Telugu */
+.hero-script-eyebrow {
+  display: block !important;
+  position: static !important;
+  transform: none !important;
+  color: #E8CA7B !important;
+  font-size: clamp(20px, 2.8vw, 30px) !important;
+  margin-bottom: 8px !important;
+  line-height: 1.25 !important;
+}
