@@ -1024,286 +1024,365 @@
           </div>
         </section>
 
-        <!-- SECTION B: DAY-WISE ITINERARY (TIMELINE LAYOUT - NO TABS!) -->
-        <section class="detail-section">
+                <!-- SECTION B: DAY-WISE INTERACTIVE ITINERARY NAVIGATOR -->
+        <section class="detail-section itinerary-navigator-section" id="itinerarySection">
           <div class="section-header-wrap">
             <div>
               <h2 class="section-title">Day-Wise Sacred Itinerary</h2>
-              <div class="section-subtext">Detailed day-by-day sequence of temple darshans and destinations</div>
+              <div class="section-subtext">Interactive step-by-step spiritual journey timeline</div>
             </div>
-            <span style="font-size:12.5px; font-weight:700; color:var(--forest-mid); background:rgba(212, 175, 55, 0.15); border:1px solid rgba(212,175,55,0.4); padding:4px 12px; border-radius:30px;">
-              14 Days / 13 Nights
-            </span>
+            <div class="itinerary-progress-badge" id="itineraryProgressBadge">
+              <span class="progress-step-text" id="itineraryProgressText">DAY 1 OF 14</span>
+            </div>
           </div>
 
-          <div class="timeline-wrapper">
-            
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 1</span>
-                  <h3 class="region-title">Kanchipuram Kamakshi &amp; Varadharaja Swamy</h3>
-                </div>
-                <div class="timeline-img-wrap">
+          <!-- Horizontal Stepper Ribbon -->
+          <div class="itinerary-stepper-wrap">
+            <div class="itinerary-stepper" id="itineraryStepper" role="tablist" aria-label="Tour Itinerary Days">
+              <button type="button" class="stepper-day-btn active" data-day-index="0" role="tab" aria-selected="true">
+                <span class="stepper-day-num">01</span>
+                <span class="stepper-day-lbl">Day 1</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="1" role="tab" aria-selected="false">
+                <span class="stepper-day-num">02</span>
+                <span class="stepper-day-lbl">Day 2</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="2" role="tab" aria-selected="false">
+                <span class="stepper-day-num">03</span>
+                <span class="stepper-day-lbl">Day 3</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="3" role="tab" aria-selected="false">
+                <span class="stepper-day-num">04</span>
+                <span class="stepper-day-lbl">Day 4</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="4" role="tab" aria-selected="false">
+                <span class="stepper-day-num">05</span>
+                <span class="stepper-day-lbl">Day 5</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="5" role="tab" aria-selected="false">
+                <span class="stepper-day-num">06</span>
+                <span class="stepper-day-lbl">Day 6</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="6" role="tab" aria-selected="false">
+                <span class="stepper-day-num">07</span>
+                <span class="stepper-day-lbl">Day 7</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="7" role="tab" aria-selected="false">
+                <span class="stepper-day-num">08</span>
+                <span class="stepper-day-lbl">Day 8</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="8" role="tab" aria-selected="false">
+                <span class="stepper-day-num">09</span>
+                <span class="stepper-day-lbl">Day 9</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="9" role="tab" aria-selected="false">
+                <span class="stepper-day-num">10</span>
+                <span class="stepper-day-lbl">Day 10</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="10" role="tab" aria-selected="false">
+                <span class="stepper-day-num">11</span>
+                <span class="stepper-day-lbl">Day 11</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="11" role="tab" aria-selected="false">
+                <span class="stepper-day-num">12</span>
+                <span class="stepper-day-lbl">Day 12</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="12" role="tab" aria-selected="false">
+                <span class="stepper-day-num">13</span>
+                <span class="stepper-day-lbl">Day 13</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="13" role="tab" aria-selected="false">
+                <span class="stepper-day-num">14</span>
+                <span class="stepper-day-lbl">Day 14</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Day Card Display -->
+          <div class="itinerary-card-display" id="itineraryCardDisplay">
+          <!-- Day 1 Slide -->
+          <div class="itinerary-day-slide active" data-day-index="0" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 1</span>
+                <h3 class="itinerary-slide-title">Kanchipuram Kamakshi &amp; Varadharaja Swamy</h3>
+              </div>
+            </div>
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Sri-Kamakshi-Amman-Temple-Kanchipuram.jpg" alt="Kanchipuram Kamakshi &amp; Varadharaja Swamy">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Commence from Chennai / Vijayawada. Darshan of second Astadhasa Shaktipeeth Kanchi Kamakshi and Ekambareswarar Prithvi Lingam, and Varadharaja Swamy.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Kanchi Kamakshi</div>
-<div class="temple-chip">Prithvi Lingam</div>
-<div class="temple-chip">Varadharaja Swamy</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Commence from Chennai / Vijayawada. Darshan of second Astadhasa Shaktipeeth Kanchi Kamakshi and Ekambareswarar Prithvi Lingam, and Varadharaja Swamy.</p>
+                  <div class="temple-grid"><div class="temple-chip">Kanchi Kamakshi</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 2 Slide -->
+          <div class="itinerary-day-slide" data-day-index="1" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 2</span>
+                <h3 class="itinerary-slide-title">Chennai to Colombo Flight &amp; City Sightseeing</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 2</span>
-                  <h3 class="region-title">Chennai to Colombo Flight &amp; City Sightseeing</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/family.jpg" alt="Chennai to Colombo Flight &amp; City Sightseeing">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Fly to Colombo. Visit Panchamukha Anjaneya Swami Temple, Kelaniya Raja Maha Vihara (where Vibhishana was crowned king), and city tour.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Flight to Colombo</div>
-<div class="temple-chip">Panchamukha Anjaneya</div>
-<div class="temple-chip">Kelaniya Vibhishana Shrine</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Fly to Colombo. Visit Panchamukha Anjaneya Swami Temple, Kelaniya Raja Maha Vihara (where Vibhishana was crowned king), and city tour.</p>
+                  <div class="temple-grid"><div class="temple-chip">Flight to Colombo</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 3 Slide -->
+          <div class="itinerary-day-slide" data-day-index="2" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 3</span>
+                <h3 class="itinerary-slide-title">Munneswaram &amp; Manavari Temple (Chilaw)</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 3</span>
-                  <h3 class="region-title">Munneswaram &amp; Manavari Temple (Chilaw)</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/manvari.jpg" alt="Munneswaram &amp; Manavari Temple (Chilaw)">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit Munneswaram Shiva Temple (where Lord Rama prayed after the war) and Manavari Temple (where Ramalingam was first installed by Lord Rama).
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Munneswaram Temple</div>
-<div class="temple-chip">Manavari Ramalingam</div>
-<div class="temple-chip">Chilaw</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit Munneswaram Shiva Temple (where Lord Rama prayed after the war) and Manavari Temple (where Ramalingam was first installed by Lord Rama).</p>
+                  <div class="temple-grid"><div class="temple-chip">Munneswaram Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 4 Slide -->
+          <div class="itinerary-day-slide" data-day-index="3" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 4</span>
+                <h3 class="itinerary-slide-title">Dambulla Cave Temple &amp; Sigiriya</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 4</span>
-                  <h3 class="region-title">Dambulla Cave Temple &amp; Sigiriya</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/budh.jpg" alt="Dambulla Cave Temple &amp; Sigiriya">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit the 1st-century BC Dambulla golden rock cave temples and view the dramatic 5th-century rock fortress of Sigiriya.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Dambulla Cave Temples</div>
-<div class="temple-chip">Sigiriya Fortress</div>
-<div class="temple-chip">Central Plains</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit the 1st-century BC Dambulla golden rock cave temples and view the dramatic 5th-century rock fortress of Sigiriya.</p>
+                  <div class="temple-grid"><div class="temple-chip">Dambulla Cave Temples</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 5 Slide -->
+          <div class="itinerary-day-slide" data-day-index="4" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 5</span>
+                <h3 class="itinerary-slide-title">Kandy Sacred City &amp; Temple of the Tooth</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 5</span>
-                  <h3 class="region-title">Kandy Sacred City &amp; Temple of the Tooth</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/thiru.jpg" alt="Kandy Sacred City &amp; Temple of the Tooth">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive into scenic highlands to Kandy. Visit Dalada Maligawa (Temple of the Sacred Tooth Relic), Peradeniya Botanical Gardens, and cultural dance.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Kandy Temple of Tooth</div>
-<div class="temple-chip">Botanical Gardens</div>
-<div class="temple-chip">Highland Capital</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive into scenic highlands to Kandy. Visit Dalada Maligawa (Temple of the Sacred Tooth Relic), Peradeniya Botanical Gardens, and cultural dance.</p>
+                  <div class="temple-grid"><div class="temple-chip">Kandy Temple of Tooth</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 6 Slide -->
+          <div class="itinerary-day-slide" data-day-index="5" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 6</span>
+                <h3 class="itinerary-slide-title">Kandy to Nuwara Eliya via Ramboda Hanuman</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 6</span>
-                  <h3 class="region-title">Kandy to Nuwara Eliya via Ramboda Hanuman</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/dambulla.jpg" alt="Kandy to Nuwara Eliya via Ramboda Hanuman">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Ascend through tea gardens to Sri Bhakta Hanuman Temple at Ramboda where Hanuman searched for Sita Devi. Arrive in cool Nuwara Eliya (Little England).
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Ramboda Hanuman Temple</div>
-<div class="temple-chip">Tea Plantations</div>
-<div class="temple-chip">Nuwara Eliya</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Ascend through tea gardens to Sri Bhakta Hanuman Temple at Ramboda where Hanuman searched for Sita Devi. Arrive in cool Nuwara Eliya (Little England).</p>
+                  <div class="temple-grid"><div class="temple-chip">Ramboda Hanuman Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 7 Slide -->
+          <div class="itinerary-day-slide" data-day-index="6" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 7</span>
+                <h3 class="itinerary-slide-title">Sita Eliya (Ashok Vatika) &amp; Gayathri Peedam</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 7</span>
-                  <h3 class="region-title">Sita Eliya (Ashok Vatika) &amp; Gayathri Peedam</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/ramboda.jpg" alt="Sita Eliya (Ashok Vatika) &amp; Gayathri Peedam">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit Sita Amman Temple at Sita Eliya (Ashok Vatika where Ravana held Sita captive) and Gayathri Peedam where King Ravana&#x27;s son Meghanath prayed.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Ashok Vatika</div>
-<div class="temple-chip">Sita Amman Temple</div>
-<div class="temple-chip">Gayathri Peedam</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit Sita Amman Temple at Sita Eliya (Ashok Vatika where Ravana held Sita captive) and Gayathri Peedam where King Ravana&#x27;s son Meghanath prayed.</p>
+                  <div class="temple-grid"><div class="temple-chip">Ashok Vatika</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 8 Slide -->
+          <div class="itinerary-day-slide" data-day-index="7" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 8</span>
+                <h3 class="itinerary-slide-title">Divurumpola (Agni Pariksha) &amp; Ravana Falls</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 8</span>
-                  <h3 class="region-title">Divurumpola (Agni Pariksha) &amp; Ravana Falls</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/gayathri-peedam-1.jpg" alt="Divurumpola (Agni Pariksha) &amp; Ravana Falls">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit Divurumpola temple, the revered site where Sita Devi underwent Agni Pariksha. View the cascading Ravana Ella Falls and Ravana Cave.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Agni Pariksha Site</div>
-<div class="temple-chip">Ravana Falls</div>
-<div class="temple-chip">Ravana Cave Ella</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit Divurumpola temple, the revered site where Sita Devi underwent Agni Pariksha. View the cascading Ravana Ella Falls and Ravana Cave.</p>
+                  <div class="temple-grid"><div class="temple-chip">Agni Pariksha Site</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 9 Slide -->
+          <div class="itinerary-day-slide" data-day-index="8" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 9</span>
+                <h3 class="itinerary-slide-title">Kataragama Murugan Temple Darshan</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 9</span>
-                  <h3 class="region-title">Kataragama Murugan Temple Darshan</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/agni.jpg" alt="Kataragama Murugan Temple Darshan">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive south to Kataragama for sacred darshan of Lord Murugan (Kartikeya), deeply revered by pilgrims of all faiths.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Kataragama Temple</div>
-<div class="temple-chip">Lord Murugan Darshan</div>
-<div class="temple-chip">Menik Ganga</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive south to Kataragama for sacred darshan of Lord Murugan (Kartikeya), deeply revered by pilgrims of all faiths.</p>
+                  <div class="temple-grid"><div class="temple-chip">Kataragama Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 10 Slide -->
+          <div class="itinerary-day-slide" data-day-index="9" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 10</span>
+                <h3 class="itinerary-slide-title">Trincomalee – Shankari Devi Shaktipeeth</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 10</span>
-                  <h3 class="region-title">Trincomalee – Shankari Devi Shaktipeeth</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/sita.jpg" alt="Trincomalee – Shankari Devi Shaktipeeth">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive to eastern port city of Trincomalee. Visit Koneswaram Temple (Temple of a Thousand Pillars) atop Swami Rock and Shankari Devi Shaktipeeth.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Shankari Devi Shaktipeeth</div>
-<div class="temple-chip">Koneswaram Shiva Temple</div>
-<div class="temple-chip">Swami Rock</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive to eastern port city of Trincomalee. Visit Koneswaram Temple (Temple of a Thousand Pillars) atop Swami Rock and Shankari Devi Shaktipeeth.</p>
+                  <div class="temple-grid"><div class="temple-chip">Shankari Devi Shaktipeeth</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 11 Slide -->
+          <div class="itinerary-day-slide" data-day-index="10" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 11</span>
+                <h3 class="itinerary-slide-title">Mannar – Thiruketheeswaram Shiva Temple</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 11</span>
-                  <h3 class="region-title">Mannar – Thiruketheeswaram Shiva Temple</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/mannar.jpg" alt="Mannar – Thiruketheeswaram Shiva Temple">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit ancient Thiruketheeswaram temple in Mannar, one of the five Paadal Petra Pancha Ishwarams of Sri Lanka, and view Adam&#x27;s Bridge coastline.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Thiruketheeswaram</div>
-<div class="temple-chip">Pancha Ishwaram</div>
-<div class="temple-chip">Ram Sethu Coastline</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit ancient Thiruketheeswaram temple in Mannar, one of the five Paadal Petra Pancha Ishwarams of Sri Lanka, and view Adam&#x27;s Bridge coastline.</p>
+                  <div class="temple-grid"><div class="temple-chip">Thiruketheeswaram</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 12 Slide -->
+          <div class="itinerary-day-slide" data-day-index="11" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 12</span>
+                <h3 class="itinerary-slide-title">Jaffna – Nallur Kandaswamy &amp; Nagapooshani</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 12</span>
-                  <h3 class="region-title">Jaffna – Nallur Kandaswamy &amp; Nagapooshani</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Jaffna.jpg" alt="Jaffna – Nallur Kandaswamy &amp; Nagapooshani">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Arrive in historic northern capital Jaffna. Darshan at the grand Nallur Kandaswamy Kovil and boat trip to Nainativu Nagapooshani Amman Temple.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Nallur Kandaswamy</div>
-<div class="temple-chip">Nagapooshani Amman</div>
-<div class="temple-chip">Nainativu Island</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Arrive in historic northern capital Jaffna. Darshan at the grand Nallur Kandaswamy Kovil and boat trip to Nainativu Nagapooshani Amman Temple.</p>
+                  <div class="temple-grid"><div class="temple-chip">Nallur Kandaswamy</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 13 Slide -->
+          <div class="itinerary-day-slide" data-day-index="12" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 13</span>
+                <h3 class="itinerary-slide-title">Jaffna to Colombo Scenic Drive</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 13</span>
-                  <h3 class="region-title">Jaffna to Colombo Scenic Drive</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/naga.jpg" alt="Jaffna to Colombo Scenic Drive">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Comfortable drive down to Colombo. Evening shopping at Odel, House of Fashion, and seaside sunset stroll at Galle Face Green.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Colombo Return</div>
-<div class="temple-chip">Galle Face Green</div>
-<div class="temple-chip">Sri Lanka Shopping</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Comfortable drive down to Colombo. Evening shopping at Odel, House of Fashion, and seaside sunset stroll at Galle Face Green.</p>
+                  <div class="temple-grid"><div class="temple-chip">Colombo Return</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 14 Slide -->
+          <div class="itinerary-day-slide" data-day-index="13" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 14</span>
+                <h3 class="itinerary-slide-title">Colombo to Chennai &amp; Return to Vijayawada</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 14</span>
-                  <h3 class="region-title">Colombo to Chennai &amp; Return to Vijayawada</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Sri-Kamakshi-Amman-Temple-Kanchipuram.jpg" alt="Colombo to Chennai &amp; Return to Vijayawada">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Transfer to Bandaranaike International Airport for departure flight to Chennai and connecting journey to Vijayawada with divine memories.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Flight to Chennai</div>
-<div class="temple-chip">Vijayawada Return</div>
-<div class="temple-chip">Ramayana Yatra Fulfillment</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Transfer to Bandaranaike International Airport for departure flight to Chennai and connecting journey to Vijayawada with divine memories.</p>
+                  <div class="temple-grid"><div class="temple-chip">Flight to Chennai</div>
+                </div>
               </div>
+          </div>
+          </div>
+
+          <!-- Navigation Controls Footer -->
+          <div class="itinerary-nav-footer">
+            <button type="button" class="btn-itinerary-nav prev" id="itinPrevBtn" disabled aria-label="Previous Day">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <span>Previous Day</span>
+            </button>
+            
+            <button type="button" class="btn-itinerary-nav next" id="itinNextBtn" aria-label="Next Day">
+              <span>Next Day</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="itinerary-completion-box" id="itinCompletionBox" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Journey Complete &bull; Divine Blessings</span>
             </div>
-        
           </div>
         </section>
 
@@ -1861,5 +1940,71 @@
   </script>
 
   <script src="js/dodla-i18n.js"></script>
+
+  <script>
+    (function initItineraryNavigator() {
+      const stepperBtns = document.querySelectorAll('#itineraryStepper .stepper-day-btn');
+      const slides = document.querySelectorAll('#itineraryCardDisplay .itinerary-day-slide');
+      const prevBtn = document.getElementById('itinPrevBtn');
+      const nextBtn = document.getElementById('itinNextBtn');
+      const completionBox = document.getElementById('itinCompletionBox');
+      const progressText = document.getElementById('itineraryProgressText');
+      if (!slides.length) return;
+      const totalDays = slides.length;
+      let currentDay = 0;
+
+      function updateDay(index) {
+        if (index < 0 || index >= totalDays) return;
+        currentDay = index;
+
+        slides.forEach(function(slide, i) {
+          slide.classList.toggle('active', i === currentDay);
+        });
+
+        stepperBtns.forEach(function(btn, i) {
+          var isActive = (i === currentDay);
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (isActive) {
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+
+        var isTe = (document.documentElement.lang === 'te' || document.body.classList.contains('dodla-lang-te'));
+        if (progressText) {
+          progressText.textContent = isTe ? ('రోజు ' + (currentDay + 1) + ' / ' + totalDays) : ('DAY ' + (currentDay + 1) + ' OF ' + totalDays);
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = (currentDay === 0);
+        }
+        if (currentDay === totalDays - 1) {
+          if (nextBtn) nextBtn.style.display = 'none';
+          if (completionBox) completionBox.style.display = 'inline-flex';
+        } else {
+          if (nextBtn) nextBtn.style.display = 'inline-flex';
+          if (completionBox) completionBox.style.display = 'none';
+        }
+      }
+
+      stepperBtns.forEach(function(btn, i) {
+        btn.addEventListener('click', function() { updateDay(i); });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() { updateDay(currentDay - 1); });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() { updateDay(currentDay + 1); });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') updateDay(currentDay + 1);
+        if (e.key === 'ArrowLeft') updateDay(currentDay - 1);
+      });
+    })();
+  </script>
+
 </body>
 </html>

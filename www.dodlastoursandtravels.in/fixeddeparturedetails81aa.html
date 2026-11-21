@@ -1024,172 +1024,227 @@
           </div>
         </section>
 
-        <!-- SECTION B: DAY-WISE ITINERARY (TIMELINE LAYOUT - NO TABS!) -->
-        <section class="detail-section">
+                <!-- SECTION B: DAY-WISE INTERACTIVE ITINERARY NAVIGATOR -->
+        <section class="detail-section itinerary-navigator-section" id="itinerarySection">
           <div class="section-header-wrap">
             <div>
               <h2 class="section-title">Day-Wise Sacred Itinerary</h2>
-              <div class="section-subtext">Detailed day-by-day sequence of temple darshans and destinations</div>
+              <div class="section-subtext">Interactive step-by-step spiritual journey timeline</div>
             </div>
-            <span style="font-size:12.5px; font-weight:700; color:var(--forest-mid); background:rgba(212, 175, 55, 0.15); border:1px solid rgba(212,175,55,0.4); padding:4px 12px; border-radius:30px;">
-              8 Days / 7 Nights
-            </span>
+            <div class="itinerary-progress-badge" id="itineraryProgressBadge">
+              <span class="progress-step-text" id="itineraryProgressText">DAY 1 OF 8</span>
+            </div>
           </div>
 
-          <div class="timeline-wrapper">
-            
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 1</span>
-                  <h3 class="region-title">Gorakhpur – Bhairahawa</h3>
-                </div>
-                <div class="timeline-img-wrap">
+          <!-- Horizontal Stepper Ribbon -->
+          <div class="itinerary-stepper-wrap">
+            <div class="itinerary-stepper" id="itineraryStepper" role="tablist" aria-label="Tour Itinerary Days">
+              <button type="button" class="stepper-day-btn active" data-day-index="0" role="tab" aria-selected="true">
+                <span class="stepper-day-num">01</span>
+                <span class="stepper-day-lbl">Day 1</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="1" role="tab" aria-selected="false">
+                <span class="stepper-day-num">02</span>
+                <span class="stepper-day-lbl">Day 2</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="2" role="tab" aria-selected="false">
+                <span class="stepper-day-num">03</span>
+                <span class="stepper-day-lbl">Day 3</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="3" role="tab" aria-selected="false">
+                <span class="stepper-day-num">04</span>
+                <span class="stepper-day-lbl">Day 4</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="4" role="tab" aria-selected="false">
+                <span class="stepper-day-num">05</span>
+                <span class="stepper-day-lbl">Day 5</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="5" role="tab" aria-selected="false">
+                <span class="stepper-day-num">06</span>
+                <span class="stepper-day-lbl">Day 6</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="6" role="tab" aria-selected="false">
+                <span class="stepper-day-num">07</span>
+                <span class="stepper-day-lbl">Day 7</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="7" role="tab" aria-selected="false">
+                <span class="stepper-day-num">08</span>
+                <span class="stepper-day-lbl">Day 8</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Day Card Display -->
+          <div class="itinerary-card-display" id="itineraryCardDisplay">
+          <!-- Day 1 Slide -->
+          <div class="itinerary-day-slide active" data-day-index="0" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 1</span>
+                <h3 class="itinerary-slide-title">Gorakhpur – Bhairahawa</h3>
+              </div>
+            </div>
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" alt="Gorakhpur – Bhairahawa">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Arrival at Gorakhpur Airport / Railway Station. Warm welcome by our representative, darshan at the holy Gorakhnath Temple, and drive to Bhairahawa across the Nepal border for overnight stay.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Gorakhnath Temple</div>
-<div class="temple-chip">Nepal Border Crossing</div>
-<div class="temple-chip">Bhairahawa Hotel</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Arrival at Gorakhpur Airport / Railway Station. Warm welcome by our representative, darshan at the holy Gorakhnath Temple, and drive to Bhairahawa across the Nepal border for overnight stay.</p>
+                  <div class="temple-grid"><div class="temple-chip">Gorakhnath Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 2 Slide -->
+          <div class="itinerary-day-slide" data-day-index="1" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 2</span>
+                <h3 class="itinerary-slide-title">Bhairahawa – Pokhara &amp; Lumbini</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 2</span>
-                  <h3 class="region-title">Bhairahawa – Pokhara &amp; Lumbini</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/shutterstock_1461171485.jpg" alt="Bhairahawa – Pokhara &amp; Lumbini">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Morning visit to Lumbini, the sacred birthplace of Lord Buddha, Maya Devi Temple, and Ashokan Pillar. Scenic drive to the beautiful lakeside town of Pokhara.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Lumbini Sacred Garden</div>
-<div class="temple-chip">Maya Devi Temple</div>
-<div class="temple-chip">Phewa Lake Pokhara</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Morning visit to Lumbini, the sacred birthplace of Lord Buddha, Maya Devi Temple, and Ashokan Pillar. Scenic drive to the beautiful lakeside town of Pokhara.</p>
+                  <div class="temple-grid"><div class="temple-chip">Lumbini Sacred Garden</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 3 Slide -->
+          <div class="itinerary-day-slide" data-day-index="2" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 3</span>
+                <h3 class="itinerary-slide-title">Pokhara – Jomsom Flight – Muktinath</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 3</span>
-                  <h3 class="region-title">Pokhara – Jomsom Flight – Muktinath</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/jomsom-airport.jpg" alt="Pokhara – Jomsom Flight – Muktinath">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Early morning breathtaking Himalayan flight from Pokhara to Jomsom over Annapurna and Dhaulagiri ranges. Jeep transfer to Ranipauwa and holy bath in 108 sacred water spouts at Muktinath Temple.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Pokhara-Jomsom Flight</div>
-<div class="temple-chip">108 Muktidhara Holy Bath</div>
-<div class="temple-chip">Muktinath Temple Darshan</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Early morning breathtaking Himalayan flight from Pokhara to Jomsom over Annapurna and Dhaulagiri ranges. Jeep transfer to Ranipauwa and holy bath in 108 sacred water spouts at Muktinath Temple.</p>
+                  <div class="temple-grid"><div class="temple-chip">Pokhara-Jomsom Flight</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 4 Slide -->
+          <div class="itinerary-day-slide" data-day-index="3" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 4</span>
+                <h3 class="itinerary-slide-title">Jomsom – Pokhara Flight &amp; Sightseeing</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 4</span>
-                  <h3 class="region-title">Jomsom – Pokhara Flight &amp; Sightseeing</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" alt="Jomsom – Pokhara Flight &amp; Sightseeing">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Return mountain flight to Pokhara. Afternoon sightseeing covering Devi&#x27;s Falls, Gupteshwor Mahadev Cave, Bindhyabasini Temple, and evening boat ride on Lake Phewa.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Devi&#x27;s Fall</div>
-<div class="temple-chip">Gupteshwor Mahadev Cave</div>
-<div class="temple-chip">Phewa Lake Boating</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Return mountain flight to Pokhara. Afternoon sightseeing covering Devi&#x27;s Falls, Gupteshwor Mahadev Cave, Bindhyabasini Temple, and evening boat ride on Lake Phewa.</p>
+                  <div class="temple-grid"><div class="temple-chip">Devi&#x27;s Fall</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 5 Slide -->
+          <div class="itinerary-day-slide" data-day-index="4" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 5</span>
+                <h3 class="itinerary-slide-title">Pokhara – Manakamana Cable Car – Kathmandu</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 5</span>
-                  <h3 class="region-title">Pokhara – Manakamana Cable Car – Kathmandu</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" alt="Pokhara – Manakamana Cable Car – Kathmandu">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive towards Kathmandu via Kurintar. Ascend by modern cable car to the hilltop shrine of Maa Manakamana Devi (wish-fulfilling Goddess). Continue drive to Kathmandu capital.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Manakamana Cable Car</div>
-<div class="temple-chip">Wish-fulfilling Goddess Darshan</div>
-<div class="temple-chip">Kathmandu Check-in</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive towards Kathmandu via Kurintar. Ascend by modern cable car to the hilltop shrine of Maa Manakamana Devi (wish-fulfilling Goddess). Continue drive to Kathmandu capital.</p>
+                  <div class="temple-grid"><div class="temple-chip">Manakamana Cable Car</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 6 Slide -->
+          <div class="itinerary-day-slide" data-day-index="5" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 6</span>
+                <h3 class="itinerary-slide-title">Full Day Kathmandu Sacred Darshans</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 6</span>
-                  <h3 class="region-title">Full Day Kathmandu Sacred Darshans</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/pashupatinath-temple-nepal.jpg" alt="Full Day Kathmandu Sacred Darshans">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Holy morning darshan of Sri Pashupatinath Temple on the banks of Bagmati River, Guhyeshwari Shaktipeeth, Jal Narayan (Sleeping Vishnu at Budhanilkantha), and Swayambhunath.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Pashupatinath Temple</div>
-<div class="temple-chip">Guhyeshwari Shaktipeeth</div>
-<div class="temple-chip">Budhanilkantha Sleeping Vishnu</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Holy morning darshan of Sri Pashupatinath Temple on the banks of Bagmati River, Guhyeshwari Shaktipeeth, Jal Narayan (Sleeping Vishnu at Budhanilkantha), and Swayambhunath.</p>
+                  <div class="temple-grid"><div class="temple-chip">Pashupatinath Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 7 Slide -->
+          <div class="itinerary-day-slide" data-day-index="6" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 7</span>
+                <h3 class="itinerary-slide-title">Kathmandu – Janakpur Dham</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 7</span>
-                  <h3 class="region-title">Kathmandu – Janakpur Dham</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" alt="Kathmandu – Janakpur Dham">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Scenic drive to Janakpur Dham, the ancient capital of King Janak. Evening darshan at the magnificent marble palace of Janaki Mandir and Ram Janaki Vivah Mandap.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Janaki Mandir</div>
-<div class="temple-chip">Vivah Mandap</div>
-<div class="temple-chip">Dhanushadham</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Scenic drive to Janakpur Dham, the ancient capital of King Janak. Evening darshan at the magnificent marble palace of Janaki Mandir and Ram Janaki Vivah Mandap.</p>
+                  <div class="temple-grid"><div class="temple-chip">Janaki Mandir</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 8 Slide -->
+          <div class="itinerary-day-slide" data-day-index="7" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 8</span>
+                <h3 class="itinerary-slide-title">Janakpur – Darbhanga Drop</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 8</span>
-                  <h3 class="region-title">Janakpur – Darbhanga Drop</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/family.jpg" alt="Janakpur – Darbhanga Drop">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  After sacred morning darshan and breakfast, transfer to Darbhanga Airport / Railway Station for departure flight or train back to Vijayawada with divine blessings.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Darbhanga Drop</div>
-<div class="temple-chip">Sacred Prasadam</div>
-<div class="temple-chip">Homebound Journey</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">After sacred morning darshan and breakfast, transfer to Darbhanga Airport / Railway Station for departure flight or train back to Vijayawada with divine blessings.</p>
+                  <div class="temple-grid"><div class="temple-chip">Darbhanga Drop</div>
+                </div>
               </div>
+          </div>
+          </div>
+
+          <!-- Navigation Controls Footer -->
+          <div class="itinerary-nav-footer">
+            <button type="button" class="btn-itinerary-nav prev" id="itinPrevBtn" disabled aria-label="Previous Day">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <span>Previous Day</span>
+            </button>
+            
+            <button type="button" class="btn-itinerary-nav next" id="itinNextBtn" aria-label="Next Day">
+              <span>Next Day</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="itinerary-completion-box" id="itinCompletionBox" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Journey Complete &bull; Divine Blessings</span>
             </div>
-        
           </div>
         </section>
 
@@ -1755,5 +1810,71 @@
   </script>
 
   <script src="js/dodla-i18n.js"></script>
+
+  <script>
+    (function initItineraryNavigator() {
+      const stepperBtns = document.querySelectorAll('#itineraryStepper .stepper-day-btn');
+      const slides = document.querySelectorAll('#itineraryCardDisplay .itinerary-day-slide');
+      const prevBtn = document.getElementById('itinPrevBtn');
+      const nextBtn = document.getElementById('itinNextBtn');
+      const completionBox = document.getElementById('itinCompletionBox');
+      const progressText = document.getElementById('itineraryProgressText');
+      if (!slides.length) return;
+      const totalDays = slides.length;
+      let currentDay = 0;
+
+      function updateDay(index) {
+        if (index < 0 || index >= totalDays) return;
+        currentDay = index;
+
+        slides.forEach(function(slide, i) {
+          slide.classList.toggle('active', i === currentDay);
+        });
+
+        stepperBtns.forEach(function(btn, i) {
+          var isActive = (i === currentDay);
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (isActive) {
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+
+        var isTe = (document.documentElement.lang === 'te' || document.body.classList.contains('dodla-lang-te'));
+        if (progressText) {
+          progressText.textContent = isTe ? ('రోజు ' + (currentDay + 1) + ' / ' + totalDays) : ('DAY ' + (currentDay + 1) + ' OF ' + totalDays);
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = (currentDay === 0);
+        }
+        if (currentDay === totalDays - 1) {
+          if (nextBtn) nextBtn.style.display = 'none';
+          if (completionBox) completionBox.style.display = 'inline-flex';
+        } else {
+          if (nextBtn) nextBtn.style.display = 'inline-flex';
+          if (completionBox) completionBox.style.display = 'none';
+        }
+      }
+
+      stepperBtns.forEach(function(btn, i) {
+        btn.addEventListener('click', function() { updateDay(i); });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() { updateDay(currentDay - 1); });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() { updateDay(currentDay + 1); });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') updateDay(currentDay + 1);
+        if (e.key === 'ArrowLeft') updateDay(currentDay - 1);
+      });
+    })();
+  </script>
+
 </body>
 </html>

@@ -61,7 +61,7 @@
   "Sri Lanka Ramayana Trail": "శ్రీలంక రామాయణ యాత్ర",
   "South India Temple Circuit": "దక్షిణ భారత దేవాలయాల యాత్ర",
   "North India Temple Circuit": "ఉత్తర భారత తీర్థయాత్రలు",
-  "64 Years of Sacred Journeys": "64 ఏళ్ల పవిత్ర సేవా ప్రస్థానం",
+  "64 Years of Sacred Journeys": "64 ఏళ్ల <span style=\"color: #D4AF37;\">పవిత్ర సేవా ప్రస్థానం</span>",
   "Journey with Faith": "విశ్వాసంతో సాగే ఆధ్యాత్మిక యాత్ర",
   "Explore Pilgrimages": "తీర్థయాత్రలను వీక్షించండి",
   "Plan Your Journey": "మీ యాత్రను ప్లాన్ చేయండి",
@@ -809,5 +809,7 @@
   "Tour Packages": "టూర్ ప్యాకేజీలు",
   "Train Journey": "రైలు ప్రయాణం",
   "Sacred Temple Gopuram Architecture": "పవిత్ర దేవాలయ గోపుర దర్శనం",
-  "Peaceful Heritage & Resort Retreats": "ప్రశాంతమైన హెరిటేజ్ రిట్రీట్స్"
+  "Peaceful Heritage & Resort Retreats": "ప్రశాంతమైన హెరిటేజ్ రిట్రీట్స్",
+  "Watch Our Story • <small style=\"opacity:0.85;\">A Legacy of Faith & Service</small>": "మా చరిత్రను వీక్షించండి • విశ్వాసం & సేవా వారసత్వం",
+  "Watch Our Story &bull; <small style=\"opacity:0.85;\">A Legacy of Faith & Service</small>": "మా చరిత్రను వీక్షించండి • విశ్వాసం & సేవా వారసత్వం"
 }

@@ -1024,172 +1024,227 @@
           </div>
         </section>
 
-        <!-- SECTION B: DAY-WISE ITINERARY (TIMELINE LAYOUT - NO TABS!) -->
-        <section class="detail-section">
+                <!-- SECTION B: DAY-WISE INTERACTIVE ITINERARY NAVIGATOR -->
+        <section class="detail-section itinerary-navigator-section" id="itinerarySection">
           <div class="section-header-wrap">
             <div>
               <h2 class="section-title">Day-Wise Sacred Itinerary</h2>
-              <div class="section-subtext">Detailed day-by-day sequence of temple darshans and destinations</div>
+              <div class="section-subtext">Interactive step-by-step spiritual journey timeline</div>
             </div>
-            <span style="font-size:12.5px; font-weight:700; color:var(--forest-mid); background:rgba(212, 175, 55, 0.15); border:1px solid rgba(212,175,55,0.4); padding:4px 12px; border-radius:30px;">
-              8 Days / 7 Nights
-            </span>
+            <div class="itinerary-progress-badge" id="itineraryProgressBadge">
+              <span class="progress-step-text" id="itineraryProgressText">DAY 1 OF 8</span>
+            </div>
           </div>
 
-          <div class="timeline-wrapper">
-            
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 1</span>
-                  <h3 class="region-title">Arrive NJP / Bagdogra to Gangtok (125 Kms)</h3>
-                </div>
-                <div class="timeline-img-wrap">
+          <!-- Horizontal Stepper Ribbon -->
+          <div class="itinerary-stepper-wrap">
+            <div class="itinerary-stepper" id="itineraryStepper" role="tablist" aria-label="Tour Itinerary Days">
+              <button type="button" class="stepper-day-btn active" data-day-index="0" role="tab" aria-selected="true">
+                <span class="stepper-day-num">01</span>
+                <span class="stepper-day-lbl">Day 1</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="1" role="tab" aria-selected="false">
+                <span class="stepper-day-num">02</span>
+                <span class="stepper-day-lbl">Day 2</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="2" role="tab" aria-selected="false">
+                <span class="stepper-day-num">03</span>
+                <span class="stepper-day-lbl">Day 3</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="3" role="tab" aria-selected="false">
+                <span class="stepper-day-num">04</span>
+                <span class="stepper-day-lbl">Day 4</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="4" role="tab" aria-selected="false">
+                <span class="stepper-day-num">05</span>
+                <span class="stepper-day-lbl">Day 5</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="5" role="tab" aria-selected="false">
+                <span class="stepper-day-num">06</span>
+                <span class="stepper-day-lbl">Day 6</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="6" role="tab" aria-selected="false">
+                <span class="stepper-day-num">07</span>
+                <span class="stepper-day-lbl">Day 7</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="7" role="tab" aria-selected="false">
+                <span class="stepper-day-num">08</span>
+                <span class="stepper-day-lbl">Day 8</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Day Card Display -->
+          <div class="itinerary-card-display" id="itineraryCardDisplay">
+          <!-- Day 1 Slide -->
+          <div class="itinerary-day-slide active" data-day-index="0" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 1</span>
+                <h3 class="itinerary-slide-title">Arrive NJP / Bagdogra to Gangtok (125 Kms)</h3>
+              </div>
+            </div>
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/1535367278146_IMG-20180730-WA0037.jpg" alt="Arrive NJP / Bagdogra to Gangtok (125 Kms)">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Pick up at NJP Railway Station / Bagdogra Airport. Drive along Teesta river valley to Gangtok (5,500 ft). Evening MG Marg stroll.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Teesta River Valley</div>
-<div class="temple-chip">Gangtok Check-in</div>
-<div class="temple-chip">MG Marg</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Pick up at NJP Railway Station / Bagdogra Airport. Drive along Teesta river valley to Gangtok (5,500 ft). Evening MG Marg stroll.</p>
+                  <div class="temple-grid"><div class="temple-chip">Teesta River Valley</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 2 Slide -->
+          <div class="itinerary-day-slide" data-day-index="1" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 2</span>
+                <h3 class="itinerary-slide-title">Gangtok Sightseeing &amp; Rumtek Monastery</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 2</span>
-                  <h3 class="region-title">Gangtok Sightseeing &amp; Rumtek Monastery</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/3rd-image.jpg" alt="Gangtok Sightseeing &amp; Rumtek Monastery">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit Tashi View Point for Kanchenjunga view, Ganesh Tok, Hanuman Tok, Flower Exhibition Centre, and Rumtek Monastery.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Tashi Viewpoint</div>
-<div class="temple-chip">Rumtek Monastery</div>
-<div class="temple-chip">Ganesh Tok</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit Tashi View Point for Kanchenjunga view, Ganesh Tok, Hanuman Tok, Flower Exhibition Centre, and Rumtek Monastery.</p>
+                  <div class="temple-grid"><div class="temple-chip">Tashi Viewpoint</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 3 Slide -->
+          <div class="itinerary-day-slide" data-day-index="2" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 3</span>
+                <h3 class="itinerary-slide-title">Tsomgo Lake (12,400 ft) &amp; Baba Mandir</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 3</span>
-                  <h3 class="region-title">Tsomgo Lake (12,400 ft) &amp; Baba Mandir</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/download (7).jpeg" alt="Tsomgo Lake (12,400 ft) &amp; Baba Mandir">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Excursion to high-altitude glacial Tsomgo Lake and the patriotic shrine of Baba Harbhajan Singh Mandir near Nathu La Pass.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Tsomgo Glacial Lake</div>
-<div class="temple-chip">Baba Mandir</div>
-<div class="temple-chip">High Altitude Vistas</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Excursion to high-altitude glacial Tsomgo Lake and the patriotic shrine of Baba Harbhajan Singh Mandir near Nathu La Pass.</p>
+                  <div class="temple-grid"><div class="temple-chip">Tsomgo Glacial Lake</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 4 Slide -->
+          <div class="itinerary-day-slide" data-day-index="3" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 4</span>
+                <h3 class="itinerary-slide-title">Gangtok to Pelling via Ravangla Buddha Park</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 4</span>
-                  <h3 class="region-title">Gangtok to Pelling via Ravangla Buddha Park</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/5-Nights-6-Days-Gangtok-Pelling-Darjeeling.webp" alt="Gangtok to Pelling via Ravangla Buddha Park">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive through scenic south Sikkim. Stop at the massive 130ft Buddha statue at Tathagata Tsal (Buddha Park) in Ravangla. Arrive Pelling.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Ravangla Buddha Park</div>
-<div class="temple-chip">Mountain Drive</div>
-<div class="temple-chip">Pelling Arrival</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive through scenic south Sikkim. Stop at the massive 130ft Buddha statue at Tathagata Tsal (Buddha Park) in Ravangla. Arrive Pelling.</p>
+                  <div class="temple-grid"><div class="temple-chip">Ravangla Buddha Park</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 5 Slide -->
+          <div class="itinerary-day-slide" data-day-index="4" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 5</span>
+                <h3 class="itinerary-slide-title">Pelling Local – Skywalk &amp; Khecheopalri Lake</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 5</span>
-                  <h3 class="region-title">Pelling Local – Skywalk &amp; Khecheopalri Lake</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Pelling-Sky-Walk-With-Tusk-Travel.jpg" alt="Pelling Local – Skywalk &amp; Khecheopalri Lake">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Walk on India&#x27;s first glass skywalk facing Chenrezig statue, visit wish-fulfilling sacred Khecheopalri Lake, and Pemayangtse Monastery.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Pelling Skywalk</div>
-<div class="temple-chip">Khecheopalri Lake</div>
-<div class="temple-chip">Pemayangtse Monastery</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Walk on India&#x27;s first glass skywalk facing Chenrezig statue, visit wish-fulfilling sacred Khecheopalri Lake, and Pemayangtse Monastery.</p>
+                  <div class="temple-grid"><div class="temple-chip">Pelling Skywalk</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 6 Slide -->
+          <div class="itinerary-day-slide" data-day-index="5" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 6</span>
+                <h3 class="itinerary-slide-title">Pelling to Darjeeling Queen of Hills</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 6</span>
-                  <h3 class="region-title">Pelling to Darjeeling Queen of Hills</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/5-Nights-6-Days-Gangtok-Pelling-Darjeeling.webp" alt="Pelling to Darjeeling Queen of Hills">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Scenic drive into West Bengal hills to Darjeeling (6,700 ft). Check-in at hotel and evening visit to Chowrasta Mall.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Darjeeling Arrival</div>
-<div class="temple-chip">Tea Garden Panoramas</div>
-<div class="temple-chip">Chowrasta Mall</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Scenic drive into West Bengal hills to Darjeeling (6,700 ft). Check-in at hotel and evening visit to Chowrasta Mall.</p>
+                  <div class="temple-grid"><div class="temple-chip">Darjeeling Arrival</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 7 Slide -->
+          <div class="itinerary-day-slide" data-day-index="6" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 7</span>
+                <h3 class="itinerary-slide-title">Tiger Hill Sunrise &amp; Himalayan Mountaineering</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 7</span>
-                  <h3 class="region-title">Tiger Hill Sunrise &amp; Himalayan Mountaineering</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/3rd-image.jpg" alt="Tiger Hill Sunrise &amp; Himalayan Mountaineering">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Early 4:00 AM trip to Tiger Hill to watch golden sunrise illuminate Mt. Kanchenjunga. Visit Batasia Loop, Ghoom Monastery, and HMI.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Tiger Hill Sunrise</div>
-<div class="temple-chip">Batasia Loop</div>
-<div class="temple-chip">Ghoom Monastery</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Early 4:00 AM trip to Tiger Hill to watch golden sunrise illuminate Mt. Kanchenjunga. Visit Batasia Loop, Ghoom Monastery, and HMI.</p>
+                  <div class="temple-grid"><div class="temple-chip">Tiger Hill Sunrise</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 8 Slide -->
+          <div class="itinerary-day-slide" data-day-index="7" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 8</span>
+                <h3 class="itinerary-slide-title">Darjeeling to NJP / Bagdogra Drop</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 8</span>
-                  <h3 class="region-title">Darjeeling to NJP / Bagdogra Drop</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/1535367278146_IMG-20180730-WA0037.jpg" alt="Darjeeling to NJP / Bagdogra Drop">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Transfer to NJP Railway Station / Bagdogra Airport for your journey back to Vijayawada with cherished memories.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Bagdogra Drop</div>
-<div class="temple-chip">Himalayan Memories</div>
-<div class="temple-chip">Safe Return</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Transfer to NJP Railway Station / Bagdogra Airport for your journey back to Vijayawada with cherished memories.</p>
+                  <div class="temple-grid"><div class="temple-chip">Bagdogra Drop</div>
+                </div>
               </div>
+          </div>
+          </div>
+
+          <!-- Navigation Controls Footer -->
+          <div class="itinerary-nav-footer">
+            <button type="button" class="btn-itinerary-nav prev" id="itinPrevBtn" disabled aria-label="Previous Day">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <span>Previous Day</span>
+            </button>
+            
+            <button type="button" class="btn-itinerary-nav next" id="itinNextBtn" aria-label="Next Day">
+              <span>Next Day</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="itinerary-completion-box" id="itinCompletionBox" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Journey Complete &bull; Divine Blessings</span>
             </div>
-        
           </div>
         </section>
 
@@ -1750,5 +1805,71 @@
   </script>
 
   <script src="js/dodla-i18n.js"></script>
+
+  <script>
+    (function initItineraryNavigator() {
+      const stepperBtns = document.querySelectorAll('#itineraryStepper .stepper-day-btn');
+      const slides = document.querySelectorAll('#itineraryCardDisplay .itinerary-day-slide');
+      const prevBtn = document.getElementById('itinPrevBtn');
+      const nextBtn = document.getElementById('itinNextBtn');
+      const completionBox = document.getElementById('itinCompletionBox');
+      const progressText = document.getElementById('itineraryProgressText');
+      if (!slides.length) return;
+      const totalDays = slides.length;
+      let currentDay = 0;
+
+      function updateDay(index) {
+        if (index < 0 || index >= totalDays) return;
+        currentDay = index;
+
+        slides.forEach(function(slide, i) {
+          slide.classList.toggle('active', i === currentDay);
+        });
+
+        stepperBtns.forEach(function(btn, i) {
+          var isActive = (i === currentDay);
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (isActive) {
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+
+        var isTe = (document.documentElement.lang === 'te' || document.body.classList.contains('dodla-lang-te'));
+        if (progressText) {
+          progressText.textContent = isTe ? ('రోజు ' + (currentDay + 1) + ' / ' + totalDays) : ('DAY ' + (currentDay + 1) + ' OF ' + totalDays);
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = (currentDay === 0);
+        }
+        if (currentDay === totalDays - 1) {
+          if (nextBtn) nextBtn.style.display = 'none';
+          if (completionBox) completionBox.style.display = 'inline-flex';
+        } else {
+          if (nextBtn) nextBtn.style.display = 'inline-flex';
+          if (completionBox) completionBox.style.display = 'none';
+        }
+      }
+
+      stepperBtns.forEach(function(btn, i) {
+        btn.addEventListener('click', function() { updateDay(i); });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() { updateDay(currentDay - 1); });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() { updateDay(currentDay + 1); });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') updateDay(currentDay + 1);
+        if (e.key === 'ArrowLeft') updateDay(currentDay - 1);
+      });
+    })();
+  </script>
+
 </body>
 </html>

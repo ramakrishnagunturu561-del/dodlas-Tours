@@ -1024,324 +1024,411 @@
           </div>
         </section>
 
-        <!-- SECTION B: DAY-WISE ITINERARY (TIMELINE LAYOUT - NO TABS!) -->
-        <section class="detail-section">
+                <!-- SECTION B: DAY-WISE INTERACTIVE ITINERARY NAVIGATOR -->
+        <section class="detail-section itinerary-navigator-section" id="itinerarySection">
           <div class="section-header-wrap">
             <div>
               <h2 class="section-title">Day-Wise Sacred Itinerary</h2>
-              <div class="section-subtext">Detailed day-by-day sequence of temple darshans and destinations</div>
+              <div class="section-subtext">Interactive step-by-step spiritual journey timeline</div>
             </div>
-            <span style="font-size:12.5px; font-weight:700; color:var(--forest-mid); background:rgba(212, 175, 55, 0.15); border:1px solid rgba(212,175,55,0.4); padding:4px 12px; border-radius:30px;">
-              16 Days / 15 Nights
-            </span>
+            <div class="itinerary-progress-badge" id="itineraryProgressBadge">
+              <span class="progress-step-text" id="itineraryProgressText">DAY 1 OF 16</span>
+            </div>
           </div>
 
-          <div class="timeline-wrapper">
-            
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 1</span>
-                  <h3 class="region-title">Vijayawada to New Delhi (AP Express)</h3>
-                </div>
-                <div class="timeline-img-wrap">
+          <!-- Horizontal Stepper Ribbon -->
+          <div class="itinerary-stepper-wrap">
+            <div class="itinerary-stepper" id="itineraryStepper" role="tablist" aria-label="Tour Itinerary Days">
+              <button type="button" class="stepper-day-btn active" data-day-index="0" role="tab" aria-selected="true">
+                <span class="stepper-day-num">01</span>
+                <span class="stepper-day-lbl">Day 1</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="1" role="tab" aria-selected="false">
+                <span class="stepper-day-num">02</span>
+                <span class="stepper-day-lbl">Day 2</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="2" role="tab" aria-selected="false">
+                <span class="stepper-day-num">03</span>
+                <span class="stepper-day-lbl">Day 3</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="3" role="tab" aria-selected="false">
+                <span class="stepper-day-num">04</span>
+                <span class="stepper-day-lbl">Day 4</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="4" role="tab" aria-selected="false">
+                <span class="stepper-day-num">05</span>
+                <span class="stepper-day-lbl">Day 5</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="5" role="tab" aria-selected="false">
+                <span class="stepper-day-num">06</span>
+                <span class="stepper-day-lbl">Day 6</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="6" role="tab" aria-selected="false">
+                <span class="stepper-day-num">07</span>
+                <span class="stepper-day-lbl">Day 7</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="7" role="tab" aria-selected="false">
+                <span class="stepper-day-num">08</span>
+                <span class="stepper-day-lbl">Day 8</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="8" role="tab" aria-selected="false">
+                <span class="stepper-day-num">09</span>
+                <span class="stepper-day-lbl">Day 9</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="9" role="tab" aria-selected="false">
+                <span class="stepper-day-num">10</span>
+                <span class="stepper-day-lbl">Day 10</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="10" role="tab" aria-selected="false">
+                <span class="stepper-day-num">11</span>
+                <span class="stepper-day-lbl">Day 11</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="11" role="tab" aria-selected="false">
+                <span class="stepper-day-num">12</span>
+                <span class="stepper-day-lbl">Day 12</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="12" role="tab" aria-selected="false">
+                <span class="stepper-day-num">13</span>
+                <span class="stepper-day-lbl">Day 13</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="13" role="tab" aria-selected="false">
+                <span class="stepper-day-num">14</span>
+                <span class="stepper-day-lbl">Day 14</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="14" role="tab" aria-selected="false">
+                <span class="stepper-day-num">15</span>
+                <span class="stepper-day-lbl">Day 15</span>
+              </button>
+              <button type="button" class="stepper-day-btn" data-day-index="15" role="tab" aria-selected="false">
+                <span class="stepper-day-num">16</span>
+                <span class="stepper-day-lbl">Day 16</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Day Card Display -->
+          <div class="itinerary-card-display" id="itineraryCardDisplay">
+          <!-- Day 1 Slide -->
+          <div class="itinerary-day-slide active" data-day-index="0" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 1</span>
+                <h3 class="itinerary-slide-title">Vijayawada to New Delhi (AP Express)</h3>
+              </div>
+            </div>
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/20vij6_1529.jpg" alt="Vijayawada to New Delhi (AP Express)">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Board Train No 20805 AP Express from Vijayawada early morning at 3:30 AM with fellow devotees for the sacred journey to North India.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">AP Express Train</div>
-<div class="temple-chip">Devotee Group</div>
-<div class="temple-chip">North India Journey</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Board Train No 20805 AP Express from Vijayawada early morning at 3:30 AM with fellow devotees for the sacred journey to North India.</p>
+                  <div class="temple-grid"><div class="temple-chip">AP Express Train</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 2 Slide -->
+          <div class="itinerary-day-slide" data-day-index="1" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 2</span>
+                <h3 class="itinerary-slide-title">New Delhi Arrival &amp; Sightseeing</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 2</span>
-                  <h3 class="region-title">New Delhi Arrival &amp; Sightseeing</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/India-War-Memorial-arch-New-Delhi-Sir.webp" alt="New Delhi Arrival &amp; Sightseeing">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Morning pickup at Delhi Railway Station. Visit India Gate, Birla Mandir, and transfer to hotel for rest and overnight stay.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Delhi Pickup</div>
-<div class="temple-chip">India Gate</div>
-<div class="temple-chip">Birla Mandir</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Morning pickup at Delhi Railway Station. Visit India Gate, Birla Mandir, and transfer to hotel for rest and overnight stay.</p>
+                  <div class="temple-grid"><div class="temple-chip">Delhi Pickup</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 3 Slide -->
+          <div class="itinerary-day-slide" data-day-index="2" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 3</span>
+                <h3 class="itinerary-slide-title">Delhi to Kurukshetra Holy Kshetras</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 3</span>
-                  <h3 class="region-title">Delhi to Kurukshetra Holy Kshetras</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/1200px-Sourabh475123_01.jpg" alt="Delhi to Kurukshetra Holy Kshetras">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive to sacred Kurukshetra. Holy bath in Brahma Sarovar, visit Jyotisar (where Bhagavad Gita was delivered), and proceed to Amritsar.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Brahma Sarovar</div>
-<div class="temple-chip">Jyotisar Gita Kshetra</div>
-<div class="temple-chip">Amritsar Drive</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive to sacred Kurukshetra. Holy bath in Brahma Sarovar, visit Jyotisar (where Bhagavad Gita was delivered), and proceed to Amritsar.</p>
+                  <div class="temple-grid"><div class="temple-chip">Brahma Sarovar</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 4 Slide -->
+          <div class="itinerary-day-slide" data-day-index="3" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 4</span>
+                <h3 class="itinerary-slide-title">Amritsar Golden Temple &amp; Wagah Border</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 4</span>
-                  <h3 class="region-title">Amritsar Golden Temple &amp; Wagah Border</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Harmandir-Sahib-Teja-Singh-Samudri-Hall-Clock.webp" alt="Amritsar Golden Temple &amp; Wagah Border">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Early morning darshan of Sri Harmandir Sahib (Golden Temple), Jallianwala Bagh, and evening Beating Retreat ceremony at Wagah Border.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Golden Temple</div>
-<div class="temple-chip">Jallianwala Bagh</div>
-<div class="temple-chip">Wagah Border</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Early morning darshan of Sri Harmandir Sahib (Golden Temple), Jallianwala Bagh, and evening Beating Retreat ceremony at Wagah Border.</p>
+                  <div class="temple-grid"><div class="temple-chip">Golden Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 5 Slide -->
+          <div class="itinerary-day-slide" data-day-index="4" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 5</span>
+                <h3 class="itinerary-slide-title">Amritsar to Katra Base Camp</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 5</span>
-                  <h3 class="region-title">Amritsar to Katra Base Camp</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Vaishno-Devi-Mandir-Darshan-Image.jpg" alt="Amritsar to Katra Base Camp">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive through the Shivalik foothills to Katra, base camp for holy Vaishno Devi pilgrimage. Registration and preparations for trek.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Katra Arrival</div>
-<div class="temple-chip">Yatra Parchi</div>
-<div class="temple-chip">Base Camp Halt</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive through the Shivalik foothills to Katra, base camp for holy Vaishno Devi pilgrimage. Registration and preparations for trek.</p>
+                  <div class="temple-grid"><div class="temple-chip">Katra Arrival</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 6 Slide -->
+          <div class="itinerary-day-slide" data-day-index="5" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 6</span>
+                <h3 class="itinerary-slide-title">Maa Vaishno Devi Holy Bhawan Darshan</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 6</span>
-                  <h3 class="region-title">Maa Vaishno Devi Holy Bhawan Darshan</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/1532500552-katra-srinagar-tour.jpg" alt="Maa Vaishno Devi Holy Bhawan Darshan">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Trek / pony / battery car to holy Bhawan. Divine darshan of Maa Vaishno Devi in Pindi roop and Bhairon Ghati shrine. Return to Katra.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Vaishno Devi Bhawan</div>
-<div class="temple-chip">Pindi Darshan</div>
-<div class="temple-chip">Bhairon Nath Temple</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Trek / pony / battery car to holy Bhawan. Divine darshan of Maa Vaishno Devi in Pindi roop and Bhairon Ghati shrine. Return to Katra.</p>
+                  <div class="temple-grid"><div class="temple-chip">Vaishno Devi Bhawan</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 7 Slide -->
+          <div class="itinerary-day-slide" data-day-index="6" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 7</span>
+                <h3 class="itinerary-slide-title">Katra to Srinagar via Jawahar Tunnel</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 7</span>
-                  <h3 class="region-title">Katra to Srinagar via Jawahar Tunnel</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/collage-1@0.75x-1024x585.jpg" alt="Katra to Srinagar via Jawahar Tunnel">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Scenic drive through Kud, Patnitop, and the Jawahar Tunnel into the breathtaking paradise of Kashmir Valley. Check-in at Srinagar.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Jawahar Tunnel</div>
-<div class="temple-chip">Kashmir Valley</div>
-<div class="temple-chip">Srinagar Arrival</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Scenic drive through Kud, Patnitop, and the Jawahar Tunnel into the breathtaking paradise of Kashmir Valley. Check-in at Srinagar.</p>
+                  <div class="temple-grid"><div class="temple-chip">Jawahar Tunnel</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 8 Slide -->
+          <div class="itinerary-day-slide" data-day-index="7" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 8</span>
+                <h3 class="itinerary-slide-title">Srinagar Mughal Gardens &amp; Dal Lake Shikara</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 8</span>
-                  <h3 class="region-title">Srinagar Mughal Gardens &amp; Dal Lake Shikara</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/cdd6fd9a-3166-4e19-a98d-cc7090ca45a9.png" alt="Srinagar Mughal Gardens &amp; Dal Lake Shikara">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Visit Shankaracharya Hilltop Temple, Nishat Bagh, Shalimar Bagh, and enjoy a peaceful sunset Shikara ride on Dal Lake.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Shankaracharya Temple</div>
-<div class="temple-chip">Mughal Gardens</div>
-<div class="temple-chip">Dal Lake Shikara</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Visit Shankaracharya Hilltop Temple, Nishat Bagh, Shalimar Bagh, and enjoy a peaceful sunset Shikara ride on Dal Lake.</p>
+                  <div class="temple-grid"><div class="temple-chip">Shankaracharya Temple</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 9 Slide -->
+          <div class="itinerary-day-slide" data-day-index="8" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 9</span>
+                <h3 class="itinerary-slide-title">Srinagar to Baltal / Sonamarg Base Camp</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 9</span>
-                  <h3 class="region-title">Srinagar to Baltal / Sonamarg Base Camp</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/130162514_4144150012280120_4443363125493619188_n.jpg" alt="Srinagar to Baltal / Sonamarg Base Camp">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive past golden meadows of Sonamarg along Sindh river to Baltal base camp. Medical verification and overnight tent / lodge halt.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Sonamarg</div>
-<div class="temple-chip">Baltal Base Camp</div>
-<div class="temple-chip">Amarnath Yatra Camp</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive past golden meadows of Sonamarg along Sindh river to Baltal base camp. Medical verification and overnight tent / lodge halt.</p>
+                  <div class="temple-grid"><div class="temple-chip">Sonamarg</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 10 Slide -->
+          <div class="itinerary-day-slide" data-day-index="9" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 10</span>
+                <h3 class="itinerary-slide-title">Sacred Amarnath Cave Baba Barfani Darshan</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 10</span>
-                  <h3 class="region-title">Sacred Amarnath Cave Baba Barfani Darshan</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Outside-View-of-Chamunda-Devi-1.webp" alt="Sacred Amarnath Cave Baba Barfani Darshan">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Ascend to holy cave by trek / helicopter. The divine darshan of naturally formed holy Ice Shivlingam of Lord Amarnath Baba Barfani.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Amarnath Holy Cave</div>
-<div class="temple-chip">Baba Barfani Ice Lingam</div>
-<div class="temple-chip">Har Har Mahadev</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Ascend to holy cave by trek / helicopter. The divine darshan of naturally formed holy Ice Shivlingam of Lord Amarnath Baba Barfani.</p>
+                  <div class="temple-grid"><div class="temple-chip">Amarnath Holy Cave</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 11 Slide -->
+          <div class="itinerary-day-slide" data-day-index="10" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 11</span>
+                <h3 class="itinerary-slide-title">Return from Cave to Base Camp</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 11</span>
-                  <h3 class="region-title">Return from Cave to Base Camp</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/jwala_devi_kangra.webp" alt="Return from Cave to Base Camp">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Safe descent back to Baltal base camp, rest, and drive towards Jammu foothills with heart filled with devotional gratitude.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Safe Descent</div>
-<div class="temple-chip">Baltal Rest</div>
-<div class="temple-chip">Jammu Highway</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Safe descent back to Baltal base camp, rest, and drive towards Jammu foothills with heart filled with devotional gratitude.</p>
+                  <div class="temple-grid"><div class="temple-chip">Safe Descent</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 12 Slide -->
+          <div class="itinerary-day-slide" data-day-index="11" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 12</span>
+                <h3 class="itinerary-slide-title">Chamunda Devi &amp; Kangra Valley</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 12</span>
-                  <h3 class="region-title">Chamunda Devi &amp; Kangra Valley</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/1659612889116419177.jpg" alt="Chamunda Devi &amp; Kangra Valley">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Drive into Himachal Pradesh to visit the sacred Shaktipeeth of Maa Chamunda Devi situated along the Baner river.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Chamunda Devi</div>
-<div class="temple-chip">Himachal Foothills</div>
-<div class="temple-chip">Kangra Valley</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Drive into Himachal Pradesh to visit the sacred Shaktipeeth of Maa Chamunda Devi situated along the Baner river.</p>
+                  <div class="temple-grid"><div class="temple-chip">Chamunda Devi</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 13 Slide -->
+          <div class="itinerary-day-slide" data-day-index="12" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 13</span>
+                <h3 class="itinerary-slide-title">Jwala Ji Shaktipeeth &amp; Chintpurni</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 13</span>
-                  <h3 class="region-title">Jwala Ji Shaktipeeth &amp; Chintpurni</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/mansa_pic3.jpg" alt="Jwala Ji Shaktipeeth &amp; Chintpurni">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Darshan of eternal holy blue flames burning without fuel at Jwala Ji Temple and wish-fulfilling Maa Chintpurni Devi temple.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Jwala Ji Eternal Flames</div>
-<div class="temple-chip">Chintpurni Devi</div>
-<div class="temple-chip">Shaktipeeth Circuit</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Darshan of eternal holy blue flames burning without fuel at Jwala Ji Temple and wish-fulfilling Maa Chintpurni Devi temple.</p>
+                  <div class="temple-grid"><div class="temple-chip">Jwala Ji Eternal Flames</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 14 Slide -->
+          <div class="itinerary-day-slide" data-day-index="13" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 14</span>
+                <h3 class="itinerary-slide-title">Haridwar Holy Ganga Aarti</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 14</span>
-                  <h3 class="region-title">Haridwar Holy Ganga Aarti</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/Lotus-Temple-New-Delhi.jpg" alt="Haridwar Holy Ganga Aarti">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Proceed to holy Haridwar. Holy bath in Mother Ganga and evening Ganga Aarti at Har Ki Pauri with resonant temple bells.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Har Ki Pauri</div>
-<div class="temple-chip">Ganga Aarti</div>
-<div class="temple-chip">Haridwar Stay</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Proceed to holy Haridwar. Holy bath in Mother Ganga and evening Ganga Aarti at Har Ki Pauri with resonant temple bells.</p>
+                  <div class="temple-grid"><div class="temple-chip">Har Ki Pauri</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 15 Slide -->
+          <div class="itinerary-day-slide" data-day-index="14" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 15</span>
+                <h3 class="itinerary-slide-title">Delhi to Vijayawada Return Train</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 15</span>
-                  <h3 class="region-title">Delhi to Vijayawada Return Train</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/download (5).jpeg" alt="Delhi to Vijayawada Return Train">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Transfer to New Delhi Railway Station and board train for Vijayawada carrying holy water, prasadams, and sacred vibhuti.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Boarding Train</div>
-<div class="temple-chip">Sacred Prasadams</div>
-<div class="temple-chip">Journey Home</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Transfer to New Delhi Railway Station and board train for Vijayawada carrying holy water, prasadams, and sacred vibhuti.</p>
+                  <div class="temple-grid"><div class="temple-chip">Boarding Train</div>
+                </div>
+              </div>
+          </div>
+
+          <!-- Day 16 Slide -->
+          <div class="itinerary-day-slide" data-day-index="15" role="tabpanel">
+            <div class="itinerary-slide-header">
+              <div class="itinerary-slide-title-wrap">
+                <span class="itinerary-slide-badge">DAY 16</span>
+                <h3 class="itinerary-slide-title">Arrival at Vijayawada with Sacred Blessings</h3>
               </div>
             </div>
-        
-            <div class="timeline-node">
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="day-badge">DAY 16</span>
-                  <h3 class="region-title">Arrival at Vijayawada with Sacred Blessings</h3>
-                </div>
-                <div class="timeline-img-wrap">
+              <div class="itinerary-slide-body has-image">
+                <div class="itinerary-slide-img-wrap">
                   <img src="adminpanel/public/news/20vij6_1529.jpg" alt="Arrival at Vijayawada with Sacred Blessings">
                 </div>
-                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
-                  Arrive safely in Vijayawada with cherished spiritual memories of completing Amarnath Yatra and Vaishno Devi under Dodla&#x27;s guidance.
-                </p>
-                <div class="temple-grid"><div class="temple-chip">Vijayawada Arrival</div>
-<div class="temple-chip">Baba Barfani Blessings</div>
-<div class="temple-chip">Divine Completion</div>
-</div>
+                <div>
+                  <p class="itinerary-slide-desc">Arrive safely in Vijayawada with cherished spiritual memories of completing Amarnath Yatra and Vaishno Devi under Dodla&#x27;s guidance.</p>
+                  <div class="temple-grid"><div class="temple-chip">Vijayawada Arrival</div>
+                </div>
               </div>
+          </div>
+          </div>
+
+          <!-- Navigation Controls Footer -->
+          <div class="itinerary-nav-footer">
+            <button type="button" class="btn-itinerary-nav prev" id="itinPrevBtn" disabled aria-label="Previous Day">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <span>Previous Day</span>
+            </button>
+            
+            <button type="button" class="btn-itinerary-nav next" id="itinNextBtn" aria-label="Next Day">
+              <span>Next Day</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="itinerary-completion-box" id="itinCompletionBox" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Journey Complete &bull; Divine Blessings</span>
             </div>
-        
           </div>
         </section>
 
@@ -1891,5 +1978,71 @@
   </script>
 
   <script src="js/dodla-i18n.js"></script>
+
+  <script>
+    (function initItineraryNavigator() {
+      const stepperBtns = document.querySelectorAll('#itineraryStepper .stepper-day-btn');
+      const slides = document.querySelectorAll('#itineraryCardDisplay .itinerary-day-slide');
+      const prevBtn = document.getElementById('itinPrevBtn');
+      const nextBtn = document.getElementById('itinNextBtn');
+      const completionBox = document.getElementById('itinCompletionBox');
+      const progressText = document.getElementById('itineraryProgressText');
+      if (!slides.length) return;
+      const totalDays = slides.length;
+      let currentDay = 0;
+
+      function updateDay(index) {
+        if (index < 0 || index >= totalDays) return;
+        currentDay = index;
+
+        slides.forEach(function(slide, i) {
+          slide.classList.toggle('active', i === currentDay);
+        });
+
+        stepperBtns.forEach(function(btn, i) {
+          var isActive = (i === currentDay);
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (isActive) {
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+
+        var isTe = (document.documentElement.lang === 'te' || document.body.classList.contains('dodla-lang-te'));
+        if (progressText) {
+          progressText.textContent = isTe ? ('రోజు ' + (currentDay + 1) + ' / ' + totalDays) : ('DAY ' + (currentDay + 1) + ' OF ' + totalDays);
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = (currentDay === 0);
+        }
+        if (currentDay === totalDays - 1) {
+          if (nextBtn) nextBtn.style.display = 'none';
+          if (completionBox) completionBox.style.display = 'inline-flex';
+        } else {
+          if (nextBtn) nextBtn.style.display = 'inline-flex';
+          if (completionBox) completionBox.style.display = 'none';
+        }
+      }
+
+      stepperBtns.forEach(function(btn, i) {
+        btn.addEventListener('click', function() { updateDay(i); });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() { updateDay(currentDay - 1); });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() { updateDay(currentDay + 1); });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') updateDay(currentDay + 1);
+        if (e.key === 'ArrowLeft') updateDay(currentDay - 1);
+      });
+    })();
+  </script>
+
 </body>
 </html>
