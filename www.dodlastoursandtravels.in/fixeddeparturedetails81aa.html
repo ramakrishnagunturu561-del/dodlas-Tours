@@ -4,20 +4,582 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MUKTHINADH  FLIGHT PACKAGE — Dodla's Tours &amp; Travels</title>
-  <meta name="description" content="MUKTHINADH  FLIGHT PACKAGE - Authentic pilgrimage yatra and holiday tour package by Dodla's Tours & Travels, Vijayawada. Established 1962.">
+  <title>Muktinath Flight Package (8 Days) — Fixed Departure | Dodla's Tours &amp; Travels</title>
+  <meta name="description" content="MUKTHINADH FLIGHT PACKAGE — 8 Days / 7 Nights sacred Nepal yatra covering Gorakhpur, Lumbini, Pokhara, Muktinath, Jomsom, Manakamana Temple, Kathmandu, and Janakpur Dham. Fixed Departure 2026-02-01. Approved by Dept. of Tourism, Govt. of India.">
   <link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dodla-reference-redesign.css">
+  
+  <style>
+    /* Fixed Departure Specific Premium Styles */
+    .tour-hero-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: #FFFFFF;
+      border: 1px solid #E5D5AA;
+      border-radius: 16px;
+      padding: 18px 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px rgba(6, 31, 22, 0.04);
+    }
+    .tour-hero-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tour-hero-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #FAF6F0;
+      border: 1px solid #E5D5AA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0A2E20;
+      flex-shrink: 0;
+    }
+    .tour-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7A6548;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    .tour-hero-value {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: #0A2E20;
+    }
+
+    /* Tab Navigation */
+    .tour-tabs-header {
+      display: flex;
+      gap: 10px;
+      border-bottom: 2px solid #E5D5AA;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    .tour-tabs-header::-webkit-scrollbar {
+      display: none;
+    }
+    .tour-tab-btn {
+      padding: 12px 22px;
+      background: transparent;
+      border: none;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: #5A7365;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      border-radius: 8px 8px 0 0;
+    }
+    .tour-tab-btn:hover {
+      color: #0A2E20;
+      background: rgba(229, 213, 170, 0.2);
+    }
+    .tour-tab-btn.active {
+      color: #0A2E20;
+      font-weight: 700;
+      background: #FFFFFF;
+      border: 1px solid #E5D5AA;
+      border-bottom: 2px solid #FFFFFF;
+      margin-bottom: -2px;
+    }
+    .tour-tab-pane {
+      display: none;
+    }
+    .tour-tab-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Itinerary Day Card */
+    .itinerary-card {
+      background: #FFFFFF;
+      border: 1px solid #E5D5AA;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(6, 31, 22, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .itinerary-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(6, 31, 22, 0.09);
+      border-color: #C5A059;
+    }
+    .itinerary-card-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 200px;
+    }
+    .itinerary-img-wrap {
+      position: relative;
+      background: #061F16;
+      overflow: hidden;
+    }
+    .itinerary-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .itinerary-card:hover .itinerary-img-wrap img {
+      transform: scale(1.05);
+    }
+    .itinerary-day-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #0A2E20;
+      border: 1px solid #D4AF37;
+      color: #FAF6F0;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .itinerary-content {
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .itinerary-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: #0A2E20;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+    }
+    .itinerary-desc {
+      font-size: 14.5px;
+      color: #1E382B;
+      line-height: 1.7;
+      margin: 0 0 14px 0;
+    }
+    .itinerary-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .itinerary-pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #7A6548;
+      background: #FAF6F0;
+      border: 1px solid #E5D5AA;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    /* Pricing & Departure Table */
+    .tour-pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #E5D5AA;
+    }
+    .tour-pricing-table th {
+      background: #0A2E20;
+      color: #FAF6F0;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      padding: 14px 18px;
+      text-align: left;
+      border: 1px solid #061F16;
+    }
+    .tour-pricing-table td {
+      background: #FFFFFF;
+      color: #1E382B;
+      font-size: 14.5px;
+      padding: 14px 18px;
+      border: 1px solid #E5D5AA;
+    }
+    .tour-pricing-table tr:nth-child(even) td {
+      background: #FAF6F0;
+    }
+
+    /* Gallery Grid */
+    .tour-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .tour-gallery-item {
+      background: #FFFFFF;
+      border: 1px solid #E5D5AA;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(6, 31, 22, 0.05);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .tour-gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(6, 31, 22, 0.12);
+      border-color: #C5A059;
+    }
+    .tour-gallery-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      background: #FAF6F0;
+    }
+    .tour-gallery-cap {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0A2E20;
+      text-align: center;
+      background: #FFFFFF;
+      border-top: 1px solid #FAF6F0;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 92px;
+      right: 26px;
+      width: 48px;
+      height: 48px;
+      background: #0A2E20;
+      border: 2px solid #D4AF37;
+      color: #FAF6F0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 6px 20px rgba(6, 31, 22, 0.3);
+      outline: none;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: #C5A059;
+      border-color: #FAF6F0;
+      color: #061F16;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(6, 31, 22, 0.4);
+    }
+
+    /* Modal Popup Form */
+    .enquiry-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(6, 31, 22, 0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .enquiry-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .enquiry-modal-dialog {
+      background: #FFFFFF;
+      border: 2px solid #E5D5AA;
+      border-radius: 18px;
+      max-width: 620px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(6, 31, 22, 0.35);
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .enquiry-modal-overlay.active .enquiry-modal-dialog {
+      transform: scale(1) translateY(0);
+    }
+    .enquiry-modal-header {
+      background: linear-gradient(135deg, #0A2E20 0%, #061F16 100%);
+      padding: 20px 24px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #C5A059;
+    }
+    .enquiry-modal-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #D4AF37;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .enquiry-modal-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: #FAF6F0;
+      margin: 0;
+      font-weight: 600;
+    }
+    .enquiry-modal-close {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FAF6F0;
+      font-size: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      line-height: 1;
+    }
+    .enquiry-modal-close:hover {
+      background: #C5A059;
+      color: #061F16;
+      transform: scale(1.08);
+    }
+    .enquiry-modal-body {
+      padding: 24px;
+      background: #FFFFFF;
+    }
+    .modal-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .modal-form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .modal-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0A2E20;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .modal-input, .modal-select, .modal-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #D1DFD8;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #1E382B;
+      background: #FFFFFF;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    .modal-input:focus, .modal-select:focus, .modal-textarea:focus {
+      outline: none;
+      border-color: #C5A059;
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.18);
+    }
+    .modal-field-error {
+      display: none;
+      font-size: 11.5px;
+      color: #D32F2F;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .modal-field-error.active {
+      display: block;
+    }
+    .modal-success-box {
+      background: #F2F8F5;
+      border: 1px solid #25D366;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      text-align: left;
+    }
+    .enquiry-modal-footer {
+      padding: 18px 24px;
+      background: #FAF6F0;
+      border-top: 1px solid #E5D5AA;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-modal-cancel {
+      background: transparent;
+      border: 1px solid #C5A059;
+      color: #0A2E20;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-modal-cancel:hover {
+      background: #EDE6D8;
+    }
+    .btn-modal-whatsapp {
+      background: #25D366;
+      border: none;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-modal-whatsapp:hover {
+      background: #1EBE5D;
+      transform: translateY(-1px);
+    }
+    .btn-modal-submit {
+      background: #0A2E20;
+      border: 1px solid #D4AF37;
+      color: #FAF6F0;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-modal-submit:hover {
+      background: #C5A059;
+      color: #061F16;
+      border-color: #061F16;
+      transform: translateY(-1px);
+    }
+
+    /* Lightbox Modal for Images */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(6, 31, 22, 0.94);
+      backdrop-filter: blur(8px);
+      z-index: 10001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-box {
+      max-width: 900px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      object-fit: contain;
+    }
+    .lightbox-caption {
+      margin-top: 14px;
+      color: #FAF6F0;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 991px) {
+      .tour-hero-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .itinerary-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .itinerary-img-wrap {
+        height: 220px;
+      }
+    }
+    @media (max-width: 600px) {
+      .tour-hero-strip {
+        grid-template-columns: 1fr;
+      }
+      .modal-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .enquiry-modal-footer {
+        flex-direction: column;
+      }
+      .btn-modal-cancel, .btn-modal-whatsapp, .btn-modal-submit {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-        <!-- ==========================================================================
-       1. TOP CONTACT BAR
-       ========================================================================== -->
-    <!-- ==========================================================================
+  <!-- ==========================================================================
        1. TOP CONTACT BAR (Deep Forest Green #0A2E20)
        ========================================================================== -->
   <div class="luxury-topbar">
@@ -40,7 +602,7 @@
         <div class="luxury-topbar-right">
           <span style="display:inline-flex; align-items:center; gap:6px; color:#D4AF37; font-weight:700; font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            EST. 1962 &bull; 64 YEARS OF SACRED SERVICE
+            EST. 1962 &bull; SACRED SERVICE ACROSS INDIA
           </span>
         </div>
       </div>
@@ -48,10 +610,7 @@
   </div>
 
   <!-- ==========================================================================
-       2. NAVIGATION BAR
-       ========================================================================== -->
-    <!-- ==========================================================================
-       2. NAVIGATION BAR
+       2. NAVIGATION BAR (Single Horizontal Row Desktop Layout)
        ========================================================================== -->
   <header class="luxury-navbar-wrap">
     <div class="luxury-container">
@@ -117,10 +676,10 @@
 
         <!-- Right Call to Action -->
         <div class="luxury-nav-cta">
-          <a href="enquiry.html" class="btn-gold-pill">
+          <button type="button" class="btn-gold-pill open-enquiry-modal" style="cursor: pointer; border: none;">
             <span>Enquire Now</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          </button>
         </div>
 
         <!-- Mobile hamburger toggle -->
@@ -134,575 +693,603 @@
   </header>
 
   <!-- ==========================================================================
-       INNER PAGE BANNER (CREAM + ANTIQUE GOLD + COFFEE BROWN)
+       3. INNER PAGE BANNER (CREAM + CHAMPAGNE GOLD + DEEP FOREST GREEN)
        ========================================================================== -->
   <section class="inner-page-banner">
     <div class="luxury-container">
       <div class="inner-banner-content">
-        <span class="inner-banner-badge">Fixed Departure Yatra &bull; Est. 1962</span>
-        <h1 class="inner-banner-title">MUKTHINADH  FLIGHT PACKAGE</h1>
-        <p class="inner-banner-desc">Six decades of devotion, authentic itineraries, and trusted service under the stewardship of Dodla's Tours &amp; Travels.</p>
+        <span class="inner-banner-badge">Fixed Departure &bull; Feb 01, 2026 &bull; Boarding: Vijayawada</span>
+        <h1 class="inner-banner-title">MUKTHINADH FLIGHT PACKAGE</h1>
+        <p class="inner-banner-desc">Nepal, Muktinath &amp; Pashupatinath Sacred Flight Yatra — Gorakhpur, Lumbini, Pokhara, Jomsom, Manakamana &amp; Janakpur Dham.</p>
         <div class="inner-banner-breadcrumbs">
           <a href="index.html">Home</a>
           <span>/</span>
           <a href="fixeddeparture.html">Fixed Departures</a>
           <span>/</span>
-          <span>MUKTHINADH  FLIGHT PACKAGE</span>
+          <span>Muktinath Flight Package</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       AUTHENTIC TOUR CONTENT (ITINERARY / PRICE / GALLERY)
+       4. MAIN TOUR DETAILS & BOOKING SECTION
        ========================================================================== -->
-<section class="section-reservation-page">
-        <div class="container">
-            <div class="reservation-page">
-                <!-- STEP -->
-                <div class="reservation_step">
-                   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#itinerary">Itinerary</a></li>
-    <li><a data-toggle="tab" href="#price">Date & Price Info</a></li>
-   
-	 <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
-  </ul>
-                </div>
-                <!-- END / STEP -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-    <!-- PRICE HIGHLIGHT BOX injected by redesign -->
-    <div style="background: linear-gradient(135deg, #0A2E20 0%, #061F16 100%); border-radius:14px; padding: 24px; margin-bottom:22px; box-shadow: 0 8px 24px rgba(6, 31, 22,0.2);">
-      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#D4AF37; font-weight:700;">Mukthinadh Flight Package</span>
-      <div style="margin: 12px 0 8px; font-family:var(--font-serif); font-size:28px; font-weight:800; color:#FFFFFF;">
-        &#8377;74,999 <span style='font-size:12px;font-weight:400;color:#4E6B5E;'>per person</span>
-      </div>
-      <div style="font-size:12.5px; color:#D8C5AE; margin-bottom:16px;">
-        <svg width="12" height="12" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:4px;"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="#D4AF37" stroke-width="2" fill="none"/></svg>
-        March 21, 2026
-      </div>
-      <a href="contact.html" style="display:block; text-align:center; background:#C5A059; color:#FFFFFF; padding:11px; border-radius:8px; font-weight:700; font-size:13px; text-decoration:none; letter-spacing:0.05em; margin-bottom:10px;">
-        &#9993; Send Enquiry
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla%27s%20Tours%2C%20I%20want%20to%20book%20fixeddeparturedetails81aa" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:7px; background:#25D366; color:#FFFFFF; padding:10px; border-radius:8px; font-weight:700; font-size:13px; text-decoration:none;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m4.52 13.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
-        WhatsApp Enquiry
-      </a>
-    </div>
-                                                  <div class="sidebar"> 
-							<div class="reservation-room-selected ">
-                                <div class="reservation-room-seleted_current bg-blue">
-                                    <h6><a href="adminpanel/public/pdf/index.html" target="_blank"><h6>MUKTHINADH  FLIGHT PACKAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></a></h6>
-                                </div>
-                            </div>
-                            <div class="widget widget_check_availability widget-1">
-                                <h4 class="widget-title"></h4>
-                                <div class="check_availability">
-                                  
-                                    <div class="check_availability-field">
-                                        <label>Planning Date</label>
-                                        <div class="input-group date" data-date-format="dd-mm-yyyy" id="datepicker1">
-                                            <input class="form-control wrap-box" type="text" placeholder="Arrival Date">
-                                            <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="check_availability-field">
-                                         <label>Name</label>
-										   <input class="form-control wrap-box" type="text" placeholder="Enter Your Name">
-										    <span class="input-group-addon">
-                                    </span></div>
-									 <div class="check_availability-field">
-                                         <label>Phone Number</label>
-										   <input class="form-control wrap-box" type="text" placeholder="Enter Your Phone Number">
-										    <span class="input-group-addon">
-                                    </span></div>
-									 <div class="check_availability-field">
-                                         <label>Email-id</label>
-										   <input class="form-control wrap-box" type="text" placeholder="Enter Your Email-id">
-										    <span class="input-group-addon">
-                                    </span></div>
-									 <div class="check_availability-field">
-                                         <label>Enter Your Message</label>
-										 <textarea rows="4" cols="50" placeholder="Enter Message Here" style="width:220px;"></textarea>
-                                    </div>                              
-                                    </div>
-                            </div>
-                            <!-- END / WIDGET CHECK AVAILABILITY -->
-                        </div>
-                                            </div>
-                    <div class=" col-lg-9 col-md-8 col-sm-12 col-xs-12">
-					<div class="tab-content">
-    <div id="itinerary" class="tab-pane fade in active">
-                       <div class="reservation_content">
-                            <!-- RESERVATION ROOM -->
-                            <div class="reservation-room">
-                                <!-- ITEM -->
-                                								<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name"> DAY -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Gorakhpur - Bhairahawa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>Arrival at Gorakhpur Airport / Railway Station. On arrival, our representative will meet and take you to the vehicle and then proceed to visit Gorakhnath temple. Later drive towards to Bhairahawa via Sonauli Border(110 Kms. / 4 Hrs.). On arrival at Bhairahawa, check into your hotel. Overnight Stay in Bhairahawa.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Bhairahawa - Pokhara and visit lumbini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/shutterstock_1461171485.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>Morning drive to Lumbini (25 Kms). Visit Maya Devi Temple (Birth Place of Lord Buddha - World Peace Pagoda, and Thai Monastery) and back to hotel. After breakfast, check out from the hotel and proceed to Pokhara (200 Kms. / 7 Hrs.). On arrival, transfer to the hotel by evening. Overnight Stay in Pokhara.
-
-Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Pokhara - Muktinath – Jomsom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/jomsom-airport.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>Post breakfast, check out from the hotel and proceed towards Muktinath (180 Kms. / 5 Hrs.), visit Muktinath Temple. We need to walk to the temple for 25 minutes from the vehicle stand as vehicles are not allowed until the temple. In the evening, transfer to Jomsom and check into your hotel. Overnight Stay in Jomsom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Day 4 Jomsom – Pokhara&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>After breakfast, check out from the hotel and then drive towards Pokhara. On arrival, proceed with the visit to Bindhyabasini Temple, Gupteshwor Mahadev Cave, Devi's Falls, and Tal Barahi Temple at Pokhara. Later, transfer to the hotel by evening and Overnight Stay in Pokhara&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Pokhara - Manakamana Temple – Kathmandu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>		Morning After Breakfast, Check Out From The Hotel And Drive To Kathmandu (210 Kms. / 10 Hrs.). Enroute Visit Manakamana Temple By Cable Car. On Arrival In Kathmandu, Transfer To Your Hotel. Later In The Evening, Visit Doleshwor Mahadev (Believed To Be The Head Part Of Kedarnath Located In Uttrakhand, India) And Saga (The World’s Tallest Statue Of Lord Shiva). Later Back To The Hotel And Overnight Stay In Kathmandu. Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Full Day Sightseeing Of Kathmandu	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/pashupatinath-temple-nepal.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>Full Day Sightseeing Of Kathmandu		After Breakfast, Proceed To Visit Pashupatinath Temple, Guheshwori Temple (Shakti Perth), Buddha Stupa, Kathmandu Durbar Square, Kathmandu City, Swayambhunath Stupa, And Sleeping Vishnu (Jal Narayan Temple). Overnight Stay In Kathmandu.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Kathmandu – Janakpur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>		After Breakfast Check Out From The Hotel And Proceed Towards Janakpur (200 Kms. / 5-6 Hrs.), Also Known As Janakpur Dham. The City Is A Center Of Religious And Cultural Tourism. This Famous City Is Known For Being The Birthplace Of Goddess Sita As Well As Her Marriage To Lord Rama. There Are Many Temples Dedicated To These Deities In The City, Mainly Janaki Temple, Ram Sita Vivah Mandap, Ram Temple, Rajdevi Temple, Janak Temple, Ram Sagar, Ganga Sagar, Dhanusha Sagar, Etc. Later, Transfer To Hotel And Overnight Stay In Janakpur.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-																<div class="reservation-room_item">
-                                    <h2 class="reservation-room_name">DAY 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Janakpur – Darbhanga (DROPPING)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2>
-                                     <div class="reservation-room_img">
-                                         <a href="#"><img src="adminpanel/public/news/indigo-start-from-darbhanga-.jpg" alt="#" class="img-responsive"></a>
-                                     </div>
-                                    <div class="reservation-room_text">
-                                        <div class="reservation-room_desc">
-                                            <p>		After Breakfast, Check Out From The Hotel And Proceed Towards Darbhanga (85 Kms. / 2 Hrs.) Via Madhubani, Famous For Its Mithila Paintings, Created Mostly By Women. On Arrival, Transfer To The Darbhanga Airport / Railway Station For Your Return Journey. Tour Concludes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                           </div>                                      
-                                        <div class="clear"></div>
-                                        <br>                                           
-                                    </div>                                   
-                                </div>  
-															
-							   <div class="reservation-room_item">  
-                                    <div class="reservation-room_package">
-									<br>
-                                        <a data-toggle="collapse" href="#reservation-room_package-2" class="reservation-room_package-more collapsed">Show more package</a>
-                                        <div class="reservation-room_package-content collapse" id="reservation-room_package-2">
-                                            <!-- ITEM PACKAGE -->
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/images%20(4).jpeg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">GANGTOK-PELLING-DARJEELING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>  8 D / 7 N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  49,995&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails7da1.html?p_id='31%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/PB.jpeg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">PATALA BHUBANESWAR  TOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>12 DAY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  43,995&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails05aa.html?p_id='30%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/Kerala-2.jpg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">KERALA TOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>9 DAY AND 8 NIGHTS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  39,999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails82bf.html?p_id='29%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/andhra-pradesh-1.jpg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">ODISHA ANDHRA TOUR EX.BHUBANESWAR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p> 9 D / 8 N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails3738.html?p_id='28%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/AARANATH.jpeg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">AMARNATH YATRA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>16DAYS	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  54,999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetailscf94.html?p_id='27%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/Untitled-1-1.jpg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">SINGAPORE, MALESYA, WITH CRUISE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>6 NIGHTS 7 DAYS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  1,24,999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails8083.html?p_id='26%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/3597.jpg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">DUBAI TOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>6 days and 5 nights&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  99,999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails3a49.html?p_id='25%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/pashupatinath-muktinath.jpg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">MUKTHINADH  FLIGHT PACKAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>8 DAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  74,999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails81aa.html?p_id='24%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/SWAMY.jpeg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">108 VAISHANAVA DIVYA DESALA  YATRA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>17 DAYS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  51,998&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetailsbb47.html?p_id='23%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/Gangasagar-Cruise-1-870x555.jpeg" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">GANGA SAGAR YATRA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>14 DAYS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  46,998&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetails26ad.html?p_id='22%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <div class="reservation-package_item">
-                                                <div class="reservation-package_img">
-                                                    <a href="#"><img src="adminpanel/public/news/Colombo-Sri-Lanka%20(2).webp" alt="#" class="img-responsive"></a>
-                                                </div>
-                                                <div class="reservation-package_text">
-                                                    <h4><a href="#">SRILanka RAMAYANA YATRA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h4>
-                                                    <p>10 days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                                    <div class="reservation-package_book-price">
-                                                        <p class="reservation-package_price">
-                                                            <span class="amout">Rs.  66,996&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                                                        </p>
-                                                        <a href="holidaytourdetailse6d1.html?p_id='21%20%20%20%20%20%20'" class="btn btn-room">Book package</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                                        <!-- END / ITEM PACKAGE -->  
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END / ITEM --> 
-                               </div>
-                                <!-- END / ITEM -->
-                            </div>
-						</div>
-						<div id="price" class="tab-pane fade">
-						
-						<div class=" bg-gray">
-						
-							
-                            <div class="col-sm-10">
-                                
-                                <div class="reservation-calendar_custom" style='display:none;'>
-                                    <div class="reservation-calendar_title">
-                                        <span class="reservation-calendar_year">Price Details</span>
-                                    </div>
-                                    <table class="reservation-calendar_tabel" style="border:1px solid #8E7037;">
-                                    <tr>
-										<th class="thead">Hub</th>
-										<th class="thead"> For 1 person</th>
-										<th class="thead">Advance of</th>
-									</tr>
-                                    <tr>
-									  <th class="thead">Boarding-Vijayawada</th>
-									  <td class="tbody"> /-</td>
-									  <td class="tbody"> /-</td>
-									  </tr>									
-									</table>							
-									
-                                </div>
-								 <div class="reservation-calendar_custom">
-                                    <div class="reservation-calendar_title">
-                                        <span class="reservation-calendar_year">Dates & Price Details</span>
-                                    </div>
-									<table class="reservation-calendar_tabel" style="border:1px solid #8E7037;">
-									    <tr>
-    									    <th class="thead">Date</th>
-    									    <th class="thead">Price</th>
-								        </tr>
-    								    									    <tr>
-									        <th class="thead">2026-02-01</th>
-									        <th class="thead">74,999</th>
-									    </tr>
-									    									</table>
-                                </div>
-                            </div>                           
-                        </div>
-						</div>
-						
-						
-						<div id="gallery" class="tab-pane fade">
-						<div class="gallery-content">
-                    <div class="row">
-                        <div class="gallery-isotope col-3">
-                            <!-- ITEM SIZE -->
-                            <div class="item-size "></div>
-                            <!-- END / ITEM SIZE -->
-							<div class="row">
-                            <!-- ITEM -->
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" data-littlelightbox-group="gallery" title="Gorakhpur - Bhairahawa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" class="img-responsive" alt="Gorakhpur - Bhairahawa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Gorakhpur - Bhairahawa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/shutterstock_1461171485.jpg" data-littlelightbox-group="gallery" title="Bhairahawa - Pokhara and visit lumbini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/shutterstock_1461171485.jpg" class="img-responsive" alt="Bhairahawa - Pokhara and visit lumbini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Bhairahawa - Pokhara and visit lumbini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/jomsom-airport.jpg" data-littlelightbox-group="gallery" title="Pokhara - Muktinath – Jomsom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/jomsom-airport.jpg" class="img-responsive" alt="Pokhara - Muktinath – Jomsom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Pokhara - Muktinath – Jomsom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" data-littlelightbox-group="gallery" title="Day 4 Jomsom – Pokhara&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" class="img-responsive" alt="Day 4 Jomsom – Pokhara&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Day 4 Jomsom – Pokhara&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" data-littlelightbox-group="gallery" title="Pokhara - Manakamana Temple – Kathmandu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" class="img-responsive" alt="Pokhara - Manakamana Temple – Kathmandu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Pokhara - Manakamana Temple – Kathmandu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/pashupatinath-temple-nepal.jpg" data-littlelightbox-group="gallery" title="Full Day Sightseeing Of Kathmandu	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/pashupatinath-temple-nepal.jpg" class="img-responsive" alt="Full Day Sightseeing Of Kathmandu	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Full Day Sightseeing Of Kathmandu	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" data-littlelightbox-group="gallery" title="Kathmandu – Janakpur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" class="img-responsive" alt="Kathmandu – Janakpur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Kathmandu – Janakpur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="item-isotope suite dining ">
-                                <div class="wrap-box-1">
-                                    <div class="box-img">
-                                        <a class="lightbox " href="adminpanel/public/news/indigo-start-from-darbhanga-.jpg" data-littlelightbox-group="gallery" title="Janakpur – Darbhanga (DROPPING)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-                                            <img src="adminpanel/public/news/indigo-start-from-darbhanga-.jpg" class="img-responsive" alt="Janakpur – Darbhanga (DROPPING)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" title="Janakpur – Darbhanga (DROPPING)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></a>
-                                        <p>CoralIsland</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <!-- END / ITEM --> 
-							</div>
-							
-							                       
-                         
-							
-							
-							
-                        </div>
-                    </div>
-                </div>
-						</div>
-						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-    <!-- ==========================================================================
-       READY TO BEGIN YOUR DIVINE JOURNEY (Atmospheric CTA Banner)
-       ========================================================================== -->
-  <section style="padding: 20px 0 60px; background: #FAF6F0;">
+  <section style="padding: 60px 0; background: #FAF6F0;">
     <div class="luxury-container">
-      <div class="journey-banner-wrap">
-        <div class="font-script-accent" style="margin-bottom: 6px; font-size: 38px;">
-          More than Travel, A Divine Experience
+      
+      <!-- Key Tour Highlights Strip -->
+      <div class="tour-hero-strip">
+        <div class="tour-hero-item">
+          <div class="tour-hero-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="tour-hero-label">Duration</div>
+            <div class="tour-hero-value">8 Days / 7 Nights</div>
+          </div>
         </div>
-        <h2 class="journey-banner-heading">
-          Ready to Begin Your Divine Journey?
-        </h2>
-        <p class="journey-banner-sub">
-          Let us help you plan a meaningful and memorable yatra with senior citizen priority, pure satvik food, and comfortable AC transport.
-        </p>
-        <div class="journey-banner-actions">
-          <a href="enquiry.html" class="btn-gold-pill">
-            <span>Plan Your Journey</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20plan%20a%20sacred%20yatra." target="_blank" class="btn-whatsapp-green">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
-            <span>Chat on WhatsApp</span>
-          </a>
+
+        <div class="tour-hero-item">
+          <div class="tour-hero-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="tour-hero-label">Departure Date</div>
+            <div class="tour-hero-value">Feb 01, 2026</div>
+          </div>
+        </div>
+
+        <div class="tour-hero-item">
+          <div class="tour-hero-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="tour-hero-label">Boarding Hub</div>
+            <div class="tour-hero-value">Vijayawada</div>
+          </div>
+        </div>
+
+        <div class="tour-hero-item">
+          <div class="tour-hero-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <div class="tour-hero-label">Price Per Person</div>
+            <div class="tour-hero-value" style="color: #0A2E20;">&#8377;74,999</div>
+          </div>
         </div>
       </div>
+
+      <!-- Main Layout: 2 Columns (Content Left, Sticky Sidebar Right) -->
+      <div style="display: grid; grid-template-columns: 2.1fr 1fr; gap: 36px; align-items: start;">
+        
+        <!-- Left Column: Tabs & Detailed Sections -->
+        <div>
+          <!-- Tab Navigation -->
+          <div class="tour-tabs-header">
+            <button class="tour-tab-btn active" data-tab="tab-itinerary">Detailed Itinerary</button>
+            <button class="tour-tab-btn" data-tab="tab-pricing">Date &amp; Pricing Info</button>
+            <button class="tour-tab-btn" data-tab="tab-gallery">Photo Gallery (8)</button>
+            <button class="tour-tab-btn" data-tab="tab-info">Travel Guidelines</button>
+          </div>
+
+          <!-- TAB 1: ITINERARY -->
+          <div id="tab-itinerary" class="tour-tab-pane active">
+            
+            <div style="margin-bottom: 24px;">
+              <span class="section-badge">Sacred Himalayan Circuit</span>
+              <h2 style="font-family: var(--font-serif); font-size: 26px; color: #0A2E20; margin: 8px 0 10px 0;">8-Day Sacred Yatra Itinerary</h2>
+              <p style="font-size: 14.5px; color: #1E382B; line-height: 1.6; margin: 0;">Carefully paced for devotees and senior citizens with comfortable hotel halts, satvik dining, and scenic Himalayan vistas.</p>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 01</span>
+                  <img src="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" alt="Gorakhpur - Bhairahawa">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Gorakhpur &ndash; Bhairahawa</h3>
+                  <p class="itinerary-desc">
+                    Arrival at Gorakhpur Airport / Railway Station. On arrival, our representative will meet and take you to the vehicle and then proceed to visit <strong>Gorakhnath Temple</strong>. Afterwards proceed towards Bhairahawa. Upon arrival, check-in to hotel for overnight stay.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128205; Gorakhnath Temple</span>
+                    <span class="itinerary-pill">&#127976; Bhairahawa Hotel</span>
+                    <span class="itinerary-pill">&#128652; Border Crossing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 02</span>
+                  <img src="adminpanel/public/news/shutterstock_1461171485.jpg" alt="Bhairahawa - Pokhara and visit Lumbini">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Bhairahawa &ndash; Pokhara &amp; Visit Lumbini</h3>
+                  <p class="itinerary-desc">
+                    Morning drive to Lumbini (25 Kms). Visit <strong>Maya Devi Temple</strong> (Birth Place of Lord Buddha &mdash; World Peace Pagoda and Thai Monastery) and back to hotel. After breakfast, proceed to Pokhara (200 Kms / 7-8 Hrs). Pokhara is the most popular destination in Nepal after Kathmandu. Enjoy the scenic mountain drive and check in to hotel.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128205; Lumbini Maya Devi Temple</span>
+                    <span class="itinerary-pill">&#9968; Scenic Mountain Route</span>
+                    <span class="itinerary-pill">&#127976; Pokhara Leisure</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 03</span>
+                  <img src="adminpanel/public/news/jomsom-airport.jpg" alt="Pokhara - Muktinath – Jomsom">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Pokhara &ndash; Muktinath &ndash; Jomsom</h3>
+                  <p class="itinerary-desc">
+                    Post breakfast, check out from the hotel and proceed towards Muktinath (180 Kms / 5 Hrs), visit holy <strong>Muktinath Temple</strong>. We walk to the temple for 25 minutes or take local jeeps/horses. Perform sacred bath in 108 holy water spouts (Mukti Dhara) and darshan of Lord Sri Muktinath, followed by Jwala Mai Temple. Transfer to Jomsom for overnight stay.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128205; Sri Muktinath Dham</span>
+                    <span class="itinerary-pill">&#128167; 108 Sacred Water Spouts</span>
+                    <span class="itinerary-pill">&#9968; Jomsom Altitude Stay</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 04</span>
+                  <img src="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" alt="Jomsom – Pokhara">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Jomsom &ndash; Pokhara Sightseeing</h3>
+                  <p class="itinerary-desc">
+                    After breakfast, check out from the hotel and drive towards Pokhara. On arrival, proceed with visits to <strong>Bindhyabasini Temple</strong>, <strong>Gupteshwor Mahadev Cave</strong>, <strong>Davis Falls (Patale Chhango)</strong>, and holy <strong>Barahi Temple</strong> situated on an island in scenic Phewa Lake with boat ride. Overnight stay at Pokhara.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#9973; Phewa Lake Boating</span>
+                    <span class="itinerary-pill">&#128205; Barahi Island Temple</span>
+                    <span class="itinerary-pill">&#128205; Gupteshwor Mahadev Cave</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 05</span>
+                  <img src="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" alt="Pokhara - Manakamana Temple – Kathmandu">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Pokhara &ndash; Manakamana Temple &ndash; Kathmandu</h3>
+                  <p class="itinerary-desc">
+                    Morning after breakfast, check out from the hotel and drive to Kathmandu (210 Kms / 8-10 Hrs). Enroute visit wish-fulfilling <strong>Manakamana Temple</strong> by aerial <strong>Cable Car</strong> ride over the Trishuli river valley. On arrival in Kathmandu, check-in to hotel for overnight stay.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128660; Aerial Cable Car</span>
+                    <span class="itinerary-pill">&#128205; Manakamana Devi Darshan</span>
+                    <span class="itinerary-pill">&#127976; Kathmandu Capital Arrival</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 06</span>
+                  <img src="adminpanel/public/news/pashupatinath-temple-nepal.jpg" alt="Full Day Sightseeing Of Kathmandu">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Full Day Sightseeing of Kathmandu</h3>
+                  <p class="itinerary-desc">
+                    After breakfast, proceed to visit the sacred <strong>Pashupatinath Temple</strong> on the banks of Bagmati river, <strong>Guheshwori Temple</strong> (Maha Shakti Peeth), <strong>Boudhanath Stupa</strong>, and <strong>Kathmandu Durbar Square</strong>. Evening at leisure for shopping spiritual rudraksha and souvenirs. Overnight stay at Kathmandu.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128205; Sri Pashupatinath Temple</span>
+                    <span class="itinerary-pill">&#128205; Guheshwori Shakti Peeth</span>
+                    <span class="itinerary-pill">&#128205; Boudhanath Stupa</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 07</span>
+                  <img src="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" alt="Kathmandu – Janakpur">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Kathmandu &ndash; Janakpur Dham</h3>
+                  <p class="itinerary-desc">
+                    After breakfast, check out from the hotel and proceed towards <strong>Janakpur</strong> (200 Kms / 5-6 Hrs), also known as Janakpur Dham, the holy birthplace of Goddess Sita. Visit the magnificent <strong>Janaki Mandir</strong>, <strong>Ram Janaki Vivah Mandap</strong>, and sacred holy ponds. Overnight stay at Janakpur.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#128205; Historic Janaki Mandir</span>
+                    <span class="itinerary-pill">&#128205; Ram Janaki Vivah Mandap</span>
+                    <span class="itinerary-pill">&#127976; Janakpur Overnight</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="itinerary-card">
+              <div class="itinerary-card-grid">
+                <div class="itinerary-img-wrap">
+                  <span class="itinerary-day-tag">Day 08</span>
+                  <img src="adminpanel/public/news/indigo-start-from-darbhanga-.jpg" alt="Janakpur – Darbhanga (Dropping)">
+                </div>
+                <div class="itinerary-content">
+                  <h3 class="itinerary-title">Janakpur &ndash; Darbhanga (Departure Drop)</h3>
+                  <p class="itinerary-desc">
+                    After breakfast, check out from the hotel and proceed towards <strong>Darbhanga</strong> (85 Kms / 2 Hrs) via Madhubani, famous for its Mithila paintings. On arrival, transfer to Darbhanga Airport / Railway Station for return journey home with divine blessings and sacred memories.
+                  </p>
+                  <div class="itinerary-pills">
+                    <span class="itinerary-pill">&#9992; Darbhanga Airport Drop</span>
+                    <span class="itinerary-pill">&#127912; Madhubani Heritage</span>
+                    <span class="itinerary-pill">&#128591; Divine Blessings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 2: PRICING & DEPARTURE TABLE -->
+          <div id="tab-pricing" class="tour-tab-pane">
+            <div style="background: #FFFFFF; border: 1px solid #E5D5AA; border-radius: 16px; padding: 28px; box-shadow: 0 4px 18px rgba(6, 31, 22, 0.05); margin-bottom: 24px;">
+              <span class="section-badge">Verified Departure Charter</span>
+              <h3 style="font-family: var(--font-serif); font-size: 22px; color: #0A2E20; margin: 8px 0 16px 0;">Official Tour Pricing &amp; Hub Details</h3>
+              
+              <table class="tour-pricing-table">
+                <thead>
+                  <tr>
+                    <th>Boarding Hub</th>
+                    <th>Fixed Departure Date</th>
+                    <th>Tour Duration</th>
+                    <th>Price Per Person</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Boarding &mdash; Vijayawada</strong></td>
+                    <td><span style="color: #C5A059; font-weight: 700;">2026-02-01 (Feb 01, 2026)</span></td>
+                    <td>8 Days / 7 Nights</td>
+                    <td><strong style="color: #0A2E20; font-size: 16px;">&#8377;74,999</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin-top: 24px; padding: 18px 22px; background: #FAF6F0; border-radius: 12px; border-left: 4px solid #C5A059;">
+                <h4 style="font-family: var(--font-serif); font-size: 16px; color: #0A2E20; margin: 0 0 6px 0;">Advance Booking &amp; Reservation Policy</h4>
+                <p style="font-size: 13.5px; color: #1E382B; line-height: 1.6; margin: 0;">
+                  Seats on fixed departure charters are strictly allocated on a first-come, first-served basis. Flight and Nepal transit permits require early submission of valid Government Photo ID / Passport details.
+                </p>
+              </div>
+
+              <!-- Inclusions & Exclusions Summary -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
+                <div style="background: #FFFDF9; border: 1px solid #E5D5AA; border-radius: 12px; padding: 18px;">
+                  <h4 style="font-family: var(--font-serif); font-size: 16px; color: #0A2E20; margin-bottom: 12px;">Package Inclusions</h4>
+                  <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: #1E382B; line-height: 1.8;">
+                    <li>&#10004; Dedicated AC Transport as per itinerary</li>
+                    <li>&#10004; Comfortable hotel stays at all night halts</li>
+                    <li>&#10004; 100% Pure Satvik South Indian catering</li>
+                    <li>&#10004; Aerial Cable Car tickets at Manakamana</li>
+                    <li>&#10004; Temple darshan coordination &amp; guide assistance</li>
+                    <li>&#10004; Senior citizen priority care &amp; escort service</li>
+                  </ul>
+                </div>
+                <div style="background: #FFFDF9; border: 1px solid #E5D5AA; border-radius: 12px; padding: 18px;">
+                  <h4 style="font-family: var(--font-serif); font-size: 16px; color: #0A2E20; margin-bottom: 12px;">Package Exclusions</h4>
+                  <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: #1E382B; line-height: 1.8;">
+                    <li>&bull; Flight / Train tickets between home city and Gorakhpur/Darbhanga</li>
+                    <li>&bull; Personal temple pooja, archana &amp; abhishek charges</li>
+                    <li>&bull; Pony, horse, or doli expenses at Muktinath</li>
+                    <li>&bull; Laundry, telephone, or personal room service</li>
+                    <li>&bull; Any expenses caused by natural road delays or flight changes</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB 3: PHOTO GALLERY -->
+          <div id="tab-gallery" class="tour-tab-pane">
+            <div style="margin-bottom: 20px;">
+              <span class="section-badge">Visual Tour Experience</span>
+              <h3 style="font-family: var(--font-serif); font-size: 22px; color: #0A2E20; margin: 8px 0;">Destinations &amp; Temples in this Tour</h3>
+              <p style="font-size: 14px; color: #1E382B;">Click any image to view in enlarged resolution.</p>
+            </div>
+
+            <div class="tour-gallery-grid">
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg', 'Gorakhpur & Gorakhnath Temple')">
+                <img src="adminpanel/public/news/33-facts-about-gorakhpur-1688613629.jpeg" alt="Gorakhpur & Gorakhnath Temple">
+                <div class="tour-gallery-cap">Gorakhnath Temple, Gorakhpur</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/shutterstock_1461171485.jpg', 'Lumbini Maya Devi Temple & Peace Pagoda')">
+                <img src="adminpanel/public/news/shutterstock_1461171485.jpg" alt="Lumbini Maya Devi Temple">
+                <div class="tour-gallery-cap">Maya Devi Temple, Lumbini</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/jomsom-airport.jpg', 'Muktinath & Jomsom Himalayan Valley')">
+                <img src="adminpanel/public/news/jomsom-airport.jpg" alt="Jomsom Valley & Mountain Pass">
+                <div class="tour-gallery-cap">Jomsom Himalayan Valley</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg', 'Barahi Temple on Phewa Lake, Pokhara')">
+                <img src="adminpanel/public/news/Barahi-Temple-Pokhara-1.jpg" alt="Barahi Island Temple Pokhara">
+                <div class="tour-gallery-cap">Barahi Temple, Phewa Lake</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/manakamana-temple-with-cable-car.jpg', 'Manakamana Devi Temple Aerial Cable Car')">
+                <img src="adminpanel/public/news/manakamana-temple-with-cable-car.jpg" alt="Manakamana Aerial Cable Car">
+                <div class="tour-gallery-cap">Manakamana Cable Car</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/pashupatinath-temple-nepal.jpg', 'Sri Pashupatinath Temple, Kathmandu')">
+                <img src="adminpanel/public/news/pashupatinath-temple-nepal.jpg" alt="Pashupatinath Temple Kathmandu">
+                <div class="tour-gallery-cap">Sri Pashupatinath Temple</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg', 'Janaki Mandir, Janakpur Dham')">
+                <img src="adminpanel/public/news/NAT-Janki_Mandir_of_Janakpu-1.jpg" alt="Janaki Mandir Janakpur">
+                <div class="tour-gallery-cap">Janaki Mandir, Janakpur Dham</div>
+              </div>
+              <div class="tour-gallery-item" onclick="openLightbox('adminpanel/public/news/indigo-start-from-darbhanga-.jpg', 'Darbhanga Airport & Mithila Region')">
+                <img src="adminpanel/public/news/indigo-start-from-darbhanga-.jpg" alt="Darbhanga Airport Flight Connection">
+                <div class="tour-gallery-cap">Darbhanga Flight Connection</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: TRAVEL INFORMATION -->
+          <div id="tab-info" class="tour-tab-pane">
+            <div style="background: #FFFFFF; border: 1px solid #E5D5AA; border-radius: 16px; padding: 28px; box-shadow: 0 4px 18px rgba(6, 31, 22, 0.05);">
+              <span class="section-badge">Important Yatra Guidelines</span>
+              <h3 style="font-family: var(--font-serif); font-size: 22px; color: #0A2E20; margin: 8px 0 16px 0;">Preparation &amp; Travel Requirements</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; gap: 14px; align-items: flex-start;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #FAF6F0; border: 1px solid #C5A059; display: flex; align-items: center; justify-content: center; color: #0A2E20; font-weight: 700; flex-shrink: 0;">1</div>
+                  <div>
+                    <h4 style="font-size: 15px; color: #0A2E20; margin: 0 0 4px 0; font-weight: 700;">Valid Identification for Nepal Entry</h4>
+                    <p style="font-size: 13.5px; color: #1E382B; line-height: 1.6; margin: 0;">Indian citizens require either an original valid Indian Passport (with minimum 6 months validity) or an original Election Voter ID card issued by Election Commission of India. Aadhaar card or driving licenses are not accepted as border travel documents.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 14px; align-items: flex-start;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #FAF6F0; border: 1px solid #C5A059; display: flex; align-items: center; justify-content: center; color: #0A2E20; font-weight: 700; flex-shrink: 0;">2</div>
+                  <div>
+                    <h4 style="font-size: 15px; color: #0A2E20; margin: 0 0 4px 0; font-weight: 700;">Weather &amp; High Altitude Clothing</h4>
+                    <p style="font-size: 13.5px; color: #1E382B; line-height: 1.6; margin: 0;">Muktinath is located at an altitude of approximately 3,710 metres (12,172 ft). Yatris are advised to carry heavy woollen thermals, jackets, woollen caps, gloves, and comfortable walking shoes. Jomsom experiences strong winds in the afternoon.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 14px; align-items: flex-start;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #FAF6F0; border: 1px solid #C5A059; display: flex; align-items: center; justify-content: center; color: #0A2E20; font-weight: 700; flex-shrink: 0;">3</div>
+                  <div>
+                    <h4 style="font-size: 15px; color: #0A2E20; margin: 0 0 4px 0; font-weight: 700;">Senior Citizen Care &amp; Special Assistance</h4>
+                    <p style="font-size: 13.5px; color: #1E382B; line-height: 1.6; margin: 0;">Our experienced tour managers provide personalized care for elderly parents. Jeeps, horses, and local porters can be arranged at Muktinath for devotees who prefer not to walk the 25-minute ascent.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 14px; align-items: flex-start;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #FAF6F0; border: 1px solid #C5A059; display: flex; align-items: center; justify-content: center; color: #0A2E20; font-weight: 700; flex-shrink: 0;">4</div>
+                  <div>
+                    <h4 style="font-size: 15px; color: #0A2E20; margin: 0 0 4px 0; font-weight: 700;">Currency &amp; Payments</h4>
+                    <p style="font-size: 13.5px; color: #1E382B; line-height: 1.6; margin: 0;">Indian currency notes of denomination ₹100, ₹50, ₹20, and ₹10 are widely accepted across Nepal. Denominations of ₹500 notes are subject to periodic regulatory restrictions.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Sticky Booking & Enquiry Sidebar -->
+        <div>
+          <!-- Booking Card -->
+          <div style="background: #FFFFFF; border: 1px solid #E5D5AA; border-radius: 18px; padding: 26px; box-shadow: 0 10px 28px rgba(6, 31, 22, 0.07); position: sticky; top: 96px; margin-bottom: 24px;">
+            
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #C5A059; letter-spacing: 0.1em; display: block; margin-bottom: 4px;">Fixed Departure Charter</span>
+            <h3 style="font-family: var(--font-serif); font-size: 21px; color: #0A2E20; margin: 0 0 12px 0;">Muktinath Flight Package</h3>
+            
+            <div style="background: linear-gradient(135deg, #0A2E20 0%, #061F16 100%); border-radius: 12px; padding: 18px 20px; color: #FAF6F0; margin-bottom: 18px;">
+              <div style="font-size: 12px; color: #D4AF37; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">All-Inclusive Tour Fare</div>
+              <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: #FFFFFF; margin: 4px 0;">
+                &#8377;74,999 <span style="font-size: 12px; font-weight: 400; color: #A4B8AF;">/ person</span>
+              </div>
+              <div style="font-size: 12.5px; color: #E1EFEA;">Departure: <strong>Feb 01, 2026</strong> &bull; 8 Days</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <button type="button" class="btn-gold-pill open-enquiry-modal" style="width: 100%; justify-content: center; padding: 13px; font-size: 14.5px; margin-bottom: 10px; cursor: pointer; border: none;">
+              <span>Send Enquiry</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+
+            <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20enquire%20about%20the%20MUKTHINADH%20FLIGHT%20PACKAGE%20(Departure:%20Feb%2001,%202026,%20Rs.%2074,999)." target="_blank" class="btn-gold-pill" style="width: 100%; justify-content: center; padding: 13px; font-size: 14px; margin-bottom: 14px; background: #25D366; border-color: #25D366; color: #FFFFFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" style="margin-right: 6px;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m4.52 13.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+              <span>WhatsApp Booking Desk</span>
+            </a>
+
+            <div style="text-align: center; font-size: 13px; color: #1E382B; padding-top: 10px; border-top: 1px solid #FAF6F0;">
+              <div>Direct Phone Hotline:</div>
+              <a href="tel:+919848124759" style="font-size: 15px; font-weight: 700; color: #0A2E20; text-decoration: none;">+91 98481 24759</a>
+            </div>
+          </div>
+
+          <!-- Why Dodla's Trust Card -->
+          <div style="background: #FFFDF9; border: 1px solid #E5D5AA; border-radius: 16px; padding: 22px; box-shadow: 0 4px 16px rgba(6, 31, 22, 0.04); margin-bottom: 24px;">
+            <h4 style="font-family: var(--font-serif); font-size: 16px; color: #0A2E20; margin: 0 0 14px 0; border-bottom: 1px solid #E5D5AA; padding-bottom: 8px;">The Dodla Assurance</h4>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: #1E382B;">
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="color: #C5A059; font-size: 16px;">&#10004;</span>
+                <span>Established in 1962 &bull; 64+ Yrs Yatra Service</span>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="color: #C5A059; font-size: 16px;">&#10004;</span>
+                <span>Approved by Dept. of Tourism, Govt. of India</span>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="color: #C5A059; font-size: 16px;">&#10004;</span>
+                <span>Pure Satvik South Indian Vegetarian Food</span>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="color: #C5A059; font-size: 16px;">&#10004;</span>
+                <span>Telugu &amp; English Speaking Tour Managers</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Top Fixed Departures Card -->
+          <div style="background: #FFFFFF; border: 1px solid #E5D5AA; border-radius: 16px; padding: 22px; box-shadow: 0 4px 16px rgba(6, 31, 22, 0.04);">
+            <h4 style="font-family: var(--font-serif); font-size: 16px; color: #0A2E20; margin: 0 0 12px 0; border-bottom: 1px solid #E5D5AA; padding-bottom: 8px;">Other Fixed Departures</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
+              <a href="chardham.html" style="color: #0A2E20; text-decoration: none; font-weight: 600; display: flex; justify-content: space-between;">
+                <span>Uttarakhand Chardham Yatra</span>
+                <span style="color: #C5A059;">&rarr;</span>
+              </a>
+              <a href="amarnathkashmir.html" style="color: #0A2E20; text-decoration: none; font-weight: 600; display: flex; justify-content: space-between;">
+                <span>Amarnath &amp; Kashmir Yatra</span>
+                <span style="color: #C5A059;">&rarr;</span>
+              </a>
+              <a href="kailash.html" style="color: #0A2E20; text-decoration: none; font-weight: 600; display: flex; justify-content: space-between;">
+                <span>Kailash Manasarovar Yatra</span>
+                <span style="color: #C5A059;">&rarr;</span>
+              </a>
+              <a href="srilankasankari.html" style="color: #0A2E20; text-decoration: none; font-weight: 600; display: flex; justify-content: space-between;">
+                <span>Sri Lanka Ramayana Trail</span>
+                <span style="color: #C5A059;">&rarr;</span>
+              </a>
+              <a href="fixeddeparture.html" style="color: #C5A059; text-decoration: none; font-weight: 700; margin-top: 6px;">
+                View All 11 Fixed Departures &raquo;
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <!-- ==========================================================================
-       10. GLOBAL LUXURY FOOTER (Deep Forest Green #061F16)
+       5. SEND ENQUIRY MODAL POPUP FORM
+       ========================================================================== -->
+  <div id="enquiryModalOverlay" class="enquiry-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="enquiry-modal-dialog">
+      <div class="enquiry-modal-header">
+        <div>
+          <span class="enquiry-modal-badge">Direct Yatra Booking Desk</span>
+          <h3 id="modalTitle" class="enquiry-modal-title">Enquire for Muktinath Flight Package</h3>
+        </div>
+        <button type="button" class="enquiry-modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="popupEnquiryForm" onsubmit="handlePopupSubmit(event)" novalidate>
+        <div class="enquiry-modal-body">
+          
+          <!-- Pre-filled Tour & Date Row -->
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalTourName">Tour Name</label>
+              <input type="text" id="modalTourName" class="modal-input" value="MUKTHINADH FLIGHT PACKAGE" readonly style="background: #FAF6F0; color: #0A2E20; font-weight: 600;">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalDepDate">Departure Date</label>
+              <input type="text" id="modalDepDate" class="modal-input" value="2026-02-01 (Feb 01, 2026)" readonly style="background: #FAF6F0; color: #0A2E20; font-weight: 600;">
+            </div>
+          </div>
+
+          <!-- Name & Mobile Row -->
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalCustName">Customer Full Name <span style="color:#D4AF37;">*</span></label>
+              <input type="text" id="modalCustName" class="modal-input" placeholder="e.g. Ramakrishna" required>
+              <span class="modal-field-error" id="errCustName">Please enter your full name</span>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalCustMobile">Mobile / WhatsApp Number <span style="color:#D4AF37;">*</span></label>
+              <input type="tel" id="modalCustMobile" class="modal-input" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+              <span class="modal-field-error" id="errCustMobile">Please enter a valid 10-digit mobile number</span>
+            </div>
+          </div>
+
+          <!-- Email & Travellers Row -->
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalCustEmail">Email Address (Optional)</label>
+              <input type="email" id="modalCustEmail" class="modal-input" placeholder="name@example.com">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label" for="modalTravellers">Number of Travellers</label>
+              <select id="modalTravellers" class="modal-select">
+                <option value="1 Person">1 Person (Individual)</option>
+                <option value="2 Persons" selected>2 Persons (Couple / Elders)</option>
+                <option value="3 to 4 Persons">3 to 4 Persons (Family)</option>
+                <option value="5 to 8 Persons">5 to 8 Persons (Small Group)</option>
+                <option value="10+ Persons">10+ Persons (Large Group)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Message / Special Requirements -->
+          <div class="modal-form-group" style="margin-bottom: 0;">
+            <label class="modal-label" for="modalMessage">Message / Special Requirements (Senior Care, Satvik Food, Flights, etc.)</label>
+            <textarea id="modalMessage" class="modal-textarea" rows="3" placeholder="Please mention any specific elderly assistance, room sharing, or flight connection requirements..."></textarea>
+          </div>
+
+          <!-- Success Notification Box inside Modal -->
+          <div id="modalSuccessBox" class="modal-success-box" style="display: none;">
+            <div style="font-weight: 700; color: #0A2E20; margin-bottom: 4px;">&#10004; Thank You! Your enquiry has been received.</div>
+            <div style="font-size: 13px; color: #2B4B3E;">Our senior yatra planning desk in Vijayawada will call or WhatsApp you shortly. You may also click below to connect on WhatsApp immediately.</div>
+          </div>
+
+        </div>
+
+        <div class="enquiry-modal-footer">
+          <button type="button" class="btn-modal-cancel" id="modalCancelBtn">Cancel</button>
+          <button type="button" class="btn-modal-whatsapp" id="modalWhatsAppBtn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m4.52 13.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+            <span>Send via WhatsApp</span>
+          </button>
+          <button type="submit" class="btn-modal-submit" id="modalSubmitBtn">
+            Submit Online Enquiry &rarr;
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged Tour Image">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       6. GLOBAL LUXURY FOOTER (Deep Forest Green #061F16)
        ========================================================================== -->
   <footer class="luxury-footer">
     <svg class="footer-gopuram-watermark-left" viewBox="0 0 100 120" fill="#D4AF37"><path d="M50 0L52 10H48L50 0M45 12H55L57 24H43L45 12M40 26H60L63 42H37L40 26M34 44H66L70 65H30L34 44M27 67H73L77 92H23L27 67M20 94H80L85 120H15L20 94Z"/></svg>
@@ -710,116 +1297,112 @@ Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
     <div class="luxury-container" style="padding-top: 60px; padding-bottom: 30px; position: relative; z-index: 5;">
       <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 40px; margin-bottom: 40px;">
-        
-        <!-- Col 1: Brand & Tagline -->
+
+        <!-- Col 1: Brand & Legacy -->
         <div>
-          <a href="index.html" style="display:inline-block; margin-bottom: 14px;">
-            <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" style="height: 52px; width: auto; max-width: 250px; object-fit: contain; filter: brightness(1.1);">
+          <a href="index.html" style="display: inline-block; margin-bottom: 18px;">
+            <img src="images/Home-1/logo1.png" alt="Dodla's Tours & Travels" style="height: 52px; width: auto; max-width: 250px; object-fit: contain;">
           </a>
-          <div style="color: #D4AF37; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">
-            Since 1962 &bull; Sacred Journeys
+          <p style="font-size: 13.5px; color: #D1DFD8; line-height: 1.7; margin-bottom: 20px;">
+            Conducted under the leadership of Yatra Tapasvi Dodla Ramarao with the management of Dodla Hemanth Kumar. Serving millions of yatris with devotion, satvik meals, and all-India AC coach fleet since 1962.
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <span style="font-size: 12px; color: #D4AF37; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+              ESTD. 1962 &bull; GOVT. APPROVED
+            </span>
           </div>
-          <p style="color: #A3BFB4; font-size: 13.5px; line-height: 1.6; margin-bottom: 14px;">
-            Pilgrimages &bull; Heritage &bull; People &bull; A Better You
-          </p>
-          <p style="color: #E1EFEA; font-size: 13px; line-height: 1.6;">
-            Founded by Yatra Tapasvi Dodla Ramarao, serving millions of yatris with devotion, satvik meals, and all-India AC coach fleet.
-          </p>
         </div>
 
         <!-- Col 2: Quick Links -->
         <div>
-          <div class="luxury-footer-heading">Quick Links</div>
-          <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.1; font-size: 13.5px;">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-link-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="fixeddeparture.html" style="color: #D4AF37; font-weight: 600;">Fixed Departures</a></li>
+            <li><a href="fixeddeparture.html">Fixed Departures</a></li>
             <li><a href="pilgrimage-tours.html">Pilgrimages</a></li>
             <li><a href="holidaytours.html">Holidays</a></li>
             <li><a href="destination.html">Destinations</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Our Heritage -->
+        <!-- Col 3: Services & Pillars -->
         <div>
-          <div class="luxury-footer-heading">Our Heritage</div>
-          <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.1; font-size: 13.5px;">
-            <li><a href="about.html">Our Journey Since 1962</a></li>
-            <li><a href="pilgrimage-tours.html">Sacred Experiences</a></li>
-            <li><a href="gallery.html">Photo Gallery (72 Photos)</a></li>
+          <h4 class="footer-col-title">Our Heritage</h4>
+          <ul class="footer-link-list">
+            <li><a href="our-heritage.html">Our Sacred Journey</a></li>
             <li><a href="services.html">AC Luxury Bus Fleet</a></li>
-            <li><a href="contact.html">Head Office &amp; Booking</a></li>
-            <li><a href="enquiry.html">Custom Yatra Enquiry</a></li>
+            <li><a href="services.html">Airlines Ticketing (PSA)</a></li>
+            <li><a href="services.html">Multilingual Guides</a></li>
+            <li><a href="gallery.html">Pilgrimage Moments</a></li>
+            <li><a href="enquiry.html">Custom Tour Enquiry</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Contact Us & Social -->
+        <!-- Col 4: Registered Office -->
         <div>
-          <div class="luxury-footer-heading">Contact Us</div>
-          <div style="font-size: 13.5px; color: #E1EFEA; line-height: 1.7; margin-bottom: 16px;">
-            <div style="display:flex; gap:10px; margin-bottom:8px;">
-              <span style="color:#D4AF37;">&#128205;</span>
-              <span>Besant Road / Bandar Road, Governorpet, Vijayawada &ndash; 520002, Andhra Pradesh</span>
-            </div>
-            <div style="display:flex; gap:10px; margin-bottom:6px;">
-              <span style="color:#D4AF37;">&#128222;</span>
-              <span><a href="tel:+919848124759">+91 98481 24759</a> / <a href="tel:+919494531001">+91 94945 31001</a></span>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <span style="color:#D4AF37;">&#9993;</span>
-              <span><a href="mailto:dodlahemanth@gmail.com">dodlahemanth@gmail.com</a></span>
-            </div>
+          <h4 class="footer-col-title">Registered Office</h4>
+          <p style="font-size: 13px; color: #D1DFD8; line-height: 1.6; margin-bottom: 14px;">
+            Shop No. NB 39, Kaleswara Rao Market (Upstairs), Opp Vasthralatha, Vijayawada - 520002, Andhra Pradesh.
+          </p>
+          <div style="font-size: 13px; color: #D1DFD8; line-height: 1.8; margin-bottom: 16px;">
+            <div>Phone: <a href="tel:+919848124759" style="color: #D4AF37; text-decoration: none;">+91 98481 24759</a></div>
+            <div>Hotline: <a href="tel:+919494531001" style="color: #D4AF37; text-decoration: none;">+91 94945 31001</a></div>
+            <div>Email: <a href="mailto:dodlahemanth@gmail.com" style="color: #D4AF37; text-decoration: none;">dodlahemanth@gmail.com</a></div>
           </div>
-
-          <div class="luxury-footer-heading" style="margin-top: 18px; margin-bottom: 10px; font-size: 13px;">Follow Us</div>
-          <div>
+          <div style="display: flex; gap: 8px;">
             <a href="https://facebook.com" target="_blank" class="social-icon-circle" aria-label="Facebook">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="https://instagram.com" target="_blank" class="social-icon-circle" aria-label="Instagram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
             <a href="https://youtube.com" target="_blank" class="social-icon-circle" aria-label="YouTube">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#061F16"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
             <a href="https://api.whatsapp.com/send?phone=919848124759" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m4.52 13.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
             </a>
           </div>
         </div>
 
       </div>
 
-      <!-- Footer Bottom Bar -->
-      <div class="luxury-footer-bottom">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
-          <div>
-            &copy; 1962&ndash;2026 Dodla's Tours &amp; Travels. All Rights Reserved.
-          </div>
-          <div style="display:flex; gap:16px;">
-            <a href="termsconditions.html">Terms &amp; Conditions</a>
-            <span style="opacity:0.4;">|</span>
-            <a href="privacy.html">Privacy Policy</a>
-            <span style="opacity:0.4;">|</span>
-            <a href="faq.html">FAQ</a>
-          </div>
-          <div style="color: #D4AF37; font-weight:600;">
-            In the Service of Faith Since 1962
-          </div>
+      <!-- Improved Footer Bottom Bar with "Powered by SAB IT SERVICES" -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: #8FA396;">
+        <div>
+          &copy; 1962&ndash;2026 Dodla's Tours &amp; Travels. All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 18px;">
+          <a href="termsconditions.html" style="color: #8FA396; text-decoration: none;">Terms &amp; Conditions</a>
+          <a href="privacy.html" style="color: #8FA396; text-decoration: none;">Privacy Policy</a>
+          <a href="faq.html" style="color: #8FA396; text-decoration: none;">FAQ</a>
+        </div>
+        <div style="color: #D4AF37; font-weight: 700; letter-spacing: 0.05em;">
+          Powered by SAB IT SERVICES
         </div>
       </div>
-
     </div>
   </footer>
 
+  <!-- Floating Back to Top Button -->
+  <button type="button" id="backToTopBtn" class="back-to-top-btn" aria-label="Scroll back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
   <!-- Floating WhatsApp Action -->
-  <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20know%20more%20about%20your%20packages." class="whatsapp-floating" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20enquire%20about%20the%20MUKTHINADH%20FLIGHT%20PACKAGE." class="whatsapp-floating" target="_blank" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
   </a>
 
-  <!-- VANILLA JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Mobile navigation toggle & interactive handling
+    // 1. Mobile navigation toggle & handling
     (function() {
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
@@ -831,7 +1414,6 @@ Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
           mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
           if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
             navMenu.classList.remove('mobile-open');
@@ -840,7 +1422,6 @@ Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
           }
         });
 
-        // Close mobile menu when tapping a link
         const links = navMenu.querySelectorAll('a:not(.has-dropdown > a)');
         links.forEach(function(lnk) {
           lnk.addEventListener('click', function() {
@@ -851,6 +1432,212 @@ Meals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         });
       }
     })();
+
+    // 2. Interactive Tour Tabs
+    (function initTabs() {
+      const tabBtns = document.querySelectorAll('.tour-tab-btn');
+      const tabPanes = document.querySelectorAll('.tour-tab-pane');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanes.forEach(p => p.classList.remove('active'));
+
+          this.classList.add('active');
+          const activePane = document.getElementById(targetTab);
+          if (activePane) activePane.classList.add('active');
+        });
+      });
+    })();
+
+    // 3. Back-to-Top Button Handler
+    (function initBackToTop() {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      if (!backToTopBtn) return;
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    })();
+
+    // 4. Modal Popup Form Logic
+    (function initEnquiryModal() {
+      const modalOverlay = document.getElementById('enquiryModalOverlay');
+      const closeBtn = document.getElementById('modalCloseBtn');
+      const cancelBtn = document.getElementById('modalCancelBtn');
+      const openBtns = document.querySelectorAll('.open-enquiry-modal');
+      const whatsappBtn = document.getElementById('modalWhatsAppBtn');
+      const form = document.getElementById('popupEnquiryForm');
+      const successBox = document.getElementById('modalSuccessBox');
+
+      function openModal() {
+        if (modalOverlay) {
+          modalOverlay.classList.add('active');
+          modalOverlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          // Focus first editable input
+          const firstInput = document.getElementById('modalCustName');
+          if (firstInput) setTimeout(() => firstInput.focus(), 150);
+        }
+      }
+
+      function closeModal() {
+        if (modalOverlay) {
+          modalOverlay.classList.remove('active');
+          modalOverlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+
+      openBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+      // Close on backdrop click
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) closeModal();
+        });
+      }
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Validation helper
+      function validateForm() {
+        let valid = true;
+        const nameInput = document.getElementById('modalCustName');
+        const mobileInput = document.getElementById('modalCustMobile');
+        const errName = document.getElementById('errCustName');
+        const errMobile = document.getElementById('errCustMobile');
+
+        // Validate Name
+        if (!nameInput.value.trim()) {
+          errName.classList.add('active');
+          nameInput.style.borderColor = '#D32F2F';
+          valid = false;
+        } else {
+          errName.classList.remove('active');
+          nameInput.style.borderColor = '#D1DFD8';
+        }
+
+        // Validate Mobile (10 digits)
+        const mobileClean = mobileInput.value.replace(/[^0-9]/g, '');
+        if (mobileClean.length !== 10) {
+          errMobile.classList.add('active');
+          mobileInput.style.borderColor = '#D32F2F';
+          valid = false;
+        } else {
+          errMobile.classList.remove('active');
+          mobileInput.style.borderColor = '#D1DFD8';
+        }
+
+        return valid;
+      }
+
+      // Format WhatsApp Message
+      function getWhatsAppMessage() {
+        const tour = document.getElementById('modalTourName')?.value || 'MUKTHINADH FLIGHT PACKAGE';
+        const date = document.getElementById('modalDepDate')?.value || '2026-02-01';
+        const name = document.getElementById('modalCustName')?.value.trim() || 'Devotee';
+        const mobile = document.getElementById('modalCustMobile')?.value.trim() || '';
+        const email = document.getElementById('modalCustEmail')?.value.trim() || '';
+        const travellers = document.getElementById('modalTravellers')?.value || '';
+        const msg = document.getElementById('modalMessage')?.value.trim() || '';
+
+        let text = "Namaste Dodla's Tours & Travels,
+I would like to enquire about the Fixed Departure Tour:";
+        text += "
+*Tour:* " + tour;
+        text += "
+*Departure Date:* " + date;
+        text += "
+*Customer Name:* " + name;
+        if (mobile) text += "
+*Mobile:* " + mobile;
+        if (email) text += "
+*Email:* " + email;
+        if (travellers) text += "
+*Travellers:* " + travellers;
+        if (msg) text += "
+*Special Requests:* " + msg;
+
+        return text;
+      }
+
+      // WhatsApp Button Handler
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function() {
+          if (!validateForm()) return;
+          const msg = getWhatsAppMessage();
+          const waUrl = "https://api.whatsapp.com/send?phone=919848124759&text=" + encodeURIComponent(msg);
+          window.open(waUrl, '_blank');
+        });
+      }
+
+      // Online Submit Handler
+      window.handlePopupSubmit = function(e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        // Display confirmation box
+        if (successBox) {
+          successBox.style.display = 'block';
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Also offer to open WhatsApp after 1 second if preferred
+        const submitBtn = document.getElementById('modalSubmitBtn');
+        if (submitBtn) {
+          submitBtn.innerHTML = 'Enquiry Registered &#10004;';
+          submitBtn.style.background = '#25D366';
+          submitBtn.style.borderColor = '#25D366';
+          submitBtn.disabled = true;
+        }
+      };
+
+    })();
+
+    // 5. Lightbox for Photo Gallery
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('imageLightbox');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      if (modal && img) {
+        img.src = src;
+        if (cap) cap.textContent = caption || '';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox(e) {
+      const modal = document.getElementById('imageLightbox');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
   </script>
 </body>
 </html>
