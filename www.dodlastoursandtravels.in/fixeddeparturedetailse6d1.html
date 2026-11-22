@@ -797,6 +797,14 @@
         grid-template-columns: 1fr;
       }
     }
+  
+    /* Day-wise Itinerary Navigator - Initial State Prevention */
+    .itinerary-day-slide {
+      display: none !important;
+    }
+    .itinerary-day-slide.active {
+      display: block !important;
+    }
   </style>
   <script>
     (function(){
@@ -2006,5 +2014,6 @@
     })();
   </script>
 
+  <script src="js/dodla-itinerary-navigator.js"></script>
 </body>
 </html>
