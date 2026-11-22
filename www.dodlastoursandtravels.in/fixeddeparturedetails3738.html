@@ -797,14 +797,6 @@
         grid-template-columns: 1fr;
       }
     }
-  
-    /* Day-wise Itinerary Navigator - Initial State Prevention */
-    .itinerary-day-slide {
-      display: none !important;
-    }
-    .itinerary-day-slide.active {
-      display: block !important;
-    }
   </style>
   <script>
     (function(){
@@ -1032,296 +1024,229 @@
           </div>
         </section>
 
-                <!-- SECTION B: DAY-WISE INTERACTIVE ITINERARY NAVIGATOR -->
-        <section class="detail-section itinerary-navigator-section" id="itinerarySection">
+        <!-- SECTION B: DAY-WISE ITINERARY (TIMELINE LAYOUT - NO TABS!) -->
+        <section class="detail-section">
           <div class="section-header-wrap">
             <div>
               <h2 class="section-title">Day-Wise Sacred Itinerary</h2>
-              <div class="section-subtext">Interactive step-by-step spiritual journey timeline</div>
+              <div class="section-subtext">Detailed day-by-day sequence of temple darshans and destinations</div>
             </div>
-            <div class="itinerary-progress-badge" id="itineraryProgressBadge">
-              <span class="progress-step-text" id="itineraryProgressText">DAY 1 OF 11</span>
-            </div>
+            <span style="font-size:12.5px; font-weight:700; color:var(--forest-mid); background:rgba(212, 175, 55, 0.15); border:1px solid rgba(212,175,55,0.4); padding:4px 12px; border-radius:30px;">
+              11 Days / 10 Nights
+            </span>
           </div>
 
-          <!-- Horizontal Stepper Ribbon -->
-          <div class="itinerary-stepper-wrap">
-            <div class="itinerary-stepper" id="itineraryStepper" role="tablist" aria-label="Tour Itinerary Days">
-              <button type="button" class="stepper-day-btn active" data-day-index="0" role="tab" aria-selected="true">
-                <span class="stepper-day-num">01</span>
-                <span class="stepper-day-lbl">Day 1</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="1" role="tab" aria-selected="false">
-                <span class="stepper-day-num">02</span>
-                <span class="stepper-day-lbl">Day 2</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="2" role="tab" aria-selected="false">
-                <span class="stepper-day-num">03</span>
-                <span class="stepper-day-lbl">Day 3</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="3" role="tab" aria-selected="false">
-                <span class="stepper-day-num">04</span>
-                <span class="stepper-day-lbl">Day 4</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="4" role="tab" aria-selected="false">
-                <span class="stepper-day-num">05</span>
-                <span class="stepper-day-lbl">Day 5</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="5" role="tab" aria-selected="false">
-                <span class="stepper-day-num">06</span>
-                <span class="stepper-day-lbl">Day 6</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="6" role="tab" aria-selected="false">
-                <span class="stepper-day-num">07</span>
-                <span class="stepper-day-lbl">Day 7</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="7" role="tab" aria-selected="false">
-                <span class="stepper-day-num">08</span>
-                <span class="stepper-day-lbl">Day 8</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="8" role="tab" aria-selected="false">
-                <span class="stepper-day-num">09</span>
-                <span class="stepper-day-lbl">Day 9</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="9" role="tab" aria-selected="false">
-                <span class="stepper-day-num">10</span>
-                <span class="stepper-day-lbl">Day 10</span>
-              </button>
-              <button type="button" class="stepper-day-btn" data-day-index="10" role="tab" aria-selected="false">
-                <span class="stepper-day-num">11</span>
-                <span class="stepper-day-lbl">Day 11</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Active Day Card Display -->
-          <div class="itinerary-card-display" id="itineraryCardDisplay">
-          <!-- Day 1 Slide -->
-          <div class="itinerary-day-slide active" data-day-index="0" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 1</span>
-                <h3 class="itinerary-slide-title">Arrive Bhubaneswar – Lingaraj &amp; Mukteswar</h3>
-              </div>
-            </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+          <div class="timeline-wrapper">
+            
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 1</span>
+                  <h3 class="region-title">Arrive Bhubaneswar – Lingaraj &amp; Mukteswar</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/1618820610_image6.jpg" alt="Arrive Bhubaneswar – Lingaraj &amp; Mukteswar">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Arrive at Bhubaneswar capital. Met upon arrival and transfer to hotel. Visit 11th-century Lingaraj Temple and gem of architecture Mukteswar Temple.</p>
-                  <div class="temple-grid"><div class="temple-chip">Bhubaneswar Arrival</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 2 Slide -->
-          <div class="itinerary-day-slide" data-day-index="1" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 2</span>
-                <h3 class="itinerary-slide-title">Biraja Devi &amp; Udayagiri-Khandagiri Caves</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Arrive at Bhubaneswar capital. Met upon arrival and transfer to hotel. Visit 11th-century Lingaraj Temple and gem of architecture Mukteswar Temple.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Bhubaneswar Arrival</div>
+<div class="temple-chip">Lingaraj Temple</div>
+<div class="temple-chip">Mukteswar Temple</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 2</span>
+                  <h3 class="region-title">Biraja Devi &amp; Udayagiri-Khandagiri Caves</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/mukteswara-temple-bhubaneswar-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Biraja Devi &amp; Udayagiri-Khandagiri Caves">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Day excursion to Jajpur Biraja Devi Shaktipeeth and explore the rock-cut Jain cave shelters of Udayagiri and Khandagiri.</p>
-                  <div class="temple-grid"><div class="temple-chip">Biraja Devi</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 3 Slide -->
-          <div class="itinerary-day-slide" data-day-index="2" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 3</span>
-                <h3 class="itinerary-slide-title">Pipili, Raghurajpur &amp; Konark Sun Temple</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Day excursion to Jajpur Biraja Devi Shaktipeeth and explore the rock-cut Jain cave shelters of Udayagiri and Khandagiri.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Biraja Devi</div>
+<div class="temple-chip">Udayagiri Caves</div>
+<div class="temple-chip">Khandagiri</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 3</span>
+                  <h3 class="region-title">Pipili, Raghurajpur &amp; Konark Sun Temple</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/gallery_bb53c4a.jpg" alt="Pipili, Raghurajpur &amp; Konark Sun Temple">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Visit Pipili applique village and Raghurajpur heritage crafts village. Proceed to the UNESCO World Heritage Konark Sun Temple.</p>
-                  <div class="temple-grid"><div class="temple-chip">Pipili Applique</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 4 Slide -->
-          <div class="itinerary-day-slide" data-day-index="3" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 4</span>
-                <h3 class="itinerary-slide-title">Puri Sri Jagannath Temple Darshan</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Visit Pipili applique village and Raghurajpur heritage crafts village. Proceed to the UNESCO World Heritage Konark Sun Temple.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Pipili Applique</div>
+<div class="temple-chip">Raghurajpur Crafts</div>
+<div class="temple-chip">Konark Sun Temple</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 4</span>
+                  <h3 class="region-title">Puri Sri Jagannath Temple Darshan</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/Jagannath.webp" alt="Puri Sri Jagannath Temple Darshan">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Sacred morning darshan of Lord Jagannath, Balabhadra &amp; Subhadra. Mahaprasad anandabazar experience and evening on Golden Beach.</p>
-                  <div class="temple-grid"><div class="temple-chip">Jagannath Darshan</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 5 Slide -->
-          <div class="itinerary-day-slide" data-day-index="4" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 5</span>
-                <h3 class="itinerary-slide-title">Chilika Lake Dolphin Cruise (Satapada)</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Sacred morning darshan of Lord Jagannath, Balabhadra &amp; Subhadra. Mahaprasad anandabazar experience and evening on Golden Beach.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Jagannath Darshan</div>
+<div class="temple-chip">Mahaprasad</div>
+<div class="temple-chip">Puri Golden Beach</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 5</span>
+                  <h3 class="region-title">Chilika Lake Dolphin Cruise (Satapada)</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/Maa-Tara-Tarini-Temple-1.webp" alt="Chilika Lake Dolphin Cruise (Satapada)">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Scenic boat cruise on Chilika Lake, Asia&#x27;s largest brackish lagoon, spotting playful Irrawaddy dolphins and Sea Mouth.</p>
-                  <div class="temple-grid"><div class="temple-chip">Chilika Lake</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 6 Slide -->
-          <div class="itinerary-day-slide" data-day-index="5" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 6</span>
-                <h3 class="itinerary-slide-title">Gopalpur on Sea &amp; Taratarini Temple</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Scenic boat cruise on Chilika Lake, Asia&#x27;s largest brackish lagoon, spotting playful Irrawaddy dolphins and Sea Mouth.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Chilika Lake</div>
+<div class="temple-chip">Irrawaddy Dolphins</div>
+<div class="temple-chip">Sea Mouth Satapada</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 6</span>
+                  <h3 class="region-title">Gopalpur on Sea &amp; Taratarini Temple</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/STBK-Konark-Dance-Festival2.webp" alt="Gopalpur on Sea &amp; Taratarini Temple">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Drive south to the historic port town of Gopalpur. Ascend hill shrine of Maa Taratarini Devi overlooking Rushikulya river.</p>
-                  <div class="temple-grid"><div class="temple-chip">Gopalpur Beach</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 7 Slide -->
-          <div class="itinerary-day-slide" data-day-index="6" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 7</span>
-                <h3 class="itinerary-slide-title">Srikakulam Arasavalli Sun Temple &amp; Srikurmam</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Drive south to the historic port town of Gopalpur. Ascend hill shrine of Maa Taratarini Devi overlooking Rushikulya river.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Gopalpur Beach</div>
+<div class="temple-chip">Taratarini Shaktipeeth</div>
+<div class="temple-chip">Scenic Hills</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 7</span>
+                  <h3 class="region-title">Srikakulam Arasavalli Sun Temple &amp; Srikurmam</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/20221210_BLP513.webp" alt="Srikakulam Arasavalli Sun Temple &amp; Srikurmam">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Cross into Andhra Pradesh. Holy darshan at Arasavalli Suryanarayana Swamy temple and Srikurmam (unique Kurma avatar shrine).</p>
-                  <div class="temple-grid"><div class="temple-chip">Arasavalli Sun Temple</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 8 Slide -->
-          <div class="itinerary-day-slide" data-day-index="7" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 8</span>
-                <h3 class="itinerary-slide-title">Vizag Simhachalam Temple Darshan</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Cross into Andhra Pradesh. Holy darshan at Arasavalli Suryanarayana Swamy temple and Srikurmam (unique Kurma avatar shrine).
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Arasavalli Sun Temple</div>
+<div class="temple-chip">Srikurmam Temple</div>
+<div class="temple-chip">Srikakulam</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 8</span>
+                  <h3 class="region-title">Vizag Simhachalam Temple Darshan</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/VSP27_Sri Mukhalingam_TOURISM_.jpg" alt="Vizag Simhachalam Temple Darshan">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Ascend Simhachalam hill for divine darshan of Sri Varaha Lakshmi Narasimha Swamy covered in sandalwood paste.</p>
-                  <div class="temple-grid"><div class="temple-chip">Simhachalam Temple</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 9 Slide -->
-          <div class="itinerary-day-slide" data-day-index="8" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 9</span>
-                <h3 class="itinerary-slide-title">Vizag City Sightseeing &amp; RK Beach</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Ascend Simhachalam hill for divine darshan of Sri Varaha Lakshmi Narasimha Swamy covered in sandalwood paste.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Simhachalam Temple</div>
+<div class="temple-chip">Chandanotsavam Kshetra</div>
+<div class="temple-chip">Vizag City</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 9</span>
+                  <h3 class="region-title">Vizag City Sightseeing &amp; RK Beach</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/banner1.jpg" alt="Vizag City Sightseeing &amp; RK Beach">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Visit INS Kursura Submarine Museum, Kailasagiri hilltop park with giant Shiva-Parvati statues, and RK Beach.</p>
-                  <div class="temple-grid"><div class="temple-chip">Submarine Museum</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 10 Slide -->
-          <div class="itinerary-day-slide" data-day-index="9" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 10</span>
-                <h3 class="itinerary-slide-title">Annavaram Sri Satyanarayana Swamy</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Visit INS Kursura Submarine Museum, Kailasagiri hilltop park with giant Shiva-Parvati statues, and RK Beach.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Submarine Museum</div>
+<div class="temple-chip">Kailasagiri Hill</div>
+<div class="temple-chip">RK Beach Vizag</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 10</span>
+                  <h3 class="region-title">Annavaram Sri Satyanarayana Swamy</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/SWAMY.jpeg" alt="Annavaram Sri Satyanarayana Swamy">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Visit Ratnagiri hill at Annavaram. Perform sacred Sri Satyanarayana Swamy Vratham and receive divine prasadams.</p>
-                  <div class="temple-grid"><div class="temple-chip">Annavaram Temple</div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Day 11 Slide -->
-          <div class="itinerary-day-slide" data-day-index="10" role="tabpanel">
-            <div class="itinerary-slide-header">
-              <div class="itinerary-slide-title-wrap">
-                <span class="itinerary-slide-badge">DAY 11</span>
-                <h3 class="itinerary-slide-title">Return to Vijayawada</h3>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Visit Ratnagiri hill at Annavaram. Perform sacred Sri Satyanarayana Swamy Vratham and receive divine prasadams.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Annavaram Temple</div>
+<div class="temple-chip">Satyanarayana Vratham</div>
+<div class="temple-chip">Ratnagiri Hill</div>
+</div>
               </div>
             </div>
-              <div class="itinerary-slide-body has-image">
-                <div class="itinerary-slide-img-wrap">
+        
+            <div class="timeline-node">
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="day-badge">DAY 11</span>
+                  <h3 class="region-title">Return to Vijayawada</h3>
+                </div>
+                <div class="timeline-img-wrap">
                   <img src="adminpanel/public/news/1618820610_image6.jpg" alt="Return to Vijayawada">
                 </div>
-                <div>
-                  <p class="itinerary-slide-desc">Comfortable drive back to Vijayawada with cherished spiritual memories and blessings of the holy shrines.</p>
-                  <div class="temple-grid"><div class="temple-chip">Vijayawada Return</div>
-                </div>
+                <p style="font-size:14px; color:#2D4C3E; margin:0 0 10px 0; line-height:1.65;">
+                  Comfortable drive back to Vijayawada with cherished spiritual memories and blessings of the holy shrines.
+                </p>
+                <div class="temple-grid"><div class="temple-chip">Vijayawada Return</div>
+<div class="temple-chip">Pilgrimage Completion</div>
+<div class="temple-chip">Divine Blessings</div>
+</div>
               </div>
-          </div>
-          </div>
-
-          <!-- Navigation Controls Footer -->
-          <div class="itinerary-nav-footer">
-            <button type="button" class="btn-itinerary-nav prev" id="itinPrevBtn" disabled aria-label="Previous Day">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-              <span>Previous Day</span>
-            </button>
-            
-            <button type="button" class="btn-itinerary-nav next" id="itinNextBtn" aria-label="Next Day">
-              <span>Next Day</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-
-            <div class="itinerary-completion-box" id="itinCompletionBox" style="display: none;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <span>Journey Complete &bull; Divine Blessings</span>
             </div>
+        
           </div>
         </section>
 
@@ -1887,72 +1812,5 @@
   </script>
 
   <script src="js/dodla-i18n.js"></script>
-
-  <script>
-    (function initItineraryNavigator() {
-      const stepperBtns = document.querySelectorAll('#itineraryStepper .stepper-day-btn');
-      const slides = document.querySelectorAll('#itineraryCardDisplay .itinerary-day-slide');
-      const prevBtn = document.getElementById('itinPrevBtn');
-      const nextBtn = document.getElementById('itinNextBtn');
-      const completionBox = document.getElementById('itinCompletionBox');
-      const progressText = document.getElementById('itineraryProgressText');
-      if (!slides.length) return;
-      const totalDays = slides.length;
-      let currentDay = 0;
-
-      function updateDay(index) {
-        if (index < 0 || index >= totalDays) return;
-        currentDay = index;
-
-        slides.forEach(function(slide, i) {
-          slide.classList.toggle('active', i === currentDay);
-        });
-
-        stepperBtns.forEach(function(btn, i) {
-          var isActive = (i === currentDay);
-          btn.classList.toggle('active', isActive);
-          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          if (isActive) {
-            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          }
-        });
-
-        var isTe = (document.documentElement.lang === 'te' || document.body.classList.contains('dodla-lang-te'));
-        if (progressText) {
-          progressText.textContent = isTe ? ('రోజు ' + (currentDay + 1) + ' / ' + totalDays) : ('DAY ' + (currentDay + 1) + ' OF ' + totalDays);
-        }
-
-        if (prevBtn) {
-          prevBtn.disabled = (currentDay === 0);
-        }
-        if (currentDay === totalDays - 1) {
-          if (nextBtn) nextBtn.style.display = 'none';
-          if (completionBox) completionBox.style.display = 'inline-flex';
-        } else {
-          if (nextBtn) nextBtn.style.display = 'inline-flex';
-          if (completionBox) completionBox.style.display = 'none';
-        }
-      }
-
-      stepperBtns.forEach(function(btn, i) {
-        btn.addEventListener('click', function() { updateDay(i); });
-      });
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function() { updateDay(currentDay - 1); });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function() { updateDay(currentDay + 1); });
-      }
-
-      document.addEventListener('keydown', function(e) {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-        if (e.key === 'ArrowRight') updateDay(currentDay + 1);
-        if (e.key === 'ArrowLeft') updateDay(currentDay - 1);
-      });
-    })();
-  </script>
-
-  <script src="js/dodla-itinerary-navigator.js"></script>
 </body>
 </html>
