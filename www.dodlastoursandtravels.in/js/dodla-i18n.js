@@ -889,14 +889,24 @@
     translateInputs(document.body, lang);
   }
 
-  // 1. Translate block containers (paragraphs, headings, list items, badges)
+  // 1. Translate block containers
+  // SAFE: Only translate elements that DO NOT contain interactive child elements
+  // (a, button, input, select, textarea, form, [onclick], dropdowns) so event listeners are never destroyed.
+  // Elements with only formatting children (span, br, strong, em, b, i) ARE safely translated.
   function translateBlocks(rootNode, lang) {
-    var blockSelector = 'h1, h2, h3, h4, h5, h6, p, li, blockquote, .section-badge, .trust-pillar-title, .trust-pillar-desc, .hero-cinematic-lead, .journey-banner-sub, .journey-banner-heading, .about-trust-lbl, .about-trust-val, .founder-quote, .founder-name, .timeline-day-badge, .timeline-dest-title, .timeline-desc, .guideline-card p, .pricing-table td, .pricing-table th, .detail-sidebar-card, .footer-col p, .font-script-accent';
+    var blockSelector = 'h1, h2, h3, h4, h5, h6, p, blockquote, .section-badge, .trust-pillar-title, .trust-pillar-desc, .hero-cinematic-lead, .journey-banner-sub, .journey-banner-heading, .about-trust-lbl, .about-trust-val, .founder-quote, .founder-name, .timeline-day-badge, .timeline-dest-title, .timeline-desc, .guideline-card p, .pricing-table td, .pricing-table th, .detail-sidebar-card p, .footer-col p, .font-script-accent';
     
     var blocks = rootNode.querySelectorAll(blockSelector);
     blocks.forEach(function(el) {
-      // Ignore if inside another translated container or inside a script/style/switcher
+      // Ignore if inside a lang switcher, script, or style
       if (el.closest('.luxury-lang-switch') || el.closest('script') || el.closest('style')) return;
+
+      // CRITICAL: Skip elements that contain interactive children
+      // (a, button, input, select, textarea, form, elements with onclick, or dropdown menus)
+      // This prevents destroying event listeners attached to interactive elements via innerHTML replacement.
+      if (el.querySelector('a, button, input, select, textarea, form, [onclick], .luxury-dropdown, .dropdown-menu')) {
+        return;
+      }
 
       var norm = normalizeText(el.textContent);
       if (!norm) return;

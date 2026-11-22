@@ -5527,341 +5527,394 @@ html.dodla-lang-te .font-script-accent {
   line-height: 1.25 !important;
 }
 
-
 /* ==========================================================================
-   HERO SECTION RESPONSIVENESS & TELUGU OVERLAP FIXES
+   Telugu Hero Section Typography Fixes
+   Prevents heading overlap, improves line height, text wrapping for Telugu
    ========================================================================== */
-.hero-cinematic-banner {
-  min-height: 680px !important;
-  height: auto !important;
-  max-height: none !important;
-  padding: 60px 0 100px !important;
-  overflow: visible !important;
-}
-
-.hero-cinematic-heading {
-  line-height: 1.2 !important;
-  word-break: normal !important;
+html.dodla-lang-te .hero-cinematic-heading,
+.dodla-lang-te .hero-cinematic-heading {
+  font-size: clamp(26px, 3.8vw, 44px) !important;
+  line-height: 1.45 !important;
+  word-break: keep-all !important;
   overflow-wrap: break-word !important;
+  letter-spacing: 0 !important;
+  margin-bottom: 14px !important;
+  font-family: 'Noto Sans Telugu', sans-serif !important;
 }
 
-/* Ensure Search Card Never Overlaps Hero Buttons */
-.journey-search-card {
-  margin-top: -40px !important;
+html.dodla-lang-te .hero-script-eyebrow,
+.dodla-lang-te .hero-script-eyebrow {
+  font-family: 'Noto Sans Telugu', sans-serif !important;
+  font-size: clamp(14px, 2vw, 22px) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 10px !important;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+}
+
+html.dodla-lang-te .hero-cinematic-lead,
+.dodla-lang-te .hero-cinematic-lead {
+  font-size: clamp(13px, 1.6vw, 15px) !important;
+  line-height: 1.85 !important;
+  word-break: keep-all !important;
+  font-family: 'Noto Sans Telugu', sans-serif !important;
+}
+
+html.dodla-lang-te .hero-cinematic-text-box,
+.dodla-lang-te .hero-cinematic-text-box {
+  padding-top: 20px !important;
+  padding-bottom: 40px !important;
+}
+
+html.dodla-lang-te .hero-title-group,
+.dodla-lang-te .hero-title-group {
   position: relative !important;
-  z-index: 25 !important;
+  margin-bottom: 14px !important;
+}
+
+/* Prevent Telugu nav items from overflowing - spacing and size optimization */
+html.dodla-lang-te .luxury-nav-menu,
+.dodla-lang-te .luxury-nav-menu {
+  gap: 2px !important;
+}
+html.dodla-lang-te .luxury-nav-link,
+.dodla-lang-te .luxury-nav-link {
+  font-size: 12.5px !important;
+  padding: 5px 8px !important;
+  letter-spacing: 0 !important;
+}
+html.dodla-lang-te .luxury-nav-item.active .luxury-nav-link,
+html.dodla-lang-te .luxury-nav-link.active,
+.dodla-lang-te .luxury-nav-item.active .luxury-nav-link,
+.dodla-lang-te .luxury-nav-link.active {
+  padding: 5px 10px !important;
+  font-size: 12.5px !important;
+}
+
+@media (max-width: 1280px) {
+  html.dodla-lang-te .luxury-nav-link,
+  .dodla-lang-te .luxury-nav-link {
+    font-size: 11.5px !important;
+    padding: 4px 6px !important;
+  }
+}
+
+/* Telugu pilgrimage search form - keep below hero */
+html.dodla-lang-te .hero-search-box-wrap,
+html.dodla-lang-te .luxury-hero-search,
+.dodla-lang-te .hero-search-box-wrap,
+.dodla-lang-te .luxury-hero-search {
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 16px !important;
+}
+
+/* Hero stats row - proper spacing in Telugu */
+html.dodla-lang-te .hero-cinematic-stats-row,
+.dodla-lang-te .hero-cinematic-stats-row {
+  margin-top: 20px !important;
 }
 
 @media (max-width: 991px) {
-  .hero-cinematic-banner {
-    min-height: auto !important;
-    padding: 50px 0 50px !important;
+  html.dodla-lang-te .hero-cinematic-heading,
+  .dodla-lang-te .hero-cinematic-heading {
+    font-size: clamp(22px, 5vw, 36px) !important;
+    line-height: 1.5 !important;
   }
-  .journey-search-card {
-    margin-top: 20px !important;
-  }
-  #heroLocationBadge {
-    display: none !important;
+  html.dodla-lang-te .hero-script-eyebrow,
+  .dodla-lang-te .hero-script-eyebrow {
+    font-size: clamp(13px, 3vw, 18px) !important;
   }
 }
 
-/* Telugu Mode Typography & Alignment */
-html.dodla-lang-te .hero-cinematic-heading {
-  font-family: 'Noto Sans Telugu', var(--font-serif), serif !important;
-  font-size: clamp(26px, 4vw, 44px) !important;
-  line-height: 1.4 !important;
-  letter-spacing: 0 !important;
-  word-spacing: 0.04em !important;
-  margin-bottom: 18px !important;
+@media (max-width: 600px) {
+  html.dodla-lang-te .hero-cinematic-heading,
+  .dodla-lang-te .hero-cinematic-heading {
+    font-size: 22px !important;
+    line-height: 1.55 !important;
+  }
+  html.dodla-lang-te .hero-script-eyebrow,
+  .dodla-lang-te .hero-script-eyebrow {
+    font-size: 13px !important;
+  }
+  html.dodla-lang-te .hero-cinematic-lead,
+  .dodla-lang-te .hero-cinematic-lead {
+    font-size: 13px !important;
+  }
 }
-
-html.dodla-lang-te .hero-script-eyebrow {
-  font-family: 'Noto Sans Telugu', sans-serif !important;
-  font-size: clamp(16px, 2.2vw, 22px) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.02em !important;
-  color: #E8CA7B !important;
-  display: block !important;
-  position: static !important;
-  transform: none !important;
-  margin-bottom: 10px !important;
-  line-height: 1.3 !important;
-}
-
-html.dodla-lang-te .hero-cinematic-lead {
-  font-family: 'Noto Sans Telugu', sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.85 !important;
-  color: #E6F3EE !important;
-  max-width: 680px !important;
-  margin-bottom: 26px !important;
-}
-
-html.dodla-lang-te .btn-gold-pill,
-html.dodla-lang-te .btn-forest-pill,
-html.dodla-lang-te .btn-story-pill {
-  font-family: 'Noto Sans Telugu', sans-serif !important;
-  font-size: 13.5px !important;
-  line-height: 1.35 !important;
-  padding: 10px 20px !important;
-}
-
-html.dodla-lang-te .luxury-nav-link {
-  font-family: 'Noto Sans Telugu', sans-serif !important;
-  font-size: 12.5px !important;
-  font-weight: 600 !important;
-  padding: 6px 8px !important;
-  letter-spacing: 0 !important;
-}
-
 
 /* ==========================================================================
-   INTERACTIVE STEP-BY-STEP ITINERARY NAVIGATOR
+   Itinerary Navigator - Shared Styles for All Fixed Departure Detail Pages
    ========================================================================== */
-.itinerary-navigator-wrap {
-  position: relative;
-  margin-top: 10px;
+.itinerary-navigator-section {
+  padding: 0;
 }
 
-/* Progress Badge */
 .itinerary-progress-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: #0A2E20;
-  border: 1.5px solid #D4AF37;
+  background: linear-gradient(135deg, var(--forest-dark, #061F16) 0%, var(--forest-mid, #0A2E20) 100%);
+  color: #FFFFFF;
   border-radius: 50px;
   padding: 6px 18px;
-  color: #F5E6BE;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(6, 31, 22, 0.12);
+  letter-spacing: 0.1em;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 4px 12px rgba(6, 31, 22, 0.25);
 }
 
-/* Horizontal Stepper Ribbon */
 .itinerary-stepper-wrap {
-  position: relative;
-  margin: 20px 0 24px;
-  overflow: hidden;
-  padding: 4px 2px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
 }
+.itinerary-stepper-wrap::-webkit-scrollbar {
+  height: 4px;
+}
+.itinerary-stepper-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+.itinerary-stepper-wrap::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 2px;
+}
+
 .itinerary-stepper {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 6px 4px;
-}
-.itinerary-stepper::-webkit-scrollbar {
-  display: none;
+  gap: 8px;
+  padding: 4px 0;
+  min-width: max-content;
 }
 
-/* Stepper Day Buttons */
 .stepper-day-btn {
-  flex: 0 0 auto;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 3px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(197, 160, 89, 0.3);
   background: #FFFFFF;
-  border: 1.5px solid rgba(197, 160, 89, 0.35);
-  border-radius: 50px;
-  color: #1E382B;
-  font-family: inherit;
-  font-size: 13.5px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(6, 31, 22, 0.04);
-  white-space: nowrap;
+  transition: all 0.22s ease;
+  min-width: 56px;
 }
 .stepper-day-btn:hover {
-  border-color: #D4AF37;
-  background: #FBF8F3;
-  color: #061F16;
-  transform: translateY(-1px);
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.6);
 }
 .stepper-day-btn.active {
-  background: linear-gradient(135deg, #0A2E20 0%, #061F16 100%);
+  background: linear-gradient(135deg, #061F16 0%, #0A2E20 100%);
   border-color: #D4AF37;
-  color: #FFFFFF;
-  box-shadow: 0 6px 18px rgba(6, 31, 22, 0.25), 0 0 0 2px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 12px rgba(6, 31, 22, 0.3);
 }
 .stepper-day-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(197, 160, 89, 0.2);
-  color: #A37E36;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 800;
+  color: #2A4A3B;
+  line-height: 1;
+  font-family: 'Cinzel', Georgia, serif;
 }
 .stepper-day-btn.active .stepper-day-num {
-  background: #D4AF37;
-  color: #061F16;
+  color: #D4AF37;
+}
+.stepper-day-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6B8F7E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.stepper-day-btn.active .stepper-day-lbl {
+  color: rgba(212, 175, 55, 0.75);
 }
 
-/* Active Day Card Display */
 .itinerary-card-display {
   position: relative;
   min-height: 280px;
 }
+
 .itinerary-day-slide {
   display: none;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  background: #FFFFFF;
-  border: 1.5px solid rgba(197, 160, 89, 0.3);
-  border-radius: 18px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(6, 31, 22, 0.06);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .itinerary-day-slide.active {
   display: block;
   opacity: 1;
   transform: translateY(0);
+  animation: slideIn 0.3s ease forwards;
 }
 
-/* Slide Header */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .itinerary-slide-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
-  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-  padding-bottom: 18px;
-  margin-bottom: 22px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 .itinerary-slide-title-wrap {
   flex: 1;
 }
 .itinerary-slide-badge {
   display: inline-block;
-  background: #0A2E20;
-  color: #D4AF37;
-  font-size: 11.5px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #9A7B28;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 4px 12px;
-  border-radius: 30px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 6px;
 }
 .itinerary-slide-title {
-  font-family: var(--font-serif);
-  font-size: clamp(20px, 2.4vw, 26px);
+  font-size: 20px;
   font-weight: 700;
   color: #0A2E20;
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.3;
+  font-family: 'Cinzel', Georgia, serif;
 }
 
-/* Slide Content Layout */
 .itinerary-slide-body {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
+  background: #FAFAF8;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 14px;
+  padding: 20px 22px;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: #2A4A3B;
 }
 .itinerary-slide-body.has-image {
-  grid-template-columns: 1fr 1.35fr;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: start;
 }
 .itinerary-slide-img-wrap {
-  border-radius: 14px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(6, 31, 22, 0.12);
-  border: 1.5px solid rgba(197, 160, 89, 0.3);
+  aspect-ratio: 4/3;
+  flex-shrink: 0;
 }
 .itinerary-slide-img-wrap img {
   width: 100%;
-  height: 260px;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 .itinerary-slide-desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #2D4C3E;
-  margin: 0 0 18px 0;
+  font-size: 14.5px;
+  color: #2A4A3B;
+  line-height: 1.72;
+  margin: 0 0 14px;
 }
 
-/* Navigation Controls Footer */
+.temple-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+.temple-chip {
+  background: #EEF7F3;
+  border: 1px solid #B8D9CB;
+  color: #0A5C3B;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
 .itinerary-nav-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(197, 160, 89, 0.2);
+  gap: 14px;
+  margin-top: 20px;
   flex-wrap: wrap;
 }
+
 .btn-itinerary-nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 24px;
-  background: #0A2E20;
-  color: #FFFFFF;
-  border: 1.5px solid #D4AF37;
+  padding: 10px 22px;
   border-radius: 50px;
-  font-size: 13.5px;
+  border: 2px solid rgba(10, 46, 32, 0.2);
+  background: #FFFFFF;
+  color: #0A2E20;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(6, 31, 22, 0.1);
+  transition: all 0.22s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .btn-itinerary-nav:hover:not(:disabled) {
-  background: #D4AF37;
-  color: #061F16;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(197, 160, 89, 0.3);
+  background: #0A2E20;
+  color: #D4AF37;
+  border-color: #0A2E20;
+  box-shadow: 0 4px 14px rgba(6, 31, 22, 0.25);
 }
 .btn-itinerary-nav:disabled {
-  opacity: 0.35;
+  opacity: 0.38;
   cursor: not-allowed;
-  transform: none;
 }
+.btn-itinerary-nav.next {
+  margin-left: auto;
+  background: linear-gradient(135deg, #0A2E20 0%, #061F16 100%);
+  color: #D4AF37;
+  border-color: #D4AF37;
+}
+.btn-itinerary-nav.next:hover:not(:disabled) {
+  background: #D4AF37;
+  color: #061F16;
+  border-color: #D4AF37;
+}
+
 .itinerary-completion-box {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 8px;
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+  color: #061F16;
   padding: 10px 22px;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1.5px solid #D4AF37;
   border-radius: 50px;
-  color: #0A2E20;
-  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 14px;
+  margin-left: auto;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
 }
 
 @media (max-width: 768px) {
   .itinerary-slide-body.has-image {
     grid-template-columns: 1fr;
   }
-  .itinerary-day-slide {
-    padding: 20px;
+  .itinerary-slide-img-wrap {
+    max-height: 180px;
   }
-  .itinerary-slide-img-wrap img {
-    height: 200px;
-  }
-  .itinerary-nav-footer {
-    justify-content: center;
+  .itinerary-slide-title {
+    font-size: 17px;
   }
   .btn-itinerary-nav {
-    flex: 1;
-    justify-content: center;
-    padding: 10px 16px;
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+  .itinerary-nav-footer {
+    gap: 10px;
+  }
+  .btn-itinerary-nav.next {
+    margin-left: 0;
   }
 }
