@@ -24,54 +24,83 @@
 
   <style>
   /* ==========================================================================
-     Interactive Layered-Box Day Itinerary (Dodla Luxury Theme)
+     Interactive Layered-Box Day Itinerary & Balanced Layout (Dodla Luxury)
      ========================================================================== */
-  .itinerary-stepper-wrapper {
-    margin-bottom: 20px;
+  .itinerary-section {
+    padding: 45px 0 55px;
+    background: #FAF6F0;
   }
 
-  /* Progress Tracker */
-  .itinerary-tracker-card {
+  /* Grid Layout: Top Row (2 columns) + Bottom Row (3 columns) */
+  .itinerary-luxury-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .itinerary-top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .itinerary-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  /* Stepper Left Column Wrapper */
+  .itinerary-stepper-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Sleek Compact Progress Tracker Header */
+  .itinerary-tracker-bar {
     background: #FFFFFF;
     border: 1px solid #D1DFD8;
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 14px rgba(6, 31, 22, 0.04);
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(6, 31, 22, 0.03);
   }
-  .itinerary-tracker-header {
+  .itinerary-tracker-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 8px;
   }
   .itinerary-counter-pill {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #0A2E20;
     background: #FAF6F0;
     border: 1px solid #D4AF37;
-    padding: 5px 14px;
-    border-radius: 30px;
+    padding: 3px 12px;
+    border-radius: 20px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
   }
   .itinerary-counter-pill .day-highlight {
     color: #C5A059;
     font-weight: 800;
   }
   .itinerary-destination-tag {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     color: #4E6B5E;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
   }
   .itinerary-destination-tag svg {
     color: #C5A059;
@@ -79,88 +108,92 @@
   }
   .itinerary-progress-track {
     width: 100%;
-    height: 7px;
+    height: 6px;
     background: #EBE4D8;
     border-radius: 10px;
     overflow: hidden;
-    position: relative;
   }
   .itinerary-progress-fill {
     height: 100%;
     background: linear-gradient(90deg, #D4AF37 0%, #C5A059 50%, #25D366 100%);
     border-radius: 10px;
-    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Layered Deck Container */
+  /* Compact Layered Deck Container */
   .itinerary-deck-container {
     position: relative;
-    min-height: 290px;
-    margin-bottom: 22px;
+    min-height: 250px;
+    flex: 1;
+    margin-bottom: 12px;
   }
 
-  /* Underlays simulating stacked cards behind */
+  /* Underlays for Layered Deck Illusion */
   .itinerary-underlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 16px;
-    border: 1.5px solid #D1DFD8;
+    border-radius: 14px;
+    border: 1px solid #D1DFD8;
     pointer-events: none;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   }
   .itinerary-underlay-2 {
     background: #F2ECE1;
-    transform: translateY(14px) scale(0.95);
+    transform: translateY(10px) scale(0.96);
     opacity: 0.55;
     box-shadow: 0 4px 12px rgba(6, 31, 22, 0.03);
     z-index: 1;
   }
   .itinerary-underlay-1 {
     background: #FAF6F0;
-    transform: translateY(7px) scale(0.975);
+    transform: translateY(5px) scale(0.98);
     opacity: 0.85;
-    box-shadow: 0 6px 18px rgba(6, 31, 22, 0.05);
+    box-shadow: 0 6px 16px rgba(6, 31, 22, 0.05);
     z-index: 2;
   }
 
-  /* Active Clickable Card */
+  /* Active Interactive Card (Compact & Square-Proportioned) */
   .itinerary-card-interactive {
     position: relative;
     z-index: 3;
     background: #FFFFFF;
     border: 1.5px solid #D1DFD8;
-    border-radius: 16px;
-    padding: 26px 28px;
-    box-shadow: 0 10px 28px rgba(6, 31, 22, 0.07);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(6, 31, 22, 0.06);
     cursor: pointer;
     user-select: none;
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    min-height: 245px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
     outline: none;
   }
   .itinerary-card-interactive:hover,
   .itinerary-card-interactive:focus-visible {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: #D4AF37;
-    box-shadow: 0 18px 40px rgba(6, 31, 22, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 14px 32px rgba(6, 31, 22, 0.1), 0 0 0 1px rgba(212, 175, 55, 0.35);
   }
   .itinerary-deck-container:hover .itinerary-underlay-1 {
-    transform: translateY(9px) scale(0.975);
+    transform: translateY(7px) scale(0.98);
   }
   .itinerary-deck-container:hover .itinerary-underlay-2 {
-    transform: translateY(17px) scale(0.95);
+    transform: translateY(13px) scale(0.96);
   }
 
-  /* Card Header */
+  /* Card Top Bar */
   .itinerary-card-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #FAF6F0;
   }
   .itinerary-day-badge-current {
@@ -169,12 +202,12 @@
     color: #0A2E20;
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 14px;
-    padding: 5px 16px;
+    font-size: 13px;
+    padding: 3px 14px;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
   }
   .itinerary-day-badge-current span {
     color: #C5A059;
@@ -182,14 +215,14 @@
   .itinerary-click-prompt {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12.5px;
+    gap: 6px;
+    font-size: 12px;
     font-weight: 600;
     color: #C5A059;
     background: rgba(197, 160, 89, 0.08);
-    padding: 6px 14px;
+    padding: 4px 12px;
     border-radius: 20px;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: all 0.2s ease;
   }
   .itinerary-card-interactive:hover .itinerary-click-prompt {
     background: #C5A059;
@@ -197,11 +230,10 @@
     transform: translateX(2px);
   }
   .itinerary-click-prompt .prompt-pulse {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #25D366;
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     animation: pulseDot 1.8s infinite;
   }
   @keyframes pulseDot {
@@ -210,90 +242,88 @@
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
   }
 
-  /* Card Body */
+  /* Card Typography */
   .itinerary-card-heading {
     font-family: var(--font-serif);
-    font-size: 21px;
+    font-size: 18.5px;
     color: #0A2E20;
     line-height: 1.35;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
   }
   .itinerary-card-body-text {
-    font-size: 14.5px;
+    font-size: 13.5px;
     color: #1E382B;
-    line-height: 1.7;
-    margin: 0 0 18px 0;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    flex-grow: 1;
   }
 
-  /* Card Highlights & Micro Hint */
+  /* Card Bottom Tags */
   .itinerary-card-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 14px;
+    gap: 8px;
+    padding-top: 10px;
     border-top: 1px dashed #E5DED2;
   }
   .itinerary-tags-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
   .itinerary-micro-tag {
     background: #FAF6F0;
     color: #4E6B5E;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 6px;
+    padding: 3px 8px;
+    border-radius: 5px;
     border: 1px solid #EBE4D8;
   }
   .itinerary-tap-hint-text {
-    font-size: 12px;
+    font-size: 11.5px;
     color: #7D6B56;
     font-style: italic;
-    display: flex;
-    align-items: center;
-    gap: 4px;
   }
 
-  /* Completion Card State (Day 14) */
+  /* Card Completion State (Day 14) */
   .itinerary-completion-box {
     background: linear-gradient(135deg, #FAF6F0 0%, #FFFFFF 100%);
     border: 1px solid #D4AF37;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-top: 14px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 8px;
     text-align: center;
   }
   .itinerary-completion-title {
     font-family: var(--font-serif);
-    font-size: 16px;
+    font-size: 14.5px;
     font-weight: 700;
     color: #0A2E20;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .itinerary-completion-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: #4E6B5E;
-    line-height: 1.5;
-    margin-bottom: 12px;
+    line-height: 1.45;
+    margin-bottom: 10px;
   }
   .itinerary-completion-actions {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
 
-  /* Navigation Controls Below Card */
+  /* Navigation Controls Row */
   .itinerary-controls-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-top: 6px;
+    gap: 10px;
+    margin-top: 2px;
   }
   .itinerary-btn-action {
     background: #FFFFFF;
@@ -301,23 +331,23 @@
     color: #0A2E20;
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 13.5px;
+    font-size: 12.5px;
     letter-spacing: 0.04em;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 8px 18px;
+    border-radius: 25px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
     transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(6, 31, 22, 0.04);
+    box-shadow: 0 2px 6px rgba(6, 31, 22, 0.03);
   }
   .itinerary-btn-action:hover:not(:disabled) {
     border-color: #D4AF37;
     background: #FAF6F0;
     color: #0A2E20;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(6, 31, 22, 0.08);
+    box-shadow: 0 4px 10px rgba(6, 31, 22, 0.06);
   }
   .itinerary-btn-action:disabled {
     opacity: 0.4;
@@ -336,21 +366,184 @@
     border-color: #B08D45;
   }
   .itinerary-step-hint-text {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     color: #4E6B5E;
     text-align: center;
+  }
+
+  /* Compact Right-Side Booking Card */
+  .itinerary-booking-card {
+    background: #FFFFFF;
+    border: 1.5px solid #D1DFD8;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 8px 24px rgba(6, 31, 22, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .itinerary-booking-card:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 12px 28px rgba(6, 31, 22, 0.09);
+  }
+  .booking-card-top-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #C5A059;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .booking-card-heading {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    color: #0A2E20;
+    margin: 0 0 10px 0;
+  }
+  .booking-card-desc {
+    font-size: 13px;
+    color: #1E382B;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .booking-action-btn-wa {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    background: #25D366;
+    border-color: transparent;
+    color: #FFFFFF;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .booking-action-btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    color: #FFFFFF;
+  }
+  .booking-action-btn-call {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    border-color: transparent;
+    color: #FFFFFF;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .booking-action-btn-call:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+    color: #FFFFFF;
+  }
+  .booking-card-footer {
+    font-size: 11.5px;
+    color: #4E6B5E;
+    text-align: center;
+    border-top: 1px solid #FAF6F0;
+    padding-top: 10px;
+    line-height: 1.45;
+  }
+
+  /* Bottom Row Luxury Info Cards (Near-Square, Balanced Triad) */
+  .itinerary-info-card {
+    background: #FFFFFF;
+    border: 1px solid #D1DFD8;
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 4px 16px rgba(6, 31, 22, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .itinerary-info-card:hover {
+    border-color: #D4AF37;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(6, 31, 22, 0.08);
+  }
+  .info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #FAF6F0;
+  }
+  .info-card-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #FAF6F0;
+    border: 1px solid #D4AF37;
+    color: #C5A059;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .info-card-title {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    color: #0A2E20;
+    margin: 0;
+  }
+  .info-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+  }
+  .info-card-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: 13px;
+    color: #1E382B;
+    line-height: 1.45;
+  }
+  .info-card-list li:last-child {
+    margin-bottom: 0;
+  }
+  .info-card-footer-pill {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed #EBE4D8;
+    font-size: 11.5px;
+    color: #7D6B56;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   /* Smooth Animation Transitions */
   @keyframes cardRevealForward {
     0% {
       opacity: 0;
-      transform: translateY(20px) scale(0.95);
+      transform: translateY(16px) scale(0.96);
     }
     60% {
       opacity: 0.95;
-      transform: translateY(-2px) scale(1.006);
+      transform: translateY(-2px) scale(1.004);
     }
     100% {
       opacity: 1;
@@ -360,7 +553,7 @@
   @keyframes cardRevealBackward {
     0% {
       opacity: 0;
-      transform: translateY(-16px) scale(0.96);
+      transform: translateY(-14px) scale(0.97);
     }
     100% {
       opacity: 1;
@@ -368,27 +561,50 @@
     }
   }
   .anim-card-forward {
-    animation: cardRevealForward 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: cardRevealForward 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .anim-card-backward {
-    animation: cardRevealBackward 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: cardRevealBackward 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* Responsive */
-  @media (max-width: 600px) {
+  /* Responsive Breakpoints */
+  @media (max-width: 992px) {
+    .itinerary-top-row {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .itinerary-bottom-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .itinerary-bottom-row .itinerary-info-card:last-child {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .itinerary-section {
+      padding: 35px 0 45px;
+    }
+    .itinerary-luxury-grid {
+      gap: 16px;
+    }
+    .itinerary-top-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .itinerary-bottom-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .itinerary-bottom-row .itinerary-info-card:last-child {
+      grid-column: span 1;
+    }
     .itinerary-card-interactive {
-      padding: 20px 18px;
+      padding: 16px 16px;
     }
     .itinerary-card-heading {
-      font-size: 18px;
-    }
-    .itinerary-card-top {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .itinerary-click-prompt {
-      font-size: 11.5px;
-      padding: 4px 10px;
+      font-size: 17px;
     }
     .itinerary-controls-row {
       flex-wrap: wrap;
@@ -396,13 +612,13 @@
     .itinerary-btn-action {
       flex: 1;
       justify-content: center;
-      padding: 10px 14px;
-      font-size: 12.5px;
+      padding: 8px 12px;
+      font-size: 12px;
     }
     .itinerary-step-hint-text {
       order: -1;
       width: 100%;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
   }
   </style>
@@ -558,28 +774,33 @@
   </section>
 
   <!-- Detailed Itinerary & Details Section -->
-  <section style="padding: 60px 0; background: #FAF6F0;">
+  <section class="itinerary-section">
     <div class="luxury-container">
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 36px; align-items: start;">
-        <!-- Left: Interactive Sequential Layered-Box Day Itinerary -->
-        <div>
-          <div style="margin-bottom: 20px;">
-            <span class="section-badge">Day-by-Day Sacred Schedule</span>
-            <h2 style="font-family: var(--font-serif); font-size: 26px; color: #0A2E20; margin: 8px 0;">Detailed Tour Itinerary</h2>
-            <p style="font-size: 14px; color: #1E382B; margin-bottom: 0;">Paced specifically for family and senior citizen comfort with regular rest breaks and satvik meals.</p>
-          </div>
+      
+      <!-- Section Header -->
+      <div style="margin-bottom: 22px;">
+        <span class="section-badge">Day-by-Day Sacred Schedule</span>
+        <h2 style="font-family: var(--font-serif); font-size: 26px; color: #0A2E20; margin: 8px 0 6px;">Detailed Tour Itinerary</h2>
+        <p style="font-size: 14px; color: #1E382B; margin: 0;">Paced specifically for family and senior citizen comfort with regular rest breaks and satvik meals.</p>
+      </div>
 
-          <!-- Interactive Stepper Wrap -->
+      <!-- Main Balanced Luxury Grid -->
+      <div class="itinerary-luxury-grid">
+        
+        <!-- Top Row: Day Stepper (Left) + Instant Booking (Right) -->
+        <div class="itinerary-top-row">
+          
+          <!-- Left: Compact Square-ish Day Itinerary Stepper -->
           <div class="itinerary-stepper-wrapper">
             
-            <!-- Progress Tracker Bar -->
-            <div class="itinerary-tracker-card">
-              <div class="itinerary-tracker-header">
+            <!-- Compact Progress Tracker -->
+            <div class="itinerary-tracker-bar">
+              <div class="itinerary-tracker-top">
                 <div class="itinerary-counter-pill" id="itineraryCounterPill">
                   DAY <span class="day-highlight">1</span> OF 14
                 </div>
                 <div class="itinerary-destination-tag">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   <span id="itineraryDestTagText">Haridwar Arrival & Aarti</span>
                 </div>
               </div>
@@ -590,12 +811,9 @@
 
             <!-- Layered Deck Container -->
             <div class="itinerary-deck-container" id="itineraryDeckContainer" title="Click card to reveal next day">
-              <!-- Underlay layer 2 (deepest card) -->
               <div class="itinerary-underlay itinerary-underlay-2"></div>
-              <!-- Underlay layer 1 (middle card) -->
               <div class="itinerary-underlay itinerary-underlay-1"></div>
 
-              <!-- Top Active Interactive Card -->
               <div class="itinerary-card-interactive" id="itineraryActiveCard" tabindex="0" role="button" aria-label="Interactive itinerary card. Click to view next day.">
                 <div class="itinerary-card-top">
                   <div class="itinerary-day-badge-current" id="cardDayBadge">
@@ -627,10 +845,10 @@
               </div>
             </div>
 
-            <!-- Bottom Navigation Controls -->
+            <!-- Bottom Sequential Navigation Controls -->
             <div class="itinerary-controls-row">
               <button type="button" class="itinerary-btn-action" id="btnPrevDay" onclick="window.chardhamDeck.prev()" disabled aria-label="Previous day">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 <span>Previous Day</span>
               </button>
 
@@ -640,58 +858,105 @@
 
               <button type="button" class="itinerary-btn-action btn-gold-action" id="btnNextDay" onclick="window.chardhamDeck.next()" aria-label="Next day">
                 <span>Next Day</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>
 
           </div>
-        </div>
 
-        <!-- Right: Inclusions, Facilities & Booking Box -->
-        <div>
-          <!-- Booking Card -->
-          <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 16px; padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 24px; position: sticky; top: 100px;">
-            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #C5A059; letter-spacing: 0.1em;">Reserve This Yatra</span>
-            <h3 style="font-family: var(--font-serif); font-size: 20px; color: #0A2E20; margin: 6px 0 14px;">Instant Booking Assistance</h3>
-            <p style="font-size: 13px; color: #1E382B; line-height: 1.5; margin-bottom: 18px;">
-              Speak directly with our senior yatra managers in Vijayawada for exact departure dates, seat allocations, train reservations, and elderly assistance.
-            </p>
-            <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20enquire%20about%20the%20Uttarakhand%20Chardham%20Yatra." target="_blank" class="btn-gold-pill" style="width: 100%; justify-content: center; margin-bottom: 10px; background: #25D366; border-color: transparent;">
-              <span>Enquire on WhatsApp</span>
-            </a>
-            <a href="tel:+919848124759" class="btn-gold-pill" style="width: 100%; justify-content: center; margin-bottom: 16px;">
-              <span>Call +91 98481 24759</span>
-            </a>
-            <div style="font-size: 11.5px; color: #4E6B5E; text-align: center; border-top: 1px solid #FAF6F0; padding-top: 10px;">
-              Vijayawada Head Office &bull; Est. 1962 &bull; Managing Director: Dodla Hemanth Kumar
+          <!-- Right: Instant Booking Assistance (Matching Height & Proportions) -->
+          <div class="itinerary-booking-card">
+            <div>
+              <span class="booking-card-top-badge">Reserve This Yatra</span>
+              <h3 class="booking-card-heading">Instant Booking Assistance</h3>
+              <p class="booking-card-desc">
+                Speak directly with our senior yatra managers in Vijayawada for exact departure dates, seat allocations, train reservations, and elderly assistance.
+              </p>
+            </div>
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla's%20Tours,%20I%20would%20like%20to%20enquire%20about%20the%20Uttarakhand%20Chardham%20Yatra." target="_blank" class="booking-action-btn-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.51c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.16-.17 1.47-.72 1.7-.81.23-.08.39-.12.56.13z"/></svg>
+                <span>Enquire on WhatsApp</span>
+              </a>
+              <a href="tel:+919848124759" class="booking-action-btn-call">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>Call +91 98481 24759</span>
+              </a>
+              <div class="booking-card-footer">
+                Vijayawada Head Office &bull; Est. 1962 &bull; Managing Director: Dodla Hemanth Kumar
+              </div>
             </div>
           </div>
 
-          <!-- Inclusions Card -->
-          <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 16px; padding: 22px; box-shadow: var(--shadow-sm); margin-bottom: 20px;">
-            <h4 style="font-family: var(--font-serif); font-size: 17px; color: #0A2E20; margin-bottom: 12px; border-bottom: 1px solid #FAF6F0; padding-bottom: 8px;">What Is Included</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>2x2 AC Pushback Luxury Coach travel throughout</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Pure Satvik South Indian vegetarian meals (Breakfast, Lunch, Dinner)</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Hygienic hotel and spiritual ashram accommodations</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Ganga Aarti offerings and puja coordination</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Senior citizen assistance and luggage management</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Telugu & English speaking senior yatra escort</span></li>
-            </ul>
-          </div>
-
-          <!-- Facilities Card -->
-          <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 16px; padding: 22px; box-shadow: var(--shadow-sm); margin-bottom: 20px;">
-            <h4 style="font-family: var(--font-serif); font-size: 17px; color: #0A2E20; margin-bottom: 12px; border-bottom: 1px solid #FAF6F0; padding-bottom: 8px;">Special Facilities</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Travelling South Indian cooks preparing fresh meals</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>First-aid kits and emergency oxygen assistance</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Paced non-stressful day schedules for elderly parents</span></li>
-            </ul>
-          </div>
-
-          <!-- Exclusions Card -->
-          <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 16px; padding: 22px; box-shadow: var(--shadow-sm);">
-            <h4 style="font-family: var(--font-serif); font-size: 17px; color: #0A2E20; margin-bottom: 12px; border-bottom: 1px solid #FAF6F0; padding-bottom: 8px;">Exclusions &amp; Notes</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Pony, Doli, or Helicopter charges for Kedarnath / Yamunotri</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Personal special temple Archana / Abhishek fee</span></li><li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13.5px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Train or Flight tickets between Vijayawada and Delhi/Haridwar</span></li>
-            </ul>
-          </div>
         </div>
+
+        <!-- Bottom Row: 3 Balanced Cards Across Full Width -->
+        <div class="itinerary-bottom-row">
+          
+          <!-- Card 1: What Is Included -->
+          <div class="itinerary-info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon-wrap" style="color: #25D366; border-color: rgba(37, 211, 102, 0.4);">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h4 class="info-card-title">What Is Included</h4>
+            </div>
+            <ul class="info-card-list">
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>2x2 AC Pushback Luxury Coach travel throughout</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Pure Satvik South Indian vegetarian meals (Breakfast, Lunch, Dinner)</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Hygienic hotel and spiritual ashram accommodations</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Ganga Aarti offerings and puja coordination</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Senior citizen assistance and luggage management</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Telugu & English speaking senior yatra escort</span></li>
+            </ul>
+            <div class="info-card-footer-pill">
+              <span style="color:#25D366;">&#10004;</span>
+              <span>All-inclusive peace of mind</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Special Facilities -->
+          <div class="itinerary-info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon-wrap">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.26L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <h4 class="info-card-title">Special Facilities</h4>
+            </div>
+            <ul class="info-card-list">
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Travelling South Indian cooks preparing fresh meals</span></li>
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>First-aid kits and emergency oxygen assistance</span></li>
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Paced non-stressful day schedules for elderly parents</span></li>
+            </ul>
+            <div class="info-card-footer-pill">
+              <span style="color:#C5A059;">&#9733;</span>
+              <span>100% Satvik dining & senior priority care</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Exclusions & Notes -->
+          <div class="itinerary-info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon-wrap" style="color: #4E6B5E; border-color: #D1DFD8;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </div>
+              <h4 class="info-card-title">Exclusions &amp; Notes</h4>
+            </div>
+            <ul class="info-card-list">
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Pony, Doli, or Helicopter charges for Kedarnath / Yamunotri</span></li>
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Personal special temple Archana / Abhishek fee</span></li>
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Train or Flight tickets between Vijayawada and Delhi/Haridwar</span></li>
+            </ul>
+            <div class="info-card-footer-pill">
+              <span style="color:#D4AF37;">&bull;</span>
+              <span>Tour managers assist with all bookings</span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
   </section>
 
