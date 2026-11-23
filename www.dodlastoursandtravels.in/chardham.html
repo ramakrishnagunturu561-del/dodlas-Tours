@@ -21,6 +21,392 @@
       }
     })();
   </script>
+
+  <style>
+  /* ==========================================================================
+     Interactive Layered-Box Day Itinerary (Dodla Luxury Theme)
+     ========================================================================== */
+  .itinerary-stepper-wrapper {
+    margin-bottom: 20px;
+  }
+
+  /* Progress Tracker */
+  .itinerary-tracker-card {
+    background: #FFFFFF;
+    border: 1px solid #D1DFD8;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(6, 31, 22, 0.04);
+  }
+  .itinerary-tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .itinerary-counter-pill {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0A2E20;
+    background: #FAF6F0;
+    border: 1px solid #D4AF37;
+    padding: 5px 14px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .itinerary-counter-pill .day-highlight {
+    color: #C5A059;
+    font-weight: 800;
+  }
+  .itinerary-destination-tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4E6B5E;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .itinerary-destination-tag svg {
+    color: #C5A059;
+    flex-shrink: 0;
+  }
+  .itinerary-progress-track {
+    width: 100%;
+    height: 7px;
+    background: #EBE4D8;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .itinerary-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #D4AF37 0%, #C5A059 50%, #25D366 100%);
+    border-radius: 10px;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Layered Deck Container */
+  .itinerary-deck-container {
+    position: relative;
+    min-height: 290px;
+    margin-bottom: 22px;
+  }
+
+  /* Underlays simulating stacked cards behind */
+  .itinerary-underlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    border: 1.5px solid #D1DFD8;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+  .itinerary-underlay-2 {
+    background: #F2ECE1;
+    transform: translateY(14px) scale(0.95);
+    opacity: 0.55;
+    box-shadow: 0 4px 12px rgba(6, 31, 22, 0.03);
+    z-index: 1;
+  }
+  .itinerary-underlay-1 {
+    background: #FAF6F0;
+    transform: translateY(7px) scale(0.975);
+    opacity: 0.85;
+    box-shadow: 0 6px 18px rgba(6, 31, 22, 0.05);
+    z-index: 2;
+  }
+
+  /* Active Clickable Card */
+  .itinerary-card-interactive {
+    position: relative;
+    z-index: 3;
+    background: #FFFFFF;
+    border: 1.5px solid #D1DFD8;
+    border-radius: 16px;
+    padding: 26px 28px;
+    box-shadow: 0 10px 28px rgba(6, 31, 22, 0.07);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    outline: none;
+  }
+  .itinerary-card-interactive:hover,
+  .itinerary-card-interactive:focus-visible {
+    transform: translateY(-4px);
+    border-color: #D4AF37;
+    box-shadow: 0 18px 40px rgba(6, 31, 22, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.4);
+  }
+  .itinerary-deck-container:hover .itinerary-underlay-1 {
+    transform: translateY(9px) scale(0.975);
+  }
+  .itinerary-deck-container:hover .itinerary-underlay-2 {
+    transform: translateY(17px) scale(0.95);
+  }
+
+  /* Card Header */
+  .itinerary-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #FAF6F0;
+  }
+  .itinerary-day-badge-current {
+    background: #FAF6F0;
+    border: 1px solid #D4AF37;
+    color: #0A2E20;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .itinerary-day-badge-current span {
+    color: #C5A059;
+  }
+  .itinerary-click-prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #C5A059;
+    background: rgba(197, 160, 89, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .itinerary-card-interactive:hover .itinerary-click-prompt {
+    background: #C5A059;
+    color: #FFFFFF;
+    transform: translateX(2px);
+  }
+  .itinerary-click-prompt .prompt-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #25D366;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    animation: pulseDot 1.8s infinite;
+  }
+  @keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+
+  /* Card Body */
+  .itinerary-card-heading {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    color: #0A2E20;
+    line-height: 1.35;
+    margin: 0 0 12px 0;
+  }
+  .itinerary-card-body-text {
+    font-size: 14.5px;
+    color: #1E382B;
+    line-height: 1.7;
+    margin: 0 0 18px 0;
+  }
+
+  /* Card Highlights & Micro Hint */
+  .itinerary-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px dashed #E5DED2;
+  }
+  .itinerary-tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .itinerary-micro-tag {
+    background: #FAF6F0;
+    color: #4E6B5E;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #EBE4D8;
+  }
+  .itinerary-tap-hint-text {
+    font-size: 12px;
+    color: #7D6B56;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Completion Card State (Day 14) */
+  .itinerary-completion-box {
+    background: linear-gradient(135deg, #FAF6F0 0%, #FFFFFF 100%);
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    text-align: center;
+  }
+  .itinerary-completion-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A2E20;
+    margin-bottom: 6px;
+  }
+  .itinerary-completion-desc {
+    font-size: 13px;
+    color: #4E6B5E;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .itinerary-completion-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Navigation Controls Below Card */
+  .itinerary-controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .itinerary-btn-action {
+    background: #FFFFFF;
+    border: 1.5px solid #D1DFD8;
+    color: #0A2E20;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.04em;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(6, 31, 22, 0.04);
+  }
+  .itinerary-btn-action:hover:not(:disabled) {
+    border-color: #D4AF37;
+    background: #FAF6F0;
+    color: #0A2E20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 31, 22, 0.08);
+  }
+  .itinerary-btn-action:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    border-color: #D1DFD8;
+  }
+  .itinerary-btn-action.btn-gold-action {
+    background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    color: #FFFFFF;
+    border-color: #C5A059;
+  }
+  .itinerary-btn-action.btn-gold-action:hover:not(:disabled) {
+    background: linear-gradient(135deg, #C5A059 0%, #B08D45 100%);
+    color: #FFFFFF;
+    border-color: #B08D45;
+  }
+  .itinerary-step-hint-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4E6B5E;
+    text-align: center;
+  }
+
+  /* Smooth Animation Transitions */
+  @keyframes cardRevealForward {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    60% {
+      opacity: 0.95;
+      transform: translateY(-2px) scale(1.006);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes cardRevealBackward {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px) scale(0.96);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .anim-card-forward {
+    animation: cardRevealForward 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .anim-card-backward {
+    animation: cardRevealBackward 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .itinerary-card-interactive {
+      padding: 20px 18px;
+    }
+    .itinerary-card-heading {
+      font-size: 18px;
+    }
+    .itinerary-card-top {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .itinerary-click-prompt {
+      font-size: 11.5px;
+      padding: 4px 10px;
+    }
+    .itinerary-controls-row {
+      flex-wrap: wrap;
+    }
+    .itinerary-btn-action {
+      flex: 1;
+      justify-content: center;
+      padding: 10px 14px;
+      font-size: 12.5px;
+    }
+    .itinerary-step-hint-text {
+      order: -1;
+      width: 100%;
+      margin-bottom: 6px;
+    }
+  }
+  </style>
+
 </head>
 <body>
 
@@ -175,113 +561,90 @@
   <section style="padding: 60px 0; background: #FAF6F0;">
     <div class="luxury-container">
       <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 36px; align-items: start;">
-        <!-- Left: Day by Day Timeline -->
+        <!-- Left: Interactive Sequential Layered-Box Day Itinerary -->
         <div>
-          <div style="margin-bottom: 24px;">
+          <div style="margin-bottom: 20px;">
             <span class="section-badge">Day-by-Day Sacred Schedule</span>
             <h2 style="font-family: var(--font-serif); font-size: 26px; color: #0A2E20; margin: 8px 0;">Detailed Tour Itinerary</h2>
-            <p style="font-size: 14px; color: #1E382B;">Paced specifically for family and senior citizen comfort with regular rest breaks and satvik meals.</p>
+            <p style="font-size: 14px; color: #1E382B; margin-bottom: 0;">Paced specifically for family and senior citizen comfort with regular rest breaks and satvik meals.</p>
           </div>
 
-          
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 1</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Haridwar Arrival & Holy Ganga Aarti</h3>
+          <!-- Interactive Stepper Wrap -->
+          <div class="itinerary-stepper-wrapper">
+            
+            <!-- Progress Tracker Bar -->
+            <div class="itinerary-tracker-card">
+              <div class="itinerary-tracker-header">
+                <div class="itinerary-counter-pill" id="itineraryCounterPill">
+                  DAY <span class="day-highlight">1</span> OF 14
+                </div>
+                <div class="itinerary-destination-tag">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span id="itineraryDestTagText">Haridwar Arrival & Aarti</span>
+                </div>
+              </div>
+              <div class="itinerary-progress-track">
+                <div class="itinerary-progress-fill" id="itineraryProgressFill" style="width: 7.14%;"></div>
+              </div>
+            </div>
+
+            <!-- Layered Deck Container -->
+            <div class="itinerary-deck-container" id="itineraryDeckContainer" title="Click card to reveal next day">
+              <!-- Underlay layer 2 (deepest card) -->
+              <div class="itinerary-underlay itinerary-underlay-2"></div>
+              <!-- Underlay layer 1 (middle card) -->
+              <div class="itinerary-underlay itinerary-underlay-1"></div>
+
+              <!-- Top Active Interactive Card -->
+              <div class="itinerary-card-interactive" id="itineraryActiveCard" tabindex="0" role="button" aria-label="Interactive itinerary card. Click to view next day.">
+                <div class="itinerary-card-top">
+                  <div class="itinerary-day-badge-current" id="cardDayBadge">
+                    Day <span>1</span>
+                  </div>
+                  <div class="itinerary-click-prompt" id="cardClickPrompt">
+                    <span class="prompt-pulse"></span>
+                    <span>Click card for Day 2</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                </div>
+
+                <h3 class="itinerary-card-heading" id="cardTitle">Haridwar Arrival &amp; Holy Ganga Aarti</h3>
+                <p class="itinerary-card-body-text" id="cardDesc">Arrive in Haridwar, hotel check-in. Evening attend the grand, soul-stirring Ganga Aarti at Har Ki Pauri with lamp offerings.</p>
+
+                <div class="itinerary-card-bottom">
+                  <div class="itinerary-tags-wrap" id="cardTagsWrap">
+                    <span class="itinerary-micro-tag">&#10022; Har Ki Pauri</span>
+                    <span class="itinerary-micro-tag">&#10022; Ganga Aarti</span>
+                    <span class="itinerary-micro-tag">&#10022; Hotel Check-in</span>
+                  </div>
+                  <div class="itinerary-tap-hint-text" id="cardTapHint">
+                    Click anywhere on this card for next day &rarr;
+                  </div>
+                </div>
+
+                <!-- Day 14 Completion State Container -->
+                <div class="itinerary-completion-box" id="cardCompletionBox" style="display: none;"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Navigation Controls -->
+            <div class="itinerary-controls-row">
+              <button type="button" class="itinerary-btn-action" id="btnPrevDay" onclick="window.chardhamDeck.prev()" disabled aria-label="Previous day">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Previous Day</span>
+              </button>
+
+              <div class="itinerary-step-hint-text" id="itineraryStepStatus">
+                Day 1 of 14
+              </div>
+
+              <button type="button" class="itinerary-btn-action btn-gold-action" id="btnNextDay" onclick="window.chardhamDeck.next()" aria-label="Next day">
+                <span>Next Day</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
           </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Arrive in Haridwar, hotel check-in. Evening attend the grand, soul-stirring Ganga Aarti at Har Ki Pauri with lamp offerings.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 2</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Haridwar to Barkot via Rishikesh</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Visit Lakshman Jhula and Ram Jhula in Rishikesh, followed by scenic Himalayan drive to Barkot base camp along the Yamuna valley.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 3</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Yamunotri Dham Darshan & Surya Kund</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Early morning trek/pony to Yamunotri shrine. Holy bath in Surya Kund hot spring, Divya Shila puja, and darshan of Goddess Yamunotri.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 4</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Barkot to Uttarkashi (Kashi Vishwanath)</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Drive along the Bhagirathi river to ancient Uttarkashi. Darshan at Kashi Vishwanath temple and Shakti Temple featuring the sacred divine trident.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 5</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Gangotri Dham Darshan</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Excursion to Gangotri shrine through the picturesque Harsil valley. Holy bath in Bhagirathi Ganga, temple darshan, and return to Uttarkashi.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 6</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Uttarkashi to Guptkashi / Sitapur</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Scenic drive through Mandakini river valley via Tilwara and Agastyamuni to Guptkashi / Sitapur, the gateway to Kedarnath.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 7</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Guptkashi to Kedarnath Temple</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Trek or helicopter to holy Kedarnath Dham. Evening darshan of Lord Shiva's Himalayan Jyotirlinga surrounded by snow peaks and night stay.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 8</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Morning Kedarnath Puja & Return to Guptkashi</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Early morning Abhishek darshan at Kedarnath. Descend back to Gaurikund and drive to Guptkashi for well-earned rest.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 9</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Guptkashi to Pipalkoti / Joshimath</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Drive through Chopta and Chamoli to Joshimath / Pipalkoti. Visit Shankaracharya Math and Narsingh Temple.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 10</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Badrinath Dham Darshan & Mana Village</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Drive to Badrinath. Holy bath in Tapt Kund thermal springs, Badrivishal darshan, and visit Mana (the last Indian village), Vyas Gufa, and Bhim Pul.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 11</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Badrinath Special Puja & Return to Srinagar (Garhwal)</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Morning Maha Abhishek at Badrinath temple. Drive down to Srinagar (Garhwal) passing through Vishnuprayag, Nandaprayag, and Karnaprayag.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 12</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Srinagar to Haridwar via Devprayag</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Witness the divine confluence of Alaknanda and Bhagirathi forming Holy River Ganga at Devprayag. Return to Haridwar.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 13</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Haridwar Local Temples & Delhi Transit</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Visit Mansa Devi and Chandi Devi ropeway temples in Haridwar, shopping in Moti Bazaar, and transfer to Delhi.</p>
-        </div>
-        <div style="background: #FFFFFF; border: 1px solid #D1DFD8; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(6, 31, 22,0.04);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <span style="background: #FAF6F0; border: 1px solid #D4AF37; color: #C5A059; font-family: var(--font-serif); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 20px;">Day 14</span>
-            <h3 style="font-family: var(--font-serif); font-size: 18px; color: #0A2E20; margin: 0;">Delhi Sightseeing & Return to Vijayawada</h3>
-          </div>
-          <p style="font-size: 14px; color: #1E382B; line-height: 1.6; margin: 0;">Visit Akshardham Temple and India Gate in Delhi. Board train/flight for home with divine blessings and sacred memories.</p>
-        </div>
         </div>
 
         <!-- Right: Inclusions, Facilities & Booking Box -->
@@ -522,5 +885,370 @@
   <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
+
+  <script>
+  /* ==========================================================================
+     Chardham Yatra - Sequential Layered-Box Day Itinerary Logic
+     ========================================================================== */
+  (function() {
+    'use strict';
+
+    var CHARDHAM_DAYS = [
+      {
+        day: 1,
+        titleEn: "Haridwar Arrival & Holy Ganga Aarti",
+        titleTe: "హరిద్వార్ రాక & పవిత్ర గంగా హారతి దర్శనం",
+        descEn: "Arrive in Haridwar, hotel check-in. Evening attend the grand, soul-stirring Ganga Aarti at Har Ki Pauri with lamp offerings.",
+        descTe: "హరిద్వార్ చేరుకుని హోటల్ చెక్-ఇన్. సాయంత్రం హర్ కీ పౌరీ వద్ద దీపారాధనలతో జరిగే భవ్యమైన పవిత్ర గంగా హారతి దర్శనం.",
+        tagEn: "Haridwar Arrival & Aarti",
+        tagTe: "హరిద్వార్ రాక & హారతి",
+        highlightsEn: ["Har Ki Pauri", "Ganga Aarti", "Hotel Check-in"],
+        highlightsTe: ["హర్ కీ పౌరీ", "గంగా హారతి", "హోటల్ చెక్-ఇన్"]
+      },
+      {
+        day: 2,
+        titleEn: "Haridwar to Barkot via Rishikesh",
+        titleTe: "రిషికేశ్ మీదుగా హరిద్వార్ నుండి బార్కోట్ ప్రయాణం",
+        descEn: "Visit Lakshman Jhula and Ram Jhula in Rishikesh, followed by scenic Himalayan drive to Barkot base camp along the Yamuna valley.",
+        descTe: "రిషికేశ్‌లో లక్ష్మణ్ ఝూలా, రామ్ ఝూలా దర్శనం, అనంతరం యమునా లోయ గుండా సుందరమైన హిమాలయ మార్గంలో బార్కోట్ బేస్ క్యాంప్‌కు ప్రయాణం.",
+        tagEn: "Rishikesh & Barkot",
+        tagTe: "రిషికేశ్ & బార్కోట్",
+        highlightsEn: ["Lakshman Jhula", "Ram Jhula", "Yamuna Valley Drive"],
+        highlightsTe: ["లక్ష్మణ్ ఝూలా", "రామ్ ఝూలా", "యమునా వ్యాలీ డ్రైవ్"]
+      },
+      {
+        day: 3,
+        titleEn: "Yamunotri Dham Darshan & Surya Kund",
+        titleTe: "యమునోత్రి ధామ్ దర్శనం & సూర్య కుండ్",
+        descEn: "Early morning trek/pony to Yamunotri shrine. Holy bath in Surya Kund hot spring, Divya Shila puja, and darshan of Goddess Yamunotri.",
+        descTe: "ఉదయాన్నే యమునోత్రి ఆలయానికి ట్రెక్కింగ్/గుర్రం ప్రయాణం. సూర్య కుండ్ వేడి నీటి బుగ్గలో పవిత్ర స్నానం, దివ్య శిలా పూజ మరియు యమునా దేవి దర్శనం.",
+        tagEn: "1st Dham: Yamunotri",
+        tagTe: "1వ ధామ్: యమునోత్రి",
+        highlightsEn: ["Surya Kund Hot Spring", "Divya Shila Puja", "Yamunotri Temple"],
+        highlightsTe: ["సూర్య కుండ్ స్నానం", "దివ్య శిలా పూజ", "యమునోత్రి దర్శనం"]
+      },
+      {
+        day: 4,
+        titleEn: "Barkot to Uttarkashi (Kashi Vishwanath)",
+        titleTe: "బార్కోట్ నుండి ఉత్తరకాశీ (కాశీ విశ్వనాథ్) ప్రయాణం",
+        descEn: "Drive along the Bhagirathi river to ancient Uttarkashi. Darshan at Kashi Vishwanath temple and Shakti Temple featuring the sacred divine trident.",
+        descTe: "భాగీరథి నది ఒడ్డున పురాతన ఉత్తరకాశీకి ప్రయాణం. కాశీ విశ్వనాథ్ ఆలయం మరియు పవిత్ర త్రిశూలం కలిగిన శక్తి దేవాలయంలో దర్శనం.",
+        tagEn: "Sacred Uttarkashi",
+        tagTe: "పవిత్ర ఉత్తరకాశీ",
+        highlightsEn: ["Bhagirathi River", "Kashi Vishwanath Mandir", "Shakti Trishul"],
+        highlightsTe: ["భాగీరథి నది", "కాశీ విశ్వనాథ్ ఆలయం", "శక్తి త్రిశూలం"]
+      },
+      {
+        day: 5,
+        titleEn: "Gangotri Dham Darshan",
+        titleTe: "గంగోత్రి ధామ్ దర్శనం",
+        descEn: "Excursion to Gangotri shrine through the picturesque Harsil valley. Holy bath in Bhagirathi Ganga, temple darshan, and return to Uttarkashi.",
+        descTe: "సుందరమైన హర్సిల్ లోయ గుండా గంగోత్రి ఆలయ దర్శనం. భాగీరథి గంగా నదిలో పవిత్ర స్నానం, ఆలయ దర్శనం మరియు ఉత్తరకాశీకి తిరుగు ప్రయాణం.",
+        tagEn: "2nd Dham: Gangotri",
+        tagTe: "2వ ధామ్: గంగోత్రి",
+        highlightsEn: ["Harsil Valley", "Bhagirathi Snan", "Gangotri Temple"],
+        highlightsTe: ["హర్సిల్ వ్యాలీ", "భాగీరథి స్నానం", "గంగోత్రి ఆలయం"]
+      },
+      {
+        day: 6,
+        titleEn: "Uttarkashi to Guptkashi / Sitapur",
+        titleTe: "ఉత్తరకాశీ నుండి గుప్తకాశీ / సీతాపూర్ ప్రయాణం",
+        descEn: "Scenic drive through Mandakini river valley via Tilwara and Agastyamuni to Guptkashi / Sitapur, the gateway to Kedarnath.",
+        descTe: "తిల్‌వారా మరియు అగస్త్యముని మీదుగా మందాకినీ నదీ లోయ గుండా కేదార్‌నాథ్ ముఖద్వారమైన గుప్తకాశీ/సీతాపూర్‌కు సుందరమైన ప్రయాణం.",
+        tagEn: "Gateway to Kedarnath",
+        tagTe: "కేదార్‌నాథ్ ముఖద్వారం",
+        highlightsEn: ["Mandakini Valley", "Tilwara", "Sitapur Base Camp"],
+        highlightsTe: ["మందాకినీ లోయ", "తిల్‌వారా", "సీతాపూర్ బేస్ క్యాంప్"]
+      },
+      {
+        day: 7,
+        titleEn: "Guptkashi to Kedarnath Temple",
+        titleTe: "గుప్తకాశీ నుండి కేదార్‌నాథ్ ఆలయ ప్రయాణం",
+        descEn: "Trek or helicopter to holy Kedarnath Dham. Evening darshan of Lord Shiva's Himalayan Jyotirlinga surrounded by snow peaks and night stay.",
+        descTe: "పవిత్ర కేదార్‌నాథ్ ధామ్‌కు కాలినడకన లేదా హెలికాప్టర్‌లో ప్రయాణం. మంచు శిఖరాల నడుమ వెలసిన పరమశివుని హిమాలయ జ్యోతిర్లింగ సాయంత్ర దర్శనం మరియు రాత్రి బస.",
+        tagEn: "3rd Dham: Kedarnath Jyotirlinga",
+        tagTe: "3వ ధామ్: కేదార్‌నాథ్ జ్యోతిర్లింగం",
+        highlightsEn: ["Himalayan Trek / Heli", "Evening Jyotirlinga Darshan", "Kedarnath Night Stay"],
+        highlightsTe: ["ట్రెక్కింగ్ / హెలికాప్టర్", "సాయంత్ర జ్యోతిర్లింగ దర్శనం", "కేదార్‌నాథ్ రాత్రి బస"]
+      },
+      {
+        day: 8,
+        titleEn: "Morning Kedarnath Puja & Return to Guptkashi",
+        titleTe: "ఉదయపు కేదార్‌నాథ్ పూజ & గుప్తకాశీకి తిరుగు ప్రయాణం",
+        descEn: "Early morning Abhishek darshan at Kedarnath. Descend back to Gaurikund and drive to Guptkashi for well-earned rest.",
+        descTe: "వేకువజామునే కేదార్‌నాథ్‌లో అభిషేక దర్శనం. గౌరీకుండ్ వరకు దిగి, విశ్రాంతి కోసం గుప్తకాశీకి తిరుగు ప్రయాణం.",
+        tagEn: "Maha Abhishek & Return",
+        tagTe: "మహా అభిషేకం & తిరుగు ప్రయాణం",
+        highlightsEn: ["Kedarnath Abhishek", "Gaurikund", "Guptkashi Rest"],
+        highlightsTe: ["కేదార్ అభిషేకం", "గౌరీకుండ్", "గుప్తకాశీ విశ్రాంతి"]
+      },
+      {
+        day: 9,
+        titleEn: "Guptkashi to Pipalkoti / Joshimath",
+        titleTe: "గుప్తకాశీ నుండి పీపల్‌కోటి / జోషిమఠ్ ప్రయాణం",
+        descEn: "Drive through Chopta and Chamoli to Joshimath / Pipalkoti. Visit Shankaracharya Math and Narsingh Temple.",
+        descTe: "చోప్తా మరియు చమోలీ మీదుగా జోషిమఠ్ / పీపల్‌కోటికి ప్రయాణం. శంకరాచార్య మఠం మరియు నరసింహ ఆలయ దర్శనం.",
+        tagEn: "Joshimath & Chopta",
+        tagTe: "జోషిమఠ్ & చోప్తా",
+        highlightsEn: ["Chopta Meadows", "Shankaracharya Math", "Narsingh Mandir"],
+        highlightsTe: ["చోప్తా మార్గం", "శంకరాచార్య మఠం", "నరసింహ ఆలయం"]
+      },
+      {
+        day: 10,
+        titleEn: "Badrinath Dham Darshan & Mana Village",
+        titleTe: "బద్రీనాథ్ ధామ్ దర్శనం & మానా గ్రామం",
+        descEn: "Drive to Badrinath. Holy bath in Tapt Kund thermal springs, Badrivishal darshan, and visit Mana (the last Indian village), Vyas Gufa, and Bhim Pul.",
+        descTe: "బద్రీనాథ్‌కు ప్రయాణం. తప్త కుండ్ ఉష్ణగుండంలో పవిత్ర స్నానం, బద్రీవిశాల్ దర్శనం, మరియు భారతదేశ చివరి గ్రామమైన మానా, వ్యాస గుహ, భీమ్ పుల్ సందర్శన.",
+        tagEn: "4th Dham: Badrinath",
+        tagTe: "4వ ధామ్: బద్రీనాథ్ విశాల్",
+        highlightsEn: ["Tapt Kund Bath", "Badrivishal Darshan", "Mana Last Indian Village"],
+        highlightsTe: ["తప్త కుండ్ స్నానం", "బద్రీవిశాల్ దర్శనం", "భారత చివరి గ్రామం మానా"]
+      },
+      {
+        day: 11,
+        titleEn: "Badrinath Special Puja & Return to Srinagar (Garhwal)",
+        titleTe: "బద్రీనాథ్ ప్రత్యేక పూజ & శ్రీనగర్ (గర్హ్వాల్) తిరుగు ప్రయాణం",
+        descEn: "Morning Maha Abhishek at Badrinath temple. Drive down to Srinagar (Garhwal) passing through Vishnuprayag, Nandaprayag, and Karnaprayag.",
+        descTe: "ఉదయం బద్రీనాథ్ ఆలయంలో మహా అభిషేకం. విష్ణుప్రయాగ్, నందప్రయాగ్ మరియు కర్ణప్రయాగ్ సంగమాల మీదుగా శ్రీనగర్ (గర్హ్వాల్)కు ప్రయాణం.",
+        tagEn: "Panch Prayag Confluences",
+        tagTe: "పంచ ప్రయాగ సంగమాలు",
+        highlightsEn: ["Maha Abhishek", "Vishnuprayag", "Karnaprayag & Srinagar"],
+        highlightsTe: ["మహా అభిషేకం", "విష్ణుప్రయాగ్", "కర్ణప్రయాగ్ & శ్రీనగర్"]
+      },
+      {
+        day: 12,
+        titleEn: "Srinagar to Haridwar via Devprayag",
+        titleTe: "దేవప్రయాగ్ మీదుగా శ్రీనగర్ నుండి హరిద్వార్ ప్రయాణం",
+        descEn: "Witness the divine confluence of Alaknanda and Bhagirathi forming Holy River Ganga at Devprayag. Return to Haridwar.",
+        descTe: "దేవప్రయాగ్ వద్ద అలకనంద, భాగీరథి నదుల పవిత్ర సంగమంతో గంగా నది ఆవిర్భవించే అద్భుత దృశ్య దర్శనం. హరిద్వార్‌కు తిరుగు ప్రయాణం.",
+        tagEn: "Devprayag Ganga Sangam",
+        tagTe: "దేవప్రయాగ్ గంగా సంగమం",
+        highlightsEn: ["Devprayag Sangam", "Holy Ganga Origin", "Haridwar Arrival"],
+        highlightsTe: ["దేవప్రయాగ్ సంగమం", "గంగా నది ఆవిర్భావం", "హరిద్వార్ చేరిక"]
+      },
+      {
+        day: 13,
+        titleEn: "Haridwar Local Temples & Delhi Transit",
+        titleTe: "హరిద్వార్ స్థానిక దేవాలయాలు & ఢిల్లీ ప్రయాణం",
+        descEn: "Visit Mansa Devi and Chandi Devi ropeway temples in Haridwar, shopping in Moti Bazaar, and transfer to Delhi.",
+        descTe: "హరిద్వార్‌లోని మానసా దేవి, చండీ దేవి రోప్‌వే దేవాలయాల దర్శనం, మోతీ బజార్‌లో షాపింగ్, అనంతరం ఢిల్లీకి ప్రయాణం.",
+        tagEn: "Mansa Devi & Delhi Transit",
+        tagTe: "మానసా దేవి & ఢిల్లీ ట్రాన్సిట్",
+        highlightsEn: ["Mansa Devi Temple", "Chandi Devi Ropeway", "Delhi Transfer"],
+        highlightsTe: ["మానసా దేవి ఆలయం", "చండీ దేవి రోప్‌వే", "ఢిల్లీకి ప్రయాణం"]
+      },
+      {
+        day: 14,
+        titleEn: "Delhi Sightseeing & Return to Vijayawada",
+        titleTe: "ఢిల్లీ సందర్శన & విజయవాడకు తిరుగు ప్రయాణం",
+        descEn: "Visit Akshardham Temple and India Gate in Delhi. Board train/flight for home with divine blessings and sacred memories.",
+        descTe: "ఢిల్లీలోని అక్షరధామ్ ఆలయం మరియు ఇండియా గేట్ సందర్శన. దైవ దీవెనలు మరియు మధురమైన స్మృతులతో విజయవాడకు తిరుగు రైలు/విమాన ప్రయాణం.",
+        tagEn: "Delhi & Homeward Return",
+        tagTe: "ఢిల్లీ & స్వస్థల ప్రయాణం",
+        highlightsEn: ["Akshardham Mandir", "India Gate", "Return with Blessings"],
+        highlightsTe: ["అక్షరధామ్ ఆలయం", "ఇండియా గేట్", "దైవ దీవెనలతో తిరుగు ప్రయాణం"]
+      }
+    ];
+
+    var currentIdx = 0;
+    var totalDays = CHARDHAM_DAYS.length;
+
+    function isTelugu() {
+      return (localStorage.getItem('dodla_lang') || 'en') === 'te' || document.documentElement.lang === 'te';
+    }
+
+    function renderCard(direction) {
+      var data = CHARDHAM_DAYS[currentIdx];
+      var te = isTelugu();
+
+      var trackerCounter = document.getElementById('itineraryCounterPill');
+      var trackerTag = document.getElementById('itineraryDestTagText');
+      var progressFill = document.getElementById('itineraryProgressFill');
+      var card = document.getElementById('itineraryActiveCard');
+      var dayBadge = document.getElementById('cardDayBadge');
+      var clickPrompt = document.getElementById('cardClickPrompt');
+      var cardTitle = document.getElementById('cardTitle');
+      var cardDesc = document.getElementById('cardDesc');
+      var cardTags = document.getElementById('cardTagsWrap');
+      var cardTapHint = document.getElementById('cardTapHint');
+      var completionBox = document.getElementById('cardCompletionBox');
+      var btnPrev = document.getElementById('btnPrevDay');
+      var btnNext = document.getElementById('btnNextDay');
+      var stepStatus = document.getElementById('itineraryStepStatus');
+
+      if (!card) return;
+
+      var pct = Math.round(((currentIdx + 1) / totalDays) * 100);
+      if (progressFill) {
+        progressFill.style.width = pct + '%';
+      }
+
+      if (trackerCounter) {
+        trackerCounter.innerHTML = te ? 
+          ('రోజు <span class="day-highlight">' + (currentIdx + 1) + '</span> / 14') : 
+          ('DAY <span class="day-highlight">' + (currentIdx + 1) + '</span> OF 14');
+      }
+      if (trackerTag) {
+        trackerTag.textContent = te ? data.tagTe : data.tagEn;
+      }
+
+      if (dayBadge) {
+        dayBadge.innerHTML = te ? ('రోజు <span>' + data.day + '</span>') : ('Day <span>' + data.day + '</span>');
+      }
+
+      var isLastDay = (currentIdx === totalDays - 1);
+
+      if (clickPrompt) {
+        if (isLastDay) {
+          clickPrompt.innerHTML = te ? 
+            '<span class="prompt-pulse" style="background:#C5A059;"></span><span>యాత్ర సమాప్తం ✓</span>' : 
+            '<span class="prompt-pulse" style="background:#C5A059;"></span><span>Journey Complete ✓</span>';
+        } else {
+          var nextDayNum = currentIdx + 2;
+          clickPrompt.innerHTML = te ? 
+            ('<span class="prompt-pulse"></span><span>రోజు ' + nextDayNum + ' కోసం క్లిక్ చేయండి</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>') : 
+            ('<span class="prompt-pulse"></span><span>Click card for Day ' + nextDayNum + '</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>');
+        }
+      }
+
+      if (cardTitle) {
+        cardTitle.textContent = te ? data.titleTe : data.titleEn;
+      }
+      if (cardDesc) {
+        cardDesc.textContent = te ? data.descTe : data.descEn;
+      }
+
+      if (cardTags) {
+        var tags = te ? data.highlightsTe : data.highlightsEn;
+        cardTags.innerHTML = tags.map(function(t) {
+          return '<span class="itinerary-micro-tag">&#10022; ' + t + '</span>';
+        }).join('');
+      }
+
+      if (cardTapHint) {
+        if (isLastDay) {
+          cardTapHint.textContent = te ? "మొదటి నుండి చూడటానికి కార్డుపై క్లిక్ చేయండి ↺" : "Click card to restart from Day 1 ↺";
+        } else {
+          cardTapHint.textContent = te ? "తర్వాతి రోజు చూడటానికి కార్డుపై ఎక్కడైనా క్లిక్ చేయండి →" : "Click anywhere on this card for next day →";
+        }
+      }
+
+      if (completionBox) {
+        if (isLastDay) {
+          completionBox.style.display = 'block';
+          completionBox.innerHTML = te ?
+            '<div class="itinerary-completion-title">హర్ హర్ గంగే • జై బద్రీ విశాల్! (14 రోజుల దివ్య దర్శనం పూర్తయింది)</div>' +
+            '<div class="itinerary-completion-desc">ఈ పవిత్ర యాత్రలో కుటుంబసమేతంగా పాల్గొనడానికి మా యాత్ర నిర్వాహకులను సంప్రదించండి.</div>' +
+            '<div class="itinerary-completion-actions">' +
+              '<a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla%20Tours,%20I%20reviewed%20all%2014%20days%20of%20Chardham%20Yatra.%20Please%20share%20booking%20dates." target="_blank" class="btn-gold-pill" style="font-size:12px; padding:6px 16px; background:#25D366; border:none; text-decoration:none;">WhatsApp విచారణ</a>' +
+              '<button type="button" class="btn-gold-pill" style="font-size:12px; padding:6px 16px; cursor:pointer;" onclick="event.stopPropagation(); window.chardhamDeck.goTo(0);">మొదటి రోజు ↺</button>' +
+            '</div>' :
+            '<div class="itinerary-completion-title">Har Har Gange • Jai Badri Vishal! (14 Sacred Days Explored)</div>' +
+            '<div class="itinerary-completion-desc">You have viewed all 14 sacred days. Speak directly with our Vijayawada head office for reservation assistance.</div>' +
+            '<div class="itinerary-completion-actions">' +
+              '<a href="https://api.whatsapp.com/send?phone=919848124759&text=Hello%20Dodla%20Tours,%20I%20reviewed%20all%2014%20days%20of%20Chardham%20Yatra.%20Please%20share%20booking%20dates." target="_blank" class="btn-gold-pill" style="font-size:12px; padding:6px 16px; background:#25D366; border:none; text-decoration:none;">Enquire on WhatsApp</a>' +
+              '<button type="button" class="btn-gold-pill" style="font-size:12px; padding:6px 16px; cursor:pointer;" onclick="event.stopPropagation(); window.chardhamDeck.goTo(0);">View From Day 1 ↺</button>' +
+            '</div>';
+        } else {
+          completionBox.style.display = 'none';
+        }
+      }
+
+      if (btnPrev) {
+        btnPrev.disabled = (currentIdx === 0);
+        btnPrev.querySelector('span').textContent = te ? "మునుపటి రోజు" : "Previous Day";
+      }
+      if (btnNext) {
+        if (isLastDay) {
+          btnNext.innerHTML = te ? '<span>మొదటి నుండి ↺</span>' : '<span>Restart ↺</span>';
+        } else {
+          btnNext.innerHTML = te ? 
+            ('<span>తర్వాతి రోజు</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>') : 
+            ('<span>Next Day</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>');
+        }
+      }
+      if (stepStatus) {
+        stepStatus.textContent = te ? 
+          ((currentIdx + 1) + 'వ రోజు (మొత్తం 14 రోజులు)') : 
+          ('Day ' + (currentIdx + 1) + ' of ' + totalDays);
+      }
+
+      card.classList.remove('anim-card-forward', 'anim-card-backward');
+      void card.offsetWidth;
+      if (direction === 'forward') {
+        card.classList.add('anim-card-forward');
+      } else if (direction === 'backward') {
+        card.classList.add('anim-card-backward');
+      }
+    }
+
+    function next() {
+      if (currentIdx < totalDays - 1) {
+        currentIdx++;
+        renderCard('forward');
+      } else {
+        currentIdx = 0;
+        renderCard('forward');
+      }
+    }
+
+    function prev() {
+      if (currentIdx > 0) {
+        currentIdx--;
+        renderCard('backward');
+      }
+    }
+
+    function goTo(idx) {
+      var dir = (idx >= currentIdx) ? 'forward' : 'backward';
+      currentIdx = Math.max(0, Math.min(totalDays - 1, idx));
+      renderCard(dir);
+    }
+
+    window.chardhamDeck = {
+      next: next,
+      prev: prev,
+      goTo: goTo
+    };
+
+    function initDeck() {
+      var card = document.getElementById('itineraryActiveCard');
+      if (card) {
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('a') || e.target.closest('button')) {
+            return;
+          }
+          next();
+        });
+
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            next();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            next();
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prev();
+          }
+        });
+      }
+
+      renderCard('init');
+
+      window.addEventListener('dodla_lang_change', function() {
+        renderCard('lang');
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDeck);
+    } else {
+      initDeck();
+    }
+  })();
+  </script>
+
 </body>
 </html>
