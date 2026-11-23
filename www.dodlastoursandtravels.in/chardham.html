@@ -178,7 +178,10 @@
     <!-- ==========================================================================
        DETAILED TOUR ITINERARY (UNIFIED 3-COLUMN RESPONSIVE GRID)
        ========================================================================== -->
-  <section class="pilgrimage-itinerary-section">
+    <!-- ==========================================================================
+       DETAILED TOUR ITINERARY (SQUARE 1:1 PRESENTATION SLIDE SYSTEM)
+       ========================================================================== -->
+  <section class="pilgrimage-slider-section">
     <div class="luxury-container">
       
       <!-- Section Header -->
@@ -188,38 +191,362 @@
         <p>Paced specifically for family and senior citizen comfort with regular rest breaks and satvik meals.</p>
       </div>
 
-      <!-- Unified 3-Column Interleaved Grid -->
-      <div class="unified-itinerary-grid">
-        <!-- Day 1 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 1</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+      <!-- Presentation Slider Stage (Centered 1:1 Square Card) -->
+      <div class="itinerary-slide-stage">
+        
+        <!-- Progress Bar Tracker -->
+        <div class="itinerary-slide-tracker">
+          <div class="tracker-top-row">
+            <span class="tracker-counter-badge" id="slideCounterBadge">DAY <span>1</span> OF 14</span>
+            <span class="tracker-hint-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span>Click card or button to advance</span>
             </span>
           </div>
-          <h3 class="grid-day-title">Haridwar Arrival & Holy Ganga Aarti</h3>
-          <p class="grid-day-desc">Arrive in Haridwar, hotel check-in. Evening attend the grand, soul-stirring Ganga Aarti at Har Ki Pauri with lamp offerings.</p>
-        </div>
-
-        <!-- Day 2 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 2</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
+          <div class="tracker-progress-bar">
+            <div class="tracker-progress-fill" id="slideProgressFill" style="width: 7%;"></div>
           </div>
-          <h3 class="grid-day-title">Haridwar to Barkot via Rishikesh</h3>
-          <p class="grid-day-desc">Visit Lakshman Jhula and Ram Jhula in Rishikesh, followed by scenic Himalayan drive to Barkot base camp along the Yamuna valley.</p>
         </div>
 
+        <!-- Centered 1:1 Square Card Viewport -->
+        <div class="itinerary-square-viewport" id="itinerarySlideViewport" title="Click anywhere on card to advance to next day">
+        <!-- Day 1 Card (1:1 Square) -->
+        <div class="itinerary-slide-card active" data-day="1">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 1</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 2 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Haridwar Arrival & Holy Ganga Aarti</h3>
+            <p class="slide-card-desc">Arrive in Haridwar, hotel check-in. Evening attend the grand, soul-stirring Ganga Aarti at Har Ki Pauri with lamp offerings.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 1</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 2 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="2">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 2</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 3 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Haridwar to Barkot via Rishikesh</h3>
+            <p class="slide-card-desc">Visit Lakshman Jhula and Ram Jhula in Rishikesh, followed by scenic Himalayan drive to Barkot base camp along the Yamuna valley.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 2</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 3 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="3">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 3</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 4 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Yamunotri Dham Darshan & Surya Kund</h3>
+            <p class="slide-card-desc">Early morning trek/pony to Yamunotri shrine. Holy bath in Surya Kund hot spring, Divya Shila puja, and darshan of Goddess Yamunotri.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 3</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 4 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="4">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 4</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 5 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Barkot to Uttarkashi (Kashi Vishwanath)</h3>
+            <p class="slide-card-desc">Drive along the Bhagirathi river to ancient Uttarkashi. Darshan at Kashi Vishwanath temple and Shakti Temple featuring the sacred divine trident.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 4</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 5 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="5">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 5</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 6 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Gangotri Dham Darshan</h3>
+            <p class="slide-card-desc">Excursion to Gangotri shrine through the picturesque Harsil valley. Holy bath in Bhagirathi Ganga, temple darshan, and return to Uttarkashi.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 5</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 6 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="6">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 6</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 7 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Uttarkashi to Guptkashi / Sitapur</h3>
+            <p class="slide-card-desc">Scenic drive through Mandakini river valley via Tilwara and Agastyamuni to Guptkashi / Sitapur, the gateway to Kedarnath.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 6</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 7 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="7">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 7</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 8 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Guptkashi to Kedarnath Temple</h3>
+            <p class="slide-card-desc">Trek or helicopter to holy Kedarnath Dham. Evening darshan of Lord Shiva's Himalayan Jyotirlinga surrounded by snow peaks and night stay.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 7</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 8 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="8">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 8</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 9 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Morning Kedarnath Puja & Return to Guptkashi</h3>
+            <p class="slide-card-desc">Early morning Abhishek darshan at Kedarnath. Descend back to Gaurikund and drive to Guptkashi for well-earned rest.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 8</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 9 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="9">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 9</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 10 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Guptkashi to Pipalkoti / Joshimath</h3>
+            <p class="slide-card-desc">Drive through Chopta and Chamoli to Joshimath / Pipalkoti. Visit Shankaracharya Math and Narsingh Temple.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 9</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 10 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="10">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 10</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 11 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Badrinath Dham Darshan & Mana Village</h3>
+            <p class="slide-card-desc">Drive to Badrinath. Holy bath in Tapt Kund thermal springs, Badrivishal darshan, and visit Mana (the last Indian village), Vyas Gufa, and Bhim Pul.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 10</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 11 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="11">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 11</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 12 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Badrinath Special Puja & Return to Srinagar (Garhwal)</h3>
+            <p class="slide-card-desc">Morning Maha Abhishek at Badrinath temple. Drive down to Srinagar (Garhwal) passing through Vishnuprayag, Nandaprayag, and Karnaprayag.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 11</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 12 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="12">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 12</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 13 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Srinagar to Haridwar via Devprayag</h3>
+            <p class="slide-card-desc">Witness the divine confluence of Alaknanda and Bhagirathi forming Holy River Ganga at Devprayag. Return to Haridwar.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 12</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 13 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="13">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 13</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">Click card for Day 14 &rarr;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Haridwar Local Temples & Delhi Transit</h3>
+            <p class="slide-card-desc">Visit Mansa Devi and Chandi Devi ropeway temples in Haridwar, shopping in Moti Bazaar, and transfer to Delhi.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 13</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Next &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Day 14 Card (1:1 Square) -->
+        <div class="itinerary-slide-card" data-day="14">
+          <div class="slide-card-top">
+            <span class="slide-day-badge">Day 14</span>
+            <div class="slide-click-hint">
+              <span class="slide-pulse-dot"></span>
+              <span class="slide-click-hint-text">View from Day 1 &#8634;</span>
+            </div>
+          </div>
+          <div class="slide-card-body">
+            <h3 class="slide-card-title">Delhi Sightseeing & Return to Vijayawada</h3>
+            <p class="slide-card-desc">Visit Akshardham Temple and India Gate in Delhi. Board train/flight for home with divine blessings and sacred memories.</p>
+          </div>
+          <div class="slide-card-bottom">
+            <div class="slide-card-tags">
+              <span class="slide-tag">&#10022; Sacred Day 14</span>
+              <span class="slide-tag">&#10022; Satvik South Indian Dining</span>
+            </div>
+            <span class="slide-card-prompt">Complete &#10003;</span>
+          </div>
+        </div>
+        </div>
+
+        <!-- Navigation Controls Below Square Card -->
+        <div class="itinerary-slide-nav">
+          <button type="button" class="slide-nav-btn prev-btn" id="slidePrevBtn" aria-label="Previous day" disabled>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>Previous Day</span>
+          </button>
+
+          <div class="slide-nav-status" id="slideNavStatus">
+            Day 1 of 14
+          </div>
+
+          <button type="button" class="slide-nav-btn next-btn" id="slideNextBtn" aria-label="Next day">
+            <span>Next Day</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Supporting Information Sections (Outside the Square Slide) -->
+      <div class="itinerary-outside-cards-grid">
+        
         <!-- Instant Booking Assistance -->
-        <div class="itinerary-grid-info-card booking-card">
+        <div class="itinerary-outside-card booking-card">
           <div>
-            <span class="info-top-badge">Reserve This Yatra</span>
-            <h3 class="info-card-heading" style="border-bottom: none; margin-bottom: 8px;">Instant Booking Assistance</h3>
-            <p class="info-card-desc">
+            <span class="card-top-badge">Reserve This Yatra</span>
+            <h3 class="card-heading" style="border-bottom: none; margin-bottom: 8px;">Instant Booking Assistance</h3>
+            <p class="card-desc">
               Speak directly with our senior yatra managers in Vijayawada for exact departure dates, seat allocations, train reservations, and elderly assistance.
             </p>
           </div>
@@ -236,191 +563,48 @@
           </div>
         </div>
 
-        <!-- Day 3 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 3</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Yamunotri Dham Darshan & Surya Kund</h3>
-          <p class="grid-day-desc">Early morning trek/pony to Yamunotri shrine. Holy bath in Surya Kund hot spring, Divya Shila puja, and darshan of Goddess Yamunotri.</p>
-        </div>
-
-        <!-- Day 4 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 4</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Barkot to Uttarkashi (Kashi Vishwanath)</h3>
-          <p class="grid-day-desc">Drive along the Bhagirathi river to ancient Uttarkashi. Darshan at Kashi Vishwanath temple and Shakti Temple featuring the sacred divine trident.</p>
-        </div>
-
         <!-- What Is Included -->
-        <div class="itinerary-grid-info-card">
+        <div class="itinerary-outside-card">
           <div>
-            <span class="info-top-badge" style="color: #25D366;">Inclusions</span>
-            <h4 class="info-card-heading">What Is Included</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>2x2 AC Pushback Luxury Coach travel throughout</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Pure Satvik South Indian vegetarian meals (Breakfast, Lunch, Dinner)</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Hygienic hotel and spiritual ashram accommodations</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Ganga Aarti offerings and puja coordination</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Senior citizen assistance and luggage management</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:0; font-size:13px; color:#0A2E20;"><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Telugu &amp; English speaking senior yatra escort</span></li>
+            <span class="card-top-badge" style="color: #25D366;">Inclusions</span>
+            <h4 class="card-heading">What Is Included</h4>
+            <ul>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>2x2 AC Pushback Luxury Coach travel throughout</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Pure Satvik South Indian vegetarian meals (Breakfast, Lunch, Dinner)</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Hygienic hotel and spiritual ashram accommodations</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Ganga Aarti offerings and puja coordination</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Senior citizen assistance and luggage management</span></li>
+              <li><span style="color:#25D366; font-weight:bold;">&#10003;</span><span>Telugu &amp; English speaking senior yatra escort</span></li>
             </ul>
           </div>
-        </div>
-
-        <!-- Day 5 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 5</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Gangotri Dham Darshan</h3>
-          <p class="grid-day-desc">Excursion to Gangotri shrine through the picturesque Harsil valley. Holy bath in Bhagirathi Ganga, temple darshan, and return to Uttarkashi.</p>
-        </div>
-
-        <!-- Day 6 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 6</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Uttarkashi to Guptkashi / Sitapur</h3>
-          <p class="grid-day-desc">Scenic drive through Mandakini river valley via Tilwara and Agastyamuni to Guptkashi / Sitapur, the gateway to Kedarnath.</p>
         </div>
 
         <!-- Special Facilities -->
-        <div class="itinerary-grid-info-card">
+        <div class="itinerary-outside-card">
           <div>
-            <span class="info-top-badge">Special Care</span>
-            <h4 class="info-card-heading">Special Facilities</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; font-size:13px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Travelling South Indian cooks preparing fresh meals</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; font-size:13px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>First-aid kits and emergency oxygen assistance</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:0; font-size:13px; color:#0A2E20;"><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Paced non-stressful day schedules for elderly parents</span></li>
+            <span class="card-top-badge">Special Care</span>
+            <h4 class="card-heading">Special Facilities</h4>
+            <ul>
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Travelling South Indian cooks preparing fresh meals</span></li>
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>First-aid kits and emergency oxygen assistance</span></li>
+              <li><span style="color:#C5A059; font-weight:bold;">&#10003;</span><span>Paced non-stressful day schedules for elderly parents</span></li>
             </ul>
           </div>
-        </div>
-
-        <!-- Day 7 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 7</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Guptkashi to Kedarnath Temple</h3>
-          <p class="grid-day-desc">Trek or helicopter to holy Kedarnath Dham. Evening darshan of Lord Shiva's Himalayan Jyotirlinga surrounded by snow peaks and night stay.</p>
-        </div>
-
-        <!-- Day 8 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 8</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Morning Kedarnath Puja & Return to Guptkashi</h3>
-          <p class="grid-day-desc">Early morning Abhishek darshan at Kedarnath. Descend back to Gaurikund and drive to Guptkashi for well-earned rest.</p>
         </div>
 
         <!-- Exclusions & Notes -->
-        <div class="itinerary-grid-info-card">
+        <div class="itinerary-outside-card">
           <div>
-            <span class="info-top-badge" style="color: #7A8B84;">Important Info</span>
-            <h4 class="info-card-heading">Exclusions &amp; Notes</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; font-size:13px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Pony, Doli, or Helicopter charges for Kedarnath / Yamunotri</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; font-size:13px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Personal special temple Archana / Abhishek fee</span></li>
-              <li style="display:flex; align-items:flex-start; gap:8px; margin-bottom:0; font-size:13px; color:#1E382B;"><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Train or Flight tickets between Vijayawada and Delhi/Haridwar</span></li>
+            <span class="card-top-badge" style="color: #7A8B84;">Important Info</span>
+            <h4 class="card-heading">Exclusions &amp; Notes</h4>
+            <ul>
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Pony, Doli, or Helicopter charges for Kedarnath / Yamunotri</span></li>
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Personal special temple Archana / Abhishek fee</span></li>
+              <li><span style="color:#D4AF37; font-weight:bold;">&bull;</span><span>Train or Flight tickets between Vijayawada and Delhi/Haridwar</span></li>
             </ul>
           </div>
         </div>
 
-        <!-- Day 9 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 9</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Guptkashi to Pipalkoti / Joshimath</h3>
-          <p class="grid-day-desc">Drive through Chopta and Chamoli to Joshimath / Pipalkoti. Visit Shankaracharya Math and Narsingh Temple.</p>
-        </div>
-
-        <!-- Day 10 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 10</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Badrinath Dham Darshan & Mana Village</h3>
-          <p class="grid-day-desc">Drive to Badrinath. Holy bath in Tapt Kund thermal springs, Badrivishal darshan, and visit Mana (the last Indian village), Vyas Gufa, and Bhim Pul.</p>
-        </div>
-
-        <!-- Day 11 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 11</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Badrinath Special Puja & Return to Srinagar (Garhwal)</h3>
-          <p class="grid-day-desc">Morning Maha Abhishek at Badrinath temple. Drive down to Srinagar (Garhwal) passing through Vishnuprayag, Nandaprayag, and Karnaprayag.</p>
-        </div>
-
-        <!-- Day 12 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 12</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Srinagar to Haridwar via Devprayag</h3>
-          <p class="grid-day-desc">Witness the divine confluence of Alaknanda and Bhagirathi forming Holy River Ganga at Devprayag. Return to Haridwar.</p>
-        </div>
-
-        <!-- Day 13 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 13</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Haridwar Local Temples & Delhi Transit</h3>
-          <p class="grid-day-desc">Visit Mansa Devi and Chandi Devi ropeway temples in Haridwar, shopping in Moti Bazaar, and transfer to Delhi.</p>
-        </div>
-
-        <!-- Day 14 -->
-        <div class="itinerary-grid-card">
-          <div class="grid-day-header">
-            <span class="grid-day-badge">Day 14</span>
-            <span class="grid-day-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </span>
-          </div>
-          <h3 class="grid-day-title">Delhi Sightseeing & Return to Vijayawada</h3>
-          <p class="grid-day-desc">Visit Akshardham Temple and India Gate in Delhi. Board train/flight for home with divine blessings and sacred memories.</p>
-        </div>
       </div>
 
     </div>
@@ -619,5 +803,6 @@
 
   
 
+  <script src="js/pilgrimage-slider.js"></script>
 </body>
 </html>
