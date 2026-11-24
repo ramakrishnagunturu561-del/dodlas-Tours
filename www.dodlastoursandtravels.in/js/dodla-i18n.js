@@ -3006,6 +3006,36 @@
       .replace(/\s+/g, ' ')
       .trim();
   }
+  var NORMALIZED_DICT = null;
+  var LOWERCASE_DICT = null;
+
+  function initDictNormalization() {
+    if (NORMALIZED_DICT) return;
+    NORMALIZED_DICT = {};
+    LOWERCASE_DICT = {};
+    for (var k in TRANSLATIONS_TE) {
+      if (TRANSLATIONS_TE.hasOwnProperty(k)) {
+        var val = TRANSLATIONS_TE[k];
+        NORMALIZED_DICT[k] = val;
+        var normK = normalizeText(k);
+        NORMALIZED_DICT[normK] = val;
+        LOWERCASE_DICT[k.toLowerCase()] = val;
+        LOWERCASE_DICT[normK.toLowerCase()] = val;
+      }
+    }
+  }
+
+  function getTranslation(str) {
+    if (!str) return null;
+    initDictNormalization();
+    if (NORMALIZED_DICT[str]) return NORMALIZED_DICT[str];
+    var norm = normalizeText(str);
+    if (NORMALIZED_DICT[norm]) return NORMALIZED_DICT[norm];
+    var low = norm.toLowerCase();
+    if (LOWERCASE_DICT[low]) return LOWERCASE_DICT[low];
+    return null;
+  }
+
 
   function applyLanguage(lang) {
     if (lang === 'te') {
@@ -3037,7 +3067,7 @@
   // (a, button, input, select, textarea, form, [onclick], dropdowns) so event listeners are never destroyed.
   // Elements with only formatting children (span, br, strong, em, b, i) ARE safely translated.
   function translateBlocks(rootNode, lang) {
-    var blockSelector = 'h1, h2, h3, h4, h5, h6, p, blockquote, .section-badge, .trust-pillar-title, .trust-pillar-desc, .hero-cinematic-lead, .journey-banner-sub, .journey-banner-heading, .about-trust-lbl, .about-trust-val, .founder-quote, .founder-name, .timeline-day-badge, .timeline-dest-title, .timeline-desc, .guideline-card p, .pricing-table td, .pricing-table th, .detail-sidebar-card p, .footer-col p, .font-script-accent';
+    var blockSelector = 'h1, h2, h3, h4, h5, h6, p, blockquote, .section-badge, .inner-banner-badge, .card-top-badge, .slide-day-badge, .trust-pillar-title, .trust-pillar-desc, .hero-cinematic-lead, .journey-banner-sub, .journey-banner-heading, .about-trust-lbl, .about-trust-val, .founder-quote, .founder-name, .timeline-day-badge, .timeline-dest-title, .timeline-desc, .guideline-card p, .pricing-table td, .pricing-table th, .detail-sidebar-card p, .footer-col p, .font-script-accent';
     
     var blocks = rootNode.querySelectorAll(blockSelector);
     blocks.forEach(function(el) {
@@ -3059,7 +3089,7 @@
       }
 
       if (lang === 'te') {
-        var te = TRANSLATIONS_TE[norm];
+        var te = getTranslation(norm) || getTranslation(el.innerHTML.trim());
         if (te) {
           el.innerHTML = te;
           el.setAttribute('data-i18n-translated', 'true');
@@ -3067,19 +3097,19 @@
           // Check prefix rules
           if (norm.indexOf('Enquire for ') === 0) {
             var tourEn = norm.replace('Enquire for ', '');
-            var tourTe = TRANSLATIONS_TE[tourEn] || tourEn;
+            var tourTe = getTranslation(tourEn) || tourEn;
             el.innerHTML = tourTe + ' విచారణ';
             el.setAttribute('data-i18n-translated', 'true');
           } else if (norm.indexOf('Day ') === 0 && norm.indexOf(':') > -1) {
             var parts = norm.split(':');
             var dayNum = parts[0].replace('Day', '').trim();
             var dayDesc = parts.slice(1).join(':').trim();
-            var descTe = TRANSLATIONS_TE[dayDesc] || dayDesc;
+            var descTe = getTranslation(dayDesc) || dayDesc;
             el.innerHTML = 'రోజు ' + dayNum + ': ' + descTe;
             el.setAttribute('data-i18n-translated', 'true');
           } else if (norm.indexOf('Duration:') === 0) {
             var durEn = norm.replace('Duration:', '').trim();
-            var durTe = TRANSLATIONS_TE[durEn] || durEn;
+            var durTe = getTranslation(durEn) || durEn;
             el.innerHTML = 'వ్యవధి: ' + durTe;
             el.setAttribute('data-i18n-translated', 'true');
           }
@@ -3128,7 +3158,7 @@
       }
 
       if (lang === 'te') {
-        var te = TRANSLATIONS_TE[norm] || TRANSLATIONS_TE[trimmed];
+        var te = getTranslation(norm) || getTranslation(trimmed);
         if (te) {
           currentNode.nodeValue = raw.replace(trimmed, te);
         } else {
