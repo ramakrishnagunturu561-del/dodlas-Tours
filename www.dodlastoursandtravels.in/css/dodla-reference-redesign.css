@@ -5762,9 +5762,19 @@ html.dodla-lang-te .hero-cinematic-stats-row,
    Physical overlapping layers with subtle offset and click-to-peel reveal
    ========================================================================== */
 
+/* ==========================================================================
+   STACKED LAYERED BOXES / CARDS ITINERARY DECK (TIGHT STACK, NO GAPS)
+   Deck of cards: flush side alignment, 2-3px edge reveal, no floating gaps
+   ========================================================================== */
+
+/* ==========================================================================
+   STACKED LAYERED BOXES / CARDS ITINERARY DECK (TIGHT PHYSICAL DECK)
+   Tightly attached deck: flush side alignment, 3px edges, zero text bleed
+   ========================================================================== */
+
 .itinerary-slide-stage {
-  max-width: 520px;
-  margin: 0 auto 36px;
+  max-width: 480px;
+  margin: 0 auto 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5779,8 +5789,8 @@ html.dodla-lang-te .hero-cinematic-stats-row,
   border: 1px solid #D1DFD8;
   border-radius: 12px;
   padding: 10px 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 10px rgba(6, 31, 22, 0.03);
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(6, 31, 22, 0.03);
   box-sizing: border-box;
 }
 
@@ -5834,143 +5844,139 @@ html.dodla-lang-te .hero-cinematic-stats-row,
   transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 1:1 Square Stack Viewport (Holds all stacked layers) */
+/* Tight Stack Viewport */
 .itinerary-square-viewport {
   width: 100%;
   max-width: 460px;
   aspect-ratio: 1 / 1;
   min-height: 440px;
   position: relative;
-  margin: 0 auto;
-  perspective: 1200px;
-  padding-bottom: 28px;
-  box-sizing: content-box;
+  margin: 0 auto 10px;
+  box-sizing: border-box;
 }
 
-/* Base Card Style (All cards in the stack) */
+/* Base Card Style: Identical width and flush side edges */
 .itinerary-slide-card {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 24px 26px;
   box-sizing: border-box;
-  display: flex;
+  display: none; /* By default hidden until given a stacked layer state */
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   user-select: none;
   outline: none;
-  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.35s ease,
-              box-shadow 0.35s ease,
-              background-color 0.35s ease,
-              border-color 0.35s ease;
+  transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.3, 1),
+              opacity 0.26s ease,
+              box-shadow 0.26s ease,
+              background-color 0.26s ease,
+              border-color 0.26s ease;
   will-change: transform, opacity;
 }
 
-/* 1. FRONT / TOP ACTIVE CARD */
+/* HIDE all child contents (text, badges, tags) on back layers so text NEVER bleeds through */
+.itinerary-slide-card:not(.is-front) > * {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 1. FRONT CARD (Active Top Layer) */
 .itinerary-slide-card.is-front {
-  transform: translateY(0px) scale(1);
-  opacity: 1;
+  display: flex !important;
+  transform: translateY(0px);
+  opacity: 1 !important;
   z-index: 40;
   cursor: pointer;
-  background: #FFFFFF;
-  border: 1.5px solid #D4AF37;
-  box-shadow: 0 14px 36px rgba(6, 31, 22, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: #FFFFFF !important;
+  border: 1.5px solid #D4AF37 !important;
+  box-shadow: 0 4px 14px rgba(6, 31, 22, 0.08);
   pointer-events: auto;
+}
+
+.itinerary-slide-card.is-front > * {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .itinerary-slide-card.is-front:hover,
 .itinerary-slide-card.is-front:focus-visible {
-  transform: translateY(-4px) scale(1.006);
-  border-color: #C5A059;
-  box-shadow: 0 20px 46px rgba(6, 31, 22, 0.16), 0 0 0 1px rgba(212, 175, 55, 0.45);
+  transform: translateY(-2px);
+  border-color: #C5A059 !important;
+  box-shadow: 0 6px 18px rgba(6, 31, 22, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.35);
 }
 
-/* 2. LAYER 1: Directly behind front card (tiny 8px offset, scale 0.975) */
+/* 2. LAYER 1: Directly behind front card (tight 3px vertical offset, flush side edges) */
 .itinerary-slide-card.is-layer-1 {
-  transform: translateY(8px) scale(0.975);
-  opacity: 0.90;
+  display: block !important;
+  transform: translateY(3px);
+  opacity: 1 !important;
   z-index: 30;
-  background: #FAF7F0;
-  border: 1.5px solid #D8CFC0;
-  box-shadow: 0 8px 22px rgba(6, 31, 22, 0.07);
+  background: #FAF7F0 !important;
+  border: 1.5px solid #D6CCBD !important;
+  box-shadow: 0 2px 4px rgba(6, 31, 22, 0.04);
   pointer-events: none;
 }
 
-/* 3. LAYER 2: Sitting behind Layer 1 (tiny 16px offset, scale 0.95) */
+/* 3. LAYER 2: Directly behind Layer 1 (tight 6px vertical offset, flush side edges) */
 .itinerary-slide-card.is-layer-2 {
-  transform: translateY(16px) scale(0.95);
-  opacity: 0.65;
+  display: block !important;
+  transform: translateY(6px);
+  opacity: 1 !important;
   z-index: 20;
-  background: #F3ECE0;
-  border: 1.5px solid #DFD6C6;
-  box-shadow: 0 6px 16px rgba(6, 31, 22, 0.05);
+  background: #F4ECE0 !important;
+  border: 1.5px solid #DFD1C2 !important;
+  box-shadow: 0 2px 4px rgba(6, 31, 22, 0.03);
   pointer-events: none;
 }
 
-/* 4. LAYER 3: Sitting behind Layer 2 (tiny 24px offset, scale 0.925) */
+/* 4. LAYER 3: Directly behind Layer 2 (tight 9px vertical offset, flush side edges) */
 .itinerary-slide-card.is-layer-3 {
-  transform: translateY(24px) scale(0.925);
-  opacity: 0.40;
+  display: block !important;
+  transform: translateY(9px);
+  opacity: 1 !important;
   z-index: 10;
-  background: #ECE3D4;
-  border: 1.5px solid #E5DCCE;
-  box-shadow: 0 4px 10px rgba(6, 31, 22, 0.03);
+  background: #EFE6D7 !important;
+  border: 1.5px solid #E5D9CA !important;
+  box-shadow: 0 1px 3px rgba(6, 31, 22, 0.02);
   pointer-events: none;
 }
 
-/* 5. DEEP LAYERS (remaining days stacked behind Layer 3) */
-.itinerary-slide-card.is-layer-deep {
-  transform: translateY(28px) scale(0.90);
-  opacity: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* 6. DISCARDED / PEELED CARDS */
+/* 5. DEEP / DISCARDED LAYERS: Hidden from render */
+.itinerary-slide-card.is-layer-deep,
 .itinerary-slide-card.is-discarded {
-  transform: translateY(-44px) scale(0.92);
-  opacity: 0;
-  z-index: 1;
+  display: none !important;
   pointer-events: none;
 }
 
-/* Hover effect on entire deck container: gentle organic lift */
-.itinerary-square-viewport:hover .itinerary-slide-card.is-layer-1 {
-  transform: translateY(11px) scale(0.975);
-}
-.itinerary-square-viewport:hover .itinerary-slide-card.is-layer-2 {
-  transform: translateY(20px) scale(0.95);
-}
-.itinerary-square-viewport:hover .itinerary-slide-card.is-layer-3 {
-  transform: translateY(28px) scale(0.925);
-}
-
-/* Physical peeling transition animation when front card is clicked */
+/* Smooth peeling transition when front card is clicked */
 .itinerary-slide-card.anim-peel-off {
-  transform: translateY(-56px) scale(0.94) rotate(-1.5deg) !important;
+  display: flex !important;
+  transform: translateY(-44px) scale(0.97) !important;
   opacity: 0 !important;
-  z-index: 60 !important;
-  transition: transform 0.42s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.32s ease !important;
+  z-index: 50 !important;
+  transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.26s ease !important;
 }
 
-/* Physical drop-on transition when navigating back to previous day */
+/* Drop-on transition when navigating back to previous day */
 .itinerary-slide-card.anim-return-on {
-  animation: cardDropOn 0.38s cubic-bezier(0.18, 0.9, 0.3, 1) forwards;
+  animation: cardDropOn 0.30s cubic-bezier(0.18, 0.9, 0.3, 1) forwards;
 }
 
 @keyframes cardDropOn {
   0% {
-    transform: translateY(-44px) scale(0.94);
+    transform: translateY(-38px);
     opacity: 0;
   }
   100% {
-    transform: translateY(0px) scale(1);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -6083,13 +6089,14 @@ html.dodla-lang-te .hero-cinematic-stats-row,
 }
 
 /* Sleek Minimal Deck Controls Below Stack */
-.itinerary-slide-controls {
+.itinerary-slide-controls,
+.itinerary-slide-nav {
   width: 100%;
   max-width: 460px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 8px;
   gap: 12px;
 }
 
@@ -6150,7 +6157,7 @@ html.dodla-lang-te .hero-cinematic-stats-row,
 @media (max-width: 500px) {
   .itinerary-square-viewport {
     min-height: 400px;
-    padding-bottom: 24px;
+    margin-bottom: 8px;
   }
   .itinerary-slide-card {
     padding: 18px 20px;
