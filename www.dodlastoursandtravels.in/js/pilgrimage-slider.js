@@ -1,6 +1,7 @@
 /**
  * Dodla Tours & Travels - Stacked Layered Boxes Itinerary Controller
  * Physical 3D Stacked Deck of Cards (Click to Reveal Sequential Layers)
+ * Full Bilingual Support (English & Telugu)
  */
 (function() {
   'use strict';
@@ -24,6 +25,7 @@
     var counterBadge = document.getElementById('slideCounterBadge');
     var navStatus = document.getElementById('slideNavStatus');
     var progressFill = document.getElementById('slideProgressFill');
+    var trackerHint = stage.querySelector('.tracker-hint-text span');
 
     function isTelugu() {
       return document.documentElement.lang === 'te' || 
@@ -35,6 +37,13 @@
      */
     function renderStack(direction) {
       var te = isTelugu();
+
+      // Update tracker hint text above deck
+      if (trackerHint) {
+        trackerHint.textContent = te 
+          ? 'తరువాతి పొర చూడటానికి కార్డుపై క్లిక్ చేయండి' 
+          : 'Click card to reveal next layer';
+      }
 
       for (var i = 0; i < totalDays; i++) {
         var card = cards[i];
@@ -60,17 +69,17 @@
             card.classList.add('anim-return-on');
           }
         } else if (diff === 1) {
-          // Layer 1: Directly behind the front card (tiny 8px offset)
+          // Layer 1: Directly behind the front card (tight 3px offset)
           card.classList.add('is-layer-1');
           card.setAttribute('aria-hidden', 'true');
           card.removeAttribute('tabindex');
         } else if (diff === 2) {
-          // Layer 2: Sitting behind Layer 1 (tiny 16px offset)
+          // Layer 2: Sitting behind Layer 1 (tight 6px offset)
           card.classList.add('is-layer-2');
           card.setAttribute('aria-hidden', 'true');
           card.removeAttribute('tabindex');
         } else if (diff === 3) {
-          // Layer 3: Sitting behind Layer 2 (tiny 24px offset)
+          // Layer 3: Sitting behind Layer 2 (tight 9px offset)
           card.classList.add('is-layer-3');
           card.setAttribute('aria-hidden', 'true');
           card.removeAttribute('tabindex');
@@ -106,6 +115,27 @@
             promptText.textContent = te ? 'మొదటి నుండి ↺' : 'Restart ↺';
           }
         }
+
+        // Translate card micro-tags (e.g. Sacred Day N, Satvik South Indian Dining)
+        var tags = card.querySelectorAll('.slide-tag');
+        tags.forEach(function(tagEl) {
+          var tagText = tagEl.textContent.trim();
+          if (te) {
+            if (tagText.indexOf('Sacred Day') !== -1) {
+              var dayMatch = tagText.match(/\d+/);
+              tagEl.textContent = '✦ పవిత్ర దినం ' + (dayMatch ? dayMatch[0] : (i + 1));
+            } else if (tagText.indexOf('Satvik South Indian Dining') !== -1) {
+              tagEl.textContent = '✦ సాత్విక దక్షిణ భారతీయ భోజనం';
+            }
+          } else {
+            if (tagText.indexOf('పవిత్ర దినం') !== -1) {
+              var dayMatchEn = tagText.match(/\d+/);
+              tagEl.textContent = '✦ Sacred Day ' + (dayMatchEn ? dayMatchEn[0] : (i + 1));
+            } else if (tagText.indexOf('సాత్విక దక్షిణ భారతీయ భోజనం') !== -1) {
+              tagEl.textContent = '✦ Satvik South Indian Dining';
+            }
+          }
+        });
       }
 
       // Progress Tracker Bar
@@ -128,7 +158,11 @@
       if (navStatus) {
         var remainingLayers = totalDays - currentDayNum;
         if (te) {
-          navStatus.textContent = currentDayNum + 'వ రోజు (మొత్తం ' + totalDays + ' రోజులు)';
+          if (remainingLayers > 0) {
+            navStatus.textContent = currentDayNum + 'వ రోజు / మొత్తం ' + totalDays + ' రోజులు (' + remainingLayers + ' పొరలు ఉన్నాయి)';
+          } else {
+            navStatus.textContent = currentDayNum + 'వ రోజు / మొత్తం ' + totalDays + ' రోజులు (చివరి రోజు)';
+          }
         } else {
           if (remainingLayers > 0) {
             navStatus.textContent = 'Day ' + currentDayNum + ' of ' + totalDays + ' (' + remainingLayers + ' layers behind)';
